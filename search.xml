@@ -45,6 +45,9 @@
 <p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
 <p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
 ]]></content>
+      <tags>
+        <tag>Win 8.x</tag>
+      </tags>
   </entry>
   <entry>
     <title>在Win8.x上解锁LOB侧载以安装第三方Metro应用</title>
@@ -85,5 +88,8 @@
 <p>关闭cmd的窗口，稍等片刻后电脑就会自动重启至系统</p>
 <p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_10.png"></p>
 ]]></content>
+      <tags>
+        <tag>Win 8.x</tag>
+      </tags>
   </entry>
 </search>
