@@ -5,7 +5,7 @@
     <url>/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
 <p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
-<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程在<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>上)</strong></p>
+<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
 <span id="more"></span>
 
 <h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
@@ -57,6 +57,7 @@
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>1.本教程适用于Windows8.x。 (build 8400~build 99xx)</strong></p>
 <p><strong>2.本方法会禁用Windows的sppsvc服务（Microsoft软件保护平台服务），禁用sppsvc服务会导致Windows激活状态显示未激活以及Office无法使用。(关闭LOB侧载后可恢复)</strong></p>
 <p><strong>3.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<p><strong>4.最新方案点击这里(无需禁用Windows的sppsvc服务，且操作更加简便)</strong></p>
 <span id="more"></span>
 
 <h2 id="开启LOB侧载"><a href="#开启LOB侧载" class="headerlink" title="开启LOB侧载"></a>开启LOB侧载</h2><p>以管理员身份运行ProductPolicyEditor，点击Reboot with SetupType&#x3D;1</p>
@@ -87,6 +88,23 @@
 <p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_9.png"></p>
 <p>关闭cmd的窗口，稍等片刻后电脑就会自动重启至系统</p>
 <p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_10.png"></p>
+]]></content>
+      <tags>
+        <tag>Win 8.x</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.x。 (build 8400~build 99xx)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<span id="more"></span>
+
+<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
+<p>使用方法:</p>
+<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
 ]]></content>
       <tags>
         <tag>Win 8.x</tag>
