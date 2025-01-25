@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<span id="more"></span>
+
+<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
+<p>使用方法:</p>
+<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
     <url>/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
@@ -88,23 +105,6 @@
 <p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_9.png"></p>
 <p>关闭cmd的窗口，稍等片刻后电脑就会自动重启至系统</p>
 <p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_10.png"></p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p><strong>注意:</strong></p>
-<p><strong>1.本教程适用于Windows8.1。 (build 9600 )</strong></p>
-<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
-<span id="more"></span>
-
-<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
-<p>使用方法:</p>
-<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
 ]]></content>
       <tags>
         <tag>Metro</tag>
