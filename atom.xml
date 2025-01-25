@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-01-25T09:41:19.276Z</updated>
+  <updated>2025-01-25T12:49:55.731Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="http://example.com/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/"/>
     <id>http://example.com/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</id>
     <published>2025-01-25T12:00:00.000Z</published>
-    <updated>2025-01-25T09:41:19.276Z</updated>
+    <updated>2025-01-25T12:49:55.731Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.本教程适用于Windows8.x。 (build 8400~build 99xx)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.本教程适用于Windows8.1。 (build 9600 )&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。&lt;/strong&gt;&lt;/p&gt;</summary>
     
     
     
     
-    <category term="Win 8.x" scheme="http://example.com/tags/Win-8-x/"/>
+    <category term="Metro" scheme="http://example.com/tags/Metro/"/>
     
   </entry>
   
@@ -40,7 +40,7 @@
     <link href="http://example.com/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/"/>
     <id>http://example.com/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</id>
     <published>2025-01-20T12:00:00.000Z</published>
-    <updated>2025-01-25T09:36:35.503Z</updated>
+    <updated>2025-01-25T12:47:32.792Z</updated>
     
     
     <summary type="html">&lt;p&gt;工具下载：&lt;br&gt;123网盘：&lt;a href=&quot;https://www.123684.com/s/FGWpTd-309Ph&quot;&gt;主链接&lt;/a&gt; &lt;a href=&quot;https://www.123684.com/s/FGWpTd-309Ph&quot;&gt;备用链接&lt;/a&gt; (无提取码)&lt;/p&gt;
@@ -50,7 +50,7 @@
     
     
     
-    <category term="Win 8.x" scheme="http://example.com/tags/Win-8-x/"/>
+    <category term="Metro" scheme="http://example.com/tags/Metro/"/>
     
   </entry>
   
@@ -59,7 +59,7 @@
     <link href="http://example.com/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/"/>
     <id>http://example.com/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</id>
     <published>2025-01-19T12:00:00.000Z</published>
-    <updated>2025-01-25T09:45:36.898Z</updated>
+    <updated>2025-01-25T12:49:03.741Z</updated>
     
     
     <summary type="html">&lt;p&gt;工具下载：&lt;br&gt;123网盘：&lt;a href=&quot;https://www.123684.com/s/FGWpTd-309Ph&quot;&gt;主链接&lt;/a&gt; &lt;a href=&quot;https://www.123865.com/s/FGWpTd-309Ph&quot;&gt;备用链接&lt;/a&gt; (无提取码)&lt;/p&gt;
@@ -67,12 +67,12 @@
 &lt;h2 id=&quot;注意&quot;&gt;&lt;a href=&quot;#注意&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1.本教程适用于Windows8.x。 (build 8400~build 99xx)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2.本方法会禁用Windows的sppsvc服务（Microsoft软件保护平台服务），禁用sppsvc服务会导致Windows激活状态显示未激活以及Office无法使用。(关闭LOB侧载后可恢复)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4.最新方案点击&lt;a href=&quot;https://zxclf.github.io/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/&quot;&gt;这里&lt;/a&gt;(无需禁用Windows的sppsvc服务，且操作更加简便)&lt;/strong&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;strong&gt;4.最新方案点击&lt;a href=&quot;https://zxclf.github.io/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/&quot;&gt;这里&lt;/a&gt;(仅适用与Win8.1 x64，无需禁用sppsvc服务，且操作更加简便)&lt;/strong&gt;&lt;/p&gt;</summary>
     
     
     
     
-    <category term="Win 8.x" scheme="http://example.com/tags/Win-8-x/"/>
+    <category term="Metro" scheme="http://example.com/tags/Metro/"/>
     
   </entry>
   
