@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-01-25T12:57:42.246Z</updated>
+  <updated>2025-01-28T09:15:49.517Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <link href="http://example.com/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/"/>
+    <id>http://example.com/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</id>
+    <published>2025-01-28T00:00:00.000Z</published>
+    <updated>2025-01-28T09:15:49.517Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，&lt;strong&gt;未集成任何第三方软件、无广告、无锁定、无OEM信息。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="Win 8.1" scheme="http://example.com/tags/Win-8-1/"/>
+    
+  </entry>
   
   <entry>
     <title>【最新】在Win8.x上安装第三方Metro应用</title>

@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
+    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
+<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
+<p>校验信息：</p>
+<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>SHA512: 1FBDD36D770267953F38B78BC14E2FD7E091533F0D0961EFF7F9BD092C4021AD6C3C189F60ADC5CA45A00C743BA2B9D1702BB4030BA9CF64A02D61042C800CD8<br>CRC32: DE103C2B</p>
+]]></content>
+      <tags>
+        <tag>Win 8.1</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【最新】在Win8.x上安装第三方Metro应用</title>
     <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p><strong>注意:</strong></p>
