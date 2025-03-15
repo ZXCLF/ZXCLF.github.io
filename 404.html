@@ -1,79 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>404</title>
-    <meta name="keywords" content="Hexo,Ayer,404,Design" />
-    <meta name="description" content="hexo theme ayer page 404." />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <style>
-      html,
-      figure {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
+<html dir="ltr">
 
-      body {
-        margin: 20px;
-        overflow: hidden;
-      }
+    <head>
+        <link rel="stylesheet" type="text/css" href="IEpagesstuff/errorpagetemplate.css">
 
-      h1,
-      h3 {
-        width: 100%;
-        text-align: center;
-        color: #403e3e;
-      }
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-      h3 a {
-        color: #0681d0;
-      }
+        <title>404 Not Found</title>
 
-      .forrestgump img {
-        width: 52rem;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        border-radius: 5%;
-        opacity: 0.8;
-      }
+        <script src="IEpagesstuff/errorpagestrings.js" language="javascript" type="text/javascript">
+        </script>
+		
+        <script src="IEpagesstuff/httpErrorPagesScripts.js" language="javascript" type="text/javascript">
+        </script>
+		
+    </head>
 
-      @media screen and (max-width: 768px) {
-        .forrestgump img {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
+    <body onLoad="javascript:initHomepage(); expandCollapse('infoBlockID', true); initGoBack(); initMoreInfo('infoBlockID');">
 
-  <body>
-    <div class="notfound">
-      <a class="notfound-link" href="/">
-        <img
-          width="40"
-          src="data:image/png;base64,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"
-        />
-      </a>
-      <figure class="forrestgump">
-        <figcaption>
-          <h1>404<br />Not Found!</h1>
-          <h3>
-            Please check it, Maybe you should read
-            <a href="https://hexo.io/docs/">Hexo</a> and
-            <a href="https://github.com/Shen-Yu/hexo-theme-ayer">Ayer</a> Docs
-            carefully.
-          </h3>
-          <h3>
-            亲，获取不到该路径的页面呢，请检查一下哦，可能你还需要仔细阅读
-            <a href="https://hexo.io/docs/">Hexo</a> 和
-            <a href="https://shen-yu.gitee.io/2019/ayer/">Ayer</a> 的说明文档~
-          </h3>
-        </figcaption>
-        <img src="https://tvax4.sinaimg.cn/large/9156bd04ly1gzofhomcm4j20zk0p5jrw.jpg" />
-      </figure>
-    </div>
-  </body>
+        <table width="730" cellpadding="0" cellspacing="0" border="0">
+
+
+            <tr>
+                <td id="infoIconAlign" width="60" align="left" valign="top" rowspan="2">
+                    <img src="IEpagesstuff/INFO_48.PNG" id="infoIcon" alt="Info icon">
+                </td>
+                <td id="mainTitleAlign" valign="middle" align="left" width="*">
+                    <h1 id="mainTitle">网页无法找到</h1>
+                </td>
+            </tr>
+
+
+
+            <tr>
+
+                <td id="http404Align" class="errorCodeAndDivider" align="right"><ID id="http404">&nbsp;HTTP 404</ID>
+                    <div class="divider"></div>
+                </td>
+            </tr>
+
+
+ 
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td id="likelyCausesAlign" valign="top" align="left">
+                    <h3 id="likelyCauses">最可能的原因：</h3>
+                    <ul>
+                        <li id="causeErrorInAddress">地址中可能存在拼写错误。</li>
+                        <li id="causeLinkOutOfDate">如果你点击了一个链接，它可能已过期。</li>
+                    </ul>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td id="whatToTryAlign" valign="top" align="left">
+                    <h2 id="whatToTry">你可以尝试:</h2>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="retypeAddressAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                          <tr>
+                              <td valign="top">
+                                  <img src="IEpagesstuff/BULLET.PNG" border="0" alt="" class="actionIcon">
+                              </td>
+                              <td valign="top">
+                                  <ID id="retypeAddress">重新输入地址</ID>
+                              </td>
+                          </tr>
+                        </table>
+                    </h4>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="goBackAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                          <tr>
+                              <td valign="top">
+                                  <img src="IEpagesstuff/BULLET.PNG" border="0" alt="" class="actionIcon">
+                              </td>
+                              <td valign="top">
+                                   <a href="https://zxclf.github.io/">返回上一页</a>
+                              </td>
+                          </tr>
+                        </table>
+                    </h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="goBackAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                          <tr>
+                              <td valign="top">
+                                  <img src="IEpagesstuff/BULLET.PNG" border="0" alt="" class="actionIcon">
+                              </td>
+                              <td valign="top">
+                                   <a href="https://zxclf-github-io.pages.dev/">访问镜像站</a>
+                              </td>
+                          </tr>
+                        </table>
+                    </h4>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="mainSiteAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                          <tr>
+                              <td valign="top">
+                                  <img src="IEpagesstuff/BULLET.PNG" border="0" alt="" class="actionIcon">
+                              </td>
+                              <td valign="top">
+                                  <ID id="mainSite1">访问</ID> <a href="https://zxclf.github.io/">主站</a><ID id="mainSite3">&nbsp;并查找你想要的信息</ID>
+                              </td>
+                          </tr>
+                        </table>
+                    </h4>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td id="infoBlockAlign" align="right" valign="top">
+                    &nbsp;
+                </td>
+                <td id="moreInfoAlign" align="left" valign="middle">
+                    <h4>
+                    </h4>
+
+                    <div id="infoBlockID" class="infoBlock">
+                        <p id="errorExplanation">此错误（HTTP 404 未找到）表示能够连接到网站，但你想要的页面未找到。可能是网页暂时不可用。或者，该网站可能已经更改或删除了该网页</p>
+                        <p id="moreInfoSeeHelp">有关HTTP错误的更多信息，请参阅帮助</p>
+                    </div>
+
+                </td>
+            </tr>
+
+
+        </table>
+
+    </body>
 </html>
