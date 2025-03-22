@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-01-30T11:59:28.683Z</updated>
+  <updated>2025-03-22T03:54:06.458Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>部署UWP应用为系统预装应用</title>
+    <link href="http://example.com/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/"/>
+    <id>http://example.com/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</id>
+    <published>2025-03-22T06:00:00.000Z</published>
+    <updated>2025-03-22T03:54:06.458Z</updated>
+    
+    
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;准备应用包&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取**.appx&lt;strong&gt;或&lt;/strong&gt;.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。&lt;/li&gt;
+&lt;li&gt;确保应用已使用&lt;strong&gt;受信任的证书签名&lt;/strong&gt;（系统级部署需有效签名，测试可用自签名证书）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="Metro" scheme="http://example.com/tags/Metro/"/>
+    
+    <category term="APPX" scheme="http://example.com/tags/APPX/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Win 8.1 x64 集成补丁镜像</title>
     <link href="http://example.com/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/"/>
     <id>http://example.com/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</id>
     <published>2025-01-28T00:00:00.000Z</published>
-    <updated>2025-01-30T11:59:28.683Z</updated>
+    <updated>2025-03-22T03:52:51.994Z</updated>
     
     
     <summary type="html">&lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;ol&gt;
