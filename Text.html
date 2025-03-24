@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textBlackHole</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            background: #fff;
+            display: block;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+const CONTENT=`鲁迅（1881年9月25日—1936年10月19日），原名周樟寿，后改名周树人，字豫山，后改字豫才，浙江绍兴人。中国著名文学家、思想家、革命家、教育家、美术家、书法家、民主战士，新文化运动的重要参与者，中国现代文学的奠基人之一。鲁迅怀着现实关切，创造性地从中华优秀传统文化中汲取营养，创作出具有中国作风、中国气派的文学作品。被誉为“二十世纪东亚文化地图上占最大领土的作家”。
+他早年与厉绥之和钱均夫同赴日本公费留学，于日本仙台医科专门学校肄业。“鲁迅”，是他在1918年发表《狂人日记》时所用的笔名，也是最为广泛的笔名。
+鲁迅一生在文学创作、文学批评、思想研究、文学史研究、翻译、美术理论引进、基础科学介绍和古籍校勘与研究等多个领域具有重大贡献。他对于五四运动以后的中国社会思想文化发展具有重大影响，蜚声世界文坛，尤其在韩国、日本思想文化领域有极其重要的地位和影响，被誉为“二十世纪东亚文化地图上占最大领土的作家”。
+毛泽东曾评价：“鲁迅的方向，就是中华民族新文化的方向。”`;
+const FONT_SIZE = 30;
+
+
+class Char{
+    constructor(originX, originY, char){
+        this.originX = originX;
+        this.originY = originY;
+        this.x = this.#random(0, 1000);
+        this.y = this.#random(500, 560);
+        this.m = this.#random(1, 7);
+        this.char = char;
+        this.size = FONT_SIZE;
+    }
+    #random(min, max){
+        return Math.random() * (max - min) + min;
+    }
+    moved(vx, vy){
+        this.x += vx*this.m;
+        this.y += vy*this.m; 
+    }
+    moveTo(x, y,curve="linear"){
+        const dx = x - this.x;
+        const dy = y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        let force = 1;
+        switch(curve){
+            case "easeIn":
+                force = distance/100;
+                break;
+            case "RevEaseIn":
+                force = -distance/100;
+                break;
+            case "easeOut":CONTENT
+                force = 100/distance;
+                if(force > 10) force = 10;
+                break;
+            case "easeInOut":
+                force = distance/100;
+                if(force > 1) force = distance/100;
+                if(force < -1) force = 100/distance;
+                break;
+            case "linear":
+                force = 1;
+                break;
+        }
+        const angle = Math.atan2(dy, dx);
+        const vx = Math.cos(angle) * force;
+        const vy = Math.sin(angle) * force;
+        this.moved(vx, vy);
+    }
+}
+class Canvas{
+    constructor(element){
+        if(!element||element.nodeName !== 'CANVAS'){
+            throw new Error(`canvas element is required, but received ${element ? element.nodeName : 'null'}`);
+        }
+        this.canvas = element;
+        this.ctx = this.canvas.getContext('2d');
+        this.ratio = window.devicePixelRatio || 1;
+        this.cWidth = this.canvas.width = window.innerWidth*this.ratio;
+        this.cHeight = this.canvas.height = window.innerHeight*this.ratio;
+        this.#init();
+    }
+    #init() {
+        this.ctx.font=`${FONT_SIZE}px Arial`;
+        this.string = CONTENT;
+        this.charWidth = FONT_SIZE+1;
+        this.#initTextPos();
+        this.mouseX = -1000;
+        this.mouseY = -1000;
+        this.canvas.addEventListener('mousemove', (e) => {
+            this.mouseX = e.clientX*this.ratio;
+            this.mouseY = e.clientY*this.ratio;
+        });
+        this.canvas.addEventListener('mouseleave', (e) => {
+            this.mouseX = -1000;
+            this.mouseY = -1000; 
+        });
+        this.#loop();
+    }
+    #initTextPos(){
+        const config = {
+            marginLeft: 20,
+            marginTop: 20,
+            lineHeight: 40,
+        }
+        const maxCols = Math.floor((this.cWidth - config.marginLeft * 2) / this.charWidth);
+        let rowsCount = 0;
+        let colsCount = 0;
+        let length = 0;
+        this.charArr = [];
+
+        for(let i = 0; i < this.string.length; i++){
+            let char = this.string[i];
+            //换行
+            if(char === '\n'){
+                rowsCount++;
+                colsCount = 2;
+                continue;
+            }
+            if(colsCount >= maxCols){
+                rowsCount++;
+                colsCount = 0; 
+            }
+            const x = config.marginLeft + colsCount * this.charWidth;
+            const y = config.marginTop + rowsCount * config.lineHeight+FONT_SIZE;
+            this.charArr[length]=new Char(x, y, char);
+            colsCount++;
+            length++;
+        }
+    }
+    draw(){
+        //移动文字
+        for(const char of this.charArr){
+            let dx = this.mouseX - char.x;
+            let dy = this.mouseY - char.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if(distance < 300){
+                char.moveTo(this.mouseX, this.mouseY,"easeOut");
+            }else{
+                char.moveTo(char.originX, char.originY,"easeIn");
+            }
+        }
+
+        //渲染文字
+        for(const char of this.charArr){
+            this.ctx.font=`${char.size}px Arial`;
+            this.ctx.fillText(char.char, char.x, char.y);
+        }
+
+        //渲染渐变圆
+        const gradient = this.ctx.createRadialGradient(this.mouseX, this.mouseY, 50, this.mouseX, this.mouseY, 250);
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.1)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        this.ctx.fillStyle = gradient;
+        this.ctx.beginPath();
+        this.ctx.arc(this.mouseX, this.mouseY, 300, 0, 2 * Math.PI);
+        this.ctx.fill();
+        this.ctx.fillStyle = 'black'; 
+    }
+    #loop(){
+        this.ctx.clearRect(0, 0, this.cWidth, this.cHeight);
+        this.draw();
+        requestAnimationFrame(this.#loop.bind(this));
+    }
+}
+const canvas = new Canvas(document.querySelector('canvas'));
+</script>
+</html>
