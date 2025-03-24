@@ -132,4 +132,14 @@
         <tag>APPX</tag>
       </tags>
   </entry>
+  <entry>
+    <title>好玩的文字特效</title>
+    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
 </search>

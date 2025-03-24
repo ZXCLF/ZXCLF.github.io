@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-03-22T03:54:06.458Z</updated>
+  <updated>2025-03-24T05:14:53.566Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>好玩的文字特效</title>
+    <link href="http://example.com/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/"/>
+    <id>http://example.com/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</id>
+    <published>2025-03-24T05:00:00.000Z</published>
+    <updated>2025-03-24T05:14:53.566Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;测试：&lt;a href=&quot;https://zxclf.github.io/Text&quot;&gt;Text&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>部署UWP应用为系统预装应用</title>
