@@ -36,10 +36,11 @@
     <link href="http://example.com/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/"/>
     <id>http://example.com/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</id>
     <published>2025-03-22T06:00:00.000Z</published>
-    <updated>2025-03-22T03:54:06.458Z</updated>
+    <updated>2025-03-27T14:51:48.524Z</updated>
     
     
-    <summary type="html">&lt;ol&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;准备应用包&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;获取**.appx&lt;strong&gt;或&lt;/strong&gt;.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。&lt;/li&gt;
