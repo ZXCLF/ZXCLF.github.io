@@ -146,4 +146,12 @@
  hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
 </iframe>]]></content>
   </entry>
+  <entry>
+    <title>本站镜像站正式启用</title>
+    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
+<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
+<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+]]></content>
+  </entry>
 </search>
