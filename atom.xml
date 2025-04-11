@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-04-09T14:03:57.724Z</updated>
+  <updated>2025-04-11T15:17:51.650Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <link href="http://example.com/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/"/>
+    <id>http://example.com/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</id>
+    <published>2025-04-11T12:00:00.000Z</published>
+    <updated>2025-04-11T15:17:51.650Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;下载：&lt;a href=&quot;https://www.123684.com/s/FGWpTd-4iQPh&quot;&gt;123网盘&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;亲测 Windows 11</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Metro" scheme="http://example.com/tags/Metro/"/>
+    
+  </entry>
   
   <entry>
     <title>本站镜像站正式启用</title>

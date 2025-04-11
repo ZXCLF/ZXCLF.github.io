@@ -154,4 +154,15 @@
 <p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
+    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
+  </entry>
 </search>
