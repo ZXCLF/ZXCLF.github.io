@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
+    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Win 8.1 x64 集成补丁镜像</title>
     <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
     <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
@@ -84,6 +92,24 @@
       </tags>
   </entry>
   <entry>
+    <title>好玩的文字特效</title>
+    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>本站镜像站正式启用</title>
+    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
+<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
+<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>谷歌小恐龙</title>
     <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
     <content><![CDATA[<p>体验：</p>
@@ -134,35 +160,6 @@
       <tags>
         <tag>Metro</tag>
         <tag>APPX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
-<span id="more"></span>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>本站镜像站正式启用</title>
-    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
-    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
-<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
-<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
-    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
-<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
-<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
       </tags>
   </entry>
 </search>
