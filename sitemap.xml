@@ -85,36 +85,36 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2025-06-07</lastmod>
+    <lastmod>2025-06-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://example.com/tags/Metro/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/Win-8-1/</loc>
-    <lastmod>2025-06-07</lastmod>
+    <lastmod>2025-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/APPX/</loc>
-    <lastmod>2025-06-07</lastmod>
+    <loc>http://example.com/tags/Metro/</loc>
+    <lastmod>2025-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/%E7%A0%B4%E8%A7%A3/</loc>
-    <lastmod>2025-06-07</lastmod>
+    <lastmod>2025-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/APPX/</loc>
+    <lastmod>2025-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
