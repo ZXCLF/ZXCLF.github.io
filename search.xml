@@ -1,46 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Magisk模块刷入指南：一场Android系统的持久战</title>
+    <url>/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
+<p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
+<p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
+<span id="more"></span>
+
+<h4 id="一、隐蔽战线是生命线：Shamiko模块"><a href="#一、隐蔽战线是生命线：Shamiko模块" class="headerlink" title="一、隐蔽战线是生命线：Shamiko模块"></a><strong>一、隐蔽战线是生命线：Shamiko模块</strong></h4><blockquote>
+<p>敌进我退，敌驻我扰，敌疲我打，敌退我追</p>
+</blockquote>
+<p>在Root的战场上，面对强大的、日益精密的Root检测（如银行APP、部分游戏、公司MDM软件），一味蛮干（直接暴露Root）是要吃大亏的！<strong>Shamiko模块，就是执行“敌后隐蔽工作”的精锐力量。</strong></p>
+<ul>
+<li><strong>核心任务：</strong> Shamiko不直接“消灭”检测（如Magisk Hide或早期DenyList），而是巧妙地“融入群众”（系统环境），让检测者“视而不见”。<strong>强烈推荐使用它的白名单模式。</strong></li>
+<li><strong>工作方法（白名单模式）：</strong><ol>
+<li>在Magisk设置中启用<strong>Zygisk</strong>（这是基础，后面详谈）。</li>
+<li><strong>刷入Shamiko模块。</strong> Shamiko会以更底层、更隐蔽的方式对应用进行“伪装”，使其无法探测到Zygisk和Root的存在。</li>
+</ol>
+</li>
+<li><strong>重要意义：</strong> 正确配置Shamiko，就如同给我们的Root行动披上了“隐身衣”，是保障金融安全、游戏畅玩、工作APP正常使用的<strong>关键一招</strong>。<strong>忽视隐蔽工作，等于主动向敌人暴露目标！</strong></li>
+</ul>
+<h4 id="二、灵活机动的战略战术：LSPosed框架"><a href="#二、灵活机动的战略战术：LSPosed框架" class="headerlink" title="二、灵活机动的战略战术：LSPosed框架"></a><strong>二、灵活机动的战略战术</strong>：LSPosed框架</h4><blockquote>
+<p>以子之矛，陷子之盾</p>
+</blockquote>
+<p>Magisk给了我们根据地（Root），但要在应用层面进行更精细、更灵活的改造，就需要 <strong>LSPosed框架</strong>。它是新一代的Xposed实现，依托于Zygisk，<strong>运行效率更高，兼容性更好，模块管理更清晰。</strong></p>
+<ul>
+<li><strong>战略地位：</strong> LSPosed本身是一个Magisk模块。刷入它，就相当于建立了一个强大的“前线指挥部”，可以调度和指挥各种功能模块（Modules）对单个或特定应用进行“定点改造”。</li>
+<li><strong>重要作战单元（模块举例）：</strong><ul>
+<li><strong>隐藏应用列表模块（Hide-My-Applis）：</strong> 此乃配合Shamiko作战的“反间谍利器”。它能阻止APP检测你手机上安装了哪些应用（尤其是一些敏感或破解工具），进一步切断敌人情报来源。</li>
+<li><strong>New Hook Vip等模块（仅供学习研究！）：</strong> 这类模块如同缴获的“特殊装备”，可能能解锁某些应用的特定功能（如去广告、会员权限）。<strong>务必深刻认识：</strong> 此类行为涉及版权和法律风险，如同在敌占区使用缴获武器，<strong>必须慎之又慎！</strong> 本指南<strong>仅提供技术可能性探讨，强调其学习研究价值，坚决反对用于非法目的和侵害他人合法权益。</strong> “武器”本身无罪，关键在于使用者的目的和是否符合最广大人民群众的根本利益（法律与道德）。</li>
+</ul>
+</li>
+<li><strong>运作原理：</strong> LSPosed模块通过Hook（钩子）应用进程，在特定函数执行前后注入自己的代码，从而改变应用的行为。这种“嵌入作战”方式，使得功能修改更加精准和动态。</li>
+</ul>
+<h4 id="三、革命的命脉：Zygisk"><a href="#三、革命的命脉：Zygisk" class="headerlink" title="三、革命的命脉：Zygisk"></a><strong>三、革命的命脉</strong>：Zygisk</h4><blockquote>
+<p>兵马未动，粮草先行。</p>
+</blockquote>
+<pre class="mermaid">graph LR
+A[Zygote进程] --> B[Zygisk注入]
+B --> C[模块寄生系统核心]
+C --> D[Shamiko生效]
+C --> E[LSPosed框架激活]
+D -.-> F[Root隐藏]
+E -.-> G[Hook系统级功能]</pre>
+
+<p><strong>Zygisk (Zygote注入) 是Magisk现代体系的核心引擎和生命线！</strong></p>
+<ul>
+<li><strong>核心作用与原理：</strong><ul>
+<li>Android系统启动应用时，都派生自一个叫<code>Zygote</code>的母进程。</li>
+<li><strong>Zygisk</strong> 的核心功能，就是将自己（Magisk的核心组件）<strong>注入到<code>Zygote</code>进程中</strong>。这样一来，<strong>所有</strong>从Zygote孵化的应用程序进程，<strong>天生就继承了Magisk的环境和功能</strong>（如Root权限管理、ROOT隐藏（Shamiko）、以及最重要的——加载LSPosed等需要注入到应用进程的框架和模块）。</li>
+</ul>
+</li>
+<li><strong>不开启Zygisk的严重后果（如同切断补给线）：</strong><ol>
+<li><strong>LSPosed框架及其所有模块瘫痪：</strong> LSPosed需要注入应用进程才能工作，而Zygisk是完成这种注入的关键桥梁。关闭Zygisk，LSPosed就失去了“兵力投送”的能力，其框架本身和所有模块都将<strong>完全无法加载和工作</strong>！其他依赖进程注入的模块（如部分字体修改、深度系统优化模块）同样会失效。</li>
+<li><strong>部分现代Magisk模块功能受限：</strong> 许多新模块都设计为需要Zygisk环境才能发挥全部效力。</li>
+</ol>
+</li>
+<li><strong>结论：</strong> <strong>Zygisk是Magisk强大功能（特别是Root隐藏和LSPosed生态）得以实现的基石。关闭Zygisk，等于自废武功，使大部分高级模块陷入瘫痪！非必要，切勿关闭！</strong></li>
+</ul>
+<h4 id="四、警惕糖衣炮弹：防格机模块"><a href="#四、警惕糖衣炮弹：防格机模块" class="headerlink" title="四、警惕糖衣炮弹：防格机模块"></a><strong>四、警惕糖衣炮弹：防格机模块</strong></h4><blockquote>
+<p>革命队伍要纯洁，模块仓库有风险！</p>
+</blockquote>
+<p>如同要警惕混入革命队伍的敌人，<strong>刷入来源不明、未经充分验证的模块是极其危险的！</strong></p>
+<ul>
+<li><strong>“格机模块”的危害：</strong> 这类恶意模块如同“特洛伊木马”，一旦刷入，可能在启动时执行破坏性脚本，导致：<ul>
+<li><strong>系统关键文件被删除或篡改。</strong></li>
+<li><strong>无限重启，手机变“砖”。</strong></li>
+<li><strong>数据被清空（Factory Reset &#x2F; Format Data）。</strong></li>
+</ul>
+</li>
+<li><strong>防御策略（肃反手段）：</strong><ol>
+<li><strong>提高警惕，擦亮眼睛：</strong> 绝不轻信论坛、非官方渠道的所谓“神奇”、“一键破解”模块，尤其警惕要求刷入后格式化Data分区的模块。</li>
+<li><strong>依靠群众，调查研究：</strong> 刷入任何模块前，务必查阅<strong>可靠社区</strong>（如XDA, 酷安相关板块）的评价反馈，了解其<strong>具体功能、风险、兼容性</strong>。</li>
+<li><strong>隔离审查（沙盒测试）：</strong> 如果条件允许，先在备用机或模拟器上测试。</li>
+<li><strong>备份！备份！再备份！</strong> 刷机前通过TWRP等Recovery完整备份系统（Boot, System, Data, Vendor等关键分区），这是最后的防线！</li>
+</ol>
+</li>
+</ul>
+<h4 id="五、最后的堡垒：刷入救砖模块"><a href="#五、最后的堡垒：刷入救砖模块" class="headerlink" title="五、最后的堡垒：刷入救砖模块"></a>五、最后的堡垒：刷入救砖模块</h4><blockquote>
+<p>凡事预则立，不预则废。</p>
+</blockquote>
+<p>在复杂的刷机斗争中，难免遭遇挫折（如模块冲突导致无法开机）。<strong>预先部署“救砖模块”，就是保留革命的火种，确保有生力量。</strong></p>
+<ul>
+<li><strong>推荐利器：神仙自动救砖模块：</strong><ul>
+<li><strong>工作原理：</strong> 此模块如同潜伏在系统深处的“应急响应小组”。</li>
+<li><strong>触发机制：</strong><ul>
+<li><strong>卡开机动画循环：</strong> 如果设备连续重启（例如达到3次）仍卡在开机Logo处，模块会自动触发救援。</li>
+<li><strong>卡第二屏（如厂商Logo&#x2F;“Powered by Android”）超时：</strong> 如果在此界面停留超过预设时间（如90秒），模块也会启动。</li>
+</ul>
+</li>
+<li><strong>救援行动：</strong><ol>
+<li><strong>自动禁用所有Magisk模块：</strong> 这是解决因模块冲突导致无法开机的<strong>最有效手段</strong>。</li>
+<li><strong>自动解冻被冻结的应用：</strong> 解决因误冻结关键系统应用（如桌面Launcher、系统UI）导致的黑屏&#x2F;无法进入系统问题。</li>
+<li><strong>尝试清理缓存（部分高级版本可能支持）。</strong></li>
+</ol>
+</li>
+<li><strong>战略意义：</strong> 刷入此类模块，就如同在后方建立了安全的“根据地”和“野战医院”。当前线（系统启动）遭遇重大挫折（无法开机）时，它能自动实施“战场急救”，<strong>极大提高设备从软件故障中“自救”成功的机会</strong>，避免需要连接电脑使用复杂命令（Fastboot&#x2F;ADB）或重刷系统的麻烦（保住Data数据尤为重要！）。</li>
+</ul>
+</li>
+<li><strong>部署要求：</strong> <strong>务必在系统还能正常启动时刷入！</strong> 变砖后再想刷就晚了！将此模块视为Magisk环境的“基本险”。</li>
+</ul>
+<hr>
+<h4 id="总结与号召"><a href="#总结与号召" class="headerlink" title="总结与号召"></a><strong>总结与号召</strong></h4><blockquote>
+<p>同志们，刷机有风险，探索需谨慎，但掌握正确的方法和武器，就能化险为夷，让手机真正为我们所用！</p>
+</blockquote>
+<ol>
+<li><strong>隐蔽是前提：</strong> Shamiko + 隐藏应用列表 是生存之道。</li>
+<li><strong>框架是平台：</strong> LSPosed 是应用级改造的强大武器库，<strong>但务必合法合规使用！</strong></li>
+<li><strong>Zygisk是根基：</strong> 务必开启，它是现代Magisk模块生态的命脉，关闭则万事休矣！</li>
+<li><strong>安全是底线：</strong> 严防死守“格机模块”，来源不明绝不刷入！</li>
+<li><strong>备份是后路：</strong> TWRP等Recovery备份是终极保险。</li>
+<li><strong>救砖是保障：</strong> <strong>立即行动！</strong> 现在就刷入“神仙自动救砖”或类似可靠救砖模块，建立你的最后防线！</li>
+</ol>
+<p>让我们发扬“自力更生，艰苦奋斗”的精神，在Android系统改造的实践中，“从战争中学习战争”，不断掌握新知识，解决新问题！务必牢记：“战略上藐视敌人（技术困难），战术上重视敌人（每一个操作步骤）”。</p>
+<p><strong>让我们团结起来，争取更大的刷机自由！</strong></p>
+]]></content>
+      <tags>
+        <tag>Root</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NoMoreBugCheck.sys数字签名版</title>
     <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
     <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
 <p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
 <p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
-<span id="more"></span>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>Win 8.1 x64 集成补丁镜像</title>
-    <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
-    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
-<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
-<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
-</ol>
-<span id="more"></span>
-
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
-<p>校验信息：</p>
-<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
-]]></content>
-      <tags>
-        <tag>Win 8.1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>本站镜像站正式启用</title>
-    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
-    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
-<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
-<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -61,16 +146,21 @@
       </tags>
   </entry>
   <entry>
-    <title>谷歌小恐龙</title>
-    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
-    <content><![CDATA[<p>体验：</p>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
+    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
+<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
+</ol>
 <span id="more"></span>
 
-<p>(按空格键开始)</p>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
+<p>校验信息：</p>
+<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
+]]></content>
+      <tags>
+        <tag>Win 8.1</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
@@ -122,6 +212,16 @@
       </tags>
   </entry>
   <entry>
+    <title>好玩的文字特效</title>
+    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
     <title>扫雷破解版</title>
     <url>/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
     <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
@@ -136,6 +236,26 @@
       <tags>
         <tag>破解</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>本站镜像站正式启用</title>
+    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
+<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
+<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>谷歌小恐龙</title>
+    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
+    <content><![CDATA[<p>体验：</p>
+<span id="more"></span>
+
+<p>(按空格键开始)</p>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
   </entry>
   <entry>
     <title>部署UWP应用为系统预装应用</title>

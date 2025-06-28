@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-06-18T11:37:43.162Z</updated>
+  <updated>2025-06-28T10:45:31.987Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Magisk模块刷入指南：一场Android系统的持久战</title>
+    <link href="http://example.com/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/"/>
+    <id>http://example.com/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T10:45:31.987Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;广大手机用户们，技术爱好者们：&lt;/p&gt;
+&lt;p&gt;​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。&lt;/p&gt;
+&lt;p&gt;​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Root" scheme="http://example.com/tags/Root/"/>
+    
+  </entry>
   
   <entry>
     <title>演讲稿</title>
