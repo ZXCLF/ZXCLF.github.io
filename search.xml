@@ -93,7 +93,6 @@ E -.-> G[Hook系统级功能]</pre>
 <li><strong>救援行动：</strong><ol>
 <li><strong>自动禁用所有Magisk模块：</strong> 这是解决因模块冲突导致无法开机的<strong>最有效手段</strong>。</li>
 <li><strong>自动解冻被冻结的应用：</strong> 解决因误冻结关键系统应用（如桌面Launcher、系统UI）导致的黑屏&#x2F;无法进入系统问题。</li>
-<li><strong>尝试清理缓存（部分高级版本可能支持）。</strong></li>
 </ol>
 </li>
 <li><strong>战略意义：</strong> 刷入此类模块，就如同在后方建立了安全的“根据地”和“野战医院”。当前线（系统启动）遭遇重大挫折（无法开机）时，它能自动实施“战场急救”，<strong>极大提高设备从软件故障中“自救”成功的机会</strong>，避免需要连接电脑使用复杂命令（Fastboot&#x2F;ADB）或重刷系统的麻烦（保住Data数据尤为重要！）。</li>
