@@ -16,6 +16,11 @@
 <p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
 <span id="more"></span>
 
+<p><strong>关键选择：推荐 Magisk_Alpha！</strong></p>
+<ul>
+<li><strong>为何是 Alpha？</strong> 同志们！官方 Magisk 虽好，但其隐藏性在敌人日益严密的“检测扫荡”（银行App、游戏反作弊、部分支付应用）面前，渐显吃力。Magisk_Alpha（由活跃社区维护）在隐藏性上做了大量卓有成效的改进工作，其“反检测”能力更强，更能帮助我们潜伏在敌人心脏地带而不被发现！<strong>隐蔽性就是战斗力！</strong> 务必优先选用！</li>
+<li><strong>警惕 Kitsune_Mask (原 Magisk Delta)！</strong> 过去它曾是一支劲旅，但<strong>现已停止维护</strong>！停更的武器，就像生了锈的刺刀，非但不能杀敌，反而可能伤己！众多同志反馈，它存在严重Bug，例如<strong>导致32位应用程序无法运行，甚至可能迫使你进行“恢复出厂设置”这种惨烈的战略撤退才能解决问题！</strong> 我们绝不能让这样的隐患留在我们的队伍里！</li>
+</ul>
 <h4 id="一、隐蔽战线是生命线：Shamiko模块"><a href="#一、隐蔽战线是生命线：Shamiko模块" class="headerlink" title="一、隐蔽战线是生命线：Shamiko模块"></a><strong>一、隐蔽战线是生命线：Shamiko模块</strong></h4><blockquote>
 <p>敌进我退，敌驻我扰，敌疲我打，敌退我追</p>
 </blockquote>
@@ -55,6 +60,7 @@ E -.-> G[Hook系统级功能]</pre>
 
 <p><strong>Zygisk (Zygote注入) 是Magisk现代体系的核心引擎和生命线！</strong></p>
 <ul>
+<li><strong>重要推荐：使用 Zygisk_Next！</strong> 同志们！原版Zygisk固然可用，但 <strong>Zygisk_Next</strong> 是社区在原版基础上的重大改进！它在<strong>稳定性、兼容性、特别是隐藏性（反检测）上更进一步！</strong> 它更有效地对抗着各种针对Zygisk的检测手段。<strong>“工欲善其事，必先利其器”，Zygisk_Next 就是我们更锋利的渗透匕首！</strong></li>
 <li><strong>核心作用与原理：</strong><ul>
 <li>Android系统启动应用时，都派生自一个叫<code>Zygote</code>的母进程。</li>
 <li><strong>Zygisk</strong> 的核心功能，就是将自己（Magisk的核心组件）<strong>注入到<code>Zygote</code>进程中</strong>。这样一来，<strong>所有</strong>从Zygote孵化的应用程序进程，<strong>天生就继承了Magisk的环境和功能</strong>（如Root权限管理、ROOT隐藏（Shamiko）、以及最重要的——加载LSPosed等需要注入到应用进程的框架和模块）。</li>
