@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zxclf.github.io/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/</loc>
+    
+    <lastmod>2025-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zxclf.github.io/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</loc>
     
     <lastmod>2025-07-13</lastmod>
@@ -103,7 +112,7 @@
 
   <url>
     <loc>https://zxclf.github.io/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -111,35 +120,35 @@
   
   <url>
     <loc>https://zxclf.github.io/tags/Root/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.github.io/tags/Win-8-1/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.github.io/tags/Metro/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.github.io/tags/%E7%A0%B4%E8%A7%A3/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.github.io/tags/APPX/</loc>
-    <lastmod>2025-07-31</lastmod>
+    <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

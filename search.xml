@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>本站镜像站启用</title>
-    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
-    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
-<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
-<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Magisk模块刷入指南：一场Android系统的持久战</title>
     <url>/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
@@ -134,110 +126,12 @@ E -.-> G[Hook系统级功能]</pre>
       </tags>
   </entry>
   <entry>
-    <title>演讲稿</title>
-    <url>/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/</url>
-    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
-<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
-<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
-<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
-<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
-<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
-<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
-<p>我的演讲完毕，谢谢大家！</p>
-<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
-<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
-<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
-</ul>
-<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>扫雷破解版</title>
-    <url>/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
-    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
-<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
-<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
-<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
-<li>Minesweeper文件夹：原版扫雷游戏。</li>
-<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>破解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NoMoreBugCheck.sys数字签名版</title>
     <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
     <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
 <p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
 <p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
-<span id="more"></span>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>部署UWP应用为系统预装应用</title>
-    <url>/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
-<ol>
-<li><p><strong>准备应用包</strong></p>
-<ul>
-<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
-<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
-</ul>
-</li>
-</ol>
-<span id="more"></span>
-<ol start="2">
-<li><p><strong>以管理员身份部署</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-Online</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span> <span class="literal">-SkipLicense</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /Online /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>Online</strong>: 直接部署到当前运行的系统中。</li>
-<li><strong>SkipLicense</strong>: 跳过许可证验证（仅限测试环境）。</li>
-</ul>
-</li>
-<li><p><strong>脱机部署（系统映像集成）</strong></p>
-<p> 若需预装到系统镜像（如OOBE阶段）：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-SkipLicense</span> <span class="literal">-Path</span> <span class="string">&quot;C:\Mount&quot;</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /<span class="built_in">Add-ProvisionedAppxPackage</span> /ImageFile:<span class="string">&quot;mount_folder&quot;</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>由于手动输入命令过于繁琐，于是编写了一个小脚本来实现一键部署指定文件夹里的所有 .appx 或 .appxbundle 文件部署到系统映像。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义镜像路径和包含 Appx 包的文件夹路径</span></span><br><span class="line"><span class="variable">$imagePath</span> = <span class="string">&quot;mount_folder&quot;</span> <span class="comment">#将mount_folder替换为映像位置，如 C:\Mount</span></span><br><span class="line"><span class="variable">$appxFolder</span> = <span class="string">&quot;Appx_folder&quot;</span> <span class="comment">#将Appx_folder替换为APPX位置，如 C:\Test\Apps\MyPackedApp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹中所有的 .appx 和 .appxbundle 文件</span></span><br><span class="line"><span class="variable">$appxPackages</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appx <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="variable">$appxBundles</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appxbundle <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line"><span class="variable">$allPackages</span> = <span class="variable">$appxPackages</span> + <span class="variable">$appxBundles</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历每个包并使用 DISM 命令进行安装</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$package</span> <span class="keyword">in</span> <span class="variable">$allPackages</span>) &#123;</span><br><span class="line">    <span class="built_in">Write-Host</span> <span class="string">&quot;正在安装包: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    dism.exe /Image:<span class="variable">$imagePath</span> /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;<span class="variable">$package</span>&quot;</span> /SkipLicense</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$LASTEXITCODE</span> <span class="operator">-ne</span> <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="string">&quot;安装失败: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Write-Host</span> <span class="string">&quot;成功安装: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>将上述脚本保存为 .ps1 文件并以管理员权限运行它。确保在运行脚本之前，你已正确配置了 $imagePath 和 $appxFolder 变量以匹配你的环境。这样就可以自动化安装文件夹中的所有 appx 文件了。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
-<li><strong>多用户支持</strong>：系统预装应用将自动为所有用户安装，但首次登录时可能需要初始化。</li>
-<li><strong>更新策略</strong>：系统应用需通过Windows Update或手动更新（需相同证书重新签名后部署）。</li>
-</ul>
-<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-        <tag>APPX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌小恐龙</title>
-    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
-    <content><![CDATA[<p>体验：</p>
-<span id="more"></span>
-
-<p>(按空格键开始)</p>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
   </entry>
   <entry>
     <title>Win 8.1 x64 集成补丁镜像</title>
@@ -321,5 +215,265 @@ E -.-> G[Hook系统级功能]</pre>
       <tags>
         <tag>Metro</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>好玩的文字特效</title>
+    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>扫雷破解版</title>
+    <url>/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
+<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
+<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
+<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
+<li>Minesweeper文件夹：原版扫雷游戏。</li>
+<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站镜像站启用</title>
+    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
+<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
+<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>演讲稿</title>
+    <url>/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/</url>
+    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
+<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
+<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
+<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
+<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
+<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
+<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
+<p>我的演讲完毕，谢谢大家！</p>
+<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
+<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
+<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
+<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
+</ul>
+<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>谷歌小恐龙</title>
+    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
+    <content><![CDATA[<p>体验：</p>
+<span id="more"></span>
+
+<p>(按空格键开始)</p>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>部署UWP应用为系统预装应用</title>
+    <url>/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
+<ol>
+<li><p><strong>准备应用包</strong></p>
+<ul>
+<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
+<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p><strong>以管理员身份部署</strong></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-Online</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span> <span class="literal">-SkipLicense</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /Online /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Online</strong>: 直接部署到当前运行的系统中。</li>
+<li><strong>SkipLicense</strong>: 跳过许可证验证（仅限测试环境）。</li>
+</ul>
+</li>
+<li><p><strong>脱机部署（系统映像集成）</strong></p>
+<p> 若需预装到系统镜像（如OOBE阶段）：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-SkipLicense</span> <span class="literal">-Path</span> <span class="string">&quot;C:\Mount&quot;</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /<span class="built_in">Add-ProvisionedAppxPackage</span> /ImageFile:<span class="string">&quot;mount_folder&quot;</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>由于手动输入命令过于繁琐，于是编写了一个小脚本来实现一键部署指定文件夹里的所有 .appx 或 .appxbundle 文件部署到系统映像。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义镜像路径和包含 Appx 包的文件夹路径</span></span><br><span class="line"><span class="variable">$imagePath</span> = <span class="string">&quot;mount_folder&quot;</span> <span class="comment">#将mount_folder替换为映像位置，如 C:\Mount</span></span><br><span class="line"><span class="variable">$appxFolder</span> = <span class="string">&quot;Appx_folder&quot;</span> <span class="comment">#将Appx_folder替换为APPX位置，如 C:\Test\Apps\MyPackedApp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹中所有的 .appx 和 .appxbundle 文件</span></span><br><span class="line"><span class="variable">$appxPackages</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appx <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="variable">$appxBundles</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appxbundle <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line"><span class="variable">$allPackages</span> = <span class="variable">$appxPackages</span> + <span class="variable">$appxBundles</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历每个包并使用 DISM 命令进行安装</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$package</span> <span class="keyword">in</span> <span class="variable">$allPackages</span>) &#123;</span><br><span class="line">    <span class="built_in">Write-Host</span> <span class="string">&quot;正在安装包: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    dism.exe /Image:<span class="variable">$imagePath</span> /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;<span class="variable">$package</span>&quot;</span> /SkipLicense</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$LASTEXITCODE</span> <span class="operator">-ne</span> <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="string">&quot;安装失败: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Write-Host</span> <span class="string">&quot;成功安装: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将上述脚本保存为 .ps1 文件并以管理员权限运行它。确保在运行脚本之前，你已正确配置了 $imagePath 和 $appxFolder 变量以匹配你的环境。这样就可以自动化安装文件夹中的所有 appx 文件了。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
+<li><strong>多用户支持</strong>：系统预装应用将自动为所有用户安装，但首次登录时可能需要初始化。</li>
+<li><strong>更新策略</strong>：系统应用需通过Windows Update或手动更新（需相同证书重新签名后部署）。</li>
+</ul>
+<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+        <tag>APPX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arch Linux 安装指南（支持Arch to go）</title>
+    <url>/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="Arch-Linux-安装指南（支持Arch-to-go）"><a href="#Arch-Linux-安装指南（支持Arch-to-go）" class="headerlink" title="Arch Linux 安装指南（支持Arch to go）"></a>Arch Linux 安装指南（支持Arch to go）</h1><h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
+<p>如果能看到文件列表，说明是UEFI启动模式。</p>
+<h2 id="2-建立网络连接"><a href="#2-建立网络连接" class="headerlink" title="2. 建立网络连接"></a>2. 建立网络连接</h2><p>启用网络并测试连通性：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dhcpcd  <span class="comment"># 自动获取IP地址</span></span><br><span class="line">ping archlinux.org -c 3  <span class="comment"># 测试网络是否通畅</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-同步系统时间"><a href="#3-同步系统时间" class="headerlink" title="3. 同步系统时间"></a>3. 同步系统时间</h2><p>确保系统时间准确（防止安装过程中出现时间错误）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>  <span class="comment"># 启用网络时间同步</span></span><br><span class="line">timedatectl status  <span class="comment"># 检查时间状态</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="4-磁盘分区与格式化"><a href="#4-磁盘分区与格式化" class="headerlink" title="4. 磁盘分区与格式化"></a>4. 磁盘分区与格式化</h2><h3 id="查看存储设备"><a href="#查看存储设备" class="headerlink" title="查看存储设备"></a>查看存储设备</h3><p>先确认你的磁盘设备名称：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk  <span class="comment"># 列出所有存储设备</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分区操作（重点）"><a href="#分区操作（重点）" class="headerlink" title="分区操作（重点）"></a>分区操作（重点）</h3><p>使用gdisk工具进行分区（比fdisk更适合GPT分区表）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdisk /dev/sdx      <span class="comment"># 传统SATA硬盘（x替换为a,b,c等字母）</span></span><br><span class="line">gdisk /dev/nvmexn1  <span class="comment"># NVMe固态硬盘（x替换为0,1,2等数字）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>分区步骤详解：</strong></p>
+<ol>
+<li>进入gdisk后，输入<code>o</code>创建新的GPT分区表</li>
+<li>创建EFI分区：<ul>
+<li>输入<code>n</code>新建分区</li>
+<li>分区号默认回车</li>
+<li>起始扇区默认回车</li>
+<li>输入<code>+512M</code>设置分区大小</li>
+<li>输入<code>ef00</code>设置分区类型为EFI系统分区</li>
+</ul>
+</li>
+<li>创建根分区：<ul>
+<li>再次输入<code>n</code>新建分区</li>
+<li>所有提示都按回车（使用剩余全部空间）</li>
+<li>分区类型保持默认的Linux文件系统(8300)</li>
+</ul>
+</li>
+<li>输入<code>w</code>保存并退出（所有更改将生效）</li>
+</ol>
+<h3 id="验证分区"><a href="#验证分区" class="headerlink" title="验证分区"></a>验证分区</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fdisk -l  <span class="comment"># 查看分区结果</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/nvme0n1p1  <span class="comment"># 格式化EFI分区为FAT32</span></span><br><span class="line">mkfs.ext4 /dev/nvme0n1p2      <span class="comment"># 格式化根分区为ext4</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-挂载文件系统"><a href="#5-挂载文件系统" class="headerlink" title="5. 挂载文件系统"></a>5. 挂载文件系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/nvme0n1p2 /mnt       <span class="comment"># 挂载根分区</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/boot              <span class="comment"># 创建boot目录</span></span><br><span class="line">mount /dev/nvme0n1p1 /mnt/boot  <span class="comment"># 挂载EFI分区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-配置软件源（国内用户必看）"><a href="#6-配置软件源（国内用户必看）" class="headerlink" title="6. 配置软件源（国内用户必看）"></a>6. 配置软件源（国内用户必看）</h2><p>替换为国内镜像源加速下载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<p>在文件最前面添加（建议使用清华或中科大源）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-安装基础系统"><a href="#7-安装基础系统" class="headerlink" title="7. 安装基础系统"></a>7. 安装基础系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware vim dhcpcd</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令会安装最基本的系统组件，大约需要5-15分钟，取决于你的网速。</p>
+</blockquote>
+<h2 id="8-生成文件系统表"><a href="#8-生成文件系统表" class="headerlink" title="8. 生成文件系统表"></a>8. 生成文件系统表</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-切换根环境"><a href="#9-切换根环境" class="headerlink" title="9. 切换根环境"></a>9. 切换根环境</h2><blockquote>
+<p><code>arch-chroot</code> 是 Arch Linux 提供的工具，相比标准的 <code>chroot</code>，它会自动挂载 <code>/proc</code>、<code>/sys</code>、<code>/dev</code> 等虚拟文件系统，简化了操作。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-配置时区"><a href="#10-配置时区" class="headerlink" title="10. 配置时区"></a>10. 配置时区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-本地化设置"><a href="#11-本地化设置" class="headerlink" title="11. 本地化设置"></a>11. 本地化设置</h2><p>编辑语言配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
+
+<p>取消注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">en_US.UTF-8 UTF-8</span><br><span class="line">zh_CN.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>生成本地化设置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">locale-gen</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;LANG=en_US.UTF-8&quot;</span> &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-网络配置"><a href="#12-网络配置" class="headerlink" title="12. 网络配置"></a>12. 网络配置</h2><p>设置主机名：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;myhostname&quot;</span> &gt; /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>编辑 hosts 文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>添加内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   myhostname.localdomain myhostname</span><br></pre></td></tr></table></figure>
+
+<h2 id="13-设置-root-密码"><a href="#13-设置-root-密码" class="headerlink" title="13. 设置 root 密码"></a>13. 设置 root 密码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-安装引导程序-GRUB"><a href="#14-安装引导程序-GRUB" class="headerlink" title="14. 安装引导程序 (GRUB)"></a>14. 安装引导程序 (GRUB)</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pacman -S --needed grub efibootmgr</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h2 id="15-启用网络服务"><a href="#15-启用网络服务" class="headerlink" title="15. 启用网络服务"></a>15. 启用网络服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> dhcpcd</span><br></pre></td></tr></table></figure>
+
+<h2 id="16-创建标准用户"><a href="#16-创建标准用户" class="headerlink" title="16. 创建标准用户"></a>16. 创建标准用户</h2><p>添加用户并设置密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash username</span><br><span class="line">passwd username</span><br></pre></td></tr></table></figure>
+
+<p>配置 sudo 权限：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>取消注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%wheel ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<h2 id="17-启用额外软件源"><a href="#17-启用额外软件源" class="headerlink" title="17. 启用额外软件源"></a>17. 启用额外软件源</h2><p>编辑 pacman 配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<p>取消注释启用 multilib：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[multilib]</span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<p>添加 Arch Linux CN 源：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+
+<p>更新并安装密钥环：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<h2 id="18-完成安装"><a href="#18-完成安装" class="headerlink" title="18. 完成安装"></a>18. 完成安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">umount -R /mnt</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="19-配置默认编辑器"><a href="#19-配置默认编辑器" class="headerlink" title="19. 配置默认编辑器"></a>19. 配置默认编辑器</h2><h3 id="root-账户"><a href="#root-账户" class="headerlink" title="root 账户"></a>root 账户</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> EDITOR=<span class="string">&#x27;vim&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="普通账户"><a href="#普通账户" class="headerlink" title="普通账户"></a>普通账户</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> EDITOR=<span class="string">&#x27;vim&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="20-安装-KDE-Plasma-桌面环境"><a href="#20-安装-KDE-Plasma-桌面环境" class="headerlink" title="20. 安装 KDE Plasma 桌面环境"></a>20. 安装 KDE Plasma 桌面环境</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pacman -S plasma-meta konsole dolphin plasma-x11-session <span class="comment"># plasma-meta 元软件包、konsole 终端模拟器和 dolphin 文件管理器</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> sddm</span><br></pre></td></tr></table></figure>
+
+<h2 id="21-安装基础软件包"><a href="#21-安装基础软件包" class="headerlink" title="21. 安装基础软件包"></a>21. 安装基础软件包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pacman -S --needed curl wget nano vim p7zip <span class="built_in">which</span> lvm2 <span class="comment">#基础包</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S sof-firmware alsa-firmware alsa-ucm-conf <span class="comment"># 声音固件</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S ntfs-3g <span class="comment"># 使系统可以识别 NTFS 格式的硬盘</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S adobe-source-han-serif-cn-fonts ttf-liberation <span class="comment"># 安装开源中文字体，注意：最好不要安装wqy-zenhei wqy-microhei，字体效果很差</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra <span class="comment"># 安装谷歌开源字体及表情</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S firefox chromium <span class="comment"># 安装常用的火狐、chromium 浏览器</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S packagekit-qt6 packagekit appstream-qt appstream <span class="comment"># 确保 Discover（软件中心）可用，需重启</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S yay <span class="comment">#aur包管理器</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="22-启动显示管理器与网络工具"><a href="#22-启动显示管理器与网络工具" class="headerlink" title="22. 启动显示管理器与网络工具"></a>22. 启动显示管理器与网络工具</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl start sddm</span><br><span class="line">systemctl start NetworkManager.service</span><br><span class="line">systemctl <span class="built_in">enable</span> NetworkManager.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="23-配置中文显示"><a href="#23-配置中文显示" class="headerlink" title="23. 配置中文显示"></a>23. 配置中文显示</h2><h3 id="KDE-语言设置"><a href="#KDE-语言设置" class="headerlink" title="KDE 语言设置"></a>KDE 语言设置</h3><ol>
+<li>打开 <code>Region and Language</code></li>
+<li>点击 <code>Language</code> 后的 <code>Modify</code></li>
+<li>右下角 <code>Add More</code> 添加 <code>简体中文</code></li>
+<li>将中文移至顶部</li>
+</ol>
+<h3 id="SDDM-锁屏界面"><a href="#SDDM-锁屏界面" class="headerlink" title="SDDM 锁屏界面"></a>SDDM 锁屏界面</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /etc/systemd/system/sddm.service.d</span><br><span class="line">vim /etc/systemd/system/sddm.service.d/EnvironmentFile.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Service]</span><br><span class="line">EnvironmentFile=/etc/default/locale</span><br></pre></td></tr></table></figure>
+
+<p>编辑区域文件：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim /etc/default/locale</span><br></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">LANG=zh_CN.UTF-8</span><br></pre></td></tr></table></figure>
+
+<h2 id="24-安装中文输入法"><a href="#24-安装中文输入法" class="headerlink" title="24. 安装中文输入法"></a>24. 安装中文输入法</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-material-color</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/environment</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">XIM=fcitx</span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
+
+<h2 id="26-支持Arch-to-go"><a href="#26-支持Arch-to-go" class="headerlink" title="26.支持Arch to go"></a>26.支持Arch to go</h2><p>执行官方<a href="https://github.com/ventoy/vtoyboot/releases">vtoyboot脚本</a>后执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&quot;s/PARTUUID=[0-9a-f-]*/UUID=<span class="variable">$&#123;ROOT_UUID&#125;</span>/&quot;</span> /boot/grub/grub.cfg</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /boot/EFI/BOOT/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /boot/EFI/GRUB/grubx64.efi /boot/EFI/BOOT/BOOTX64.efi</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
 </search>

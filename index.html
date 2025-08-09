@@ -216,6 +216,64 @@
 
     
     <article
+  id="post-Arch Linux 安装"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/"
+    >Arch Linux 安装指南（支持Arch to go）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2025-08-09T12:00:00.000Z" itemprop="datePublished">2025-08-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Arch-Linux-安装指南（支持Arch-to-go）"><a href="#Arch-Linux-安装指南（支持Arch-to-go）" class="headerlink" title="Arch Linux 安装指南（支持Arch to go）"></a>Arch Linux 安装指南（支持Arch to go）</h1><h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
+<p>如果能看到文件列表，说明是UEFI启动模式。</p>
+<h2 id="2-建立网络连接"><a href="#2-建立网络连接" class="headerlink" title="2. 建立网络连接"></a>2. 建立网络连接</h2><p>启用网络并测试连通性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dhcpcd  <span class="comment"># 自动获取IP地址</span></span><br><span class="line">ping archlinux.org -c 3  <span class="comment"># 测试网络是否通畅</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-同步系统时间"><a href="#3-同步系统时间" class="headerlink" title="3. 同步系统时间"></a>3. 同步系统时间</h2><p>确保系统时间准确（防止安装过程中出现时间错误）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>  <span class="comment"># 启用网络时间同步</span></span><br><span class="line">timedatectl status  <span class="comment"># 检查时间状态</span></span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/"
+        >阅读全文...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Magisk模块刷入指南"
   class="article article-type-post"
   itemscope
@@ -647,61 +705,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Win-8-1/" rel="tag">Win 8.1</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-【最新】在Win8.x上安装第三方Metro应用"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/"
-    >【最新】在Win8.x上安装第三方Metro应用</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/" class="article-date">
-  <time datetime="2025-01-25T12:00:00.000Z" itemprop="datePublished">2025-01-25</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><strong>注意:</strong></p>
-<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
-<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p> 
-      <a class="article-more-link" href="/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/"
-        >阅读全文...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Metro/" rel="tag">Metro</a></li></ul>
 
     </footer>
   </div>
