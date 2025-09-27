@@ -6,7 +6,7 @@
   <link href="https://zxclf.github.io/atom.xml" rel="self"/>
   
   <link href="https://zxclf.github.io/"/>
-  <updated>2025-08-09T13:53:22.452Z</updated>
+  <updated>2025-09-27T15:08:58.428Z</updated>
   <id>https://zxclf.github.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OnePlus Ace5 Ultra 内核构建项目</title>
+    <link href="https://zxclf.github.io/2025/09/27/OnePlus%20Ace5%20Ultra%20%E5%86%85%E6%A0%B8%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://zxclf.github.io/2025/09/27/OnePlus%20Ace5%20Ultra%20%E5%86%85%E6%A0%B8%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/</id>
+    <published>2025-09-27T14:00:00.000Z</published>
+    <updated>2025-09-27T15:08:58.428Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;OnePlus-Ace5-Ultra-内核构建项目&quot;&gt;&lt;a href=&quot;#OnePlus-Ace5-Ultra-内核构建项目&quot; class=&quot;headerlink&quot; title=&quot;OnePlus Ace5 Ultra 内核构建项目&quot;&gt;&lt;/a&gt;OnePlus Ace5 Ultra 内核构建项目&lt;/h1&gt;&lt;h2 id=&quot;项目地址&quot;&gt;&lt;a href=&quot;#项目地址&quot; class=&quot;headerlink&quot; title=&quot;项目地址&quot;&gt;&lt;/a&gt;项目地址&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI&quot;&gt;ZXCLF&amp;#x2F;Oneplus_Ace5_Ultra_GKI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本项目持续更新中，本文部分描述可能不正确。&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Arch Linux 安装指南（支持Arch to go）</title>
