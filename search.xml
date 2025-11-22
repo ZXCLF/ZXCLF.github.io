@@ -1,248 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Magisk模块刷入指南：一场Android系统的持久战</title>
-    <url>/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
-<p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
-<p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
-<span id="more"></span>
-
-<p><strong>关键选择：推荐 Magisk_Alpha！</strong></p>
-<ul>
-<li><strong>为何是 Alpha？</strong> 同志们！官方 Magisk 虽好，但其隐藏性在敌人日益严密的“检测扫荡”（银行App、游戏反作弊、部分支付应用）面前，渐显吃力。Magisk_Alpha（由活跃社区维护）在隐藏性上做了大量卓有成效的改进工作，其“反检测”能力更强，更能帮助我们潜伏在敌人心脏地带而不被发现！<strong>隐蔽性就是战斗力！</strong> 务必优先选用！</li>
-<li><strong>警惕 Kitsune_Mask (原 Magisk Delta)！</strong> 过去它曾是一支劲旅，但<strong>现已停止维护</strong>！停更的武器，就像生了锈的刺刀，非但不能杀敌，反而可能伤己！众多同志反馈，它存在严重Bug，例如<strong>导致32位应用程序无法运行，甚至可能迫使你进行“恢复出厂设置”这种惨烈的战略撤退才能解决问题！</strong> 我们绝不能让这样的隐患留在我们的队伍里！</li>
-</ul>
-<h4 id="一、隐蔽战线是生命线：Shamiko模块"><a href="#一、隐蔽战线是生命线：Shamiko模块" class="headerlink" title="一、隐蔽战线是生命线：Shamiko模块"></a><strong>一、隐蔽战线是生命线：Shamiko模块</strong></h4><blockquote>
-<p>敌进我退，敌驻我扰，敌疲我打，敌退我追</p>
-</blockquote>
-<p>在Root的战场上，面对强大的、日益精密的Root检测（如银行APP、部分游戏、公司MDM软件），一味蛮干（直接暴露Root）是要吃大亏的！<strong>Shamiko模块，就是执行“敌后隐蔽工作”的精锐力量。</strong></p>
-<ul>
-<li><strong>核心任务：</strong> Shamiko不直接“消灭”检测（如Magisk Hide或早期DenyList），而是巧妙地“融入群众”（系统环境），让检测者“视而不见”。<strong>强烈推荐使用它的白名单模式。</strong></li>
-<li><strong>工作方法（白名单模式）：</strong><ol>
-<li>在Magisk设置中启用<strong>Zygisk</strong>（这是基础，后面详谈）。</li>
-<li><strong>刷入Shamiko模块。</strong> Shamiko会以更底层、更隐蔽的方式对应用进行“伪装”，使其无法探测到Zygisk和Root的存在。</li>
-</ol>
-</li>
-<li><strong>重要意义：</strong> 正确配置Shamiko，就如同给我们的Root行动披上了“隐身衣”，是保障金融安全、游戏畅玩、工作APP正常使用的<strong>关键一招</strong>。<strong>忽视隐蔽工作，等于主动向敌人暴露目标！</strong></li>
-</ul>
-<h4 id="二、灵活机动的战略战术：LSPosed框架"><a href="#二、灵活机动的战略战术：LSPosed框架" class="headerlink" title="二、灵活机动的战略战术：LSPosed框架"></a><strong>二、灵活机动的战略战术</strong>：LSPosed框架</h4><blockquote>
-<p>以子之矛，陷子之盾</p>
-</blockquote>
-<p>Magisk给了我们根据地（Root），但要在应用层面进行更精细、更灵活的改造，就需要 <strong>LSPosed框架</strong>。它是新一代的Xposed实现，依托于Zygisk，<strong>运行效率更高，兼容性更好，模块管理更清晰。</strong></p>
-<ul>
-<li><strong>战略地位：</strong> LSPosed本身是一个Magisk模块。刷入它，就相当于建立了一个强大的“前线指挥部”，可以调度和指挥各种功能模块（Modules）对单个或特定应用进行“定点改造”。</li>
-<li><strong>重要作战单元（模块举例）：</strong><ul>
-<li><strong>隐藏应用列表模块（Hide-My-Applis）：</strong> 此乃配合Shamiko作战的“反间谍利器”。它能阻止APP检测你手机上安装了哪些应用（尤其是一些敏感或破解工具），进一步切断敌人情报来源。</li>
-<li><strong>New Hook Vip等模块（仅供学习研究！）：</strong> 这类模块如同缴获的“特殊装备”，可能能解锁某些应用的特定功能（如去广告、会员权限）。<strong>务必深刻认识：</strong> 此类行为涉及版权和法律风险，如同在敌占区使用缴获武器，<strong>必须慎之又慎！</strong> 本指南<strong>仅提供技术可能性探讨，强调其学习研究价值，坚决反对用于非法目的和侵害他人合法权益。</strong> “武器”本身无罪，关键在于使用者的目的和是否符合最广大人民群众的根本利益（法律与道德）。</li>
-</ul>
-</li>
-<li><strong>运作原理：</strong> LSPosed模块通过Hook（钩子）应用进程，在特定函数执行前后注入自己的代码，从而改变应用的行为。这种“嵌入作战”方式，使得功能修改更加精准和动态。</li>
-</ul>
-<h4 id="三、革命的命脉：Zygisk"><a href="#三、革命的命脉：Zygisk" class="headerlink" title="三、革命的命脉：Zygisk"></a><strong>三、革命的命脉</strong>：Zygisk</h4><blockquote>
-<p>兵马未动，粮草先行。</p>
-</blockquote>
-<pre class="mermaid">graph LR
-A[Zygote进程] --> B[Zygisk注入]
-B --> C[模块寄生系统核心]
-C --> D[Shamiko生效]
-C --> E[LSPosed框架激活]
-D -.-> F[Root隐藏]
-E -.-> G[Hook系统级功能]</pre>
-
-<p><strong>Zygisk (Zygote注入) 是Magisk现代体系的核心引擎和生命线！</strong></p>
-<ul>
-<li><strong>重要推荐：使用 Zygisk_Next！</strong> 同志们！原版Zygisk固然可用，但 <strong>Zygisk_Next</strong> 是社区在原版基础上的重大改进！它在<strong>稳定性、兼容性、特别是隐藏性（反检测）上更进一步！</strong> 它更有效地对抗着各种针对Zygisk的检测手段。<strong>“工欲善其事，必先利其器”，Zygisk_Next 就是我们更锋利的渗透匕首！</strong></li>
-<li><strong>核心作用与原理：</strong><ul>
-<li>Android系统启动应用时，都派生自一个叫<code>Zygote</code>的母进程。</li>
-<li><strong>Zygisk</strong> 的核心功能，就是将自己（Magisk的核心组件）<strong>注入到<code>Zygote</code>进程中</strong>。这样一来，<strong>所有</strong>从Zygote孵化的应用程序进程，<strong>天生就继承了Magisk的环境和功能</strong>（如Root权限管理、ROOT隐藏（Shamiko）、以及最重要的——加载LSPosed等需要注入到应用进程的框架和模块）。</li>
-</ul>
-</li>
-<li><strong>不开启Zygisk的严重后果（如同切断补给线）：</strong><ol>
-<li><strong>LSPosed框架及其所有模块瘫痪：</strong> LSPosed需要注入应用进程才能工作，而Zygisk是完成这种注入的关键桥梁。关闭Zygisk，LSPosed就失去了“兵力投送”的能力，其框架本身和所有模块都将<strong>完全无法加载和工作</strong>！其他依赖进程注入的模块（如部分字体修改、深度系统优化模块）同样会失效。</li>
-<li><strong>部分现代Magisk模块功能受限：</strong> 许多新模块都设计为需要Zygisk环境才能发挥全部效力。</li>
-</ol>
-</li>
-<li><strong>结论：</strong> <strong>Zygisk是Magisk强大功能（特别是Root隐藏和LSPosed生态）得以实现的基石。关闭Zygisk，等于自废武功，使大部分高级模块陷入瘫痪！非必要，切勿关闭！</strong></li>
-</ul>
-<h4 id="四、警惕糖衣炮弹：防格机模块"><a href="#四、警惕糖衣炮弹：防格机模块" class="headerlink" title="四、警惕糖衣炮弹：防格机模块"></a><strong>四、警惕糖衣炮弹：防格机模块</strong></h4><blockquote>
-<p>革命队伍要纯洁，模块仓库有风险！</p>
-</blockquote>
-<p>如同要警惕混入革命队伍的敌人，<strong>刷入来源不明、未经充分验证的模块是极其危险的！</strong></p>
-<ul>
-<li><strong>“格机模块”的危害：</strong> 这类恶意模块如同“特洛伊木马”，一旦刷入，可能在启动时执行破坏性脚本，导致：<ul>
-<li><strong>系统关键文件被删除或篡改。</strong></li>
-<li><strong>无限重启，手机变“砖”。</strong></li>
-<li><strong>数据被清空（Factory Reset &#x2F; Format Data）。</strong></li>
-</ul>
-</li>
-<li><strong>防御策略（肃反手段）：</strong><ol>
-<li><strong>提高警惕，擦亮眼睛：</strong> 绝不轻信论坛、非官方渠道的所谓“神奇”、“一键破解”模块，尤其警惕要求刷入后格式化Data分区的模块。</li>
-<li><strong>依靠群众，调查研究：</strong> 刷入任何模块前，务必查阅<strong>可靠社区</strong>（如XDA, 酷安相关板块）的评价反馈，了解其<strong>具体功能、风险、兼容性</strong>。</li>
-<li><strong>隔离审查（沙盒测试）：</strong> 如果条件允许，先在备用机或模拟器上测试。</li>
-<li><strong>备份！备份！再备份！</strong> 刷机前通过TWRP等Recovery完整备份系统（Boot, System, Data, Vendor等关键分区），这是最后的防线！</li>
-</ol>
-</li>
-</ul>
-<h4 id="五、最后的堡垒：刷入救砖模块"><a href="#五、最后的堡垒：刷入救砖模块" class="headerlink" title="五、最后的堡垒：刷入救砖模块"></a>五、最后的堡垒：刷入救砖模块</h4><blockquote>
-<p>凡事预则立，不预则废。</p>
-</blockquote>
-<p>在复杂的刷机斗争中，难免遭遇挫折（如模块冲突导致无法开机）。<strong>预先部署“救砖模块”，就是保留革命的火种，确保有生力量。</strong></p>
-<ul>
-<li><strong>推荐利器：神仙自动救砖模块：</strong><ul>
-<li><strong>工作原理：</strong> 此模块如同潜伏在系统深处的“应急响应小组”。</li>
-<li><strong>触发机制：</strong><ul>
-<li><strong>卡开机动画循环：</strong> 如果设备连续重启（例如达到3次）仍卡在开机Logo处，模块会自动触发救援。</li>
-<li><strong>卡第二屏（如厂商Logo&#x2F;“Powered by Android”）超时：</strong> 如果在此界面停留超过预设时间（如90秒），模块也会启动。</li>
-</ul>
-</li>
-<li><strong>救援行动：</strong><ol>
-<li><strong>自动禁用所有Magisk模块：</strong> 这是解决因模块冲突导致无法开机的<strong>最有效手段</strong>。</li>
-<li><strong>自动解冻被冻结的应用：</strong> 解决因误冻结关键系统应用（如桌面Launcher、系统UI）导致的黑屏&#x2F;无法进入系统问题。</li>
-</ol>
-</li>
-<li><strong>战略意义：</strong> 刷入此类模块，就如同在后方建立了安全的“根据地”和“野战医院”。当前线（系统启动）遭遇重大挫折（无法开机）时，它能自动实施“战场急救”，<strong>极大提高设备从软件故障中“自救”成功的机会</strong>，避免需要连接电脑使用复杂命令（Fastboot&#x2F;ADB）或重刷系统的麻烦（保住Data数据尤为重要！）。</li>
-</ul>
-</li>
-<li><strong>部署要求：</strong> <strong>务必在系统还能正常启动时刷入！</strong> 变砖后再想刷就晚了！将此模块视为Magisk环境的“基本险”。</li>
-</ul>
-<hr>
-<h4 id="总结与号召"><a href="#总结与号召" class="headerlink" title="总结与号召"></a><strong>总结与号召</strong></h4><blockquote>
-<p>同志们，刷机有风险，探索需谨慎，但掌握正确的方法和武器，就能化险为夷，让手机真正为我们所用！</p>
-</blockquote>
-<ol>
-<li><strong>隐蔽是前提：</strong> Shamiko + 隐藏应用列表 是生存之道。</li>
-<li><strong>框架是平台：</strong> LSPosed 是应用级改造的强大武器库，<strong>但务必合法合规使用！</strong></li>
-<li><strong>Zygisk是根基：</strong> 务必开启，它是现代Magisk模块生态的命脉，关闭则万事休矣！</li>
-<li><strong>安全是底线：</strong> 严防死守“格机模块”，来源不明绝不刷入！</li>
-<li><strong>备份是后路：</strong> TWRP等Recovery备份是终极保险。</li>
-<li><strong>救砖是保障：</strong> <strong>立即行动！</strong> 现在就刷入“神仙自动救砖”或类似可靠救砖模块，建立你的最后防线！</li>
-</ol>
-<p>让我们发扬“自力更生，艰苦奋斗”的精神，在Android系统改造的实践中，“从战争中学习战争”，不断掌握新知识，解决新问题！务必牢记：“战略上藐视敌人（技术困难），战术上重视敌人（每一个操作步骤）”。</p>
-<p><strong>让我们团结起来，争取更大的刷机自由！</strong></p>
-]]></content>
-      <tags>
-        <tag>Root</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
-    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
-<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
-<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Win 8.1 x64 集成补丁镜像</title>
-    <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
-    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
-<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
-<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
-</ol>
-<span id="more"></span>
-
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
-<p>校验信息：</p>
-<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
-]]></content>
-      <tags>
-        <tag>Win 8.1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p><strong>注意:</strong></p>
-<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
-<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
-<span id="more"></span>
-
-<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
-<p>使用方法:</p>
-<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <url>/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
-<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
-<span id="more"></span>
-
-<h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
-<p>打开APPX的属性，然后点击数字签名选项卡</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_11.png"></p>
-<p>点击详细信息</p>
-<p>在详细信息窗口中点击查看证书</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_12.png"></p>
-<p>点击安装证书</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_13.png"></p>
-<p>储存位置选择本地计算机</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_14.png"></p>
-<p>点击下一步</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_15.png"></p>
-<p>在证书储存中选择将所有证书都放入下列储存</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_16.png"></p>
-<p>点击浏览</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_17.png"></p>
-<p>在弹出的窗口中选择受信任的根证书颁发机构</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_18.png"></p>
-<p>点击确定</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_19.png"></p>
-<p>点击下一步</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_20.png"></p>
-<p>点击完成</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_ZW.png"></p>
-<p>若弹出导入成功的提示说明证书导入成功</p>
-<h3 id="2-使用WindowsAppBoss安装APPX"><a href="#2-使用WindowsAppBoss安装APPX" class="headerlink" title="2.使用WindowsAppBoss安装APPX"></a>2.使用WindowsAppBoss安装APPX</h3><p>以管理员身份运行WindowsAppBoss，点击Install<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_22.png"><br>在弹出的窗口中点击Enable side loading<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_23.png"></p>
-<p>点击Browse</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_24.png"></p>
-<p>在弹出的窗口中选择APPX的位置</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_25.png"></p>
-<p>选择完成后点击Add Package</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_26.png"></p>
-<p>若窗口中出现Task succeeded则代表安装成功</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_27.png"></p>
-<p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
-<span id="more"></span>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>扫雷破解版</title>
-    <url>/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
-    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
-<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
-<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
-<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
-<li>Minesweeper文件夹：原版扫雷游戏。</li>
-<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>破解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>本站镜像站启用</title>
     <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
     <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
@@ -251,76 +9,108 @@ E -.-> G[Hook系统级功能]</pre>
 ]]></content>
   </entry>
   <entry>
-    <title>演讲稿</title>
-    <url>/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/</url>
-    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
-<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
-<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
-<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
-<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
-<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
-<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
-<p>我的演讲完毕，谢谢大家！</p>
-<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
-<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
-<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
+    <title>OnePlus Ace5 Ultra 内核构建项目</title>
+    <url>/2025/09/27/OnePlus%20Ace5%20Ultra%20%E5%86%85%E6%A0%B8%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><p><strong>警告：系统版本为610的用户请勿使用本项目，根据<a href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI/issues/4">用户反馈</a>610系统刷入内核后会无限重启。</strong></p>
+<p><strong>并且目前一加官方尚未开源最新的610内核源码（<a href="https://github.com/OnePlusOSS/android_kernel_oneplus_mt6991">官方仓库</a>），我们无法进行适配工作。</strong></p>
+<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p>
+<h2 id="核心功能特性"><a href="#核心功能特性" class="headerlink" title="核心功能特性"></a>核心功能特性</h2><h3 id="Root-管理器支持"><a href="#Root-管理器支持" class="headerlink" title="Root 管理器支持"></a>Root 管理器支持</h3><ul>
+<li><strong>SukiSU Ultra</strong> - 增强版 SukiSU 权限管理框架（默认选择）</li>
+<li><strong>KernelSU Next</strong> - 下一代内核级权限管理系统</li>
+<li><strong>KernelSU</strong> - 原版内核级权限管理</li>
+<li><strong>KPM 模块支持</strong>（仅对 SukiSU-Ultra 生效，谨慎开启，可能导致无法开机）</li>
 </ul>
-<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>谷歌小恐龙</title>
-    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
-    <content><![CDATA[<p>体验：</p>
-<span id="more"></span>
-
-<p>(按空格键开始)</p>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>部署UWP应用为系统预装应用</title>
-    <url>/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
-<ol>
-<li><p><strong>准备应用包</strong></p>
-<ul>
-<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
-<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
+<h3 id="文件系统优化"><a href="#文件系统优化" class="headerlink" title="文件系统优化"></a>文件系统优化</h3><ul>
+<li><strong>SUSFS 文件系统</strong> - 支持魔术挂载、路径重定向和符号链接欺骗功能</li>
+</ul>
+<h3 id="压缩算法选项"><a href="#压缩算法选项" class="headerlink" title="压缩算法选项"></a>压缩算法选项</h3><ul>
+<li><strong>lz4 1.10.0 + zstd 1.5.7</strong> - 更新的压缩算法支持（默认选择）</li>
+<li><strong>lz4kd</strong> - 高效内存压缩算法（可选启用）</li>
+<li><strong>全部安装</strong> - 同时启用两种压缩优化</li>
+</ul>
+<h3 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h3><ul>
+<li><strong>BBR 拥塞控制算法</strong> - 可选仅加入算法或设为默认 TCP 拥塞控制</li>
+<li>支持多种拥塞控制算法：CUBIC、VEGAS、NV、WESTWOOD、HTCP、BRUTAL</li>
+</ul>
+<h3 id="I-O-调度器"><a href="#I-O-调度器" class="headerlink" title="I&#x2F;O 调度器"></a>I&#x2F;O 调度器</h3><ul>
+<li><strong>ADIOS IO 调度器</strong> - 结合截止时间优先调度与自适应延迟控制算法，降低 I&#x2F;O 延迟</li>
+</ul>
+<h3 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h3><ul>
+<li><strong>Re-Kernel 支持</strong> - 用于与 Freezer、NoActive 等软件配合使用，提升冻结后台能力</li>
+<li><strong>风驰调度器</strong> - 官方原版风驰（scx）调度器</li>
+</ul>
+<h3 id="安全保护机制"><a href="#安全保护机制" class="headerlink" title="安全保护机制"></a>安全保护机制</h3><ul>
+<li><strong>Baseband-guard 防格机</strong> - 内核层面阻止对关键分区&#x2F;设备节点的非法写入（默认开启）</li>
+</ul>
+<h3 id="自定义选项"><a href="#自定义选项" class="headerlink" title="自定义选项"></a>自定义选项</h3><ul>
+<li><strong>内核后缀</strong> - 自定义内核版本标识</li>
+<li><strong>内核构建日期</strong> - 修改内核版本信息中的构建时间戳</li>
+</ul>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
+<li>GitHub 账户</li>
+<li>已 Fork 本项目到个人仓库</li>
+</ul>
+<h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol>
+<li><strong>访问 GitHub Actions</strong><ul>
+<li>进入您 Fork 后的仓库页面</li>
+<li>点击顶部导航栏的 “Actions” 选项卡</li>
+</ul>
+</li>
+<li><strong>选择工作流</strong><ul>
+<li>在左侧边栏选择 “Oneplus_Ace5_Ultra_GKI” 工作流</li>
+</ul>
+</li>
+<li><strong>配置构建参数</strong><ul>
+<li>点击 “Run workflow” 按钮</li>
+<li>根据需求配置以下参数：<ul>
+<li><strong>KernelSU分支</strong>：选择 Root 管理器类型（默认：SukiSU-Ultra）</li>
+<li><strong>是否开启KPM</strong>：仅对 SukiSU-Ultra 生效（默认：false）</li>
+<li><strong>lz4 补丁选项</strong>：选择压缩算法优化（默认：安装lz4&amp;zstd补丁）</li>
+<li><strong>基带保护</strong>：启用内核级基带保护（默认：true）</li>
+<li><strong>BBR算法</strong>：网络拥塞控制优化（默认：关闭）</li>
+<li><strong>ADIOS调度器及Re-Kernel</strong>：I&#x2F;O 和系统优化（默认：均不安装）</li>
+<li><strong>内核后缀</strong>：自定义内核标识</li>
+<li><strong>内核构建日期</strong>：修改版本信息中的时间戳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>启动构建过程</strong><ul>
+<li>点击 “Run workflow” 开始自动化构建</li>
+<li>构建过程通常需要 15-30 分钟</li>
 </ul>
 </li>
 </ol>
-<span id="more"></span>
-<ol start="2">
-<li><p><strong>以管理员身份部署</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-Online</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span> <span class="literal">-SkipLicense</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /Online /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure>
-
+<h3 id="构建输出"><a href="#构建输出" class="headerlink" title="构建输出"></a>构建输出</h3><p>构建完成后，在工作流的 Artifacts 区域可以下载 AnyKernel3 刷机包，文件名格式为：<code>Kernel_[类型]_v[版本]_[时间戳]_[特性标志].zip</code></p>
+<h2 id="技术特性说明"><a href="#技术特性说明" class="headerlink" title="技术特性说明"></a>技术特性说明</h2><h3 id="编译优化"><a href="#编译优化" class="headerlink" title="编译优化"></a>编译优化</h3><ul>
+<li>使用 LLVM Clang 18 工具链编译</li>
+<li>启用 O2 编译优化</li>
+<li>集成 ccache 编译缓存，提升构建速度</li>
+</ul>
+<h3 id="兼容性支持"><a href="#兼容性支持" class="headerlink" title="兼容性支持"></a>兼容性支持</h3><ul>
+<li><strong>Android 版本</strong>：Android 15</li>
+<li><strong>内核版本</strong>：6.6</li>
+</ul>
+<h2 id="支持与反馈"><a href="#支持与反馈" class="headerlink" title="支持与反馈"></a>支持与反馈</h2><p>提出 BUG 反馈之前，请检查是否为管理器自身&#x2F;上游问题，因为部分管理器自身 BUG 较多</p>
+<p>如遇技术问题，请按以下步骤排查：</p>
 <ul>
-<li><strong>Online</strong>: 直接部署到当前运行的系统中。</li>
-<li><strong>SkipLicense</strong>: 跳过许可证验证（仅限测试环境）。</li>
+<li>确认设备型号为 OnePlus Ace5 Ultra</li>
+<li>验证 Android 版本与内核版本匹配</li>
+<li>刷机前务必备份重要数据</li>
+<li>确保电池电量充足（建议 &gt;50%）</li>
+<li>若要反馈问题，需给出<strong>完整日志</strong></li>
 </ul>
-</li>
-<li><p><strong>脱机部署（系统映像集成）</strong></p>
-<p> 若需预装到系统镜像（如OOBE阶段）：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-SkipLicense</span> <span class="literal">-Path</span> <span class="string">&quot;C:\Mount&quot;</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /<span class="built_in">Add-ProvisionedAppxPackage</span> /ImageFile:<span class="string">&quot;mount_folder&quot;</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>由于手动输入命令过于繁琐，于是编写了一个小脚本来实现一键部署指定文件夹里的所有 .appx 或 .appxbundle 文件部署到系统映像。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义镜像路径和包含 Appx 包的文件夹路径</span></span><br><span class="line"><span class="variable">$imagePath</span> = <span class="string">&quot;mount_folder&quot;</span> <span class="comment">#将mount_folder替换为映像位置，如 C:\Mount</span></span><br><span class="line"><span class="variable">$appxFolder</span> = <span class="string">&quot;Appx_folder&quot;</span> <span class="comment">#将Appx_folder替换为APPX位置，如 C:\Test\Apps\MyPackedApp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹中所有的 .appx 和 .appxbundle 文件</span></span><br><span class="line"><span class="variable">$appxPackages</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appx <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="variable">$appxBundles</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appxbundle <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line"><span class="variable">$allPackages</span> = <span class="variable">$appxPackages</span> + <span class="variable">$appxBundles</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历每个包并使用 DISM 命令进行安装</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$package</span> <span class="keyword">in</span> <span class="variable">$allPackages</span>) &#123;</span><br><span class="line">    <span class="built_in">Write-Host</span> <span class="string">&quot;正在安装包: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    dism.exe /Image:<span class="variable">$imagePath</span> /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;<span class="variable">$package</span>&quot;</span> /SkipLicense</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$LASTEXITCODE</span> <span class="operator">-ne</span> <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="string">&quot;安装失败: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Write-Host</span> <span class="string">&quot;成功安装: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>将上述脚本保存为 .ps1 文件并以管理员权限运行它。确保在运行脚本之前，你已正确配置了 $imagePath 和 $appxFolder 变量以匹配你的环境。这样就可以自动化安装文件夹中的所有 appx 文件了。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
-<li><strong>多用户支持</strong>：系统预装应用将自动为所有用户安装，但首次登录时可能需要初始化。</li>
-<li><strong>更新策略</strong>：系统应用需通过Windows Update或手动更新（需相同证书重新签名后部署）。</li>
+<h2 id="法律声明与免责条款"><a href="#法律声明与免责条款" class="headerlink" title="法律声明与免责条款"></a>法律声明与免责条款</h2><h3 id="使用条款"><a href="#使用条款" class="headerlink" title="使用条款"></a>使用条款</h3><ul>
+<li>本内核仅供技术学习和研究使用</li>
+<li>用户需自行承担刷机风险</li>
+<li>作者不对因使用本内核导致的设备问题负责</li>
+<li>若有任何倒卖行为，则替开发者挡灾挡难</li>
 </ul>
-<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="项目支持"><a href="#项目支持" class="headerlink" title="项目支持"></a>项目支持</h2><p>如果您觉得这个项目对您有帮助，请考虑给予 Star ⭐ 支持项目发展。</p>
+<p>对于技术问题和功能建议，欢迎通过 GitHub Issues 反馈。</p>
+<hr>
+<p><strong>注意</strong>：刷机有风险，操作需谨慎。请在充分了解相关技术知识后进行刷机操作。</p>
 ]]></content>
-      <tags>
-        <tag>Metro</tag>
-        <tag>APPX</tag>
-      </tags>
   </entry>
   <entry>
     <title>Arch Linux 安装指南（支持Arch to go）</title>
@@ -477,141 +267,317 @@ E -.-> G[Hook系统级功能]</pre>
 ]]></content>
   </entry>
   <entry>
-    <title>OnePlus Ace5 Ultra 内核构建项目</title>
-    <url>/2025/09/27/OnePlus%20Ace5%20Ultra%20%E5%86%85%E6%A0%B8%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI">ZXCLF&#x2F;Oneplus_Ace5_Ultra_GKI</a></p>
-<p><strong>警告：系统版本为610的用户请勿使用本项目，根据<a href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI/issues/4">用户反馈</a>610系统刷入内核后会无限重启。</strong></p>
-<p><strong>并且目前一加官方尚未开源最新的610内核源码（<a href="https://github.com/OnePlusOSS/android_kernel_oneplus_mt6991">官方仓库</a>），我们无法进行适配工作。</strong></p>
+    <title>Magisk模块刷入指南：一场Android系统的持久战</title>
+    <url>/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
+<p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
+<p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
 <span id="more"></span>
 
-<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p>
-<h2 id="核心功能特性"><a href="#核心功能特性" class="headerlink" title="核心功能特性"></a>核心功能特性</h2><h3 id="Root-管理器支持"><a href="#Root-管理器支持" class="headerlink" title="Root 管理器支持"></a>Root 管理器支持</h3><ul>
-<li><strong>KernelSU Next</strong> - 下一代内核级权限管理系统</li>
-<li><strong>SukiSU Ultra</strong> - 增强版 SukiSU 权限管理框架</li>
-<li>KPM 模块支持（谨慎开启，可能导致无法开机）: 可选启用内核模块功能</li>
-</ul>
-<h3 id="文件系统优化"><a href="#文件系统优化" class="headerlink" title="文件系统优化"></a>文件系统优化</h3><ul>
-<li><strong>SUSFS 文件系统</strong> - 支持魔术挂载、路径重定向和符号链接欺骗功能</li>
-</ul>
-<h3 id="压缩算法选项"><a href="#压缩算法选项" class="headerlink" title="压缩算法选项"></a>压缩算法选项</h3><ul>
-<li><strong>lz4kd</strong> - 高效内存压缩算法（可选启用）</li>
-<li><strong>标准 lz4 + zstd</strong> - 稳定可靠的压缩方案（默认选择）</li>
-</ul>
-<h3 id="网络性能优化"><a href="#网络性能优化" class="headerlink" title="网络性能优化"></a>网络性能优化</h3><ul>
-<li><strong>BBR TCP 拥塞控制</strong> -BBR 网络加速算法</li>
-</ul>
-<h3 id="安全保护机制"><a href="#安全保护机制" class="headerlink" title="安全保护机制"></a>安全保护机制</h3><ul>
-<li><strong>Baseband-guard 防格机</strong> - 内核层面阻止对关键分区&#x2F;设备节点的非法写入</li>
-<li><strong>HMBird GKI 补丁</strong> - 强制将 HMBIRD_OGKI 转换为 HMBIRD_GKI</li>
-</ul>
-<h3 id="已删除的特性"><a href="#已删除的特性" class="headerlink" title="已删除的特性"></a>已删除的特性</h3><p><del><strong>风驰调度器</strong>: 可选启用 sched_ext 风驰驱动</del>（无法启用风驰调速器，删了省心）</p>
-<p><del><strong>代理性能优化</strong></del>（几乎没有用途，并且<strong>联发科芯片有几率导致设备无法连接网络</strong>）</p>
-<h3 id="多版本兼容性"><a href="#多版本兼容性" class="headerlink" title="多版本兼容性"></a>多版本兼容性</h3><ul>
-<li><strong>Android 版本支持</strong>：Android 14 &#x2F; Android 15</li>
-<li><strong>内核版本支持</strong>：6.1 &#x2F; 6.6</li>
-</ul>
-<h2 id="快速开始指南"><a href="#快速开始指南" class="headerlink" title="快速开始指南"></a>快速开始指南</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
-<li>GitHub 账户</li>
-<li>已 Fork 本项目到个人仓库</li>
-</ul>
-<h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol>
-<li><p><strong>访问 GitHub Actions</strong></p>
+<p><strong>关键选择：推荐 Magisk_Alpha！</strong></p>
 <ul>
-<li>进入您 Fork 后的仓库页面</li>
-<li>点击顶部导航栏的 “Actions” 选项卡</li>
+<li><strong>为何是 Alpha？</strong> 同志们！官方 Magisk 虽好，但其隐藏性在敌人日益严密的“检测扫荡”（银行App、游戏反作弊、部分支付应用）面前，渐显吃力。Magisk_Alpha（由活跃社区维护）在隐藏性上做了大量卓有成效的改进工作，其“反检测”能力更强，更能帮助我们潜伏在敌人心脏地带而不被发现！<strong>隐蔽性就是战斗力！</strong> 务必优先选用！</li>
+<li><strong>警惕 Kitsune_Mask (原 Magisk Delta)！</strong> 过去它曾是一支劲旅，但<strong>现已停止维护</strong>！停更的武器，就像生了锈的刺刀，非但不能杀敌，反而可能伤己！众多同志反馈，它存在严重Bug，例如<strong>导致32位应用程序无法运行，甚至可能迫使你进行“恢复出厂设置”这种惨烈的战略撤退才能解决问题！</strong> 我们绝不能让这样的隐患留在我们的队伍里！</li>
 </ul>
-</li>
-<li><p><strong>选择工作流</strong></p>
+<h4 id="一、隐蔽战线是生命线：Shamiko模块"><a href="#一、隐蔽战线是生命线：Shamiko模块" class="headerlink" title="一、隐蔽战线是生命线：Shamiko模块"></a><strong>一、隐蔽战线是生命线：Shamiko模块</strong></h4><blockquote>
+<p>敌进我退，敌驻我扰，敌疲我打，敌退我追</p>
+</blockquote>
+<p>在Root的战场上，面对强大的、日益精密的Root检测（如银行APP、部分游戏、公司MDM软件），一味蛮干（直接暴露Root）是要吃大亏的！<strong>Shamiko模块，就是执行“敌后隐蔽工作”的精锐力量。</strong></p>
 <ul>
-<li>在左侧边栏选择 “Oneplus_Ace5_Ultra_GKI” 工作流</li>
-</ul>
-</li>
-<li><p><strong>配置构建参数</strong></p>
-<ul>
-<li>点击 “Run workflow” 按钮</li>
-<li>填写构建参数</li>
-</ul>
-</li>
-<li><p><strong>启动构建过程</strong></p>
-<ul>
-<li>点击 “Run workflow” 开始自动化构建</li>
-<li>构建过程通常需要 15-30 分钟</li>
-</ul>
-</li>
+<li><strong>核心任务：</strong> Shamiko不直接“消灭”检测（如Magisk Hide或早期DenyList），而是巧妙地“融入群众”（系统环境），让检测者“视而不见”。<strong>强烈推荐使用它的白名单模式。</strong></li>
+<li><strong>工作方法（白名单模式）：</strong><ol>
+<li>在Magisk设置中启用<strong>Zygisk</strong>（这是基础，后面详谈）。</li>
+<li><strong>刷入Shamiko模块。</strong> Shamiko会以更底层、更隐蔽的方式对应用进行“伪装”，使其无法探测到Zygisk和Root的存在。</li>
 </ol>
-<h3 id="构建输出"><a href="#构建输出" class="headerlink" title="构建输出"></a>构建输出</h3><p>构建完成后，在工作流的 Artifacts 区域可以下载AnyKernel3 刷机包</p>
-<h2 id="高级配置选项"><a href="#高级配置选项" class="headerlink" title="高级配置选项"></a>高级配置选项</h2><h3 id="自定义内核设置"><a href="#自定义内核设置" class="headerlink" title="自定义内核设置"></a>自定义内核设置</h3><p>用户可以通过以下方式自定义构建配置：</p>
+</li>
+<li><strong>重要意义：</strong> 正确配置Shamiko，就如同给我们的Root行动披上了“隐身衣”，是保障金融安全、游戏畅玩、工作APP正常使用的<strong>关键一招</strong>。<strong>忽视隐蔽工作，等于主动向敌人暴露目标！</strong></li>
+</ul>
+<h4 id="二、灵活机动的战略战术：LSPosed框架"><a href="#二、灵活机动的战略战术：LSPosed框架" class="headerlink" title="二、灵活机动的战略战术：LSPosed框架"></a><strong>二、灵活机动的战略战术</strong>：LSPosed框架</h4><blockquote>
+<p>以子之矛，陷子之盾</p>
+</blockquote>
+<p>Magisk给了我们根据地（Root），但要在应用层面进行更精细、更灵活的改造，就需要 <strong>LSPosed框架</strong>。它是新一代的Xposed实现，依托于Zygisk，<strong>运行效率更高，兼容性更好，模块管理更清晰。</strong></p>
+<ul>
+<li><strong>战略地位：</strong> LSPosed本身是一个Magisk模块。刷入它，就相当于建立了一个强大的“前线指挥部”，可以调度和指挥各种功能模块（Modules）对单个或特定应用进行“定点改造”。</li>
+<li><strong>重要作战单元（模块举例）：</strong><ul>
+<li><strong>隐藏应用列表模块（Hide-My-Applis）：</strong> 此乃配合Shamiko作战的“反间谍利器”。它能阻止APP检测你手机上安装了哪些应用（尤其是一些敏感或破解工具），进一步切断敌人情报来源。</li>
+<li><strong>New Hook Vip等模块（仅供学习研究！）：</strong> 这类模块如同缴获的“特殊装备”，可能能解锁某些应用的特定功能（如去广告、会员权限）。<strong>务必深刻认识：</strong> 此类行为涉及版权和法律风险，如同在敌占区使用缴获武器，<strong>必须慎之又慎！</strong> 本指南<strong>仅提供技术可能性探讨，强调其学习研究价值，坚决反对用于非法目的和侵害他人合法权益。</strong> “武器”本身无罪，关键在于使用者的目的和是否符合最广大人民群众的根本利益（法律与道德）。</li>
+</ul>
+</li>
+<li><strong>运作原理：</strong> LSPosed模块通过Hook（钩子）应用进程，在特定函数执行前后注入自己的代码，从而改变应用的行为。这种“嵌入作战”方式，使得功能修改更加精准和动态。</li>
+</ul>
+<h4 id="三、革命的命脉：Zygisk"><a href="#三、革命的命脉：Zygisk" class="headerlink" title="三、革命的命脉：Zygisk"></a><strong>三、革命的命脉</strong>：Zygisk</h4><blockquote>
+<p>兵马未动，粮草先行。</p>
+</blockquote>
+<pre class="mermaid">graph LR
+A[Zygote进程] --> B[Zygisk注入]
+B --> C[模块寄生系统核心]
+C --> D[Shamiko生效]
+C --> E[LSPosed框架激活]
+D -.-> F[Root隐藏]
+E -.-> G[Hook系统级功能]</pre>
+
+<p><strong>Zygisk (Zygote注入) 是Magisk现代体系的核心引擎和生命线！</strong></p>
+<ul>
+<li><strong>重要推荐：使用 Zygisk_Next！</strong> 同志们！原版Zygisk固然可用，但 <strong>Zygisk_Next</strong> 是社区在原版基础上的重大改进！它在<strong>稳定性、兼容性、特别是隐藏性（反检测）上更进一步！</strong> 它更有效地对抗着各种针对Zygisk的检测手段。<strong>“工欲善其事，必先利其器”，Zygisk_Next 就是我们更锋利的渗透匕首！</strong></li>
+<li><strong>核心作用与原理：</strong><ul>
+<li>Android系统启动应用时，都派生自一个叫<code>Zygote</code>的母进程。</li>
+<li><strong>Zygisk</strong> 的核心功能，就是将自己（Magisk的核心组件）<strong>注入到<code>Zygote</code>进程中</strong>。这样一来，<strong>所有</strong>从Zygote孵化的应用程序进程，<strong>天生就继承了Magisk的环境和功能</strong>（如Root权限管理、ROOT隐藏（Shamiko）、以及最重要的——加载LSPosed等需要注入到应用进程的框架和模块）。</li>
+</ul>
+</li>
+<li><strong>不开启Zygisk的严重后果（如同切断补给线）：</strong><ol>
+<li><strong>LSPosed框架及其所有模块瘫痪：</strong> LSPosed需要注入应用进程才能工作，而Zygisk是完成这种注入的关键桥梁。关闭Zygisk，LSPosed就失去了“兵力投送”的能力，其框架本身和所有模块都将<strong>完全无法加载和工作</strong>！其他依赖进程注入的模块（如部分字体修改、深度系统优化模块）同样会失效。</li>
+<li><strong>部分现代Magisk模块功能受限：</strong> 许多新模块都设计为需要Zygisk环境才能发挥全部效力。</li>
+</ol>
+</li>
+<li><strong>结论：</strong> <strong>Zygisk是Magisk强大功能（特别是Root隐藏和LSPosed生态）得以实现的基石。关闭Zygisk，等于自废武功，使大部分高级模块陷入瘫痪！非必要，切勿关闭！</strong></li>
+</ul>
+<h4 id="四、警惕糖衣炮弹：防格机模块"><a href="#四、警惕糖衣炮弹：防格机模块" class="headerlink" title="四、警惕糖衣炮弹：防格机模块"></a><strong>四、警惕糖衣炮弹：防格机模块</strong></h4><blockquote>
+<p>革命队伍要纯洁，模块仓库有风险！</p>
+</blockquote>
+<p>如同要警惕混入革命队伍的敌人，<strong>刷入来源不明、未经充分验证的模块是极其危险的！</strong></p>
+<ul>
+<li><strong>“格机模块”的危害：</strong> 这类恶意模块如同“特洛伊木马”，一旦刷入，可能在启动时执行破坏性脚本，导致：<ul>
+<li><strong>系统关键文件被删除或篡改。</strong></li>
+<li><strong>无限重启，手机变“砖”。</strong></li>
+<li><strong>数据被清空（Factory Reset &#x2F; Format Data）。</strong></li>
+</ul>
+</li>
+<li><strong>防御策略（肃反手段）：</strong><ol>
+<li><strong>提高警惕，擦亮眼睛：</strong> 绝不轻信论坛、非官方渠道的所谓“神奇”、“一键破解”模块，尤其警惕要求刷入后格式化Data分区的模块。</li>
+<li><strong>依靠群众，调查研究：</strong> 刷入任何模块前，务必查阅<strong>可靠社区</strong>（如XDA, 酷安相关板块）的评价反馈，了解其<strong>具体功能、风险、兼容性</strong>。</li>
+<li><strong>隔离审查（沙盒测试）：</strong> 如果条件允许，先在备用机或模拟器上测试。</li>
+<li><strong>备份！备份！再备份！</strong> 刷机前通过TWRP等Recovery完整备份系统（Boot, System, Data, Vendor等关键分区），这是最后的防线！</li>
+</ol>
+</li>
+</ul>
+<h4 id="五、最后的堡垒：刷入救砖模块"><a href="#五、最后的堡垒：刷入救砖模块" class="headerlink" title="五、最后的堡垒：刷入救砖模块"></a>五、最后的堡垒：刷入救砖模块</h4><blockquote>
+<p>凡事预则立，不预则废。</p>
+</blockquote>
+<p>在复杂的刷机斗争中，难免遭遇挫折（如模块冲突导致无法开机）。<strong>预先部署“救砖模块”，就是保留革命的火种，确保有生力量。</strong></p>
+<ul>
+<li><strong>推荐利器：神仙自动救砖模块：</strong><ul>
+<li><strong>工作原理：</strong> 此模块如同潜伏在系统深处的“应急响应小组”。</li>
+<li><strong>触发机制：</strong><ul>
+<li><strong>卡开机动画循环：</strong> 如果设备连续重启（例如达到3次）仍卡在开机Logo处，模块会自动触发救援。</li>
+<li><strong>卡第二屏（如厂商Logo&#x2F;“Powered by Android”）超时：</strong> 如果在此界面停留超过预设时间（如90秒），模块也会启动。</li>
+</ul>
+</li>
+<li><strong>救援行动：</strong><ol>
+<li><strong>自动禁用所有Magisk模块：</strong> 这是解决因模块冲突导致无法开机的<strong>最有效手段</strong>。</li>
+<li><strong>自动解冻被冻结的应用：</strong> 解决因误冻结关键系统应用（如桌面Launcher、系统UI）导致的黑屏&#x2F;无法进入系统问题。</li>
+</ol>
+</li>
+<li><strong>战略意义：</strong> 刷入此类模块，就如同在后方建立了安全的“根据地”和“野战医院”。当前线（系统启动）遭遇重大挫折（无法开机）时，它能自动实施“战场急救”，<strong>极大提高设备从软件故障中“自救”成功的机会</strong>，避免需要连接电脑使用复杂命令（Fastboot&#x2F;ADB）或重刷系统的麻烦（保住Data数据尤为重要！）。</li>
+</ul>
+</li>
+<li><strong>部署要求：</strong> <strong>务必在系统还能正常启动时刷入！</strong> 变砖后再想刷就晚了！将此模块视为Magisk环境的“基本险”。</li>
+</ul>
+<hr>
+<h4 id="总结与号召"><a href="#总结与号召" class="headerlink" title="总结与号召"></a><strong>总结与号召</strong></h4><blockquote>
+<p>同志们，刷机有风险，探索需谨慎，但掌握正确的方法和武器，就能化险为夷，让手机真正为我们所用！</p>
+</blockquote>
 <ol>
-<li><p><strong>修改工作流文件</strong></p>
-<ul>
-<li>调整 <code>KERNEL_SUFFIX</code> 参数自定义内核版本名称</li>
-<li>修改功能开关启用或禁用特定模块</li>
-</ul>
-</li>
-<li><p><strong>编辑内核配置文件</strong></p>
-<ul>
-<li>修改 <code>gki_defconfig</code> 中的配置选项</li>
-<li>添加自定义内核功能模块</li>
-</ul>
-</li>
+<li><strong>隐蔽是前提：</strong> Shamiko + 隐藏应用列表 是生存之道。</li>
+<li><strong>框架是平台：</strong> LSPosed 是应用级改造的强大武器库，<strong>但务必合法合规使用！</strong></li>
+<li><strong>Zygisk是根基：</strong> 务必开启，它是现代Magisk模块生态的命脉，关闭则万事休矣！</li>
+<li><strong>安全是底线：</strong> 严防死守“格机模块”，来源不明绝不刷入！</li>
+<li><strong>备份是后路：</strong> TWRP等Recovery备份是终极保险。</li>
+<li><strong>救砖是保障：</strong> <strong>立即行动！</strong> 现在就刷入“神仙自动救砖”或类似可靠救砖模块，建立你的最后防线！</li>
 </ol>
-<h3 id="支持与反馈"><a href="#支持与反馈" class="headerlink" title="支持与反馈"></a>支持与反馈</h3><p>提出BUG反馈之前，请检查是否为<a href="https://github.com/SukiSU-Ultra/SukiSU-Ultra">SukiSU-Ultra</a>自身问题，因为其自身BUG较多。</p>
-<details>
-<summary>SukiSU Ultra代码质量问题</summary>
-
-<p>包名抽象：com.sukisu.ultra、io.sukisu.ultra、zako.zako.zako</p>
-<p>库文件命名混乱：libzako.so、libzakoboot.so、libzakosign.so 等，难以辨识功能</p>
-<p>函数命名随意：susfsSUS_SU_0()、susfsSUS_SU_2() 等</p>
-<p>项目存在大量不必要的 Shell 命令调用</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 反模式：通过 shell 命令进行文件操作</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">isPathExists</span><span class="params">(path: <span class="type">String</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> runCmd(<span class="string">&quot;file &quot;</span> + path).contains(<span class="string">&quot;No such file or directory&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确做法应使用原生文件API</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">isPathExists</span><span class="params">(path: <span class="type">String</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> File(path).exists()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>异常处理逻辑存在严重设计缺陷：</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getKpmVersionUse</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!rootAvailable()) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>  <span class="comment">// 早期返回违反单一职责原则</span></span><br><span class="line">        <span class="keyword">val</span> version = getKpmVersion()</span><br><span class="line">        <span class="keyword">if</span> (version.isEmpty()) <span class="string">&quot;&quot;</span> <span class="keyword">else</span> version</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">        <span class="string">&quot;Error: <span class="subst">$&#123;e.message&#125;</span>&quot;</span>  <span class="comment">// 异常信息直接暴露给UI层</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用方需要解析错误字符串</span></span><br><span class="line"><span class="keyword">val</span> kpmVersion = getKpmVersionUse()</span><br><span class="line">!kpmVersion.startsWith(<span class="string">&quot;Error&quot;</span>)  <span class="comment">// 字符串解析判断错误状态</span></span><br></pre></td></tr></table></figure>
-
-<p>大量硬编码值：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 硬编码路径，缺乏配置抽象层</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">OUTSIDE_KPMMGR_PATH</span> <span class="operator">=</span> <span class="string">&quot;/data/adb/ksu/bin/kpmmgr&quot;</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">OUTSIDE_SUSFSD_PATH</span> <span class="operator">=</span> <span class="string">&quot;/data/adb/ksu/bin/susfsd&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>root 权限检测和使用的实现：</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">rootAvailable</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> process = Runtime.getRuntime().exec(<span class="string">&quot;su -c id&quot;</span>)  <span class="comment">// 不必要的权限检查</span></span><br><span class="line">        process.waitFor() == <span class="number">0</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (_: Exception) &#123;</span><br><span class="line">        <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>v3.1.9 引入的模块签名验证存在设计问题：</p>
-<p>未考虑兼容性，<strong>没有任何说明就添加至正式版</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">uint32_t</span> <span class="title function_">zako_file_verify_esig</span><span class="params">(<span class="type">file_handle_t</span> fd, <span class="type">uint32_t</span> flags)</span> &#123;</span><br><span class="line">    <span class="type">size_t</span> file_sz = zako_sys_file_sz(fd);</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span>* buffer = zako_sys_file_map(fd, file_sz);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (buffer == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ZAKO_FV_MMAP_FAILED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span>* buff_end = ApplyOffset(buffer, +(file_sz));</span><br><span class="line">    <span class="type">uint64_t</span>* r_magic = (<span class="type">uint64_t</span>*) ApplyOffset(buff_end, <span class="number">-8</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (*r_magic != ZAKO_ESIGNATURE_MAGIC) &#123; <span class="comment">// ZAKO_ESIGNATURE_MAGIC = 0x7a616b6f7369676eull = &#x27;zakosign&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> ZAKO_FV_INVALID_HEADER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">uint64_t</span>* sz = (<span class="type">uint64_t</span>*) ApplyOffset(buff_end, <span class="number">-16</span>);</span><br><span class="line">    <span class="keyword">if</span> (*sz == <span class="number">0</span> || *sz &gt; file_sz) &#123;</span><br><span class="line">        <span class="keyword">return</span> ZAKO_FV_INVALID_HEADER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zako_esignature</span>* <span class="title">esign_buf</span> =</span> (<span class="keyword">struct</span> zako_esignature*) ApplyOffset(sz, -*sz);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Entire file footer is ESignature + ESignatureSize + ESignatureMagic</span></span><br><span class="line"><span class="comment">         which is *sz + sizeof(sz) + 8 = *sz + 16</span></span><br><span class="line"><span class="comment">       So, original file buffer will be FileSize - *sz - 16 */</span></span><br><span class="line">    <span class="type">uint32_t</span> result = zako_esign_verify(esign_buf, buffer, file_sz - *sz - <span class="number">16</span>, flags);</span><br><span class="line"></span><br><span class="line">    zako_sys_file_unmap(buffer, file_sz);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uint32_t</span> <span class="title function_">zako_esign_verify</span><span class="params">(<span class="keyword">struct</span> zako_esignature* esig, <span class="type">uint8_t</span>* buff, <span class="type">size_t</span> len, <span class="type">uint32_t</span> flags)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (esig-&gt;magic != ZAKO_ESIGNATURE_MAGIC) &#123; <span class="comment">// ZAKO_ESIGNATURE_MAGIC = 0x7a616b6f7369676eull = &#x27;zakosign&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> ZAKO_ESV_INVALID_HEADER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (esig-&gt;version != ZAKO_ESIGNATURE_VERSION) &#123;</span><br><span class="line">        <span class="keyword">if</span> (esig-&gt;version &gt; ZAKO_ESIGNATURE_VERSION) &#123;</span><br><span class="line">            <span class="keyword">return</span> ZAKO_ESV_UNSUPPORTED_VERSION;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ZAKO_ESV_OUTDATED_VERSION;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">uint32_t</span> result = <span class="number">0</span>;</span><br><span class="line">    EVP_PKEY* pubkey = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    OnFlag(flags, ZAKO_ESV_INTEGRITY_ONLY) &#123;</span><br><span class="line">        <span class="keyword">goto</span> verify_integrity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Verify Ceritificates */</span></span><br><span class="line"></span><br><span class="line">    <span class="type">uint8_t</span> cert_count = esig-&gt;cert_sz;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zako_der_certificate</span>* <span class="title">cstbl</span>[200] =</span> &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">uint8_t</span>* data = &amp;esig-&gt;data;</span><br><span class="line">    <span class="type">size_t</span> off = (<span class="type">size_t</span>) <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">uint8_t</span> i = <span class="number">0</span>; i &lt; cert_count; i ++) &#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">zako_der_certificate</span>* <span class="title">cert</span> =</span> ApplyOffset(data, +off);</span><br><span class="line">        cstbl[i] = cert;</span><br><span class="line"></span><br><span class="line">        off += <span class="keyword">sizeof</span>(<span class="keyword">struct</span> zako_der_certificate) + cert-&gt;len;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    result |= zako_keychain_verify(&amp;esig-&gt;key, &amp;cstbl);</span><br><span class="line"></span><br><span class="line">verify_integrity:</span><br><span class="line">    pubkey = zako_parse_public_raw(esig-&gt;key.public_key);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (zako_hash_verify(buff, len, esig-&gt;hash) != <span class="number">1</span>) &#123;</span><br><span class="line">        result |= ZAKO_ESV_VERFICATION_FAILED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (zako_verify_buffer(pubkey, esig-&gt;hash, ZAKO_HASH_LENGTH, esig-&gt;signature) != <span class="number">1</span>) &#123;</span><br><span class="line">        result |= ZAKO_ESV_VERFICATION_FAILED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    EVP_PKEY_free(pubkey);</span><br><span class="line"></span><br><span class="line">    <span class="type">uint64_t</span> now = (<span class="type">uint64_t</span>) time(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (esig-&gt;created_at == <span class="number">0</span>) &#123;</span><br><span class="line">        result |= ZAKO_ESV_MISSING_TIMESTAMP;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (esig-&gt;created_at &gt;= now) &#123;</span><br><span class="line">        result |= ZAKO_ESV_UNTRUSTED_TIMESTAMP;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">X509_STORE **<span class="title function_">zako_trustchain_new</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  X509_STORE **safe;</span><br><span class="line">  X509_STORE *v1;</span><br><span class="line">  X509 *v2;</span><br><span class="line"></span><br><span class="line">  safe = (X509_STORE **)zako_allocate_safe(<span class="number">0x18u</span>LL);</span><br><span class="line">  *safe = X509_STORE_new();</span><br><span class="line">  safe[<span class="number">1</span>] = (X509_STORE *)OPENSSL_sk_new_null();</span><br><span class="line">  v1 = *safe;</span><br><span class="line">  v2 = (X509 *)zako_x509_parse_pem(</span><br><span class="line">                 <span class="string">&quot;-----BEGIN CERTIFICATE-----\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;MIIB3zCCAZGgAwIBAgIUOa4KF6KfAg/Jerrx7AX1opSdNLEwBQYDK2VwMHExCzAJ\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;BgNVBAYTAkNIMRIwEAYDVQQHDAlHdWFuZ3pob3UxEjAQBgNVBAgMCUd1YW5nZG9u\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;ZzESMBAGA1UECgwJc2hpcmtuZWtvMRIwEAYDVQQLDAlzaGlya25la28xEjAQBgNV\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;BAMMCXNoaXJrbmVrbzAeFw0yNTA4MTAxNTU2MTRaFw0zNTA4MDgxNTU2MTRaMHEx\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;CzAJBgNVBAYTAkNIMRIwEAYDVQQHDAlHdWFuZ3pob3UxEjAQBgNVBAgMCUd1YW5n\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;ZG9uZzESMBAGA1UECgwJc2hpcmtuZWtvMRIwEAYDVQQLDAlzaGlya25la28xEjAQ\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;BgNVBAMMCXNoaXJrbmVrbzAqMAUGAytlcAMhAKyLThabZFGUsW/deKhLcmwlTF+H\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;KQ78bO6ohwzcgncWozswOTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIC\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;pDAWBgNVHSUBAf8EDDAKBggrBgEFBQcDAzAFBgMrZXADQQB1T6vftHjoaBNTBk85\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;E/HVR6jZZwq4UFJMRWpxpJ0JvGn27tLKYB2ZoXhoUbuCIoYa8e892hRoRB2xG4Jk\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;iU4A\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;-----END CERTIFICATE-----\n&quot;</span>);</span><br><span class="line">  X509_STORE_add_cert(v1, v2);</span><br><span class="line">  <span class="keyword">return</span> safe;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</details>
-
-
-<p>如遇技术问题，请按以下步骤排查：</p>
-<ol>
-<li><p><strong>设备兼容性检查</strong></p>
-<ul>
-<li>确认设备型号为 OnePlus Ace5 Ultra</li>
-<li>验证 Android 版本与内核版本匹配</li>
-</ul>
-</li>
-<li><p><strong>数据安全措施</strong></p>
-<ul>
-<li>刷机前务必备份重要数据</li>
-<li>确保电池电量充足（建议 &gt;50%）</li>
-</ul>
-</li>
-<li><p><strong>日志收集</strong></p>
-<ul>
-<li>保存日志</li>
-<li>记录错误信息</li>
-</ul>
-</li>
-</ol>
-<h2 id="法律声明与免责条款"><a href="#法律声明与免责条款" class="headerlink" title="法律声明与免责条款"></a>法律声明与免责条款</h2><h3 id="使用条款"><a href="#使用条款" class="headerlink" title="使用条款"></a>使用条款</h3><ul>
-<li>本内核仅供技术学习和研究使用</li>
-<li>用户需自行承担刷机风险</li>
-<li>作者不对因使用本内核导致的设备问题负责</li>
-<li>若有任何倒卖行为，则替开发者挡灾挡难</li>
-</ul>
-<h2 id="项目支持"><a href="#项目支持" class="headerlink" title="项目支持"></a>项目支持</h2><p>如果您觉得这个项目对您有帮助，请考虑给予 Star ⭐ 支持项目发展。</p>
-<p>对于技术问题和功能建议，欢迎通过 GitHub Issues 反馈。</p>
+<p>让我们发扬“自力更生，艰苦奋斗”的精神，在Android系统改造的实践中，“从战争中学习战争”，不断掌握新知识，解决新问题！务必牢记：“战略上藐视敌人（技术困难），战术上重视敌人（每一个操作步骤）”。</p>
+<p><strong>让我们团结起来，争取更大的刷机自由！</strong></p>
 ]]></content>
+      <tags>
+        <tag>Root</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>演讲稿</title>
+    <url>/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/</url>
+    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
+<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
+<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
+<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
+<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
+<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
+<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
+<p>我的演讲完毕，谢谢大家！</p>
+<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
+<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
+<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
+<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
+</ul>
+<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>扫雷破解版</title>
+    <url>/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
+<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
+<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
+<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
+<li>Minesweeper文件夹：原版扫雷游戏。</li>
+<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
+    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>好玩的文字特效</title>
+    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>部署UWP应用为系统预装应用</title>
+    <url>/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
+<ol>
+<li><p><strong>准备应用包</strong></p>
+<ul>
+<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
+<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p><strong>以管理员身份部署</strong></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-Online</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span> <span class="literal">-SkipLicense</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /Online /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Online</strong>: 直接部署到当前运行的系统中。</li>
+<li><strong>SkipLicense</strong>: 跳过许可证验证（仅限测试环境）。</li>
+</ul>
+</li>
+<li><p><strong>脱机部署（系统映像集成）</strong></p>
+<p> 若需预装到系统镜像（如OOBE阶段）：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-SkipLicense</span> <span class="literal">-Path</span> <span class="string">&quot;C:\Mount&quot;</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /<span class="built_in">Add-ProvisionedAppxPackage</span> /ImageFile:<span class="string">&quot;mount_folder&quot;</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>由于手动输入命令过于繁琐，于是编写了一个小脚本来实现一键部署指定文件夹里的所有 .appx 或 .appxbundle 文件部署到系统映像。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义镜像路径和包含 Appx 包的文件夹路径</span></span><br><span class="line"><span class="variable">$imagePath</span> = <span class="string">&quot;mount_folder&quot;</span> <span class="comment">#将mount_folder替换为映像位置，如 C:\Mount</span></span><br><span class="line"><span class="variable">$appxFolder</span> = <span class="string">&quot;Appx_folder&quot;</span> <span class="comment">#将Appx_folder替换为APPX位置，如 C:\Test\Apps\MyPackedApp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹中所有的 .appx 和 .appxbundle 文件</span></span><br><span class="line"><span class="variable">$appxPackages</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appx <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="variable">$appxBundles</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appxbundle <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line"><span class="variable">$allPackages</span> = <span class="variable">$appxPackages</span> + <span class="variable">$appxBundles</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历每个包并使用 DISM 命令进行安装</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$package</span> <span class="keyword">in</span> <span class="variable">$allPackages</span>) &#123;</span><br><span class="line">    <span class="built_in">Write-Host</span> <span class="string">&quot;正在安装包: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    dism.exe /Image:<span class="variable">$imagePath</span> /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;<span class="variable">$package</span>&quot;</span> /SkipLicense</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$LASTEXITCODE</span> <span class="operator">-ne</span> <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="string">&quot;安装失败: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Write-Host</span> <span class="string">&quot;成功安装: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将上述脚本保存为 .ps1 文件并以管理员权限运行它。确保在运行脚本之前，你已正确配置了 $imagePath 和 $appxFolder 变量以匹配你的环境。这样就可以自动化安装文件夹中的所有 appx 文件了。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
+<li><strong>多用户支持</strong>：系统预装应用将自动为所有用户安装，但首次登录时可能需要初始化。</li>
+<li><strong>更新策略</strong>：系统应用需通过Windows Update或手动更新（需相同证书重新签名后部署）。</li>
+</ul>
+<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+        <tag>APPX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌小恐龙</title>
+    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
+    <content><![CDATA[<p>体验：</p>
+<span id="more"></span>
+
+<p>(按空格键开始)</p>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
+    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
+<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
+<p>校验信息：</p>
+<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
+]]></content>
+      <tags>
+        <tag>Win 8.1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<span id="more"></span>
+
+<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
+<p>使用方法:</p>
+<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
+    <url>/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
+<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
+<span id="more"></span>
+
+<h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
+<p>打开APPX的属性，然后点击数字签名选项卡</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_11.png"></p>
+<p>点击详细信息</p>
+<p>在详细信息窗口中点击查看证书</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_12.png"></p>
+<p>点击安装证书</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_13.png"></p>
+<p>储存位置选择本地计算机</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_14.png"></p>
+<p>点击下一步</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_15.png"></p>
+<p>在证书储存中选择将所有证书都放入下列储存</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_16.png"></p>
+<p>点击浏览</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_17.png"></p>
+<p>在弹出的窗口中选择受信任的根证书颁发机构</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_18.png"></p>
+<p>点击确定</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_19.png"></p>
+<p>点击下一步</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_20.png"></p>
+<p>点击完成</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_ZW.png"></p>
+<p>若弹出导入成功的提示说明证书导入成功</p>
+<h3 id="2-使用WindowsAppBoss安装APPX"><a href="#2-使用WindowsAppBoss安装APPX" class="headerlink" title="2.使用WindowsAppBoss安装APPX"></a>2.使用WindowsAppBoss安装APPX</h3><p>以管理员身份运行WindowsAppBoss，点击Install<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_22.png"><br>在弹出的窗口中点击Enable side loading<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_23.png"></p>
+<p>点击Browse</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_24.png"></p>
+<p>在弹出的窗口中选择APPX的位置</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_25.png"></p>
+<p>选择完成后点击Add Package</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_26.png"></p>
+<p>若窗口中出现Task succeeded则代表安装成功</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_27.png"></p>
+<p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
   </entry>
 </search>

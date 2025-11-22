@@ -103,7 +103,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.7k</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -112,7 +112,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -127,131 +127,95 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI">ZXCLF&#x2F;Oneplus_Ace5_Ultra_GKI</a></p>
-<p><strong>警告：系统版本为610的用户请勿使用本项目，根据<a target="_blank" rel="noopener" href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI/issues/4">用户反馈</a>610系统刷入内核后会无限重启。</strong></p>
+  <h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><p><strong>警告：系统版本为610的用户请勿使用本项目，根据<a target="_blank" rel="noopener" href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI/issues/4">用户反馈</a>610系统刷入内核后会无限重启。</strong></p>
 <p><strong>并且目前一加官方尚未开源最新的610内核源码（<a target="_blank" rel="noopener" href="https://github.com/OnePlusOSS/android_kernel_oneplus_mt6991">官方仓库</a>），我们无法进行适配工作。</strong></p>
-<span id="more"></span>
-
 <h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p>
 <h2 id="核心功能特性"><a href="#核心功能特性" class="headerlink" title="核心功能特性"></a>核心功能特性</h2><h3 id="Root-管理器支持"><a href="#Root-管理器支持" class="headerlink" title="Root 管理器支持"></a>Root 管理器支持</h3><ul>
+<li><strong>SukiSU Ultra</strong> - 增强版 SukiSU 权限管理框架（默认选择）</li>
 <li><strong>KernelSU Next</strong> - 下一代内核级权限管理系统</li>
-<li><strong>SukiSU Ultra</strong> - 增强版 SukiSU 权限管理框架</li>
-<li>KPM 模块支持（谨慎开启，可能导致无法开机）: 可选启用内核模块功能</li>
+<li><strong>KernelSU</strong> - 原版内核级权限管理</li>
+<li><strong>KPM 模块支持</strong>（仅对 SukiSU-Ultra 生效，谨慎开启，可能导致无法开机）</li>
 </ul>
 <h3 id="文件系统优化"><a href="#文件系统优化" class="headerlink" title="文件系统优化"></a>文件系统优化</h3><ul>
 <li><strong>SUSFS 文件系统</strong> - 支持魔术挂载、路径重定向和符号链接欺骗功能</li>
 </ul>
 <h3 id="压缩算法选项"><a href="#压缩算法选项" class="headerlink" title="压缩算法选项"></a>压缩算法选项</h3><ul>
+<li><strong>lz4 1.10.0 + zstd 1.5.7</strong> - 更新的压缩算法支持（默认选择）</li>
 <li><strong>lz4kd</strong> - 高效内存压缩算法（可选启用）</li>
-<li><strong>标准 lz4 + zstd</strong> - 稳定可靠的压缩方案（默认选择）</li>
+<li><strong>全部安装</strong> - 同时启用两种压缩优化</li>
 </ul>
-<h3 id="网络性能优化"><a href="#网络性能优化" class="headerlink" title="网络性能优化"></a>网络性能优化</h3><ul>
-<li><strong>BBR TCP 拥塞控制</strong> -BBR 网络加速算法</li>
+<h3 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h3><ul>
+<li><strong>BBR 拥塞控制算法</strong> - 可选仅加入算法或设为默认 TCP 拥塞控制</li>
+<li>支持多种拥塞控制算法：CUBIC、VEGAS、NV、WESTWOOD、HTCP、BRUTAL</li>
+</ul>
+<h3 id="I-O-调度器"><a href="#I-O-调度器" class="headerlink" title="I&#x2F;O 调度器"></a>I&#x2F;O 调度器</h3><ul>
+<li><strong>ADIOS IO 调度器</strong> - 结合截止时间优先调度与自适应延迟控制算法，降低 I&#x2F;O 延迟</li>
+</ul>
+<h3 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h3><ul>
+<li><strong>Re-Kernel 支持</strong> - 用于与 Freezer、NoActive 等软件配合使用，提升冻结后台能力</li>
+<li><strong>风驰调度器</strong> - 官方原版风驰（scx）调度器</li>
 </ul>
 <h3 id="安全保护机制"><a href="#安全保护机制" class="headerlink" title="安全保护机制"></a>安全保护机制</h3><ul>
-<li><strong>Baseband-guard 防格机</strong> - 内核层面阻止对关键分区&#x2F;设备节点的非法写入</li>
-<li><strong>HMBird GKI 补丁</strong> - 强制将 HMBIRD_OGKI 转换为 HMBIRD_GKI</li>
+<li><strong>Baseband-guard 防格机</strong> - 内核层面阻止对关键分区&#x2F;设备节点的非法写入（默认开启）</li>
 </ul>
-<h3 id="已删除的特性"><a href="#已删除的特性" class="headerlink" title="已删除的特性"></a>已删除的特性</h3><p><del><strong>风驰调度器</strong>: 可选启用 sched_ext 风驰驱动</del>（无法启用风驰调速器，删了省心）</p>
-<p><del><strong>代理性能优化</strong></del>（几乎没有用途，并且<strong>联发科芯片有几率导致设备无法连接网络</strong>）</p>
-<h3 id="多版本兼容性"><a href="#多版本兼容性" class="headerlink" title="多版本兼容性"></a>多版本兼容性</h3><ul>
-<li><strong>Android 版本支持</strong>：Android 14 &#x2F; Android 15</li>
-<li><strong>内核版本支持</strong>：6.1 &#x2F; 6.6</li>
+<h3 id="自定义选项"><a href="#自定义选项" class="headerlink" title="自定义选项"></a>自定义选项</h3><ul>
+<li><strong>内核后缀</strong> - 自定义内核版本标识</li>
+<li><strong>内核构建日期</strong> - 修改内核版本信息中的构建时间戳</li>
 </ul>
-<h2 id="快速开始指南"><a href="#快速开始指南" class="headerlink" title="快速开始指南"></a>快速开始指南</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
 <li>GitHub 账户</li>
 <li>已 Fork 本项目到个人仓库</li>
 </ul>
 <h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol>
-<li><p><strong>访问 GitHub Actions</strong></p>
-<ul>
+<li><strong>访问 GitHub Actions</strong><ul>
 <li>进入您 Fork 后的仓库页面</li>
 <li>点击顶部导航栏的 “Actions” 选项卡</li>
 </ul>
 </li>
-<li><p><strong>选择工作流</strong></p>
-<ul>
+<li><strong>选择工作流</strong><ul>
 <li>在左侧边栏选择 “Oneplus_Ace5_Ultra_GKI” 工作流</li>
 </ul>
 </li>
-<li><p><strong>配置构建参数</strong></p>
-<ul>
+<li><strong>配置构建参数</strong><ul>
 <li>点击 “Run workflow” 按钮</li>
-<li>填写构建参数</li>
+<li>根据需求配置以下参数：<ul>
+<li><strong>KernelSU分支</strong>：选择 Root 管理器类型（默认：SukiSU-Ultra）</li>
+<li><strong>是否开启KPM</strong>：仅对 SukiSU-Ultra 生效（默认：false）</li>
+<li><strong>lz4 补丁选项</strong>：选择压缩算法优化（默认：安装lz4&amp;zstd补丁）</li>
+<li><strong>基带保护</strong>：启用内核级基带保护（默认：true）</li>
+<li><strong>BBR算法</strong>：网络拥塞控制优化（默认：关闭）</li>
+<li><strong>ADIOS调度器及Re-Kernel</strong>：I&#x2F;O 和系统优化（默认：均不安装）</li>
+<li><strong>内核后缀</strong>：自定义内核标识</li>
+<li><strong>内核构建日期</strong>：修改版本信息中的时间戳</li>
 </ul>
 </li>
-<li><p><strong>启动构建过程</strong></p>
-<ul>
+</ul>
+</li>
+<li><strong>启动构建过程</strong><ul>
 <li>点击 “Run workflow” 开始自动化构建</li>
 <li>构建过程通常需要 15-30 分钟</li>
 </ul>
 </li>
 </ol>
-<h3 id="构建输出"><a href="#构建输出" class="headerlink" title="构建输出"></a>构建输出</h3><p>构建完成后，在工作流的 Artifacts 区域可以下载AnyKernel3 刷机包</p>
-<h2 id="高级配置选项"><a href="#高级配置选项" class="headerlink" title="高级配置选项"></a>高级配置选项</h2><h3 id="自定义内核设置"><a href="#自定义内核设置" class="headerlink" title="自定义内核设置"></a>自定义内核设置</h3><p>用户可以通过以下方式自定义构建配置：</p>
-<ol>
-<li><p><strong>修改工作流文件</strong></p>
-<ul>
-<li>调整 <code>KERNEL_SUFFIX</code> 参数自定义内核版本名称</li>
-<li>修改功能开关启用或禁用特定模块</li>
+<h3 id="构建输出"><a href="#构建输出" class="headerlink" title="构建输出"></a>构建输出</h3><p>构建完成后，在工作流的 Artifacts 区域可以下载 AnyKernel3 刷机包，文件名格式为：<code>Kernel_[类型]_v[版本]_[时间戳]_[特性标志].zip</code></p>
+<h2 id="技术特性说明"><a href="#技术特性说明" class="headerlink" title="技术特性说明"></a>技术特性说明</h2><h3 id="编译优化"><a href="#编译优化" class="headerlink" title="编译优化"></a>编译优化</h3><ul>
+<li>使用 LLVM Clang 18 工具链编译</li>
+<li>启用 O2 编译优化</li>
+<li>集成 ccache 编译缓存，提升构建速度</li>
 </ul>
-</li>
-<li><p><strong>编辑内核配置文件</strong></p>
-<ul>
-<li>修改 <code>gki_defconfig</code> 中的配置选项</li>
-<li>添加自定义内核功能模块</li>
+<h3 id="兼容性支持"><a href="#兼容性支持" class="headerlink" title="兼容性支持"></a>兼容性支持</h3><ul>
+<li><strong>Android 版本</strong>：Android 15</li>
+<li><strong>内核版本</strong>：6.6</li>
 </ul>
-</li>
-</ol>
-<h3 id="支持与反馈"><a href="#支持与反馈" class="headerlink" title="支持与反馈"></a>支持与反馈</h3><p>提出BUG反馈之前，请检查是否为<a target="_blank" rel="noopener" href="https://github.com/SukiSU-Ultra/SukiSU-Ultra">SukiSU-Ultra</a>自身问题，因为其自身BUG较多。</p>
-<details>
-<summary>SukiSU Ultra代码质量问题</summary>
-
-<p>包名抽象：com.sukisu.ultra、io.sukisu.ultra、zako.zako.zako</p>
-<p>库文件命名混乱：libzako.so、libzakoboot.so、libzakosign.so 等，难以辨识功能</p>
-<p>函数命名随意：susfsSUS_SU_0()、susfsSUS_SU_2() 等</p>
-<p>项目存在大量不必要的 Shell 命令调用</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 反模式：通过 shell 命令进行文件操作</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">isPathExists</span><span class="params">(path: <span class="type">String</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> runCmd(<span class="string">&quot;file &quot;</span> + path).contains(<span class="string">&quot;No such file or directory&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确做法应使用原生文件API</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">isPathExists</span><span class="params">(path: <span class="type">String</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> File(path).exists()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>异常处理逻辑存在严重设计缺陷：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getKpmVersionUse</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!rootAvailable()) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>  <span class="comment">// 早期返回违反单一职责原则</span></span><br><span class="line">        <span class="keyword">val</span> version = getKpmVersion()</span><br><span class="line">        <span class="keyword">if</span> (version.isEmpty()) <span class="string">&quot;&quot;</span> <span class="keyword">else</span> version</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">        <span class="string">&quot;Error: <span class="subst">$&#123;e.message&#125;</span>&quot;</span>  <span class="comment">// 异常信息直接暴露给UI层</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用方需要解析错误字符串</span></span><br><span class="line"><span class="keyword">val</span> kpmVersion = getKpmVersionUse()</span><br><span class="line">!kpmVersion.startsWith(<span class="string">&quot;Error&quot;</span>)  <span class="comment">// 字符串解析判断错误状态</span></span><br></pre></td></tr></table></figure>
-
-<p>大量硬编码值：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 硬编码路径，缺乏配置抽象层</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">OUTSIDE_KPMMGR_PATH</span> <span class="operator">=</span> <span class="string">&quot;/data/adb/ksu/bin/kpmmgr&quot;</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">OUTSIDE_SUSFSD_PATH</span> <span class="operator">=</span> <span class="string">&quot;/data/adb/ksu/bin/susfsd&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>root 权限检测和使用的实现：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">rootAvailable</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> process = Runtime.getRuntime().exec(<span class="string">&quot;su -c id&quot;</span>)  <span class="comment">// 不必要的权限检查</span></span><br><span class="line">        process.waitFor() == <span class="number">0</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (_: Exception) &#123;</span><br><span class="line">        <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>v3.1.9 引入的模块签名验证存在设计问题：</p>
-<p>未考虑兼容性，<strong>没有任何说明就添加至正式版</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">uint32_t</span> <span class="title function_">zako_file_verify_esig</span><span class="params">(<span class="type">file_handle_t</span> fd, <span class="type">uint32_t</span> flags)</span> &#123;</span><br><span class="line">    <span class="type">size_t</span> file_sz = zako_sys_file_sz(fd);</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span>* buffer = zako_sys_file_map(fd, file_sz);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (buffer == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ZAKO_FV_MMAP_FAILED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span>* buff_end = ApplyOffset(buffer, +(file_sz));</span><br><span class="line">    <span class="type">uint64_t</span>* r_magic = (<span class="type">uint64_t</span>*) ApplyOffset(buff_end, <span class="number">-8</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (*r_magic != ZAKO_ESIGNATURE_MAGIC) &#123; <span class="comment">// ZAKO_ESIGNATURE_MAGIC = 0x7a616b6f7369676eull = &#x27;zakosign&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> ZAKO_FV_INVALID_HEADER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">uint64_t</span>* sz = (<span class="type">uint64_t</span>*) ApplyOffset(buff_end, <span class="number">-16</span>);</span><br><span class="line">    <span class="keyword">if</span> (*sz == <span class="number">0</span> || *sz &gt; file_sz) &#123;</span><br><span class="line">        <span class="keyword">return</span> ZAKO_FV_INVALID_HEADER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zako_esignature</span>* <span class="title">esign_buf</span> =</span> (<span class="keyword">struct</span> zako_esignature*) ApplyOffset(sz, -*sz);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Entire file footer is ESignature + ESignatureSize + ESignatureMagic</span></span><br><span class="line"><span class="comment">         which is *sz + sizeof(sz) + 8 = *sz + 16</span></span><br><span class="line"><span class="comment">       So, original file buffer will be FileSize - *sz - 16 */</span></span><br><span class="line">    <span class="type">uint32_t</span> result = zako_esign_verify(esign_buf, buffer, file_sz - *sz - <span class="number">16</span>, flags);</span><br><span class="line"></span><br><span class="line">    zako_sys_file_unmap(buffer, file_sz);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uint32_t</span> <span class="title function_">zako_esign_verify</span><span class="params">(<span class="keyword">struct</span> zako_esignature* esig, <span class="type">uint8_t</span>* buff, <span class="type">size_t</span> len, <span class="type">uint32_t</span> flags)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (esig-&gt;magic != ZAKO_ESIGNATURE_MAGIC) &#123; <span class="comment">// ZAKO_ESIGNATURE_MAGIC = 0x7a616b6f7369676eull = &#x27;zakosign&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> ZAKO_ESV_INVALID_HEADER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (esig-&gt;version != ZAKO_ESIGNATURE_VERSION) &#123;</span><br><span class="line">        <span class="keyword">if</span> (esig-&gt;version &gt; ZAKO_ESIGNATURE_VERSION) &#123;</span><br><span class="line">            <span class="keyword">return</span> ZAKO_ESV_UNSUPPORTED_VERSION;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ZAKO_ESV_OUTDATED_VERSION;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">uint32_t</span> result = <span class="number">0</span>;</span><br><span class="line">    EVP_PKEY* pubkey = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    OnFlag(flags, ZAKO_ESV_INTEGRITY_ONLY) &#123;</span><br><span class="line">        <span class="keyword">goto</span> verify_integrity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Verify Ceritificates */</span></span><br><span class="line"></span><br><span class="line">    <span class="type">uint8_t</span> cert_count = esig-&gt;cert_sz;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zako_der_certificate</span>* <span class="title">cstbl</span>[200] =</span> &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">uint8_t</span>* data = &amp;esig-&gt;data;</span><br><span class="line">    <span class="type">size_t</span> off = (<span class="type">size_t</span>) <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">uint8_t</span> i = <span class="number">0</span>; i &lt; cert_count; i ++) &#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">zako_der_certificate</span>* <span class="title">cert</span> =</span> ApplyOffset(data, +off);</span><br><span class="line">        cstbl[i] = cert;</span><br><span class="line"></span><br><span class="line">        off += <span class="keyword">sizeof</span>(<span class="keyword">struct</span> zako_der_certificate) + cert-&gt;len;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    result |= zako_keychain_verify(&amp;esig-&gt;key, &amp;cstbl);</span><br><span class="line"></span><br><span class="line">verify_integrity:</span><br><span class="line">    pubkey = zako_parse_public_raw(esig-&gt;key.public_key);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (zako_hash_verify(buff, len, esig-&gt;hash) != <span class="number">1</span>) &#123;</span><br><span class="line">        result |= ZAKO_ESV_VERFICATION_FAILED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (zako_verify_buffer(pubkey, esig-&gt;hash, ZAKO_HASH_LENGTH, esig-&gt;signature) != <span class="number">1</span>) &#123;</span><br><span class="line">        result |= ZAKO_ESV_VERFICATION_FAILED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    EVP_PKEY_free(pubkey);</span><br><span class="line"></span><br><span class="line">    <span class="type">uint64_t</span> now = (<span class="type">uint64_t</span>) time(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (esig-&gt;created_at == <span class="number">0</span>) &#123;</span><br><span class="line">        result |= ZAKO_ESV_MISSING_TIMESTAMP;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (esig-&gt;created_at &gt;= now) &#123;</span><br><span class="line">        result |= ZAKO_ESV_UNTRUSTED_TIMESTAMP;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">X509_STORE **<span class="title function_">zako_trustchain_new</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  X509_STORE **safe;</span><br><span class="line">  X509_STORE *v1;</span><br><span class="line">  X509 *v2;</span><br><span class="line"></span><br><span class="line">  safe = (X509_STORE **)zako_allocate_safe(<span class="number">0x18u</span>LL);</span><br><span class="line">  *safe = X509_STORE_new();</span><br><span class="line">  safe[<span class="number">1</span>] = (X509_STORE *)OPENSSL_sk_new_null();</span><br><span class="line">  v1 = *safe;</span><br><span class="line">  v2 = (X509 *)zako_x509_parse_pem(</span><br><span class="line">                 <span class="string">&quot;-----BEGIN CERTIFICATE-----\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;MIIB3zCCAZGgAwIBAgIUOa4KF6KfAg/Jerrx7AX1opSdNLEwBQYDK2VwMHExCzAJ\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;BgNVBAYTAkNIMRIwEAYDVQQHDAlHdWFuZ3pob3UxEjAQBgNVBAgMCUd1YW5nZG9u\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;ZzESMBAGA1UECgwJc2hpcmtuZWtvMRIwEAYDVQQLDAlzaGlya25la28xEjAQBgNV\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;BAMMCXNoaXJrbmVrbzAeFw0yNTA4MTAxNTU2MTRaFw0zNTA4MDgxNTU2MTRaMHEx\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;CzAJBgNVBAYTAkNIMRIwEAYDVQQHDAlHdWFuZ3pob3UxEjAQBgNVBAgMCUd1YW5n\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;ZG9uZzESMBAGA1UECgwJc2hpcmtuZWtvMRIwEAYDVQQLDAlzaGlya25la28xEjAQ\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;BgNVBAMMCXNoaXJrbmVrbzAqMAUGAytlcAMhAKyLThabZFGUsW/deKhLcmwlTF+H\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;KQ78bO6ohwzcgncWozswOTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIC\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;pDAWBgNVHSUBAf8EDDAKBggrBgEFBQcDAzAFBgMrZXADQQB1T6vftHjoaBNTBk85\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;E/HVR6jZZwq4UFJMRWpxpJ0JvGn27tLKYB2ZoXhoUbuCIoYa8e892hRoRB2xG4Jk\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;iU4A\n&quot;</span></span><br><span class="line">                 <span class="string">&quot;-----END CERTIFICATE-----\n&quot;</span>);</span><br><span class="line">  X509_STORE_add_cert(v1, v2);</span><br><span class="line">  <span class="keyword">return</span> safe;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</details>
-
-
+<h2 id="支持与反馈"><a href="#支持与反馈" class="headerlink" title="支持与反馈"></a>支持与反馈</h2><p>提出 BUG 反馈之前，请检查是否为管理器自身&#x2F;上游问题，因为部分管理器自身 BUG 较多</p>
 <p>如遇技术问题，请按以下步骤排查：</p>
-<ol>
-<li><p><strong>设备兼容性检查</strong></p>
 <ul>
 <li>确认设备型号为 OnePlus Ace5 Ultra</li>
 <li>验证 Android 版本与内核版本匹配</li>
-</ul>
-</li>
-<li><p><strong>数据安全措施</strong></p>
-<ul>
 <li>刷机前务必备份重要数据</li>
 <li>确保电池电量充足（建议 &gt;50%）</li>
+<li>若要反馈问题，需给出<strong>完整日志</strong></li>
 </ul>
-</li>
-<li><p><strong>日志收集</strong></p>
-<ul>
-<li>保存日志</li>
-<li>记录错误信息</li>
-</ul>
-</li>
-</ol>
 <h2 id="法律声明与免责条款"><a href="#法律声明与免责条款" class="headerlink" title="法律声明与免责条款"></a>法律声明与免责条款</h2><h3 id="使用条款"><a href="#使用条款" class="headerlink" title="使用条款"></a>使用条款</h3><ul>
 <li>本内核仅供技术学习和研究使用</li>
 <li>用户需自行承担刷机风险</li>
@@ -260,6 +224,8 @@
 </ul>
 <h2 id="项目支持"><a href="#项目支持" class="headerlink" title="项目支持"></a>项目支持</h2><p>如果您觉得这个项目对您有帮助，请考虑给予 Star ⭐ 支持项目发展。</p>
 <p>对于技术问题和功能建议，欢迎通过 GitHub Issues 反馈。</p>
+<hr>
+<p><strong>注意</strong>：刷机有风险，操作需谨慎。请在充分了解相关技术知识后进行刷机操作。</p>
  
       <!-- reward -->
       
