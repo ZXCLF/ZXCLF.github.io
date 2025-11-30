@@ -11,9 +11,9 @@
   <entry>
     <title>OnePlus Ace5 Ultra 内核构建项目</title>
     <url>/2025/09/27/OnePlus%20Ace5%20Ultra%20%E5%86%85%E6%A0%B8%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><p><strong>警告：系统版本为610的用户请勿使用本项目，根据<a href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI/issues/4">用户反馈</a>610系统刷入内核后会无限重启。</strong></p>
-<p><strong>并且目前一加官方尚未开源最新的610内核源码（<a href="https://github.com/OnePlusOSS/android_kernel_oneplus_mt6991">官方仓库</a>），我们无法进行适配工作。</strong></p>
-<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p>
+    <content><![CDATA[<h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p>
+<span id="more"></span>
+
 <h2 id="核心功能特性"><a href="#核心功能特性" class="headerlink" title="核心功能特性"></a>核心功能特性</h2><h3 id="Root-管理器支持"><a href="#Root-管理器支持" class="headerlink" title="Root 管理器支持"></a>Root 管理器支持</h3><ul>
 <li><strong>SukiSU Ultra</strong> - 增强版 SukiSU 权限管理框架（默认选择）</li>
 <li><strong>KernelSU Next</strong> - 下一代内核级权限管理系统</li>

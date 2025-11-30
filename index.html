@@ -243,106 +243,11 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><p><strong>警告：系统版本为610的用户请勿使用本项目，根据<a target="_blank" rel="noopener" href="https://github.com/ZXCLF/Oneplus_Ace5_Ultra_GKI/issues/4">用户反馈</a>610系统刷入内核后会无限重启。</strong></p>
-<p><strong>并且目前一加官方尚未开源最新的610内核源码（<a target="_blank" rel="noopener" href="https://github.com/OnePlusOSS/android_kernel_oneplus_mt6991">官方仓库</a>），我们无法进行适配工作。</strong></p>
-<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p>
-<h2 id="核心功能特性"><a href="#核心功能特性" class="headerlink" title="核心功能特性"></a>核心功能特性</h2><h3 id="Root-管理器支持"><a href="#Root-管理器支持" class="headerlink" title="Root 管理器支持"></a>Root 管理器支持</h3><ul>
-<li><strong>SukiSU Ultra</strong> - 增强版 SukiSU 权限管理框架（默认选择）</li>
-<li><strong>KernelSU Next</strong> - 下一代内核级权限管理系统</li>
-<li><strong>KernelSU</strong> - 原版内核级权限管理</li>
-<li><strong>KPM 模块支持</strong>（仅对 SukiSU-Ultra 生效，谨慎开启，可能导致无法开机）</li>
-</ul>
-<h3 id="文件系统优化"><a href="#文件系统优化" class="headerlink" title="文件系统优化"></a>文件系统优化</h3><ul>
-<li><strong>SUSFS 文件系统</strong> - 支持魔术挂载、路径重定向和符号链接欺骗功能</li>
-</ul>
-<h3 id="压缩算法选项"><a href="#压缩算法选项" class="headerlink" title="压缩算法选项"></a>压缩算法选项</h3><ul>
-<li><strong>lz4 1.10.0 + zstd 1.5.7</strong> - 更新的压缩算法支持（默认选择）</li>
-<li><strong>lz4kd</strong> - 高效内存压缩算法（可选启用）</li>
-<li><strong>全部安装</strong> - 同时启用两种压缩优化</li>
-</ul>
-<h3 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h3><ul>
-<li><strong>BBR 拥塞控制算法</strong> - 可选仅加入算法或设为默认 TCP 拥塞控制</li>
-<li>支持多种拥塞控制算法：CUBIC、VEGAS、NV、WESTWOOD、HTCP、BRUTAL</li>
-</ul>
-<h3 id="I-O-调度器"><a href="#I-O-调度器" class="headerlink" title="I&#x2F;O 调度器"></a>I&#x2F;O 调度器</h3><ul>
-<li><strong>ADIOS IO 调度器</strong> - 结合截止时间优先调度与自适应延迟控制算法，降低 I&#x2F;O 延迟</li>
-</ul>
-<h3 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h3><ul>
-<li><strong>Re-Kernel 支持</strong> - 用于与 Freezer、NoActive 等软件配合使用，提升冻结后台能力</li>
-<li><strong>风驰调度器</strong> - 官方原版风驰（scx）调度器</li>
-</ul>
-<h3 id="安全保护机制"><a href="#安全保护机制" class="headerlink" title="安全保护机制"></a>安全保护机制</h3><ul>
-<li><strong>Baseband-guard 防格机</strong> - 内核层面阻止对关键分区&#x2F;设备节点的非法写入（默认开启）</li>
-</ul>
-<h3 id="自定义选项"><a href="#自定义选项" class="headerlink" title="自定义选项"></a>自定义选项</h3><ul>
-<li><strong>内核后缀</strong> - 自定义内核版本标识</li>
-<li><strong>内核构建日期</strong> - 修改内核版本信息中的构建时间戳</li>
-</ul>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
-<li>GitHub 账户</li>
-<li>已 Fork 本项目到个人仓库</li>
-</ul>
-<h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol>
-<li><strong>访问 GitHub Actions</strong><ul>
-<li>进入您 Fork 后的仓库页面</li>
-<li>点击顶部导航栏的 “Actions” 选项卡</li>
-</ul>
-</li>
-<li><strong>选择工作流</strong><ul>
-<li>在左侧边栏选择 “Oneplus_Ace5_Ultra_GKI” 工作流</li>
-</ul>
-</li>
-<li><strong>配置构建参数</strong><ul>
-<li>点击 “Run workflow” 按钮</li>
-<li>根据需求配置以下参数：<ul>
-<li><strong>KernelSU分支</strong>：选择 Root 管理器类型（默认：SukiSU-Ultra）</li>
-<li><strong>是否开启KPM</strong>：仅对 SukiSU-Ultra 生效（默认：false）</li>
-<li><strong>lz4 补丁选项</strong>：选择压缩算法优化（默认：安装lz4&amp;zstd补丁）</li>
-<li><strong>基带保护</strong>：启用内核级基带保护（默认：true）</li>
-<li><strong>BBR算法</strong>：网络拥塞控制优化（默认：关闭）</li>
-<li><strong>ADIOS调度器及Re-Kernel</strong>：I&#x2F;O 和系统优化（默认：均不安装）</li>
-<li><strong>内核后缀</strong>：自定义内核标识</li>
-<li><strong>内核构建日期</strong>：修改版本信息中的时间戳</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>启动构建过程</strong><ul>
-<li>点击 “Run workflow” 开始自动化构建</li>
-<li>构建过程通常需要 15-30 分钟</li>
-</ul>
-</li>
-</ol>
-<h3 id="构建输出"><a href="#构建输出" class="headerlink" title="构建输出"></a>构建输出</h3><p>构建完成后，在工作流的 Artifacts 区域可以下载 AnyKernel3 刷机包，文件名格式为：<code>Kernel_[类型]_v[版本]_[时间戳]_[特性标志].zip</code></p>
-<h2 id="技术特性说明"><a href="#技术特性说明" class="headerlink" title="技术特性说明"></a>技术特性说明</h2><h3 id="编译优化"><a href="#编译优化" class="headerlink" title="编译优化"></a>编译优化</h3><ul>
-<li>使用 LLVM Clang 18 工具链编译</li>
-<li>启用 O2 编译优化</li>
-<li>集成 ccache 编译缓存，提升构建速度</li>
-</ul>
-<h3 id="兼容性支持"><a href="#兼容性支持" class="headerlink" title="兼容性支持"></a>兼容性支持</h3><ul>
-<li><strong>Android 版本</strong>：Android 15</li>
-<li><strong>内核版本</strong>：6.6</li>
-</ul>
-<h2 id="支持与反馈"><a href="#支持与反馈" class="headerlink" title="支持与反馈"></a>支持与反馈</h2><p>提出 BUG 反馈之前，请检查是否为管理器自身&#x2F;上游问题，因为部分管理器自身 BUG 较多</p>
-<p>如遇技术问题，请按以下步骤排查：</p>
-<ul>
-<li>确认设备型号为 OnePlus Ace5 Ultra</li>
-<li>验证 Android 版本与内核版本匹配</li>
-<li>刷机前务必备份重要数据</li>
-<li>确保电池电量充足（建议 &gt;50%）</li>
-<li>若要反馈问题，需给出<strong>完整日志</strong></li>
-</ul>
-<h2 id="法律声明与免责条款"><a href="#法律声明与免责条款" class="headerlink" title="法律声明与免责条款"></a>法律声明与免责条款</h2><h3 id="使用条款"><a href="#使用条款" class="headerlink" title="使用条款"></a>使用条款</h3><ul>
-<li>本内核仅供技术学习和研究使用</li>
-<li>用户需自行承担刷机风险</li>
-<li>作者不对因使用本内核导致的设备问题负责</li>
-<li>若有任何倒卖行为，则替开发者挡灾挡难</li>
-</ul>
-<h2 id="项目支持"><a href="#项目支持" class="headerlink" title="项目支持"></a>项目支持</h2><p>如果您觉得这个项目对您有帮助，请考虑给予 Star ⭐ 支持项目发展。</p>
-<p>对于技术问题和功能建议，欢迎通过 GitHub Issues 反馈。</p>
-<hr>
-<p><strong>注意</strong>：刷机有风险，操作需谨慎。请在充分了解相关技术知识后进行刷机操作。</p>
- 
+  <h1 id="OnePlus-Ace5-Ultra-内核构建项目"><a href="#OnePlus-Ace5-Ultra-内核构建项目" class="headerlink" title="OnePlus Ace5 Ultra 内核构建项目"></a>OnePlus Ace5 Ultra 内核构建项目</h1><h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 GitHub Actions 的自动化内核构建工作流，专为 OnePlus Ace5 Ultra 设备定制。项目支持多种 Root 管理器和性能优化功能，提供稳定可靠的内核构建解决方案。</p> 
+      <a class="article-more-link" href="/2025/09/27/OnePlus%20Ace5%20Ultra%20%E5%86%85%E6%A0%B8%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/"
+        >阅读全文...</a
+      >
+       
       <!-- reward -->
       
     </div>
