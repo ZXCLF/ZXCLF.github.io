@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>包管理器SAT求解与fsync机制技术解析 |  ZXCLF</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="/js/pace.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="ZXCLF" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+<body>
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "q0x05j2yi0");
+</script>
+<div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-包管理器SAT求解与fsync机制技术解析"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  包管理器SAT求解与fsync机制技术解析
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/" class="article-date">
+  <time datetime="2026-01-17T00:00:00.000Z" itemprop="datePublished">2026-01-17</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="包管理器SAT求解与fsync机制技术解析"><a href="#包管理器SAT求解与fsync机制技术解析" class="headerlink" title="包管理器SAT求解与fsync机制技术解析"></a>包管理器SAT求解与fsync机制技术解析</h1><pre class="mermaid">graph TD
+    A[包管理操作开始] --> B[SAT求解器分析依赖关系]
+    B --> C[生成事务方案]
+    C --> D[下载/验证软件包]
+    D --> E[文件系统操作]
+    E --> F{是否调用fsync?}
+    F -->|是| G[强制刷盘保证一致性]
+    F -->|否| H[依赖OS缓存机制]
+    G --> I[操作完成-高一致性]
+    H --> J[操作完成-高性能]</pre>
+
+<span id="more"></span>
+
+<h2 id="详细机制分解"><a href="#详细机制分解" class="headerlink" title="详细机制分解"></a>详细机制分解</h2><h3 id="SAT求解器在包管理器中的作用"><a href="#SAT求解器在包管理器中的作用" class="headerlink" title="SAT求解器在包管理器中的作用"></a>SAT求解器在包管理器中的作用</h3><pre class="mermaid">graph LR
+    A[用户请求] --> B[包集合与约束条件]
+    B --> C[SAT求解器引擎]
+    C --> D[CNF转换]
+    D --> E[DPLL/CDCL算法]
+    E --> F{存在解?}
+    F -->|是| G[生成安装/升级计划]
+    F -->|否| H[报告依赖冲突]
+    G --> I[验证解决方案]
+    H --> J[建议解决方案]</pre>
+
+<h2 id="包管理器分析"><a href="#包管理器分析" class="headerlink" title="包管理器分析"></a>包管理器分析</h2><h3 id="APT-Debian-实现分析"><a href="#APT-Debian-实现分析" class="headerlink" title="APT (Debian) 实现分析"></a>APT (Debian) 实现分析</h3><pre class="mermaid">graph TB
+    A[APT架构] --> B[前端: apt/apt-get]
+    A --> C[解析器: libapt]
+    A --> D[后端: dpkg]
+    
+    B --> E[用户接口层]
+    C --> F[依赖解析引擎]
+    D --> G[包安装执行]
+    
+    F --> H[基于Debian控制文件]
+    F --> I[简单的贪婪算法]
+    F --> J[非完全SAT求解器]
+    
+    G --> K[使用dpkg数据库]
+    G --> L[fsync策略: 部分使用]
+    
+    M[特点] --> N[稳定优先于最优解]
+    M --> O[依赖预依赖/中断点]
+    M --> P[历史兼容性强]</pre>
+
+<ul>
+<li><strong>APT关键特性：</strong><ul>
+<li><strong>依赖解析</strong>：其解析引擎基于Debian那套历史悠久的控制文件格式，本质上采用的是一种在长期演化中形成的、旨在优先保证系统不崩溃的启发式贪婪算法，而非追求数学完备性的SAT求解器。</li>
+<li><strong>fsync使用</strong>：dpkg在更新自身数据库这类关键路径上会调用fsync，但对于大量普通文件的写入则选择依赖内核的缓存机制，这种混合策略是在数十年的服务器与桌面部署实践中形成的折中方案。</li>
+<li><strong>事务模型</strong>：它并不提供原子事务，而是通过一套名为“dpkg中断点”的机制，在安装过程意外中止时能够在下一次操作时恢复到某个一致的状态，这好比在长途徒步中设置的多个应急营地。</li>
+</ul>
+</li>
+</ul>
+<h3 id="DNF-RPM-Fedora-RHEL-实现分析"><a href="#DNF-RPM-Fedora-RHEL-实现分析" class="headerlink" title="DNF&#x2F;RPM (Fedora&#x2F;RHEL) 实现分析"></a>DNF&#x2F;RPM (Fedora&#x2F;RHEL) 实现分析</h3><pre class="mermaid">graph LR
+    A[DNF架构] --> B[前端: dnf命令]
+    A --> C[依赖解析: hawkey/libsolv]
+    A --> D[后端: RPM]
+    
+    subgraph "SAT求解核心"
+        C1[libsolv库] --> C2[完整的SAT求解器]
+        C2 --> C3[支持复杂布尔约束]
+        C3 --> C4[多仓库优化]
+    end
+    
+    subgraph "RPM事务"
+        D1[RPM数据库] --> D2[使用Berkeley DB]
+        D2 --> D3[事务性更新]
+        D3 --> D4[预写日志WAL]
+    end
+    
+    subgraph "fsync策略"
+        E1[关键操作] --> E2[RPM数据库更新fsync]
+        E2 --> E3[配置文件可选]
+        E3 --> E4[性能与可靠性平衡]
+    end</pre>
+
+<ul>
+<li><strong>DNF关键特性：</strong><ul>
+<li><strong>SAT求解器</strong>：其核心依赖的libsolv库是一个为包管理领域专门优化过的高性能、完备SAT求解器实现，能够精确处理包之间复杂的布尔约束关系。</li>
+<li><strong>事务性</strong>：底层的RPM包数据库使用Berkeley DB，从而提供了一种基础的、支持回滚的事务性更新能力。</li>
+<li><strong>fsync策略</strong>：对于RPM数据库的所有更新操作都强制执行刷盘，以确保元数据的一致性，但对于用户配置文件等内容的写入，则将选择权交给了系统管理员进行配置。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Zypper-openSUSE-实现分析"><a href="#Zypper-openSUSE-实现分析" class="headerlink" title="Zypper (openSUSE) 实现分析"></a>Zypper (openSUSE) 实现分析</h3><pre class="mermaid">graph TD
+    A[Zypper] --> B[基于libsolv]
+    A --> C[SUSE特定扩展]
+    
+    B --> D[SAT求解能力]
+    D --> E[解决依赖冲突]
+    D --> F[多版本支持]
+    
+    C --> G[Delta RPM支持]
+    C --> H[安装源优先级]
+    C --> I[补丁管理集成]
+    
+    subgraph "文件系统策略"
+        J[RPM后端] --> K[数据库fsync]
+        J --> L[文件写入异步]
+        M[zypper特定] --> N[下载缓存管理]
+        M --> O[回滚机制]
+    end
+    
+    P[独特特性] --> Q[强事务支持]
+    P --> R[快照集成Btrfs]
+    P --> S[严格依赖检查]</pre>
+
+<h3 id="AUR-Helpers-yay-paru-分析"><a href="#AUR-Helpers-yay-paru-分析" class="headerlink" title="AUR Helpers (yay&#x2F;paru) 分析"></a>AUR Helpers (yay&#x2F;paru) 分析</h3><pre class="mermaid">graph TB
+    A[AUR Helper架构] --> B[前端: yay/paru]
+    A --> C[后端: pacman]
+    A --> D[AUR接口]
+    
+    B --> E[用户交互增强]
+    E --> F[交互式PKGBUILD]
+    E --> G[并行下载]
+    E --> H[彩色输出]
+    
+    D --> I[查询AUR]
+    D --> J[下载PKGBUILD]
+    D --> K[本地编译]
+    
+    subgraph "与pacman关系"
+        L[包装器模式] --> M[调用pacman安装]
+        M --> N[继承pacman特性]
+        N --> O[无独立fsync]
+        N --> P[无独立SAT求解]
+    end
+    
+    subgraph "安全性考虑"
+        Q[用户构建] --> R[潜在安全风险]
+        S[非官方源] --> T[信任级别不同]
+        U[安全性] --> V[需要用户审核]
+    end</pre>
+
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th>包管理器</th>
+<th>SAT求解器</th>
+<th>fsync策略</th>
+<th>事务支持</th>
+<th>设计理念</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>APT</strong></td>
+<td>启发式算法</td>
+<td>部分使用</td>
+<td>有限恢复</td>
+<td>稳定至上</td>
+<td>Debian&#x2F;Ubuntu服务器</td>
+</tr>
+<tr>
+<td><strong>DNF</strong></td>
+<td>libsolv (完整SAT)</td>
+<td>数据库强制</td>
+<td>RPM事务</td>
+<td>企业级可靠</td>
+<td>RHEL&#x2F;Fedora企业</td>
+</tr>
+<tr>
+<td><strong>Zypper</strong></td>
+<td>libsolv扩展</td>
+<td>数据库强制</td>
+<td>强事务</td>
+<td>SUSE企业特性</td>
+<td>openSUSE&#x2F;SLE</td>
+</tr>
+<tr>
+<td><strong>pacman</strong></td>
+<td>简单解析</td>
+<td>不使用</td>
+<td>无</td>
+<td>简单快速</td>
+<td>Arch桌面</td>
+</tr>
+<tr>
+<td><strong>yay&#x2F;paru</strong></td>
+<td>依赖pacman</td>
+<td>同pacman</td>
+<td>同pacman</td>
+<td>AUR便利性</td>
+<td>Arch用户构建</td>
+</tr>
+<tr>
+<td><strong>Nix</strong></td>
+<td>自定义求解器</td>
+<td><strong>强制使用</strong></td>
+<td>原子事务</td>
+<td>纯函数式</td>
+<td>开发&#x2F;可重复</td>
+</tr>
+<tr>
+<td><strong>Portage</strong></td>
+<td>增强解析</td>
+<td>使用sync()</td>
+<td>阶段提交</td>
+<td>源码灵活性</td>
+<td>Gentoo定制</td>
+</tr>
+<tr>
+<td><strong>apk</strong></td>
+<td>简单解析</td>
+<td><strong>强制使用</strong></td>
+<td>原子操作</td>
+<td>小型可靠</td>
+<td>Alpine&#x2F;容器</td>
+</tr>
+<tr>
+<td><strong>xbps</strong></td>
+<td>布尔解析</td>
+<td>可选</td>
+<td>有限</td>
+<td>平衡设计</td>
+<td>Void通用</td>
+</tr>
+<tr>
+<td><strong>Flatpak</strong></td>
+<td>OSTree层</td>
+<td>应用级别</td>
+<td>引用计数</td>
+<td>沙箱部署</td>
+<td>跨发行版应用</td>
+</tr>
+</tbody></table>
+<h3 id="fsync策略对比"><a href="#fsync策略对比" class="headerlink" title="fsync策略对比"></a>fsync策略对比</h3><pre class="mermaid">graph TB
+    subgraph "强制或广泛使用fsync"
+        A1[Nix/Guix] --> A2[完全原子性<br>崩溃安全]
+        B1[apk Alpine] --> B2[嵌入式导向<br>数据完整性优先]
+        C1[Zypper/DNF] --> C2[企业级需求<br>数据库一致性]
+    end
+    
+    subgraph "选择性使用fsync"
+        D1[APT/dpkg] --> D2[关键元数据fsync<br>其他延迟写入]
+        E1[Portage] --> E2[重要阶段sync<br>编译过程异步]
+        F1[xbps] --> F2[可配置策略<br>用户决定]
+    end
+    
+    subgraph "最小化fsync"
+        G1[pacman] --> G2[依赖文件系统<br>Ext4/journaling]
+        H1[Slackpkg] --> H2[极简设计<br>用户负责]
+        I1[Flatpak] --> I2[用户空间操作<br>系统影响小]
+    end
+    
+    subgraph "AUR Helpers"
+        J1[yay/paru] --> J2[完全依赖pacman<br>无额外fsync]
+    end</pre>
+
+<h3 id="SAT求解器"><a href="#SAT求解器" class="headerlink" title="SAT求解器"></a>SAT求解器</h3><pre class="mermaid">graph TD
+    A[SAT求解能力层级] --> B[第一层: 完整SAT求解器]
+    A --> C[第二层: 高级启发式算法]
+    A --> D[第三层: 简单依赖解析]
+    A --> E[第四层: 无依赖解析]
+    
+    B --> B1[libsolv-based]
+    B1 --> B2[DNF/RPM]
+    B1 --> B3[Zypper]
+    B2 --> B4[复杂布尔逻辑]
+    B3 --> B5[多仓库优化]
+    
+    C --> C1[APT/aptitude]
+    C1 --> C2[稳定解优先]
+    C2 --> C3[非最优但实用]
+    
+    D --> D1[pacman]
+    D1 --> D2[线性依赖检查]
+    D --> D3[apk Alpine]
+    D3 --> D4[简单约束求解]
+    
+    E --> E1[Slackpkg]
+    E1 --> E2[按列表顺序]
+    E --> E3[AUR Helpers]
+    E3 --> E4[传递到pacman]
+    
+    F[特殊类别] --> G[Nix/Guix]
+    G --> H[函数式依赖图]
+    H --> I[非传统SAT]</pre>
+
+<h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><h3 id="APT的依赖解析机制"><a href="#APT的依赖解析机制" class="headerlink" title="APT的依赖解析机制"></a>APT的依赖解析机制</h3><pre class="mermaid">graph LR
+    A[APT依赖解析流程] --> B[读取Packages文件]
+    B --> C[构建依赖图]
+    
+    subgraph "解析算法"
+        C1[基于Debian策略] --> C2[偏好已安装版本]
+        C2 --> C3[避免破坏现有包]
+        C3 --> C4[使用推荐而非依赖]
+        C4 --> C5[处理Pre-Depends]
+    end
+    
+    C --> D[生成安装方案]
+    D --> E{方案可行?}
+    E -->|是| F[执行安装]
+    E -->|否| G[尝试放松约束]
+    G --> H[移除冲突包]
+    H --> I[用户确认]
+    
+    J[非SAT特性] --> K[不保证最优解]
+    K --> L[但保证系统稳定]
+    L --> M[历史兼容性保持]</pre>
+
+<h3 id="DNF-libsolv-SAT求解过程"><a href="#DNF-libsolv-SAT求解过程" class="headerlink" title="DNF&#x2F;libsolv SAT求解过程"></a>DNF&#x2F;libsolv SAT求解过程</h3><pre class="mermaid">graph TD
+    A[libsolv工作流程] --> B[加载仓库元数据]
+    B --> C[构建求解问题]
+    
+    subgraph "问题表示"
+        C1[包表示为变量]
+        C2[版本约束为子句]
+        C3[依赖关系为蕴含]
+        C4[冲突为否定子句]
+    end
+    
+    C --> D[应用SAT算法]
+    
+    subgraph "求解阶段"
+        D1[决策: 选择包版本]
+        D2[布尔约束传播]
+        D3[冲突分析与学习]
+        D4[非时序回溯]
+        D5[启发式变量选择]
+    end
+    
+    D --> E{找到解?}
+    E -->|是| F[优化解决方案]
+    F --> F1[最小化变更]
+    F1 --> F2[偏好新版本]
+    F2 --> F3[仓库优先级]
+    
+    E -->|否| G[放松约束]
+    G --> H[移除可选依赖]
+    H --> I[允许旧版本]
+    I --> J[生成替代方案]</pre>
+
+
+
+<h2 id="适用使用场景"><a href="#适用使用场景" class="headerlink" title="适用使用场景"></a>适用使用场景</h2><pre class="mermaid">graph TD
+    A[选择标准] --> B{主要需求?}
+    
+    B -->|企业服务器| C[DNF/Zypper]
+    C --> C1[强事务支持]
+    C1 --> C2[企业维护]
+    
+    B -->|稳定性优先| D[APT]
+    D --> D1[保守更新]
+    D1 --> D2[广泛测试]
+    
+    B -->|桌面最新软件| E[pacman + AUR]
+    E --> E1[滚动更新]
+    E1 --> E2[社区驱动]
+    
+    B -->|开发环境| F[Nix/Guix]
+    F --> F1[可重复环境]
+    F1 --> F2[多版本共存]
+    
+    B -->|容器最小化| G[apk Alpine]
+    G --> G1[小型镜像]
+    G1 --> G2[安全加固]
+    
+    B -->|系统定制| H[Portage]
+    H --> H1[源码优化]
+    H1 --> H2[完全控制]
+    
+    B -->|简洁稳定| I[xbps/Slackpkg]
+    I --> I1[简洁设计]
+    I1 --> I2[低维护]</pre>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不同包管理器在SAT求解能力和fsync策略上体现了各自的设计哲学和目标用户群体。<strong>企业级系统</strong>（RHEL&#x2F;SUSE）倾向于使用完整的SAT求解器和强一致性保证，而<strong>桌面系统</strong>（Arch&#x2F;Debian）更注重用户体验和性能。<strong>新兴系统</strong>（Nix&#x2F;Alpine）则在特定领域（开发&#x2F;容器）提供了创新的解决方案。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zxclf.github.io/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Arch Linux 安装指南（支持Arch to go）</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024-2026
+        <i class="ri-heart-fill heart_icon"></i> ZXCLF
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="ZXCLF"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/ZXCLF">Github</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Chrome_Dino/Chrome_Dino">谷歌小恐龙</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="/js/jquery.js"></script>
+<link
+  rel="stylesheet"
+  href="/css/jquery.modal.min.css"
+/>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="/js/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="/js/clipboard.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = '复制成功';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = '复制';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = '复制失败';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = '复制';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":true,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":200,"height":350,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+</script>
+</html>

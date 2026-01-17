@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title> 欢迎</title>
+      <title> ZXCLF</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="欢迎" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="ZXCLF" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -80,7 +80,7 @@
       <img src="/images/cover1.jpg" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="/">欢迎</a></h1>
+      <h1><a href="/">ZXCLF</a></h1>
       <div id="subtitle-box">
         
         <span id="subtitle"></span>
@@ -173,7 +173,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/"
+  <a class="article-title" href="/20250408/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/"
     >本站镜像站启用
   <i class="article-topping">置顶</i>
 </a> 
@@ -184,7 +184,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/" class="article-date">
+      <a href="/20250408/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/" class="article-date">
   <time datetime="2025-04-08T14:00:00.000Z" itemprop="datePublished">2025-04-08</time>
 </a>    
     </div>
@@ -195,6 +195,66 @@
 <p>本站镜像站： <a target="_blank" rel="noopener" href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
 <p>本站开源地址：<a target="_blank" rel="noopener" href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
  
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-包管理器SAT求解与fsync机制技术解析"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/"
+    >包管理器SAT求解与fsync机制技术解析</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/" class="article-date">
+  <time datetime="2026-01-17T00:00:00.000Z" itemprop="datePublished">2026-01-17</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="包管理器SAT求解与fsync机制技术解析"><a href="#包管理器SAT求解与fsync机制技术解析" class="headerlink" title="包管理器SAT求解与fsync机制技术解析"></a>包管理器SAT求解与fsync机制技术解析</h1><pre class="mermaid">graph TD
+    A[包管理操作开始] --> B[SAT求解器分析依赖关系]
+    B --> C[生成事务方案]
+    C --> D[下载/验证软件包]
+    D --> E[文件系统操作]
+    E --> F{是否调用fsync?}
+    F -->|是| G[强制刷盘保证一致性]
+    F -->|否| H[依赖OS缓存机制]
+    G --> I[操作完成-高一致性]
+    H --> J[操作完成-高性能]</pre> 
+      <a class="article-more-link" href="/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/"
+        >阅读全文...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -225,7 +285,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/"
+  <a class="article-title" href="/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/"
     >Arch Linux 安装指南（支持Arch to go）</a> 
 </h2>
  
@@ -234,7 +294,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/" class="article-date">
+      <a href="/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/" class="article-date">
   <time datetime="2025-08-09T12:00:00.000Z" itemprop="datePublished">2025-08-09</time>
 </a>    
     </div>
@@ -249,7 +309,7 @@
 
 <h2 id="3-同步系统时间"><a href="#3-同步系统时间" class="headerlink" title="3. 同步系统时间"></a>3. 同步系统时间</h2><p>确保系统时间准确（防止安装过程中出现时间错误）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>  <span class="comment"># 启用网络时间同步</span></span><br><span class="line">timedatectl status  <span class="comment"># 检查时间状态</span></span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/"
+      <a class="article-more-link" href="/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/"
         >阅读全文...</a
       >
        
@@ -283,7 +343,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/"
+  <a class="article-title" href="/20250628/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/"
     >Magisk模块刷入指南：一场Android系统的持久战</a> 
 </h2>
  
@@ -292,7 +352,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/" class="article-date">
+      <a href="/20250628/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/" class="article-date">
   <time datetime="2025-06-28T00:00:00.000Z" itemprop="datePublished">2025-06-28</time>
 </a>    
     </div>
@@ -302,7 +362,7 @@
   <p>广大手机用户们，技术爱好者们：</p>
 <p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
 <p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p> 
-      <a class="article-more-link" href="/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/"
+      <a class="article-more-link" href="/20250628/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/"
         >阅读全文...</a
       >
        
@@ -338,7 +398,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/"
+  <a class="article-title" href="/20250618/%E6%BC%94%E8%AE%B2%E7%A8%BF/"
     >演讲稿</a> 
 </h2>
  
@@ -347,7 +407,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/" class="article-date">
+      <a href="/20250618/%E6%BC%94%E8%AE%B2%E7%A8%BF/" class="article-date">
   <time datetime="2025-06-18T12:00:00.000Z" itemprop="datePublished">2025-06-18</time>
 </a>    
     </div>
@@ -399,7 +459,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/"
+  <a class="article-title" href="/20250504/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/"
     >扫雷破解版</a> 
 </h2>
  
@@ -408,7 +468,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/" class="article-date">
+      <a href="/20250504/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/" class="article-date">
   <time datetime="2025-05-04T00:00:00.000Z" itemprop="datePublished">2025-05-04</time>
 </a>    
     </div>
@@ -456,7 +516,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/"
+  <a class="article-title" href="/20250411/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/"
     >NoMoreBugCheck.sys数字签名版</a> 
 </h2>
  
@@ -465,7 +525,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/" class="article-date">
+      <a href="/20250411/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/" class="article-date">
   <time datetime="2025-04-11T12:00:00.000Z" itemprop="datePublished">2025-04-11</time>
 </a>    
     </div>
@@ -506,7 +566,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/"
+  <a class="article-title" href="/20250324/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/"
     >好玩的文字特效</a> 
 </h2>
  
@@ -515,7 +575,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/" class="article-date">
+      <a href="/20250324/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/" class="article-date">
   <time datetime="2025-03-24T05:00:00.000Z" itemprop="datePublished">2025-03-24</time>
 </a>    
     </div>
@@ -523,7 +583,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>测试：<a href="https://zxclf.github.io/Text">Text</a></p> 
-      <a class="article-more-link" href="/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/"
+      <a class="article-more-link" href="/20250324/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/"
         >阅读全文...</a
       >
        
@@ -557,7 +617,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/"
+  <a class="article-title" href="/20250322/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/"
     >部署UWP应用为系统预装应用</a> 
 </h2>
  
@@ -566,7 +626,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/" class="article-date">
+      <a href="/20250322/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/" class="article-date">
   <time datetime="2025-03-22T06:00:00.000Z" itemprop="datePublished">2025-03-22</time>
 </a>    
     </div>
@@ -582,7 +642,7 @@
 </ul>
 </li>
 </ol> 
-      <a class="article-more-link" href="/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/"
+      <a class="article-more-link" href="/20250322/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/"
         >阅读全文...</a
       >
        
@@ -618,7 +678,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/"
+  <a class="article-title" href="/20250320/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/"
     >谷歌小恐龙</a> 
 </h2>
  
@@ -627,7 +687,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/" class="article-date">
+      <a href="/20250320/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/" class="article-date">
   <time datetime="2025-03-20T00:00:00.000Z" itemprop="datePublished">2025-03-20</time>
 </a>    
     </div>
@@ -635,7 +695,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>体验：</p> 
-      <a class="article-more-link" href="/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/"
+      <a class="article-more-link" href="/20250320/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/"
         >阅读全文...</a
       >
        
@@ -648,62 +708,6 @@
     
     <footer class="article-footer">
        
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Win 8.1 x64 集成补丁镜像"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/"
-    >Win 8.1 x64 集成补丁镜像</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/" class="article-date">
-  <time datetime="2025-01-28T00:00:00.000Z" itemprop="datePublished">2025-01-28</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
-<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
-<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
-</ol> 
-      <a class="article-more-link" href="/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/"
-        >阅读全文...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Win-8-1/" rel="tag">Win 8.1</a></li></ul>
-
     </footer>
   </div>
 
@@ -730,7 +734,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2024-2025
+        2024-2026
         <i class="ri-heart-fill heart_icon"></i> ZXCLF
       </li>
     </ul>
@@ -781,7 +785,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="欢迎"></a>
+    <a href="/"><img src="/images/ayer-side.svg" alt="ZXCLF"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -799,7 +803,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/Chrome_Dino/Chrome_Dino.html">谷歌小恐龙</a>
+      <a class="nav-item-link" href="/Chrome_Dino/Chrome_Dino">谷歌小恐龙</a>
     </li>
     
   </ul>

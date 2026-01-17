@@ -2,15 +2,386 @@
 <search>
   <entry>
     <title>本站镜像站启用</title>
-    <url>/2025/04/08/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
+    <url>/20250408/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
     <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
 <p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
 <p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
 ]]></content>
   </entry>
   <entry>
+    <title>包管理器SAT求解与fsync机制技术解析</title>
+    <url>/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="包管理器SAT求解与fsync机制技术解析"><a href="#包管理器SAT求解与fsync机制技术解析" class="headerlink" title="包管理器SAT求解与fsync机制技术解析"></a>包管理器SAT求解与fsync机制技术解析</h1><pre class="mermaid">graph TD
+    A[包管理操作开始] --> B[SAT求解器分析依赖关系]
+    B --> C[生成事务方案]
+    C --> D[下载/验证软件包]
+    D --> E[文件系统操作]
+    E --> F{是否调用fsync?}
+    F -->|是| G[强制刷盘保证一致性]
+    F -->|否| H[依赖OS缓存机制]
+    G --> I[操作完成-高一致性]
+    H --> J[操作完成-高性能]</pre>
+
+<span id="more"></span>
+
+<h2 id="详细机制分解"><a href="#详细机制分解" class="headerlink" title="详细机制分解"></a>详细机制分解</h2><h3 id="SAT求解器在包管理器中的作用"><a href="#SAT求解器在包管理器中的作用" class="headerlink" title="SAT求解器在包管理器中的作用"></a>SAT求解器在包管理器中的作用</h3><pre class="mermaid">graph LR
+    A[用户请求] --> B[包集合与约束条件]
+    B --> C[SAT求解器引擎]
+    C --> D[CNF转换]
+    D --> E[DPLL/CDCL算法]
+    E --> F{存在解?}
+    F -->|是| G[生成安装/升级计划]
+    F -->|否| H[报告依赖冲突]
+    G --> I[验证解决方案]
+    H --> J[建议解决方案]</pre>
+
+<h2 id="包管理器分析"><a href="#包管理器分析" class="headerlink" title="包管理器分析"></a>包管理器分析</h2><h3 id="APT-Debian-实现分析"><a href="#APT-Debian-实现分析" class="headerlink" title="APT (Debian) 实现分析"></a>APT (Debian) 实现分析</h3><pre class="mermaid">graph TB
+    A[APT架构] --> B[前端: apt/apt-get]
+    A --> C[解析器: libapt]
+    A --> D[后端: dpkg]
+    
+    B --> E[用户接口层]
+    C --> F[依赖解析引擎]
+    D --> G[包安装执行]
+    
+    F --> H[基于Debian控制文件]
+    F --> I[简单的贪婪算法]
+    F --> J[非完全SAT求解器]
+    
+    G --> K[使用dpkg数据库]
+    G --> L[fsync策略: 部分使用]
+    
+    M[特点] --> N[稳定优先于最优解]
+    M --> O[依赖预依赖/中断点]
+    M --> P[历史兼容性强]</pre>
+
+<ul>
+<li><strong>APT关键特性：</strong><ul>
+<li><strong>依赖解析</strong>：其解析引擎基于Debian那套历史悠久的控制文件格式，本质上采用的是一种在长期演化中形成的、旨在优先保证系统不崩溃的启发式贪婪算法，而非追求数学完备性的SAT求解器。</li>
+<li><strong>fsync使用</strong>：dpkg在更新自身数据库这类关键路径上会调用fsync，但对于大量普通文件的写入则选择依赖内核的缓存机制，这种混合策略是在数十年的服务器与桌面部署实践中形成的折中方案。</li>
+<li><strong>事务模型</strong>：它并不提供原子事务，而是通过一套名为“dpkg中断点”的机制，在安装过程意外中止时能够在下一次操作时恢复到某个一致的状态，这好比在长途徒步中设置的多个应急营地。</li>
+</ul>
+</li>
+</ul>
+<h3 id="DNF-RPM-Fedora-RHEL-实现分析"><a href="#DNF-RPM-Fedora-RHEL-实现分析" class="headerlink" title="DNF&#x2F;RPM (Fedora&#x2F;RHEL) 实现分析"></a>DNF&#x2F;RPM (Fedora&#x2F;RHEL) 实现分析</h3><pre class="mermaid">graph LR
+    A[DNF架构] --> B[前端: dnf命令]
+    A --> C[依赖解析: hawkey/libsolv]
+    A --> D[后端: RPM]
+    
+    subgraph "SAT求解核心"
+        C1[libsolv库] --> C2[完整的SAT求解器]
+        C2 --> C3[支持复杂布尔约束]
+        C3 --> C4[多仓库优化]
+    end
+    
+    subgraph "RPM事务"
+        D1[RPM数据库] --> D2[使用Berkeley DB]
+        D2 --> D3[事务性更新]
+        D3 --> D4[预写日志WAL]
+    end
+    
+    subgraph "fsync策略"
+        E1[关键操作] --> E2[RPM数据库更新fsync]
+        E2 --> E3[配置文件可选]
+        E3 --> E4[性能与可靠性平衡]
+    end</pre>
+
+<ul>
+<li><strong>DNF关键特性：</strong><ul>
+<li><strong>SAT求解器</strong>：其核心依赖的libsolv库是一个为包管理领域专门优化过的高性能、完备SAT求解器实现，能够精确处理包之间复杂的布尔约束关系。</li>
+<li><strong>事务性</strong>：底层的RPM包数据库使用Berkeley DB，从而提供了一种基础的、支持回滚的事务性更新能力。</li>
+<li><strong>fsync策略</strong>：对于RPM数据库的所有更新操作都强制执行刷盘，以确保元数据的一致性，但对于用户配置文件等内容的写入，则将选择权交给了系统管理员进行配置。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Zypper-openSUSE-实现分析"><a href="#Zypper-openSUSE-实现分析" class="headerlink" title="Zypper (openSUSE) 实现分析"></a>Zypper (openSUSE) 实现分析</h3><pre class="mermaid">graph TD
+    A[Zypper] --> B[基于libsolv]
+    A --> C[SUSE特定扩展]
+    
+    B --> D[SAT求解能力]
+    D --> E[解决依赖冲突]
+    D --> F[多版本支持]
+    
+    C --> G[Delta RPM支持]
+    C --> H[安装源优先级]
+    C --> I[补丁管理集成]
+    
+    subgraph "文件系统策略"
+        J[RPM后端] --> K[数据库fsync]
+        J --> L[文件写入异步]
+        M[zypper特定] --> N[下载缓存管理]
+        M --> O[回滚机制]
+    end
+    
+    P[独特特性] --> Q[强事务支持]
+    P --> R[快照集成Btrfs]
+    P --> S[严格依赖检查]</pre>
+
+<h3 id="AUR-Helpers-yay-paru-分析"><a href="#AUR-Helpers-yay-paru-分析" class="headerlink" title="AUR Helpers (yay&#x2F;paru) 分析"></a>AUR Helpers (yay&#x2F;paru) 分析</h3><pre class="mermaid">graph TB
+    A[AUR Helper架构] --> B[前端: yay/paru]
+    A --> C[后端: pacman]
+    A --> D[AUR接口]
+    
+    B --> E[用户交互增强]
+    E --> F[交互式PKGBUILD]
+    E --> G[并行下载]
+    E --> H[彩色输出]
+    
+    D --> I[查询AUR]
+    D --> J[下载PKGBUILD]
+    D --> K[本地编译]
+    
+    subgraph "与pacman关系"
+        L[包装器模式] --> M[调用pacman安装]
+        M --> N[继承pacman特性]
+        N --> O[无独立fsync]
+        N --> P[无独立SAT求解]
+    end
+    
+    subgraph "安全性考虑"
+        Q[用户构建] --> R[潜在安全风险]
+        S[非官方源] --> T[信任级别不同]
+        U[安全性] --> V[需要用户审核]
+    end</pre>
+
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th>包管理器</th>
+<th>SAT求解器</th>
+<th>fsync策略</th>
+<th>事务支持</th>
+<th>设计理念</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>APT</strong></td>
+<td>启发式算法</td>
+<td>部分使用</td>
+<td>有限恢复</td>
+<td>稳定至上</td>
+<td>Debian&#x2F;Ubuntu服务器</td>
+</tr>
+<tr>
+<td><strong>DNF</strong></td>
+<td>libsolv (完整SAT)</td>
+<td>数据库强制</td>
+<td>RPM事务</td>
+<td>企业级可靠</td>
+<td>RHEL&#x2F;Fedora企业</td>
+</tr>
+<tr>
+<td><strong>Zypper</strong></td>
+<td>libsolv扩展</td>
+<td>数据库强制</td>
+<td>强事务</td>
+<td>SUSE企业特性</td>
+<td>openSUSE&#x2F;SLE</td>
+</tr>
+<tr>
+<td><strong>pacman</strong></td>
+<td>简单解析</td>
+<td>不使用</td>
+<td>无</td>
+<td>简单快速</td>
+<td>Arch桌面</td>
+</tr>
+<tr>
+<td><strong>yay&#x2F;paru</strong></td>
+<td>依赖pacman</td>
+<td>同pacman</td>
+<td>同pacman</td>
+<td>AUR便利性</td>
+<td>Arch用户构建</td>
+</tr>
+<tr>
+<td><strong>Nix</strong></td>
+<td>自定义求解器</td>
+<td><strong>强制使用</strong></td>
+<td>原子事务</td>
+<td>纯函数式</td>
+<td>开发&#x2F;可重复</td>
+</tr>
+<tr>
+<td><strong>Portage</strong></td>
+<td>增强解析</td>
+<td>使用sync()</td>
+<td>阶段提交</td>
+<td>源码灵活性</td>
+<td>Gentoo定制</td>
+</tr>
+<tr>
+<td><strong>apk</strong></td>
+<td>简单解析</td>
+<td><strong>强制使用</strong></td>
+<td>原子操作</td>
+<td>小型可靠</td>
+<td>Alpine&#x2F;容器</td>
+</tr>
+<tr>
+<td><strong>xbps</strong></td>
+<td>布尔解析</td>
+<td>可选</td>
+<td>有限</td>
+<td>平衡设计</td>
+<td>Void通用</td>
+</tr>
+<tr>
+<td><strong>Flatpak</strong></td>
+<td>OSTree层</td>
+<td>应用级别</td>
+<td>引用计数</td>
+<td>沙箱部署</td>
+<td>跨发行版应用</td>
+</tr>
+</tbody></table>
+<h3 id="fsync策略对比"><a href="#fsync策略对比" class="headerlink" title="fsync策略对比"></a>fsync策略对比</h3><pre class="mermaid">graph TB
+    subgraph "强制或广泛使用fsync"
+        A1[Nix/Guix] --> A2[完全原子性<br>崩溃安全]
+        B1[apk Alpine] --> B2[嵌入式导向<br>数据完整性优先]
+        C1[Zypper/DNF] --> C2[企业级需求<br>数据库一致性]
+    end
+    
+    subgraph "选择性使用fsync"
+        D1[APT/dpkg] --> D2[关键元数据fsync<br>其他延迟写入]
+        E1[Portage] --> E2[重要阶段sync<br>编译过程异步]
+        F1[xbps] --> F2[可配置策略<br>用户决定]
+    end
+    
+    subgraph "最小化fsync"
+        G1[pacman] --> G2[依赖文件系统<br>Ext4/journaling]
+        H1[Slackpkg] --> H2[极简设计<br>用户负责]
+        I1[Flatpak] --> I2[用户空间操作<br>系统影响小]
+    end
+    
+    subgraph "AUR Helpers"
+        J1[yay/paru] --> J2[完全依赖pacman<br>无额外fsync]
+    end</pre>
+
+<h3 id="SAT求解器"><a href="#SAT求解器" class="headerlink" title="SAT求解器"></a>SAT求解器</h3><pre class="mermaid">graph TD
+    A[SAT求解能力层级] --> B[第一层: 完整SAT求解器]
+    A --> C[第二层: 高级启发式算法]
+    A --> D[第三层: 简单依赖解析]
+    A --> E[第四层: 无依赖解析]
+    
+    B --> B1[libsolv-based]
+    B1 --> B2[DNF/RPM]
+    B1 --> B3[Zypper]
+    B2 --> B4[复杂布尔逻辑]
+    B3 --> B5[多仓库优化]
+    
+    C --> C1[APT/aptitude]
+    C1 --> C2[稳定解优先]
+    C2 --> C3[非最优但实用]
+    
+    D --> D1[pacman]
+    D1 --> D2[线性依赖检查]
+    D --> D3[apk Alpine]
+    D3 --> D4[简单约束求解]
+    
+    E --> E1[Slackpkg]
+    E1 --> E2[按列表顺序]
+    E --> E3[AUR Helpers]
+    E3 --> E4[传递到pacman]
+    
+    F[特殊类别] --> G[Nix/Guix]
+    G --> H[函数式依赖图]
+    H --> I[非传统SAT]</pre>
+
+<h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><h3 id="APT的依赖解析机制"><a href="#APT的依赖解析机制" class="headerlink" title="APT的依赖解析机制"></a>APT的依赖解析机制</h3><pre class="mermaid">graph LR
+    A[APT依赖解析流程] --> B[读取Packages文件]
+    B --> C[构建依赖图]
+    
+    subgraph "解析算法"
+        C1[基于Debian策略] --> C2[偏好已安装版本]
+        C2 --> C3[避免破坏现有包]
+        C3 --> C4[使用推荐而非依赖]
+        C4 --> C5[处理Pre-Depends]
+    end
+    
+    C --> D[生成安装方案]
+    D --> E{方案可行?}
+    E -->|是| F[执行安装]
+    E -->|否| G[尝试放松约束]
+    G --> H[移除冲突包]
+    H --> I[用户确认]
+    
+    J[非SAT特性] --> K[不保证最优解]
+    K --> L[但保证系统稳定]
+    L --> M[历史兼容性保持]</pre>
+
+<h3 id="DNF-libsolv-SAT求解过程"><a href="#DNF-libsolv-SAT求解过程" class="headerlink" title="DNF&#x2F;libsolv SAT求解过程"></a>DNF&#x2F;libsolv SAT求解过程</h3><pre class="mermaid">graph TD
+    A[libsolv工作流程] --> B[加载仓库元数据]
+    B --> C[构建求解问题]
+    
+    subgraph "问题表示"
+        C1[包表示为变量]
+        C2[版本约束为子句]
+        C3[依赖关系为蕴含]
+        C4[冲突为否定子句]
+    end
+    
+    C --> D[应用SAT算法]
+    
+    subgraph "求解阶段"
+        D1[决策: 选择包版本]
+        D2[布尔约束传播]
+        D3[冲突分析与学习]
+        D4[非时序回溯]
+        D5[启发式变量选择]
+    end
+    
+    D --> E{找到解?}
+    E -->|是| F[优化解决方案]
+    F --> F1[最小化变更]
+    F1 --> F2[偏好新版本]
+    F2 --> F3[仓库优先级]
+    
+    E -->|否| G[放松约束]
+    G --> H[移除可选依赖]
+    H --> I[允许旧版本]
+    I --> J[生成替代方案]</pre>
+
+
+
+<h2 id="适用使用场景"><a href="#适用使用场景" class="headerlink" title="适用使用场景"></a>适用使用场景</h2><pre class="mermaid">graph TD
+    A[选择标准] --> B{主要需求?}
+    
+    B -->|企业服务器| C[DNF/Zypper]
+    C --> C1[强事务支持]
+    C1 --> C2[企业维护]
+    
+    B -->|稳定性优先| D[APT]
+    D --> D1[保守更新]
+    D1 --> D2[广泛测试]
+    
+    B -->|桌面最新软件| E[pacman + AUR]
+    E --> E1[滚动更新]
+    E1 --> E2[社区驱动]
+    
+    B -->|开发环境| F[Nix/Guix]
+    F --> F1[可重复环境]
+    F1 --> F2[多版本共存]
+    
+    B -->|容器最小化| G[apk Alpine]
+    G --> G1[小型镜像]
+    G1 --> G2[安全加固]
+    
+    B -->|系统定制| H[Portage]
+    H --> H1[源码优化]
+    H1 --> H2[完全控制]
+    
+    B -->|简洁稳定| I[xbps/Slackpkg]
+    I --> I1[简洁设计]
+    I1 --> I2[低维护]</pre>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不同包管理器在SAT求解能力和fsync策略上体现了各自的设计哲学和目标用户群体。<strong>企业级系统</strong>（RHEL&#x2F;SUSE）倾向于使用完整的SAT求解器和强一致性保证，而<strong>桌面系统</strong>（Arch&#x2F;Debian）更注重用户体验和性能。<strong>新兴系统</strong>（Nix&#x2F;Alpine）则在特定领域（开发&#x2F;容器）提供了创新的解决方案。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Arch Linux 安装指南（支持Arch to go）</title>
-    <url>/2025/08/09/Arch%20Linux%20%E5%AE%89%E8%A3%85/</url>
+    <url>/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="Arch-Linux-安装指南（支持Arch-to-go）"><a href="#Arch-Linux-安装指南（支持Arch-to-go）" class="headerlink" title="Arch Linux 安装指南（支持Arch to go）"></a>Arch Linux 安装指南（支持Arch to go）</h1><h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
 <p>如果能看到文件列表，说明是UEFI启动模式。</p>
@@ -164,7 +535,7 @@
   </entry>
   <entry>
     <title>Magisk模块刷入指南：一场Android系统的持久战</title>
-    <url>/2025/06/28/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
+    <url>/20250628/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
 <p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
 <p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
@@ -289,7 +660,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>演讲稿</title>
-    <url>/2025/06/18/%E6%BC%94%E8%AE%B2%E7%A8%BF/</url>
+    <url>/20250618/%E6%BC%94%E8%AE%B2%E7%A8%BF/</url>
     <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
 <p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
 <p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
@@ -308,7 +679,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>扫雷破解版</title>
-    <url>/2025/05/04/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <url>/20250504/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
     <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
 <p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
@@ -324,7 +695,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>NoMoreBugCheck.sys数字签名版</title>
-    <url>/2025/04/11/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
+    <url>/20250411/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
     <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
 <p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
 <p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
@@ -332,7 +703,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>好玩的文字特效</title>
-    <url>/2025/03/24/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <url>/20250324/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
 <span id="more"></span>
 <iframe id="ifrm"  width="80%" height="600px"
@@ -342,7 +713,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>部署UWP应用为系统预装应用</title>
-    <url>/2025/03/22/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</url>
+    <url>/20250322/%E9%83%A8%E7%BD%B2UWP%E5%BA%94%E7%94%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E9%A2%84%E8%A3%85%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
 <ol>
 <li><p><strong>准备应用包</strong></p>
@@ -383,7 +754,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>谷歌小恐龙</title>
-    <url>/2025/03/20/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
+    <url>/20250320/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
     <content><![CDATA[<p>体验：</p>
 <span id="more"></span>
 
@@ -395,7 +766,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>Win 8.1 x64 集成补丁镜像</title>
-    <url>/2025/01/28/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
+    <url>/20250128/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
     <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
 <li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
 <li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
@@ -412,7 +783,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <url>/2025/01/25/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <url>/20250125/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p><strong>注意:</strong></p>
 <p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
 <p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
@@ -429,7 +800,7 @@ E -.-> G[Hook系统级功能]</pre>
   </entry>
   <entry>
     <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <url>/2025/01/20/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <url>/20250120/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
 <p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
 <p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
