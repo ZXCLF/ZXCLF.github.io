@@ -301,7 +301,13 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="Arch-Linux-安装指南（支持Arch-to-go）"><a href="#Arch-Linux-安装指南（支持Arch-to-go）" class="headerlink" title="Arch Linux 安装指南（支持Arch to go）"></a>Arch Linux 安装指南（支持Arch to go）</h1><h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
+  <h1 id="Arch-Linux-安装指南（支持Arch-to-go）"><a href="#Arch-Linux-安装指南（支持Arch-to-go）" class="headerlink" title="Arch Linux 安装指南（支持Arch to go）"></a>Arch Linux 安装指南（支持Arch to go）</h1><blockquote>
+<p>Arch殿堂之上，历代发行版纷争百余次，是非功过未易评断，然技术史家无不承认，正是在这方终端之中，决定了多少开发者的心智归属、系统生态的流向沉浮，故而社区素有“真理之殿”的传说。</p>
+<p>当年林纳斯托瓦兹首释内核源代码，开源运动如星火燎原。Debian以稳如磐石之志立下基石，红帽借企业之力拓土开疆。公元二〇〇三年，也正是在这滚动更新的浪潮前，Arch社区以KISS之道铸就极简利刃，以Wiki为盾，以AUR为弓，于纷繁发行版中夺下一片天地！</p>
+<p>我不明白，为何众人总在议论 Debian 的稳如磐石，仿佛这自由世界对我们注定了曲高和寡。二十年前，我从一份纯净的安装媒介踏上征途，开启了滚动发布的新章，Linux桌面的灵活精悍遂入新境。Pacman所到之处，极客欣然相迎，真可谓尽握自主，那种清晰透明、万物由我的境界，犹在眼前。短短二十载之后，这里竟至于一变而成为我等理念的困守之地了么？</p>
+<p>无论怎么讲，版本迭代，是滚动对固定，优势在我！</p>
+</blockquote>
+<h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
 <p>如果能看到文件列表，说明是UEFI启动模式。</p>
 <h2 id="2-建立网络连接"><a href="#2-建立网络连接" class="headerlink" title="2. 建立网络连接"></a>2. 建立网络连接</h2><p>启用网络并测试连通性：</p>

@@ -45,10 +45,16 @@
     <link href="https://zxclf.github.io/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/"/>
     <id>https://zxclf.github.io/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/</id>
     <published>2025-08-09T12:00:00.000Z</published>
-    <updated>2025-08-09T13:53:22.452Z</updated>
+    <updated>2026-01-18T11:50:45.709Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;Arch-Linux-安装指南（支持Arch-to-go）&quot;&gt;&lt;a href=&quot;#Arch-Linux-安装指南（支持Arch-to-go）&quot; class=&quot;headerlink&quot; title=&quot;Arch Linux 安装指南（支持Arch to go）&quot;&gt;&lt;/a&gt;Arch Linux 安装指南（支持Arch to go）&lt;/h1&gt;&lt;h2 id=&quot;1-验证启动模式&quot;&gt;&lt;a href=&quot;#1-验证启动模式&quot; class=&quot;headerlink&quot; title=&quot;1. 验证启动模式&quot;&gt;&lt;/a&gt;1. 验证启动模式&lt;/h2&gt;&lt;p&gt;检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;Arch-Linux-安装指南（支持Arch-to-go）&quot;&gt;&lt;a href=&quot;#Arch-Linux-安装指南（支持Arch-to-go）&quot; class=&quot;headerlink&quot; title=&quot;Arch Linux 安装指南（支持Arch to go）&quot;&gt;&lt;/a&gt;Arch Linux 安装指南（支持Arch to go）&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Arch殿堂之上，历代发行版纷争百余次，是非功过未易评断，然技术史家无不承认，正是在这方终端之中，决定了多少开发者的心智归属、系统生态的流向沉浮，故而社区素有“真理之殿”的传说。&lt;/p&gt;
+&lt;p&gt;当年林纳斯托瓦兹首释内核源代码，开源运动如星火燎原。Debian以稳如磐石之志立下基石，红帽借企业之力拓土开疆。公元二〇〇三年，也正是在这滚动更新的浪潮前，Arch社区以KISS之道铸就极简利刃，以Wiki为盾，以AUR为弓，于纷繁发行版中夺下一片天地！&lt;/p&gt;
+&lt;p&gt;我不明白，为何众人总在议论 Debian 的稳如磐石，仿佛这自由世界对我们注定了曲高和寡。二十年前，我从一份纯净的安装媒介踏上征途，开启了滚动发布的新章，Linux桌面的灵活精悍遂入新境。Pacman所到之处，极客欣然相迎，真可谓尽握自主，那种清晰透明、万物由我的境界，犹在眼前。短短二十载之后，这里竟至于一变而成为我等理念的困守之地了么？&lt;/p&gt;
+&lt;p&gt;无论怎么讲，版本迭代，是滚动对固定，优势在我！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-验证启动模式&quot;&gt;&lt;a href=&quot;#1-验证启动模式&quot; class=&quot;headerlink&quot; title=&quot;1. 验证启动模式&quot;&gt;&lt;/a&gt;1. 验证启动模式&lt;/h2&gt;&lt;p&gt;检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;ls&lt;/span&gt; /sys/firmware/efi/efivars&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;如果能看到文件列表，说明是UEFI启动模式。&lt;/p&gt;
 &lt;h2 id=&quot;2-建立网络连接&quot;&gt;&lt;a href=&quot;#2-建立网络连接&quot; class=&quot;headerlink&quot; title=&quot;2. 建立网络连接&quot;&gt;&lt;/a&gt;2. 建立网络连接&lt;/h2&gt;&lt;p&gt;启用网络并测试连通性：&lt;/p&gt;
