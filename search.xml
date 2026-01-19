@@ -1,12 +1,476 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>本站镜像站启用</title>
-    <url>/20250408/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
-    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
-<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
-<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+    <title>Magisk模块刷入指南：一场Android系统的持久战</title>
+    <url>/20250628/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
+<p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
+<p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
+<span id="more"></span>
+
+<p><strong>关键选择：推荐 Magisk_Alpha！</strong></p>
+<ul>
+<li><strong>为何是 Alpha？</strong> 同志们！官方 Magisk 虽好，但其隐藏性在敌人日益严密的“检测扫荡”（银行App、游戏反作弊、部分支付应用）面前，渐显吃力。Magisk_Alpha（由活跃社区维护）在隐藏性上做了大量卓有成效的改进工作，其“反检测”能力更强，更能帮助我们潜伏在敌人心脏地带而不被发现！<strong>隐蔽性就是战斗力！</strong> 务必优先选用！</li>
+<li><strong>警惕 Kitsune_Mask (原 Magisk Delta)！</strong> 过去它曾是一支劲旅，但<strong>现已停止维护</strong>！停更的武器，就像生了锈的刺刀，非但不能杀敌，反而可能伤己！众多同志反馈，它存在严重Bug，例如<strong>导致32位应用程序无法运行，甚至可能迫使你进行“恢复出厂设置”这种惨烈的战略撤退才能解决问题！</strong> 我们绝不能让这样的隐患留在我们的队伍里！</li>
+</ul>
+<h4 id="一、隐蔽战线是生命线：Shamiko模块"><a href="#一、隐蔽战线是生命线：Shamiko模块" class="headerlink" title="一、隐蔽战线是生命线：Shamiko模块"></a><strong>一、隐蔽战线是生命线：Shamiko模块</strong></h4><blockquote>
+<p>敌进我退，敌驻我扰，敌疲我打，敌退我追</p>
+</blockquote>
+<p>在Root的战场上，面对强大的、日益精密的Root检测（如银行APP、部分游戏、公司MDM软件），一味蛮干（直接暴露Root）是要吃大亏的！<strong>Shamiko模块，就是执行“敌后隐蔽工作”的精锐力量。</strong></p>
+<ul>
+<li><strong>核心任务：</strong> Shamiko不直接“消灭”检测（如Magisk Hide或早期DenyList），而是巧妙地“融入群众”（系统环境），让检测者“视而不见”。<strong>强烈推荐使用它的白名单模式。</strong></li>
+<li><strong>工作方法（白名单模式）：</strong><ol>
+<li>在Magisk设置中启用<strong>Zygisk</strong>（这是基础，后面详谈）。</li>
+<li><strong>刷入Shamiko模块。</strong> Shamiko会以更底层、更隐蔽的方式对应用进行“伪装”，使其无法探测到Zygisk和Root的存在。</li>
+</ol>
+</li>
+<li><strong>重要意义：</strong> 正确配置Shamiko，就如同给我们的Root行动披上了“隐身衣”，是保障金融安全、游戏畅玩、工作APP正常使用的<strong>关键一招</strong>。<strong>忽视隐蔽工作，等于主动向敌人暴露目标！</strong></li>
+</ul>
+<h4 id="二、灵活机动的战略战术：LSPosed框架"><a href="#二、灵活机动的战略战术：LSPosed框架" class="headerlink" title="二、灵活机动的战略战术：LSPosed框架"></a><strong>二、灵活机动的战略战术</strong>：LSPosed框架</h4><blockquote>
+<p>以子之矛，陷子之盾</p>
+</blockquote>
+<p>Magisk给了我们根据地（Root），但要在应用层面进行更精细、更灵活的改造，就需要 <strong>LSPosed框架</strong>。它是新一代的Xposed实现，依托于Zygisk，<strong>运行效率更高，兼容性更好，模块管理更清晰。</strong></p>
+<ul>
+<li><strong>战略地位：</strong> LSPosed本身是一个Magisk模块。刷入它，就相当于建立了一个强大的“前线指挥部”，可以调度和指挥各种功能模块（Modules）对单个或特定应用进行“定点改造”。</li>
+<li><strong>重要作战单元（模块举例）：</strong><ul>
+<li><strong>隐藏应用列表模块（Hide-My-Applis）：</strong> 此乃配合Shamiko作战的“反间谍利器”。它能阻止APP检测你手机上安装了哪些应用（尤其是一些敏感或破解工具），进一步切断敌人情报来源。</li>
+<li><strong>New Hook Vip等模块（仅供学习研究！）：</strong> 这类模块如同缴获的“特殊装备”，可能能解锁某些应用的特定功能（如去广告、会员权限）。<strong>务必深刻认识：</strong> 此类行为涉及版权和法律风险，如同在敌占区使用缴获武器，<strong>必须慎之又慎！</strong> 本指南<strong>仅提供技术可能性探讨，强调其学习研究价值，坚决反对用于非法目的和侵害他人合法权益。</strong> “武器”本身无罪，关键在于使用者的目的和是否符合最广大人民群众的根本利益（法律与道德）。</li>
+</ul>
+</li>
+<li><strong>运作原理：</strong> LSPosed模块通过Hook（钩子）应用进程，在特定函数执行前后注入自己的代码，从而改变应用的行为。这种“嵌入作战”方式，使得功能修改更加精准和动态。</li>
+</ul>
+<h4 id="三、革命的命脉：Zygisk"><a href="#三、革命的命脉：Zygisk" class="headerlink" title="三、革命的命脉：Zygisk"></a><strong>三、革命的命脉</strong>：Zygisk</h4><blockquote>
+<p>兵马未动，粮草先行。</p>
+</blockquote>
+<pre class="mermaid">graph LR
+A[Zygote进程] --> B[Zygisk注入]
+B --> C[模块寄生系统核心]
+C --> D[Shamiko生效]
+C --> E[LSPosed框架激活]
+D -.-> F[Root隐藏]
+E -.-> G[Hook系统级功能]</pre>
+
+<p><strong>Zygisk (Zygote注入) 是Magisk现代体系的核心引擎和生命线！</strong></p>
+<ul>
+<li><strong>重要推荐：使用 Zygisk_Next！</strong> 同志们！原版Zygisk固然可用，但 <strong>Zygisk_Next</strong> 是社区在原版基础上的重大改进！它在<strong>稳定性、兼容性、特别是隐藏性（反检测）上更进一步！</strong> 它更有效地对抗着各种针对Zygisk的检测手段。<strong>“工欲善其事，必先利其器”，Zygisk_Next 就是我们更锋利的渗透匕首！</strong></li>
+<li><strong>核心作用与原理：</strong><ul>
+<li>Android系统启动应用时，都派生自一个叫<code>Zygote</code>的母进程。</li>
+<li><strong>Zygisk</strong> 的核心功能，就是将自己（Magisk的核心组件）<strong>注入到<code>Zygote</code>进程中</strong>。这样一来，<strong>所有</strong>从Zygote孵化的应用程序进程，<strong>天生就继承了Magisk的环境和功能</strong>（如Root权限管理、ROOT隐藏（Shamiko）、以及最重要的——加载LSPosed等需要注入到应用进程的框架和模块）。</li>
+</ul>
+</li>
+<li><strong>不开启Zygisk的严重后果（如同切断补给线）：</strong><ol>
+<li><strong>LSPosed框架及其所有模块瘫痪：</strong> LSPosed需要注入应用进程才能工作，而Zygisk是完成这种注入的关键桥梁。关闭Zygisk，LSPosed就失去了“兵力投送”的能力，其框架本身和所有模块都将<strong>完全无法加载和工作</strong>！其他依赖进程注入的模块（如部分字体修改、深度系统优化模块）同样会失效。</li>
+<li><strong>部分现代Magisk模块功能受限：</strong> 许多新模块都设计为需要Zygisk环境才能发挥全部效力。</li>
+</ol>
+</li>
+<li><strong>结论：</strong> <strong>Zygisk是Magisk强大功能（特别是Root隐藏和LSPosed生态）得以实现的基石。关闭Zygisk，等于自废武功，使大部分高级模块陷入瘫痪！非必要，切勿关闭！</strong></li>
+</ul>
+<h4 id="四、警惕糖衣炮弹：防格机模块"><a href="#四、警惕糖衣炮弹：防格机模块" class="headerlink" title="四、警惕糖衣炮弹：防格机模块"></a><strong>四、警惕糖衣炮弹：防格机模块</strong></h4><blockquote>
+<p>革命队伍要纯洁，模块仓库有风险！</p>
+</blockquote>
+<p>如同要警惕混入革命队伍的敌人，<strong>刷入来源不明、未经充分验证的模块是极其危险的！</strong></p>
+<ul>
+<li><strong>“格机模块”的危害：</strong> 这类恶意模块如同“特洛伊木马”，一旦刷入，可能在启动时执行破坏性脚本，导致：<ul>
+<li><strong>系统关键文件被删除或篡改。</strong></li>
+<li><strong>无限重启，手机变“砖”。</strong></li>
+<li><strong>数据被清空（Factory Reset &#x2F; Format Data）。</strong></li>
+</ul>
+</li>
+<li><strong>防御策略（肃反手段）：</strong><ol>
+<li><strong>提高警惕，擦亮眼睛：</strong> 绝不轻信论坛、非官方渠道的所谓“神奇”、“一键破解”模块，尤其警惕要求刷入后格式化Data分区的模块。</li>
+<li><strong>依靠群众，调查研究：</strong> 刷入任何模块前，务必查阅<strong>可靠社区</strong>（如XDA, 酷安相关板块）的评价反馈，了解其<strong>具体功能、风险、兼容性</strong>。</li>
+<li><strong>隔离审查（沙盒测试）：</strong> 如果条件允许，先在备用机或模拟器上测试。</li>
+<li><strong>备份！备份！再备份！</strong> 刷机前通过TWRP等Recovery完整备份系统（Boot, System, Data, Vendor等关键分区），这是最后的防线！</li>
+</ol>
+</li>
+</ul>
+<h4 id="五、最后的堡垒：刷入救砖模块"><a href="#五、最后的堡垒：刷入救砖模块" class="headerlink" title="五、最后的堡垒：刷入救砖模块"></a>五、最后的堡垒：刷入救砖模块</h4><blockquote>
+<p>凡事预则立，不预则废。</p>
+</blockquote>
+<p>在复杂的刷机斗争中，难免遭遇挫折（如模块冲突导致无法开机）。<strong>预先部署“救砖模块”，就是保留革命的火种，确保有生力量。</strong></p>
+<ul>
+<li><strong>推荐利器：神仙自动救砖模块：</strong><ul>
+<li><strong>工作原理：</strong> 此模块如同潜伏在系统深处的“应急响应小组”。</li>
+<li><strong>触发机制：</strong><ul>
+<li><strong>卡开机动画循环：</strong> 如果设备连续重启（例如达到3次）仍卡在开机Logo处，模块会自动触发救援。</li>
+<li><strong>卡第二屏（如厂商Logo&#x2F;“Powered by Android”）超时：</strong> 如果在此界面停留超过预设时间（如90秒），模块也会启动。</li>
+</ul>
+</li>
+<li><strong>救援行动：</strong><ol>
+<li><strong>自动禁用所有Magisk模块：</strong> 这是解决因模块冲突导致无法开机的<strong>最有效手段</strong>。</li>
+<li><strong>自动解冻被冻结的应用：</strong> 解决因误冻结关键系统应用（如桌面Launcher、系统UI）导致的黑屏&#x2F;无法进入系统问题。</li>
+</ol>
+</li>
+<li><strong>战略意义：</strong> 刷入此类模块，就如同在后方建立了安全的“根据地”和“野战医院”。当前线（系统启动）遭遇重大挫折（无法开机）时，它能自动实施“战场急救”，<strong>极大提高设备从软件故障中“自救”成功的机会</strong>，避免需要连接电脑使用复杂命令（Fastboot&#x2F;ADB）或重刷系统的麻烦（保住Data数据尤为重要！）。</li>
+</ul>
+</li>
+<li><strong>部署要求：</strong> <strong>务必在系统还能正常启动时刷入！</strong> 变砖后再想刷就晚了！将此模块视为Magisk环境的“基本险”。</li>
+</ul>
+<hr>
+<h4 id="总结与号召"><a href="#总结与号召" class="headerlink" title="总结与号召"></a><strong>总结与号召</strong></h4><blockquote>
+<p>同志们，刷机有风险，探索需谨慎，但掌握正确的方法和武器，就能化险为夷，让手机真正为我们所用！</p>
+</blockquote>
+<ol>
+<li><strong>隐蔽是前提：</strong> Shamiko + 隐藏应用列表 是生存之道。</li>
+<li><strong>框架是平台：</strong> LSPosed 是应用级改造的强大武器库，<strong>但务必合法合规使用！</strong></li>
+<li><strong>Zygisk是根基：</strong> 务必开启，它是现代Magisk模块生态的命脉，关闭则万事休矣！</li>
+<li><strong>安全是底线：</strong> 严防死守“格机模块”，来源不明绝不刷入！</li>
+<li><strong>备份是后路：</strong> TWRP等Recovery备份是终极保险。</li>
+<li><strong>救砖是保障：</strong> <strong>立即行动！</strong> 现在就刷入“神仙自动救砖”或类似可靠救砖模块，建立你的最后防线！</li>
+</ol>
+<p>让我们发扬“自力更生，艰苦奋斗”的精神，在Android系统改造的实践中，“从战争中学习战争”，不断掌握新知识，解决新问题！务必牢记：“战略上藐视敌人（技术困难），战术上重视敌人（每一个操作步骤）”。</p>
+<p><strong>让我们团结起来，争取更大的刷机自由！</strong></p>
 ]]></content>
+      <tags>
+        <tag>Root</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <url>/20250411/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
+    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Ventoy Arch To Go 安装指南</title>
+    <url>/20250809/Ventoy_Arch_To_Go/</url>
+    <content><![CDATA[<h1 id="Ventoy-Arch-To-Go-安装指南"><a href="#Ventoy-Arch-To-Go-安装指南" class="headerlink" title="Ventoy Arch To Go 安装指南"></a><strong>Ventoy</strong> Arch To Go 安装指南</h1><blockquote>
+<p>Arch殿堂之上，历代发行版纷争百余次，是非功过未易评断，然技术史家无不承认，正是在这方终端之中，决定了多少开发者的心智归属、系统生态的流向沉浮，故而社区素有“真理之殿”的传说。</p>
+<p>当年林纳斯托瓦兹首释内核源代码，开源运动如星火燎原。Debian以稳如磐石之志立下基石，红帽借企业之力拓土开疆。公元二〇〇三年，也正是在这滚动更新的浪潮前，Arch社区以KISS之道铸就极简利刃，以Wiki为盾，以AUR为弓，于纷繁发行版中夺下一片天地！</p>
+<p>我不明白，为何众人总在议论 Debian 的稳如磐石，仿佛这自由世界对我们注定了曲高和寡。数年前，我从一份纯净的安装媒介踏上征途，开启了滚动发布的新章，Linux桌面的灵活精悍遂入新境。Pacman所到之处，极客欣然相迎，真可谓尽握自主，那种清晰透明、万物由我的境界，犹在眼前。短短数载之后，这里竟至于一变而成为我等理念的困守之地了么？</p>
+<p>无论怎么讲，版本迭代，是滚动对固定，优势在我！</p>
+</blockquote>
+<span id="more"></span>
+
+
+<h2 id="准备工作（VMware-Workstation-Pro-VHD-固定磁盘）"><a href="#准备工作（VMware-Workstation-Pro-VHD-固定磁盘）" class="headerlink" title="准备工作（VMware Workstation Pro + VHD 固定磁盘）"></a>准备工作（VMware Workstation Pro + VHD 固定磁盘）</h2><p>如果你计划在 VMware Workstation Pro 中制作 Arch To Go，并使用固定大小的 VHD 虚拟磁盘作为系统盘，请按照以下步骤准备：</p>
+<h3 id="1-创建-VHD-固定磁盘（Windows-环境）"><a href="#1-创建-VHD-固定磁盘（Windows-环境）" class="headerlink" title="1. 创建 VHD 固定磁盘（Windows 环境）"></a>1. 创建 VHD 固定磁盘（Windows 环境）</h3><ol>
+<li>打开“磁盘管理”（Win + X → 磁盘管理）</li>
+<li>选择“操作” → “创建 VHD”</li>
+<li>指定保存路径（如 <code>D:\ArchLinux.vhd</code>）</li>
+<li>设置虚拟硬盘大小（建议至少 <strong>30 GB</strong>）</li>
+<li>**选择“固定大小” ** <strong>（必须）</strong></li>
+<li>确认创建，磁盘管理会自动挂载此 VHD</li>
+</ol>
+<h3 id="2-初始化-VHD-分区（可选但推荐）"><a href="#2-初始化-VHD-分区（可选但推荐）" class="headerlink" title="2. 初始化 VHD 分区（可选但推荐）"></a>2. 初始化 VHD 分区（可选但推荐）</h3><p>在磁盘管理中：</p>
+<ul>
+<li>找到新添加的 VHD 磁盘，右键选择“初始化磁盘”</li>
+<li>选择 <strong>GPT（GUID 分区表）</strong>，确认</li>
+<li>之后可在 Arch 安装过程中再进行分区格式化</li>
+</ul>
+<h3 id="3-配置-VMware-Workstation-Pro"><a href="#3-配置-VMware-Workstation-Pro" class="headerlink" title="3. 配置 VMware Workstation Pro"></a>3. 配置 VMware Workstation Pro</h3><ol>
+<li>创建新的虚拟机：<ul>
+<li>选择“自定义（高级）”</li>
+<li>虚拟机硬件兼容性默认</li>
+<li>稍后安装操作系统</li>
+<li>选择“Linux” </li>
+<li>虚拟机名称与位置按需设置</li>
+</ul>
+</li>
+<li>处理器与内存：<ul>
+<li>处理器建议 2 核心以上</li>
+<li>内存建议 4 GB 以上</li>
+</ul>
+</li>
+<li>网络类型：<ul>
+<li>选择“桥接模式”或“NAT”均可，建议桥接便于网络调试</li>
+</ul>
+</li>
+<li>I&#x2F;O 控制器与磁盘：<ul>
+<li>选择 SCSI 控制器（推荐）</li>
+<li>选择“使用现有虚拟磁盘”</li>
+<li>浏览并选择之前创建的 VHD 文件（<code>ArchLinux.vhd</code>）</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-加载-Arch-Linux-安装介质"><a href="#4-加载-Arch-Linux-安装介质" class="headerlink" title="4. 加载 Arch Linux 安装介质"></a>4. 加载 Arch Linux 安装介质</h3><ol>
+<li>在虚拟机设置中，添加一个 <strong>CD&#x2F;DVD 驱动器</strong></li>
+<li>选择 Arch Linux 的 ISO 镜像文件（如 <code>archlinux-xxxx.xx.xx-x86_64.iso</code>）</li>
+<li>设置启动顺序，确保 CD&#x2F;DVD 为第一启动项</li>
+</ol>
+<p>接下来，你可以按照本指南的后续步骤进行安装，注意在分区时选择对应的 VHD 设备。</p>
+<hr>
+<h2 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h2><p><strong>部分操作会修改硬盘分区，可能导致数据丢失！</strong><br><strong>请务必备份所有重要数据！</strong><br><strong>请确保你已理解每一步操作的含义，尤其是在分区和格式化阶段。</strong><br><strong>安装前建议查阅 <a href="https://wiki.archlinux.org/">Arch Wiki</a> 获取最新信息。</strong>  </p>
+<!--more-->
+
+<hr>
+<h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
+
+<p>如果能看到文件列表，说明是UEFI启动模式。</p>
+<hr>
+<h2 id="2-建立网络连接"><a href="#2-建立网络连接" class="headerlink" title="2. 建立网络连接"></a>2. 建立网络连接</h2><p>启用网络并测试连通性：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dhcpcd          <span class="comment"># 自动获取IP地址</span></span><br><span class="line">ping archlinux.org -c 3  <span class="comment"># 测试网络是否通畅</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-同步系统时间"><a href="#3-同步系统时间" class="headerlink" title="3. 同步系统时间"></a>3. 同步系统时间</h2><p>确保系统时间准确（防止安装过程中出现时间错误）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>  <span class="comment"># 启用网络时间同步</span></span><br><span class="line">timedatectl status        <span class="comment"># 检查时间状态</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-磁盘分区与格式化"><a href="#4-磁盘分区与格式化" class="headerlink" title="4. 磁盘分区与格式化"></a>4. 磁盘分区与格式化</h2><h3 id="查看存储设备"><a href="#查看存储设备" class="headerlink" title="查看存储设备"></a>查看存储设备</h3><p>先确认你的磁盘设备名称：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk  <span class="comment"># 列出所有存储设备</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分区操作"><a href="#分区操作" class="headerlink" title="分区操作"></a>分区操作</h3><p> <strong>分区操作具有风险！请务必确认目标设备！</strong><br> <strong>以下示例使用 <code>/dev/nvme0n1</code>，请根据 <code>lsblk</code> 结果替换为你的实际设备！</strong></p>
+<p>使用 <code>gdisk</code> 工具进行分区（比 <code>fdisk</code> 更适合 GPT 分区表）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdisk /dev/nvme0n1  <span class="comment"># NVMe 固态硬盘（请替换为你的设备）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>分区步骤详解（以 UEFI + GPT 为例）：</strong></p>
+<ol>
+<li>进入 <code>gdisk</code> 后，输入 <code>o</code> 创建新的 GPT 分区表 <strong>（仅适用于全新磁盘）</strong></li>
+<li>创建 EFI 分区：<ul>
+<li>输入 <code>n</code> 新建分区</li>
+<li>分区号默认回车</li>
+<li>起始扇区默认回车</li>
+<li>输入 <code>+512M</code> 设置分区大小</li>
+<li>输入 <code>ef00</code> 设置分区类型为 EFI 系统分区</li>
+</ul>
+</li>
+<li>创建交换分区（可选但推荐）：<ul>
+<li>再次输入 <code>n</code> 新建分区</li>
+<li>分区号默认回车</li>
+<li>起始扇区默认回车</li>
+<li>输入 <code>+4G</code> 设置交换分区大小（建议为内存的 1-2 倍，例如 4G、8G）</li>
+<li>输入 <code>8200</code> 设置分区类型为 Linux swap</li>
+</ul>
+</li>
+<li>创建根分区：<ul>
+<li>再次输入 <code>n</code> 新建分区</li>
+<li>分区号默认回车</li>
+<li>起始扇区默认回车</li>
+<li>直接回车使用剩余所有空间（也可指定大小如 <code>+100G</code>）</li>
+<li>分区类型保持默认的 Linux 文件系统 (8300)</li>
+</ul>
+</li>
+<li>输入 <code>w</code> 保存并退出（所有更改将生效）</li>
+</ol>
+<h3 id="验证分区"><a href="#验证分区" class="headerlink" title="验证分区"></a>验证分区</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fdisk -l  <span class="comment"># 查看分区结果</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><p><strong>格式化会永久清除分区内所有数据！</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/nvme0n1p1  <span class="comment"># 格式化 EFI 分区为 FAT32</span></span><br><span class="line">mkfs.ext4 /dev/nvme0n1p3      <span class="comment"># 格式化根分区为 ext4（注意分区号对应）</span></span><br><span class="line">mkswap /dev/nvme0n1p2         <span class="comment"># 初始化交换分区</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启用交换分区"><a href="#启用交换分区" class="headerlink" title="启用交换分区"></a>启用交换分区</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">swapon /dev/nvme0n1p2  <span class="comment"># 启用交换分区</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-挂载文件系统"><a href="#5-挂载文件系统" class="headerlink" title="5. 挂载文件系统"></a>5. 挂载文件系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/nvme0n1p3 /mnt       <span class="comment"># 挂载根分区</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/boot              <span class="comment"># 创建 boot 目录</span></span><br><span class="line">mount /dev/nvme0n1p1 /mnt/boot  <span class="comment"># 挂载 EFI 分区</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6-配置软件源（国内用户必看）"><a href="#6-配置软件源（国内用户必看）" class="headerlink" title="6. 配置软件源（国内用户必看）"></a>6. 配置软件源（国内用户必看）</h2><p>替换为国内镜像源加速下载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<p>在文件最前面添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Server = https://mirror.iscas.ac.cn/archlinux/$repo/os/$arch</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-安装基础系统"><a href="#7-安装基础系统" class="headerlink" title="7. 安装基础系统"></a>7. 安装基础系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware vim dhcpcd</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这个命令会安装最基本的系统组件，大约需要 5-15 分钟，取决于你的网速。</p>
+</blockquote>
+<hr>
+<h2 id="8-生成文件系统表"><a href="#8-生成文件系统表" class="headerlink" title="8. 生成文件系统表"></a>8. 生成文件系统表</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9-切换根环境"><a href="#9-切换根环境" class="headerlink" title="9. 切换根环境"></a>9. 切换根环境</h2><blockquote>
+<p><code>arch-chroot</code> 是 Arch Linux 提供的工具，相比标准的 <code>chroot</code>，它会自动挂载 <code>/proc</code>、<code>/sys</code>、<code>/dev</code> 等虚拟文件系统，简化了操作。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="10-配置时区"><a href="#10-配置时区" class="headerlink" title="10. 配置时区"></a>10. 配置时区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="11-本地化设置"><a href="#11-本地化设置" class="headerlink" title="11. 本地化设置"></a>11. 本地化设置</h2><p>编辑语言配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
+
+<p>取消注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">en_US.UTF-8 UTF-8</span><br><span class="line">zh_CN.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>生成本地化设置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">locale-gen</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;LANG=en_US.UTF-8&quot;</span> &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="12-网络配置"><a href="#12-网络配置" class="headerlink" title="12. 网络配置"></a>12. 网络配置</h2><p>设置主机名：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;myhostname&quot;</span> &gt; /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>编辑 hosts 文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>添加内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   myhostname.localdomain myhostname</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="13-设置-root-密码"><a href="#13-设置-root-密码" class="headerlink" title="13. 设置 root 密码"></a>13. 设置 root 密码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="14-安装引导程序-GRUB"><a href="#14-安装引导程序-GRUB" class="headerlink" title="14. 安装引导程序 (GRUB)"></a>14. 安装引导程序 (GRUB)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S --needed grub efibootmgr</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="15-启用网络服务"><a href="#15-启用网络服务" class="headerlink" title="15. 启用网络服务"></a>15. 启用网络服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> dhcpcd</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="16-创建标准用户"><a href="#16-创建标准用户" class="headerlink" title="16. 创建标准用户"></a>16. 创建标准用户</h2><p>添加用户并设置密码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash username</span><br><span class="line">passwd username</span><br></pre></td></tr></table></figure>
+
+<p>配置 sudo 权限：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>取消注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%wheel ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="17-启用额外软件源"><a href="#17-启用额外软件源" class="headerlink" title="17. 启用额外软件源"></a>17. 启用额外软件源</h2><p>编辑 pacman 配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<p>取消注释启用 multilib：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[multilib]</span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<p>添加 Arch Linux CN 源：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+
+<p>更新并安装密钥环：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="18-完成安装"><a href="#18-完成安装" class="headerlink" title="18. 完成安装"></a>18. 完成安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">umount -R /mnt</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="19-配置默认编辑器"><a href="#19-配置默认编辑器" class="headerlink" title="19. 配置默认编辑器"></a>19. 配置默认编辑器</h2><h3 id="root-账户"><a href="#root-账户" class="headerlink" title="root 账户"></a>root 账户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export EDITOR=&#x27;vim&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="普通账户"><a href="#普通账户" class="headerlink" title="普通账户"></a>普通账户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export EDITOR=&#x27;vim&#x27;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="20-安装-KDE-Plasma-桌面环境"><a href="#20-安装-KDE-Plasma-桌面环境" class="headerlink" title="20. 安装 KDE Plasma 桌面环境"></a>20. 安装 KDE Plasma 桌面环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S plasma-meta konsole dolphin plasma-x11-session</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> sddm</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="21-安装基础软件包"><a href="#21-安装基础软件包" class="headerlink" title="21. 安装基础软件包"></a>21. 安装基础软件包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S --needed curl wget nano vim p7zip <span class="built_in">which</span> lvm2</span><br><span class="line"><span class="built_in">sudo</span> pacman -S sof-firmware alsa-firmware alsa-ucm-conf</span><br><span class="line"><span class="built_in">sudo</span> pacman -S ntfs-3g</span><br><span class="line"><span class="built_in">sudo</span> pacman -S adobe-source-han-serif-cn-fonts ttf-liberation</span><br><span class="line"><span class="built_in">sudo</span> pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra</span><br><span class="line"><span class="built_in">sudo</span> pacman -S firefox chromium</span><br><span class="line"><span class="built_in">sudo</span> pacman -S packagekit-qt6 packagekit appstream-qt appstream</span><br><span class="line"><span class="built_in">sudo</span> pacman -S yay</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="22-启动显示管理器与网络工具"><a href="#22-启动显示管理器与网络工具" class="headerlink" title="22. 启动显示管理器与网络工具"></a>22. 启动显示管理器与网络工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start sddm</span><br><span class="line">systemctl start NetworkManager</span><br><span class="line">systemctl <span class="built_in">enable</span> NetworkManager</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="23-配置中文显示"><a href="#23-配置中文显示" class="headerlink" title="23. 配置中文显示"></a>23. 配置中文显示</h2><h3 id="KDE-语言设置"><a href="#KDE-语言设置" class="headerlink" title="KDE 语言设置"></a>KDE 语言设置</h3><ol>
+<li>打开 <code>Region and Language</code></li>
+<li>点击 <code>Language</code> 后的 <code>Modify</code></li>
+<li>右下角 <code>Add More</code> 添加 <code>简体中文</code></li>
+<li>将中文移至顶部</li>
+</ol>
+<h3 id="SDDM-锁屏界面"><a href="#SDDM-锁屏界面" class="headerlink" title="SDDM 锁屏界面"></a>SDDM 锁屏界面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/systemd/system/sddm.service.d</span><br><span class="line"><span class="built_in">sudo</span> vim /etc/systemd/system/sddm.service.d/EnvironmentFile.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Service]</span><br><span class="line">EnvironmentFile=/etc/default/locale</span><br></pre></td></tr></table></figure>
+
+<p>编辑区域文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/default/locale</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">LANG=zh_CN.UTF-8</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="24-安装中文输入法"><a href="#24-安装中文输入法" class="headerlink" title="24. 安装中文输入法"></a>24. 安装中文输入法</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-material-color</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/environment</span><br></pre></td></tr></table></figure>
+
+<p>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="25-支持-Arch-to-go（可选）"><a href="#25-支持-Arch-to-go（可选）" class="headerlink" title="25. 支持 Arch to go（可选）"></a>25. 支持 Arch to go（可选）</h2><blockquote>
+<p>适用于将 Arch Linux 安装到可移动设备（如 U 盘）并配合 Ventoy 使用。</p>
+</blockquote>
+<p>执行官方 <a href="https://github.com/ventoy/vtoyboot/releases">vtoyboot 脚本</a> ，将VHD (.vhd)后缀修改为VTOY (.vtoy)</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <url>/20250128/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
+    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
+<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
+<p>校验信息：</p>
+<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
+]]></content>
+      <tags>
+        <tag>Win 8.1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <url>/20250125/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<span id="more"></span>
+
+<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
+<p>使用方法:</p>
+<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
+    <url>/20250120/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
+<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
+<span id="more"></span>
+
+<h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
+<p>打开APPX的属性，然后点击数字签名选项卡</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_11.png"></p>
+<p>点击详细信息</p>
+<p>在详细信息窗口中点击查看证书</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_12.png"></p>
+<p>点击安装证书</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_13.png"></p>
+<p>储存位置选择本地计算机</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_14.png"></p>
+<p>点击下一步</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_15.png"></p>
+<p>在证书储存中选择将所有证书都放入下列储存</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_16.png"></p>
+<p>点击浏览</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_17.png"></p>
+<p>在弹出的窗口中选择受信任的根证书颁发机构</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_18.png"></p>
+<p>点击确定</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_19.png"></p>
+<p>点击下一步</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_20.png"></p>
+<p>点击完成</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_ZW.png"></p>
+<p>若弹出导入成功的提示说明证书导入成功</p>
+<h3 id="2-使用WindowsAppBoss安装APPX"><a href="#2-使用WindowsAppBoss安装APPX" class="headerlink" title="2.使用WindowsAppBoss安装APPX"></a>2.使用WindowsAppBoss安装APPX</h3><p>以管理员身份运行WindowsAppBoss，点击Install<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_22.png"><br>在弹出的窗口中点击Enable side loading<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_23.png"></p>
+<p>点击Browse</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_24.png"></p>
+<p>在弹出的窗口中选择APPX的位置</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_25.png"></p>
+<p>选择完成后点击Add Package</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_26.png"></p>
+<p>若窗口中出现Task succeeded则代表安装成功</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_27.png"></p>
+<p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
   </entry>
   <entry>
     <title>包管理器SAT求解与fsync机制技术解析</title>
@@ -380,289 +844,38 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Arch Linux 安装指南（支持Arch to go）</title>
-    <url>/20250809/Arch%20Linux%20%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="Arch-Linux-安装指南（支持Arch-to-go）"><a href="#Arch-Linux-安装指南（支持Arch-to-go）" class="headerlink" title="Arch Linux 安装指南（支持Arch to go）"></a>Arch Linux 安装指南（支持Arch to go）</h1><blockquote>
-<p>Arch殿堂之上，历代发行版纷争百余次，是非功过未易评断，然技术史家无不承认，正是在这方终端之中，决定了多少开发者的心智归属、系统生态的流向沉浮，故而社区素有“真理之殿”的传说。</p>
-<p>当年林纳斯托瓦兹首释内核源代码，开源运动如星火燎原。Debian以稳如磐石之志立下基石，红帽借企业之力拓土开疆。公元二〇〇三年，也正是在这滚动更新的浪潮前，Arch社区以KISS之道铸就极简利刃，以Wiki为盾，以AUR为弓，于纷繁发行版中夺下一片天地！</p>
-<p>我不明白，为何众人总在议论 Debian 的稳如磐石，仿佛这自由世界对我们注定了曲高和寡。数年前，我从一份纯净的安装媒介踏上征途，开启了滚动发布的新章，Linux桌面的灵活精悍遂入新境。Pacman所到之处，极客欣然相迎，真可谓尽握自主，那种清晰透明、万物由我的境界，犹在眼前。短短数载之后，这里竟至于一变而成为我等理念的困守之地了么？</p>
-<p>无论怎么讲，版本迭代，是滚动对固定，优势在我！</p>
-</blockquote>
-<h2 id="1-验证启动模式"><a href="#1-验证启动模式" class="headerlink" title="1. 验证启动模式"></a>1. 验证启动模式</h2><p>检查系统是否以 UEFI 模式启动（现代电脑基本都是UEFI启动）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
-<p>如果能看到文件列表，说明是UEFI启动模式。</p>
-<h2 id="2-建立网络连接"><a href="#2-建立网络连接" class="headerlink" title="2. 建立网络连接"></a>2. 建立网络连接</h2><p>启用网络并测试连通性：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dhcpcd  <span class="comment"># 自动获取IP地址</span></span><br><span class="line">ping archlinux.org -c 3  <span class="comment"># 测试网络是否通畅</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-同步系统时间"><a href="#3-同步系统时间" class="headerlink" title="3. 同步系统时间"></a>3. 同步系统时间</h2><p>确保系统时间准确（防止安装过程中出现时间错误）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>  <span class="comment"># 启用网络时间同步</span></span><br><span class="line">timedatectl status  <span class="comment"># 检查时间状态</span></span><br></pre></td></tr></table></figure>
-
+    <title>好玩的文字特效</title>
+    <url>/20250324/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
 <span id="more"></span>
-
-<h2 id="4-磁盘分区与格式化"><a href="#4-磁盘分区与格式化" class="headerlink" title="4. 磁盘分区与格式化"></a>4. 磁盘分区与格式化</h2><h3 id="查看存储设备"><a href="#查看存储设备" class="headerlink" title="查看存储设备"></a>查看存储设备</h3><p>先确认你的磁盘设备名称：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk  <span class="comment"># 列出所有存储设备</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="分区操作（重点）"><a href="#分区操作（重点）" class="headerlink" title="分区操作（重点）"></a>分区操作（重点）</h3><p>使用gdisk工具进行分区（比fdisk更适合GPT分区表）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdisk /dev/sdx      <span class="comment"># 传统SATA硬盘（x替换为a,b,c等字母）</span></span><br><span class="line">gdisk /dev/nvmexn1  <span class="comment"># NVMe固态硬盘（x替换为0,1,2等数字）</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>分区步骤详解：</strong></p>
-<ol>
-<li>进入gdisk后，输入<code>o</code>创建新的GPT分区表</li>
-<li>创建EFI分区：<ul>
-<li>输入<code>n</code>新建分区</li>
-<li>分区号默认回车</li>
-<li>起始扇区默认回车</li>
-<li>输入<code>+512M</code>设置分区大小</li>
-<li>输入<code>ef00</code>设置分区类型为EFI系统分区</li>
-</ul>
-</li>
-<li>创建根分区：<ul>
-<li>再次输入<code>n</code>新建分区</li>
-<li>所有提示都按回车（使用剩余全部空间）</li>
-<li>分区类型保持默认的Linux文件系统(8300)</li>
-</ul>
-</li>
-<li>输入<code>w</code>保存并退出（所有更改将生效）</li>
-</ol>
-<h3 id="验证分区"><a href="#验证分区" class="headerlink" title="验证分区"></a>验证分区</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fdisk -l  <span class="comment"># 查看分区结果</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/nvme0n1p1  <span class="comment"># 格式化EFI分区为FAT32</span></span><br><span class="line">mkfs.ext4 /dev/nvme0n1p2      <span class="comment"># 格式化根分区为ext4</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-挂载文件系统"><a href="#5-挂载文件系统" class="headerlink" title="5. 挂载文件系统"></a>5. 挂载文件系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/nvme0n1p2 /mnt       <span class="comment"># 挂载根分区</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/boot              <span class="comment"># 创建boot目录</span></span><br><span class="line">mount /dev/nvme0n1p1 /mnt/boot  <span class="comment"># 挂载EFI分区</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-配置软件源（国内用户必看）"><a href="#6-配置软件源（国内用户必看）" class="headerlink" title="6. 配置软件源（国内用户必看）"></a>6. 配置软件源（国内用户必看）</h2><p>替换为国内镜像源加速下载：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-
-<p>在文件最前面添加（建议使用清华或中科大源）：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-安装基础系统"><a href="#7-安装基础系统" class="headerlink" title="7. 安装基础系统"></a>7. 安装基础系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware vim dhcpcd</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这个命令会安装最基本的系统组件，大约需要5-15分钟，取决于你的网速。</p>
-</blockquote>
-<h2 id="8-生成文件系统表"><a href="#8-生成文件系统表" class="headerlink" title="8. 生成文件系统表"></a>8. 生成文件系统表</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
-
-<h2 id="9-切换根环境"><a href="#9-切换根环境" class="headerlink" title="9. 切换根环境"></a>9. 切换根环境</h2><blockquote>
-<p><code>arch-chroot</code> 是 Arch Linux 提供的工具，相比标准的 <code>chroot</code>，它会自动挂载 <code>/proc</code>、<code>/sys</code>、<code>/dev</code> 等虚拟文件系统，简化了操作。</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
-
-<h2 id="10-配置时区"><a href="#10-配置时区" class="headerlink" title="10. 配置时区"></a>10. 配置时区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
-
-<h2 id="11-本地化设置"><a href="#11-本地化设置" class="headerlink" title="11. 本地化设置"></a>11. 本地化设置</h2><p>编辑语言配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
-
-<p>取消注释：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">en_US.UTF-8 UTF-8</span><br><span class="line">zh_CN.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
-
-<p>生成本地化设置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">locale-gen</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;LANG=en_US.UTF-8&quot;</span> &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="12-网络配置"><a href="#12-网络配置" class="headerlink" title="12. 网络配置"></a>12. 网络配置</h2><p>设置主机名：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;myhostname&quot;</span> &gt; /etc/hostname</span><br></pre></td></tr></table></figure>
-
-<p>编辑 hosts 文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
-
-<p>添加内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   myhostname.localdomain myhostname</span><br></pre></td></tr></table></figure>
-
-<h2 id="13-设置-root-密码"><a href="#13-设置-root-密码" class="headerlink" title="13. 设置 root 密码"></a>13. 设置 root 密码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
-
-<h2 id="14-安装引导程序-GRUB"><a href="#14-安装引导程序-GRUB" class="headerlink" title="14. 安装引导程序 (GRUB)"></a>14. 安装引导程序 (GRUB)</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pacman -S --needed grub efibootmgr</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<h2 id="15-启用网络服务"><a href="#15-启用网络服务" class="headerlink" title="15. 启用网络服务"></a>15. 启用网络服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> dhcpcd</span><br></pre></td></tr></table></figure>
-
-<h2 id="16-创建标准用户"><a href="#16-创建标准用户" class="headerlink" title="16. 创建标准用户"></a>16. 创建标准用户</h2><p>添加用户并设置密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash username</span><br><span class="line">passwd username</span><br></pre></td></tr></table></figure>
-
-<p>配置 sudo 权限：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-<p>取消注释：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%wheel ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
-
-<h2 id="17-启用额外软件源"><a href="#17-启用额外软件源" class="headerlink" title="17. 启用额外软件源"></a>17. 启用额外软件源</h2><p>编辑 pacman 配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
-
-<p>取消注释启用 multilib：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[multilib]</span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-
-<p>添加 Arch Linux CN 源：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
-
-<p>更新并安装密钥环：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-
-<h2 id="18-完成安装"><a href="#18-完成安装" class="headerlink" title="18. 完成安装"></a>18. 完成安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">umount -R /mnt</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="19-配置默认编辑器"><a href="#19-配置默认编辑器" class="headerlink" title="19. 配置默认编辑器"></a>19. 配置默认编辑器</h2><h3 id="root-账户"><a href="#root-账户" class="headerlink" title="root 账户"></a>root 账户</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>添加：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> EDITOR=<span class="string">&#x27;vim&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="普通账户"><a href="#普通账户" class="headerlink" title="普通账户"></a>普通账户</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>添加：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> EDITOR=<span class="string">&#x27;vim&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="20-安装-KDE-Plasma-桌面环境"><a href="#20-安装-KDE-Plasma-桌面环境" class="headerlink" title="20. 安装 KDE Plasma 桌面环境"></a>20. 安装 KDE Plasma 桌面环境</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pacman -S plasma-meta konsole dolphin plasma-x11-session <span class="comment"># plasma-meta 元软件包、konsole 终端模拟器和 dolphin 文件管理器</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> sddm</span><br></pre></td></tr></table></figure>
-
-<h2 id="21-安装基础软件包"><a href="#21-安装基础软件包" class="headerlink" title="21. 安装基础软件包"></a>21. 安装基础软件包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pacman -S --needed curl wget nano vim p7zip <span class="built_in">which</span> lvm2 <span class="comment">#基础包</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S sof-firmware alsa-firmware alsa-ucm-conf <span class="comment"># 声音固件</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S ntfs-3g <span class="comment"># 使系统可以识别 NTFS 格式的硬盘</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S adobe-source-han-serif-cn-fonts ttf-liberation <span class="comment"># 安装开源中文字体，注意：最好不要安装wqy-zenhei wqy-microhei，字体效果很差</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra <span class="comment"># 安装谷歌开源字体及表情</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S firefox chromium <span class="comment"># 安装常用的火狐、chromium 浏览器</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S packagekit-qt6 packagekit appstream-qt appstream <span class="comment"># 确保 Discover（软件中心）可用，需重启</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S yay <span class="comment">#aur包管理器</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="22-启动显示管理器与网络工具"><a href="#22-启动显示管理器与网络工具" class="headerlink" title="22. 启动显示管理器与网络工具"></a>22. 启动显示管理器与网络工具</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl start sddm</span><br><span class="line">systemctl start NetworkManager.service</span><br><span class="line">systemctl <span class="built_in">enable</span> NetworkManager.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="23-配置中文显示"><a href="#23-配置中文显示" class="headerlink" title="23. 配置中文显示"></a>23. 配置中文显示</h2><h3 id="KDE-语言设置"><a href="#KDE-语言设置" class="headerlink" title="KDE 语言设置"></a>KDE 语言设置</h3><ol>
-<li>打开 <code>Region and Language</code></li>
-<li>点击 <code>Language</code> 后的 <code>Modify</code></li>
-<li>右下角 <code>Add More</code> 添加 <code>简体中文</code></li>
-<li>将中文移至顶部</li>
-</ol>
-<h3 id="SDDM-锁屏界面"><a href="#SDDM-锁屏界面" class="headerlink" title="SDDM 锁屏界面"></a>SDDM 锁屏界面</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /etc/systemd/system/sddm.service.d</span><br><span class="line">vim /etc/systemd/system/sddm.service.d/EnvironmentFile.conf</span><br></pre></td></tr></table></figure>
-
-<p>添加内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Service]</span><br><span class="line">EnvironmentFile=/etc/default/locale</span><br></pre></td></tr></table></figure>
-
-<p>编辑区域文件：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim /etc/default/locale</span><br></pre></td></tr></table></figure>
-<p>添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">LANG=zh_CN.UTF-8</span><br></pre></td></tr></table></figure>
-
-<h2 id="24-安装中文输入法"><a href="#24-安装中文输入法" class="headerlink" title="24. 安装中文输入法"></a>24. 安装中文输入法</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-material-color</span><br></pre></td></tr></table></figure>
-
-<p>配置环境变量：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/environment</span><br></pre></td></tr></table></figure>
-
-<p>添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">XIM=fcitx</span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
-
-<h2 id="26-支持Arch-to-go"><a href="#26-支持Arch-to-go" class="headerlink" title="26.支持Arch to go"></a>26.支持Arch to go</h2><p>执行官方<a href="https://github.com/ventoy/vtoyboot/releases">vtoyboot脚本</a>后执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&quot;s/PARTUUID=[0-9a-f-]*/UUID=<span class="variable">$&#123;ROOT_UUID&#125;</span>/&quot;</span> /boot/grub/grub.cfg</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /boot/EFI/BOOT/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /boot/EFI/GRUB/grubx64.efi /boot/EFI/BOOT/BOOTX64.efi</span><br></pre></td></tr></table></figure>
-
-]]></content>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
   </entry>
   <entry>
-    <title>Magisk模块刷入指南：一场Android系统的持久战</title>
-    <url>/20250628/Magisk%E6%A8%A1%E5%9D%97%E5%88%B7%E5%85%A5%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>广大手机用户们，技术爱好者们：</p>
-<p>​		当今世界，手机已成为我们工作、学习、生活乃至斗争的重要工具。然则，部分手机厂商筑起的高墙（锁Bootloader、系统限制、失去保修），如同旧社会的三座大山，束缚着我们充分改造设备、发挥其潜力的手脚。</p>
-<p>​		Magisk，便是我们手中的“星星之火”，它扎根于系统底层（Systemless），为我们争取“最高权限”（Root），开辟了安装革命性模块（Modules）的广阔天地。然而，斗争是复杂的，敌人（指各类检测Root的银行、支付、游戏等应用）的侦察手段也在不断翻新。如何既能掌握核心力量，又能巧妙隐蔽自己，并利用先进工具（模块）克敌制胜？这便是本指南要解决的首要问题！</p>
-<span id="more"></span>
-
-<p><strong>关键选择：推荐 Magisk_Alpha！</strong></p>
-<ul>
-<li><strong>为何是 Alpha？</strong> 同志们！官方 Magisk 虽好，但其隐藏性在敌人日益严密的“检测扫荡”（银行App、游戏反作弊、部分支付应用）面前，渐显吃力。Magisk_Alpha（由活跃社区维护）在隐藏性上做了大量卓有成效的改进工作，其“反检测”能力更强，更能帮助我们潜伏在敌人心脏地带而不被发现！<strong>隐蔽性就是战斗力！</strong> 务必优先选用！</li>
-<li><strong>警惕 Kitsune_Mask (原 Magisk Delta)！</strong> 过去它曾是一支劲旅，但<strong>现已停止维护</strong>！停更的武器，就像生了锈的刺刀，非但不能杀敌，反而可能伤己！众多同志反馈，它存在严重Bug，例如<strong>导致32位应用程序无法运行，甚至可能迫使你进行“恢复出厂设置”这种惨烈的战略撤退才能解决问题！</strong> 我们绝不能让这样的隐患留在我们的队伍里！</li>
+    <title>扫雷破解版</title>
+    <url>/20250504/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
+    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
+<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
+<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
+<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
+<li>Minesweeper文件夹：原版扫雷游戏。</li>
+<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
 </ul>
-<h4 id="一、隐蔽战线是生命线：Shamiko模块"><a href="#一、隐蔽战线是生命线：Shamiko模块" class="headerlink" title="一、隐蔽战线是生命线：Shamiko模块"></a><strong>一、隐蔽战线是生命线：Shamiko模块</strong></h4><blockquote>
-<p>敌进我退，敌驻我扰，敌疲我打，敌退我追</p>
-</blockquote>
-<p>在Root的战场上，面对强大的、日益精密的Root检测（如银行APP、部分游戏、公司MDM软件），一味蛮干（直接暴露Root）是要吃大亏的！<strong>Shamiko模块，就是执行“敌后隐蔽工作”的精锐力量。</strong></p>
-<ul>
-<li><strong>核心任务：</strong> Shamiko不直接“消灭”检测（如Magisk Hide或早期DenyList），而是巧妙地“融入群众”（系统环境），让检测者“视而不见”。<strong>强烈推荐使用它的白名单模式。</strong></li>
-<li><strong>工作方法（白名单模式）：</strong><ol>
-<li>在Magisk设置中启用<strong>Zygisk</strong>（这是基础，后面详谈）。</li>
-<li><strong>刷入Shamiko模块。</strong> Shamiko会以更底层、更隐蔽的方式对应用进行“伪装”，使其无法探测到Zygisk和Root的存在。</li>
-</ol>
-</li>
-<li><strong>重要意义：</strong> 正确配置Shamiko，就如同给我们的Root行动披上了“隐身衣”，是保障金融安全、游戏畅玩、工作APP正常使用的<strong>关键一招</strong>。<strong>忽视隐蔽工作，等于主动向敌人暴露目标！</strong></li>
-</ul>
-<h4 id="二、灵活机动的战略战术：LSPosed框架"><a href="#二、灵活机动的战略战术：LSPosed框架" class="headerlink" title="二、灵活机动的战略战术：LSPosed框架"></a><strong>二、灵活机动的战略战术</strong>：LSPosed框架</h4><blockquote>
-<p>以子之矛，陷子之盾</p>
-</blockquote>
-<p>Magisk给了我们根据地（Root），但要在应用层面进行更精细、更灵活的改造，就需要 <strong>LSPosed框架</strong>。它是新一代的Xposed实现，依托于Zygisk，<strong>运行效率更高，兼容性更好，模块管理更清晰。</strong></p>
-<ul>
-<li><strong>战略地位：</strong> LSPosed本身是一个Magisk模块。刷入它，就相当于建立了一个强大的“前线指挥部”，可以调度和指挥各种功能模块（Modules）对单个或特定应用进行“定点改造”。</li>
-<li><strong>重要作战单元（模块举例）：</strong><ul>
-<li><strong>隐藏应用列表模块（Hide-My-Applis）：</strong> 此乃配合Shamiko作战的“反间谍利器”。它能阻止APP检测你手机上安装了哪些应用（尤其是一些敏感或破解工具），进一步切断敌人情报来源。</li>
-<li><strong>New Hook Vip等模块（仅供学习研究！）：</strong> 这类模块如同缴获的“特殊装备”，可能能解锁某些应用的特定功能（如去广告、会员权限）。<strong>务必深刻认识：</strong> 此类行为涉及版权和法律风险，如同在敌占区使用缴获武器，<strong>必须慎之又慎！</strong> 本指南<strong>仅提供技术可能性探讨，强调其学习研究价值，坚决反对用于非法目的和侵害他人合法权益。</strong> “武器”本身无罪，关键在于使用者的目的和是否符合最广大人民群众的根本利益（法律与道德）。</li>
-</ul>
-</li>
-<li><strong>运作原理：</strong> LSPosed模块通过Hook（钩子）应用进程，在特定函数执行前后注入自己的代码，从而改变应用的行为。这种“嵌入作战”方式，使得功能修改更加精准和动态。</li>
-</ul>
-<h4 id="三、革命的命脉：Zygisk"><a href="#三、革命的命脉：Zygisk" class="headerlink" title="三、革命的命脉：Zygisk"></a><strong>三、革命的命脉</strong>：Zygisk</h4><blockquote>
-<p>兵马未动，粮草先行。</p>
-</blockquote>
-<pre class="mermaid">graph LR
-A[Zygote进程] --> B[Zygisk注入]
-B --> C[模块寄生系统核心]
-C --> D[Shamiko生效]
-C --> E[LSPosed框架激活]
-D -.-> F[Root隐藏]
-E -.-> G[Hook系统级功能]</pre>
-
-<p><strong>Zygisk (Zygote注入) 是Magisk现代体系的核心引擎和生命线！</strong></p>
-<ul>
-<li><strong>重要推荐：使用 Zygisk_Next！</strong> 同志们！原版Zygisk固然可用，但 <strong>Zygisk_Next</strong> 是社区在原版基础上的重大改进！它在<strong>稳定性、兼容性、特别是隐藏性（反检测）上更进一步！</strong> 它更有效地对抗着各种针对Zygisk的检测手段。<strong>“工欲善其事，必先利其器”，Zygisk_Next 就是我们更锋利的渗透匕首！</strong></li>
-<li><strong>核心作用与原理：</strong><ul>
-<li>Android系统启动应用时，都派生自一个叫<code>Zygote</code>的母进程。</li>
-<li><strong>Zygisk</strong> 的核心功能，就是将自己（Magisk的核心组件）<strong>注入到<code>Zygote</code>进程中</strong>。这样一来，<strong>所有</strong>从Zygote孵化的应用程序进程，<strong>天生就继承了Magisk的环境和功能</strong>（如Root权限管理、ROOT隐藏（Shamiko）、以及最重要的——加载LSPosed等需要注入到应用进程的框架和模块）。</li>
-</ul>
-</li>
-<li><strong>不开启Zygisk的严重后果（如同切断补给线）：</strong><ol>
-<li><strong>LSPosed框架及其所有模块瘫痪：</strong> LSPosed需要注入应用进程才能工作，而Zygisk是完成这种注入的关键桥梁。关闭Zygisk，LSPosed就失去了“兵力投送”的能力，其框架本身和所有模块都将<strong>完全无法加载和工作</strong>！其他依赖进程注入的模块（如部分字体修改、深度系统优化模块）同样会失效。</li>
-<li><strong>部分现代Magisk模块功能受限：</strong> 许多新模块都设计为需要Zygisk环境才能发挥全部效力。</li>
-</ol>
-</li>
-<li><strong>结论：</strong> <strong>Zygisk是Magisk强大功能（特别是Root隐藏和LSPosed生态）得以实现的基石。关闭Zygisk，等于自废武功，使大部分高级模块陷入瘫痪！非必要，切勿关闭！</strong></li>
-</ul>
-<h4 id="四、警惕糖衣炮弹：防格机模块"><a href="#四、警惕糖衣炮弹：防格机模块" class="headerlink" title="四、警惕糖衣炮弹：防格机模块"></a><strong>四、警惕糖衣炮弹：防格机模块</strong></h4><blockquote>
-<p>革命队伍要纯洁，模块仓库有风险！</p>
-</blockquote>
-<p>如同要警惕混入革命队伍的敌人，<strong>刷入来源不明、未经充分验证的模块是极其危险的！</strong></p>
-<ul>
-<li><strong>“格机模块”的危害：</strong> 这类恶意模块如同“特洛伊木马”，一旦刷入，可能在启动时执行破坏性脚本，导致：<ul>
-<li><strong>系统关键文件被删除或篡改。</strong></li>
-<li><strong>无限重启，手机变“砖”。</strong></li>
-<li><strong>数据被清空（Factory Reset &#x2F; Format Data）。</strong></li>
-</ul>
-</li>
-<li><strong>防御策略（肃反手段）：</strong><ol>
-<li><strong>提高警惕，擦亮眼睛：</strong> 绝不轻信论坛、非官方渠道的所谓“神奇”、“一键破解”模块，尤其警惕要求刷入后格式化Data分区的模块。</li>
-<li><strong>依靠群众，调查研究：</strong> 刷入任何模块前，务必查阅<strong>可靠社区</strong>（如XDA, 酷安相关板块）的评价反馈，了解其<strong>具体功能、风险、兼容性</strong>。</li>
-<li><strong>隔离审查（沙盒测试）：</strong> 如果条件允许，先在备用机或模拟器上测试。</li>
-<li><strong>备份！备份！再备份！</strong> 刷机前通过TWRP等Recovery完整备份系统（Boot, System, Data, Vendor等关键分区），这是最后的防线！</li>
-</ol>
-</li>
-</ul>
-<h4 id="五、最后的堡垒：刷入救砖模块"><a href="#五、最后的堡垒：刷入救砖模块" class="headerlink" title="五、最后的堡垒：刷入救砖模块"></a>五、最后的堡垒：刷入救砖模块</h4><blockquote>
-<p>凡事预则立，不预则废。</p>
-</blockquote>
-<p>在复杂的刷机斗争中，难免遭遇挫折（如模块冲突导致无法开机）。<strong>预先部署“救砖模块”，就是保留革命的火种，确保有生力量。</strong></p>
-<ul>
-<li><strong>推荐利器：神仙自动救砖模块：</strong><ul>
-<li><strong>工作原理：</strong> 此模块如同潜伏在系统深处的“应急响应小组”。</li>
-<li><strong>触发机制：</strong><ul>
-<li><strong>卡开机动画循环：</strong> 如果设备连续重启（例如达到3次）仍卡在开机Logo处，模块会自动触发救援。</li>
-<li><strong>卡第二屏（如厂商Logo&#x2F;“Powered by Android”）超时：</strong> 如果在此界面停留超过预设时间（如90秒），模块也会启动。</li>
-</ul>
-</li>
-<li><strong>救援行动：</strong><ol>
-<li><strong>自动禁用所有Magisk模块：</strong> 这是解决因模块冲突导致无法开机的<strong>最有效手段</strong>。</li>
-<li><strong>自动解冻被冻结的应用：</strong> 解决因误冻结关键系统应用（如桌面Launcher、系统UI）导致的黑屏&#x2F;无法进入系统问题。</li>
-</ol>
-</li>
-<li><strong>战略意义：</strong> 刷入此类模块，就如同在后方建立了安全的“根据地”和“野战医院”。当前线（系统启动）遭遇重大挫折（无法开机）时，它能自动实施“战场急救”，<strong>极大提高设备从软件故障中“自救”成功的机会</strong>，避免需要连接电脑使用复杂命令（Fastboot&#x2F;ADB）或重刷系统的麻烦（保住Data数据尤为重要！）。</li>
-</ul>
-</li>
-<li><strong>部署要求：</strong> <strong>务必在系统还能正常启动时刷入！</strong> 变砖后再想刷就晚了！将此模块视为Magisk环境的“基本险”。</li>
-</ul>
-<hr>
-<h4 id="总结与号召"><a href="#总结与号召" class="headerlink" title="总结与号召"></a><strong>总结与号召</strong></h4><blockquote>
-<p>同志们，刷机有风险，探索需谨慎，但掌握正确的方法和武器，就能化险为夷，让手机真正为我们所用！</p>
-</blockquote>
-<ol>
-<li><strong>隐蔽是前提：</strong> Shamiko + 隐藏应用列表 是生存之道。</li>
-<li><strong>框架是平台：</strong> LSPosed 是应用级改造的强大武器库，<strong>但务必合法合规使用！</strong></li>
-<li><strong>Zygisk是根基：</strong> 务必开启，它是现代Magisk模块生态的命脉，关闭则万事休矣！</li>
-<li><strong>安全是底线：</strong> 严防死守“格机模块”，来源不明绝不刷入！</li>
-<li><strong>备份是后路：</strong> TWRP等Recovery备份是终极保险。</li>
-<li><strong>救砖是保障：</strong> <strong>立即行动！</strong> 现在就刷入“神仙自动救砖”或类似可靠救砖模块，建立你的最后防线！</li>
-</ol>
-<p>让我们发扬“自力更生，艰苦奋斗”的精神，在Android系统改造的实践中，“从战争中学习战争”，不断掌握新知识，解决新问题！务必牢记：“战略上藐视敌人（技术困难），战术上重视敌人（每一个操作步骤）”。</p>
-<p><strong>让我们团结起来，争取更大的刷机自由！</strong></p>
 ]]></content>
       <tags>
-        <tag>Root</tag>
+        <tag>破解</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>本站镜像站启用</title>
+    <url>/20250408/%E6%9C%AC%E7%AB%99%E9%95%9C%E5%83%8F%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%90%AF%E7%94%A8/</url>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
+<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
+<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+]]></content>
   </entry>
   <entry>
     <title>演讲稿</title>
@@ -684,36 +897,14 @@ E -.-> G[Hook系统级功能]</pre>
 ]]></content>
   </entry>
   <entry>
-    <title>扫雷破解版</title>
-    <url>/20250504/%E6%89%AB%E9%9B%B7%E7%A0%B4%E8%A7%A3%E7%89%88/</url>
-    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
-<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
-<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
-<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
-<li>Minesweeper文件夹：原版扫雷游戏。</li>
-<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>破解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <url>/20250411/NoMoreBugCheck.sys%E7%AD%BE%E5%90%8D%E7%89%88/</url>
-    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
-<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
-<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/20250324/%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+    <title>谷歌小恐龙</title>
+    <url>/20250320/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
+    <content><![CDATA[<p>体验：</p>
 <span id="more"></span>
+
+<p>(按空格键开始)</p>
 <iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
  hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
 </iframe>]]></content>
   </entry>
@@ -756,101 +947,6 @@ E -.-> G[Hook系统级功能]</pre>
       <tags>
         <tag>Metro</tag>
         <tag>APPX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌小恐龙</title>
-    <url>/20250320/%E8%B0%B7%E6%AD%8C%E5%B0%8F%E6%81%90%E9%BE%99/</url>
-    <content><![CDATA[<p>体验：</p>
-<span id="more"></span>
-
-<p>(按空格键开始)</p>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>Win 8.1 x64 集成补丁镜像</title>
-    <url>/20250128/Win%208.1%20x64%20%E9%9B%86%E6%88%90%E8%A1%A5%E4%B8%81%E9%95%9C%E5%83%8F/</url>
-    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
-<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
-<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
-</ol>
-<span id="more"></span>
-
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
-<p>校验信息：</p>
-<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
-]]></content>
-      <tags>
-        <tag>Win 8.1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <url>/20250125/%E3%80%90%E6%9C%80%E6%96%B0%E3%80%91%E5%9C%A8Win8.x%E4%B8%8A%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p><strong>注意:</strong></p>
-<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
-<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
-<span id="more"></span>
-
-<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
-<p>使用方法:</p>
-<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <url>/20250120/%E4%BD%BF%E7%94%A8WindowsAppBoss%E5%9C%A8Windows%208.x%E4%B8%AD%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
-<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
-<span id="more"></span>
-
-<h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
-<p>打开APPX的属性，然后点击数字签名选项卡</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_11.png"></p>
-<p>点击详细信息</p>
-<p>在详细信息窗口中点击查看证书</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_12.png"></p>
-<p>点击安装证书</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_13.png"></p>
-<p>储存位置选择本地计算机</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_14.png"></p>
-<p>点击下一步</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_15.png"></p>
-<p>在证书储存中选择将所有证书都放入下列储存</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_16.png"></p>
-<p>点击浏览</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_17.png"></p>
-<p>在弹出的窗口中选择受信任的根证书颁发机构</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_18.png"></p>
-<p>点击确定</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_19.png"></p>
-<p>点击下一步</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_20.png"></p>
-<p>点击完成</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_ZW.png"></p>
-<p>若弹出导入成功的提示说明证书导入成功</p>
-<h3 id="2-使用WindowsAppBoss安装APPX"><a href="#2-使用WindowsAppBoss安装APPX" class="headerlink" title="2.使用WindowsAppBoss安装APPX"></a>2.使用WindowsAppBoss安装APPX</h3><p>以管理员身份运行WindowsAppBoss，点击Install<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_22.png"><br>在弹出的窗口中点击Enable side loading<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_23.png"></p>
-<p>点击Browse</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_24.png"></p>
-<p>在弹出的窗口中选择APPX的位置</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_25.png"></p>
-<p>选择完成后点击Add Package</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_26.png"></p>
-<p>若窗口中出现Task succeeded则代表安装成功</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_27.png"></p>
-<p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
       </tags>
   </entry>
 </search>
