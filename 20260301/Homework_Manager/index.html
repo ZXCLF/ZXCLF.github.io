@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> ZXCLF</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="/js/pace.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="ZXCLF" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+<body>
+
+
+<div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Homework_Manager"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/20260301/Homework_Manager/" class="article-date">
+  <time datetime="2026-03-01T06:19:06.147Z" itemprop="datePublished">2026-03-01</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="作业管理器"><a href="#作业管理器" class="headerlink" title="作业管理器"></a>作业管理器</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://github.com/ZXCLF/Homework_Manager">github.com&#x2F;ZXCLF&#x2F;Homework_Manager</a></p>
+<p>作业管理器是一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度。通过直观的树状结构和进度条展示，帮助用户了解各项任务的完成情况，支持权重设置和加权进度计算。</p>
+<span id="more"></span>
+
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PySide6</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python Homework_Manager.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├── homework.json          # 作业配置文件（必需）</span><br><span class="line">├── homework_progress.json # 进度保存文件（自动生成）</span><br><span class="line">├── Homework_Manager.py    # 主程序文件</span><br><span class="line">└── README.md          	   # 本说明文档</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件教程"><a href="#配置文件教程" class="headerlink" title="配置文件教程"></a>配置文件教程</h2><h3 id="一、结构概述"><a href="#一、结构概述" class="headerlink" title="一、结构概述"></a>一、结构概述</h3><p>配置文件 <code>homework.json</code> 采用 JSON 格式：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数学&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;英语&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// ... 其他科目</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>科目</strong>：顶层分类，如”语文”、”数学”、”英语”等</li>
+<li><strong>任务</strong>：具体的作业项目，包含”名称”和”权重”</li>
+<li><strong>权重</strong>：表示任务的重要性，用于加权计算总进度</li>
+<li><strong>假期</strong>：假期进度条配置（可选功能）</li>
+</ul>
+<h3 id="二、假期配置"><a href="#二、假期配置" class="headerlink" title="二、假期配置"></a>二、假期配置</h3><h4 id="2-1-启用假期进度条"><a href="#2-1-启用假期进度条" class="headerlink" title="2.1 启用假期进度条"></a>2.1 启用假期进度条</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-配置说明"><a href="#2-2-配置说明" class="headerlink" title="2.2 配置说明"></a>2.2 配置说明</h4><ul>
+<li><strong>启用</strong>：设置为 <code>true</code> 启用假期进度条功能</li>
+<li><strong>开始日期</strong>：假期开始日期，格式为 <code>YYYY-MM-DD</code>（包含在假期内，从当天00:00开始）</li>
+<li><strong>结束日期</strong>：假期结束日期，格式为 <code>YYYY-MM-DD</code>（包含在假期内，到当天23:59结束）</li>
+</ul>
+<h4 id="2-3-注意事项"><a href="#2-3-注意事项" class="headerlink" title="2.3 注意事项"></a>2.3 注意事项</h4><ul>
+<li>如果未配置假期部分，假期进度条将不显示</li>
+<li>如果配置错误（如日期格式错误、开始日期晚于结束日期），假期进度条将被禁用</li>
+<li>假期进度条会实时显示剩余时间（天、小时、分钟）</li>
+</ul>
+<h3 id="三、科目配置详解"><a href="#三、科目配置详解" class="headerlink" title="三、科目配置详解"></a>三、科目配置详解</h3><h4 id="3-1-添加新科目"><a href="#3-1-添加新科目" class="headerlink" title="3.1 添加新科目"></a>3.1 添加新科目</h4><p>在”作业”对象中添加新的科目键值：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;历史&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;背诵历史大事年表&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-支持的所有预设科目"><a href="#3-2-支持的所有预设科目" class="headerlink" title="3.2 支持的所有预设科目"></a>3.2 支持的所有预设科目</h4><p>程序预设支持以下科目：</p>
+<ul>
+<li>语文、数学、英语、物理、化学</li>
+<li>道德与法治、历史、地理、生物</li>
+<li>其他</li>
+</ul>
+<p><strong>注意</strong>：你也可以添加预设之外的科目，如”体育”、”美术”等。</p>
+<h3 id="四、任务配置"><a href="#四、任务配置" class="headerlink" title="四、任务配置"></a>四、任务配置</h3><h4 id="4-1-格式"><a href="#4-1-格式" class="headerlink" title="4.1 格式"></a>4.1 格式</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;任务名称&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;范围&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;数量&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-权重设置"><a href="#4-2-权重设置" class="headerlink" title="4.2 权重设置"></a>4.2 权重设置</h4><ul>
+<li><p><strong>取值范围</strong>：建议 0.1-10.0</p>
+</li>
+<li><p><strong>默认值</strong>：如果不指定，默认为 1.0</p>
+</li>
+<li><p><strong>示例</strong>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;简单任务&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.5</span> <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;重要任务&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">3.0</span> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="五、嵌套结构"><a href="#五、嵌套结构" class="headerlink" title="五、嵌套结构"></a>五、嵌套结构</h3><h4 id="5-1-多级分类"><a href="#5-1-多级分类" class="headerlink" title="5.1 多级分类"></a>5.1 多级分类</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;一、古诗词&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;六年级上册&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;诗词列表&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;《宿建德江》&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.2</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;《六月二十七日望湖楼醉书》&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.2</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;背诵并默写&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2-说明性字段"><a href="#5-2-说明性字段" class="headerlink" title="5.2 说明性字段"></a>5.2 说明性字段</h4><p>以下字段会自动识别为说明文字，不作为任务：</p>
+<ul>
+<li>“要求”、”范围”、”数量”、”主题”、”说明”、”备注”</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;完成试卷&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;数量&quot;</span><span class="punctuation">:</span> <span class="string">&quot;4套&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="六、示例"><a href="#六、示例" class="headerlink" title="六、示例"></a>六、示例</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;一、基础练习&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;字词整理&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;病句修改&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.8</span> <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;所有练习需认真完成&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;二、阅读理解&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;文言文阅读&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;现代文阅读&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.2</span> <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数学&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;完成练习册第1-10页&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;复习几何定理&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><h3 id="1-假期进度显示"><a href="#1-假期进度显示" class="headerlink" title="1. 假期进度显示"></a>1. 假期进度显示</h3><ul>
+<li>实时显示假期进度百分比</li>
+<li>精确到分钟的剩余时间显示</li>
+<li>自动计算假期开始前、进行中、结束后的不同状态</li>
+</ul>
+<h3 id="2-作业进度管理"><a href="#2-作业进度管理" class="headerlink" title="2. 作业进度管理"></a>2. 作业进度管理</h3><ul>
+<li>树状结构展示作业分类</li>
+<li>支持权重设置的加权进度计算</li>
+<li>双击任务可快速设置进度（0%、25%、50%、75%、100%）</li>
+<li>进度自动保存和加载</li>
+</ul>
+<h3 id="3-科目进度概览"><a href="#3-科目进度概览" class="headerlink" title="3. 科目进度概览"></a>3. 科目进度概览</h3><ul>
+<li>各科目独立进度条显示</li>
+<li>显示科目权重和完成百分比</li>
+<li>支持多列布局，适应不同屏幕</li>
+</ul>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
+<li><strong>配置作业</strong>：编辑 <code>homework.json</code> 文件，按照上述格式配置作业任务</li>
+<li><strong>配置假期</strong>：如需假期进度功能，在配置文件中添加”假期”部分</li>
+<li><strong>运行程序</strong>：运行主程序文件</li>
+<li><strong>设置进度</strong>：双击任务项设置完成进度</li>
+<li><strong>保存进度</strong>：进度会自动保存到 <code>homework_progress.json</code></li>
+</ol>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>本项目采用 GPL 许可证。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zxclf.github.io/20260301/Homework_Manager/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/20260117/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8SAT%E6%B1%82%E8%A7%A3%E4%B8%8Efsync%E6%9C%BA%E5%88%B6%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%90/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">包管理器SAT求解与fsync机制技术解析</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024-2026
+        <i class="ri-heart-fill heart_icon"></i> ZXCLF
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="ZXCLF"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/ZXCLF">Github</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Chrome_Dino/Chrome_Dino">谷歌小恐龙</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="/js/jquery.js"></script>
+<link
+  rel="stylesheet"
+  href="/css/jquery.modal.min.css"
+/>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="/js/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="/js/clipboard.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = '复制成功';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = '复制';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = '复制失败';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = '复制';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":true,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":200,"height":350,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+</script>
+</html>

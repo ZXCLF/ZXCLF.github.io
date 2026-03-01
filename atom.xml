@@ -6,7 +6,7 @@
   <link href="https://zxclf.github.io/atom.xml" rel="self"/>
   
   <link href="https://zxclf.github.io/"/>
-  <updated>2026-01-17T07:58:24.646Z</updated>
+  <updated>2026-03-01T06:21:10.246Z</updated>
   <id>https://zxclf.github.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://zxclf.github.io/20260301/Homework_Manager/"/>
+    <id>https://zxclf.github.io/20260301/Homework_Manager/</id>
+    <published>2026-03-01T06:19:06.147Z</published>
+    <updated>2026-03-01T06:21:10.246Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;作业管理器&quot;&gt;&lt;a href=&quot;#作业管理器&quot; class=&quot;headerlink&quot; title=&quot;作业管理器&quot;&gt;&lt;/a&gt;作业管理器&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ZXCLF/Homework_Manager&quot;&gt;github.com&amp;#x2F;ZXCLF&amp;#x2F;Homework_Manager&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;作业管理器是一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度。通过直观的树状结构和进度条展示，帮助用户了解各项任务的完成情况，支持权重设置和加权进度计算。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>包管理器SAT求解与fsync机制技术解析</title>
