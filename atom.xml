@@ -6,7 +6,7 @@
   <link href="https://zxclf.github.io/atom.xml" rel="self"/>
   
   <link href="https://zxclf.github.io/"/>
-  <updated>2026-04-01T15:03:09.297Z</updated>
+  <updated>2026-04-01T15:07:46.102Z</updated>
   <id>https://zxclf.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zxclf.github.io/20260401/Report/"/>
     <id>https://zxclf.github.io/20260401/Report/</id>
     <published>2026-04-01T04:00:00.000Z</published>
-    <updated>2026-04-01T15:03:09.297Z</updated>
+    <updated>2026-04-01T15:07:46.102Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;班级宠物乐园系统漏洞报告&quot;&gt;&lt;a href=&quot;#班级宠物乐园系统漏洞报告&quot; class=&quot;headerlink&quot; title=&quot;班级宠物乐园系统漏洞报告&quot;&gt;&lt;/a&gt;班级宠物乐园系统漏洞报告&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;测试对象&lt;/strong&gt;: 生产环境 (&lt;a href=&quot;http://43.138.215.11/pet/&quot;&gt;http://43.138.215.11/pet/&lt;/a&gt;)&lt;br&gt;&lt;strong&gt;测试方法&lt;/strong&gt;: 代码审计 + 渗透测试&lt;/p&gt;
