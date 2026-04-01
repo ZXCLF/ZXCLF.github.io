@@ -6,7 +6,7 @@
   <link href="https://zxclf.github.io/atom.xml" rel="self"/>
   
   <link href="https://zxclf.github.io/"/>
-  <updated>2026-03-07T08:27:06.172Z</updated>
+  <updated>2026-04-01T15:00:46.740Z</updated>
   <id>https://zxclf.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>班级宠物乐园系统漏洞报告</title>
+    <link href="https://zxclf.github.io/20260401/Report/"/>
+    <id>https://zxclf.github.io/20260401/Report/</id>
+    <published>2026-04-01T04:00:00.000Z</published>
+    <updated>2026-04-01T15:00:46.740Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;班级宠物乐园系统漏洞报告&quot;&gt;&lt;a href=&quot;#班级宠物乐园系统漏洞报告&quot; class=&quot;headerlink&quot; title=&quot;班级宠物乐园系统漏洞报告&quot;&gt;&lt;/a&gt;班级宠物乐园系统漏洞报告&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;测试对象&lt;/strong&gt;: 生产环境 (&lt;a href=&quot;http://43.138.215.11/pet/&quot;&gt;http://43.138.215.11/pet/&lt;/a&gt;)&lt;br&gt;&lt;strong&gt;测试方法&lt;/strong&gt;: 代码审计 + 渗透测试&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;执行摘要&quot;&gt;&lt;a href=&quot;#执行摘要&quot; class=&quot;headerlink&quot; title=&quot;执行摘要&quot;&gt;&lt;/a&gt;执行摘要&lt;/h2&gt;&lt;p&gt;本次安全评估发现该系统存在&lt;strong&gt;多个高危安全漏洞&lt;/strong&gt;。攻击者可以利用这些漏洞完全控制整个系统，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;未经授权访问所有用户数据&lt;/li&gt;
+&lt;li&gt;无限量生成激活码进行非法销售&lt;/li&gt;
+&lt;li&gt;禁用任意用户的账号&lt;/li&gt;
+&lt;li&gt;篡改学生积分、等级等核心业务数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总体风险评级&lt;/strong&gt;:  &lt;strong&gt;高危&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>作业管理器</title>

