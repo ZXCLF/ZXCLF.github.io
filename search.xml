@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>本站镜像站启用</title>
+    <title>本站说明</title>
     <url>/20250408/Mirror/</url>
     <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
-<p>本站镜像站： <a href="https://zxclf-github-io.pages.dev/">https://zxclf-github-io.pages.dev/</a> (使用Cloudflare搭建)</p>
 <p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
 <p><span class="heimu" title="你知道的太多了">本站由 Hexo 与玄学驱动</span></p>
 ]]></content>
@@ -950,8 +949,8 @@
 <h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>APPX</tag>
         <tag>Metro</tag>
+        <tag>APPX</tag>
       </tags>
   </entry>
   <entry>
