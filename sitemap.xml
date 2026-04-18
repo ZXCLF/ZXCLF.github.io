@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</loc>
+    
+    <lastmod>2026-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zxclf.us.ci/20250408/Mirror/</loc>
     
     <lastmod>2026-04-18</lastmod>
@@ -113,15 +122,6 @@
     <loc>https://zxclf.us.ci/20250125/Win8.x_Metro/</loc>
     
     <lastmod>2025-01-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</loc>
-    
-    <lastmod>2025-01-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
