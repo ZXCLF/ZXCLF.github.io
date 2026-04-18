@@ -3,11 +3,11 @@
   <title>ZXCLF</title>
   
   
-  <link href="https://zxclf.github.io/atom.xml" rel="self"/>
+  <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
   
-  <link href="https://zxclf.github.io/"/>
+  <link href="https://zxclf.us.ci/"/>
   <updated>2026-04-01T15:07:46.102Z</updated>
-  <id>https://zxclf.github.io/</id>
+  <id>https://zxclf.us.ci/</id>
   
   <author>
     <name>ZXCLF</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>班级宠物乐园系统漏洞报告</title>
-    <link href="https://zxclf.github.io/20260401/Report/"/>
-    <id>https://zxclf.github.io/20260401/Report/</id>
+    <link href="https://zxclf.us.ci/20260401/Report/"/>
+    <id>https://zxclf.us.ci/20260401/Report/</id>
     <published>2026-04-01T04:00:00.000Z</published>
     <updated>2026-04-01T15:07:46.102Z</updated>
     
@@ -43,8 +43,8 @@
   
   <entry>
     <title>作业管理器</title>
-    <link href="https://zxclf.github.io/20260306/Homework_Manager/"/>
-    <id>https://zxclf.github.io/20260306/Homework_Manager/</id>
+    <link href="https://zxclf.us.ci/20260306/Homework_Manager/"/>
+    <id>https://zxclf.us.ci/20260306/Homework_Manager/</id>
     <published>2026-03-05T16:00:00.000Z</published>
     <updated>2026-03-07T08:27:06.172Z</updated>
     
@@ -59,8 +59,8 @@
   
   <entry>
     <title>包管理器SAT求解与fsync机制技术解析</title>
-    <link href="https://zxclf.github.io/20260117/Package_Manager_SAT_fsync/"/>
-    <id>https://zxclf.github.io/20260117/Package_Manager_SAT_fsync/</id>
+    <link href="https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/"/>
+    <id>https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/</id>
     <published>2026-01-17T00:00:00.000Z</published>
     <updated>2026-01-17T07:58:24.646Z</updated>
     
@@ -83,8 +83,8 @@
   
   <entry>
     <title>Ventoy Arch To Go 安装指南</title>
-    <link href="https://zxclf.github.io/20250809/Ventoy_Arch_To_Go/"/>
-    <id>https://zxclf.github.io/20250809/Ventoy_Arch_To_Go/</id>
+    <link href="https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/"/>
+    <id>https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/</id>
     <published>2025-08-09T12:00:00.000Z</published>
     <updated>2026-01-19T07:23:47.859Z</updated>
     
@@ -103,8 +103,8 @@
   
   <entry>
     <title>演讲稿</title>
-    <link href="https://zxclf.github.io/20250618/Speech/"/>
-    <id>https://zxclf.github.io/20250618/Speech/</id>
+    <link href="https://zxclf.us.ci/20250618/Speech/"/>
+    <id>https://zxclf.us.ci/20250618/Speech/</id>
     <published>2025-06-18T12:00:00.000Z</published>
     <updated>2025-06-18T11:37:43.162Z</updated>
     
@@ -124,8 +124,8 @@
   
   <entry>
     <title>扫雷破解版</title>
-    <link href="https://zxclf.github.io/20250504/Minesweeper_Patched/"/>
-    <id>https://zxclf.github.io/20250504/Minesweeper_Patched/</id>
+    <link href="https://zxclf.us.ci/20250504/Minesweeper_Patched/"/>
+    <id>https://zxclf.us.ci/20250504/Minesweeper_Patched/</id>
     <published>2025-05-04T00:00:00.000Z</published>
     <updated>2025-06-07T02:36:50.197Z</updated>
     
@@ -143,14 +143,14 @@
     
     
     
-    <category term="破解" scheme="https://zxclf.github.io/tags/%E7%A0%B4%E8%A7%A3/"/>
+    <category term="破解" scheme="https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>NoMoreBugCheck.sys数字签名版</title>
-    <link href="https://zxclf.github.io/20250411/NoMoreBugCheck_sys/"/>
-    <id>https://zxclf.github.io/20250411/NoMoreBugCheck_sys/</id>
+    <link href="https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/"/>
+    <id>https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/</id>
     <published>2025-04-11T12:00:00.000Z</published>
     <updated>2025-04-26T01:53:27.104Z</updated>
     
@@ -172,18 +172,18 @@
   
   <entry>
     <title>本站说明</title>
-    <link href="https://zxclf.github.io/20250408/Mirror/"/>
-    <id>https://zxclf.github.io/20250408/Mirror/</id>
+    <link href="https://zxclf.us.ci/20250408/Mirror/"/>
+    <id>https://zxclf.us.ci/20250408/Mirror/</id>
     <published>2025-04-08T14:00:00.000Z</published>
-    <updated>2026-04-11T05:36:31.689Z</updated>
+    <updated>2026-04-18T09:21:33.910Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;本站主站： &lt;a href=&quot;https://zxclf.github.io/&quot;&gt;https://zxclf.github.io/&lt;/a&gt; (使用Github搭建)&lt;/p&gt;
-&lt;p&gt;本站开源地址：&lt;a</summary>
+    <summary type="html">&lt;p&gt;本站主站： &lt;a href=&quot;https://zxclf.us.ci/&quot;&gt;https://zxclf.us.ci/&lt;/a&gt; (使用 Cloudflare 搭建)&lt;/p&gt;
+&lt;p&gt;本站镜像站： &lt;a</summary>
         
       
     
@@ -194,8 +194,8 @@
   
   <entry>
     <title>好玩的文字特效</title>
-    <link href="https://zxclf.github.io/20250324/Text/"/>
-    <id>https://zxclf.github.io/20250324/Text/</id>
+    <link href="https://zxclf.us.ci/20250324/Text/"/>
+    <id>https://zxclf.us.ci/20250324/Text/</id>
     <published>2025-03-24T05:00:00.000Z</published>
     <updated>2025-03-24T05:14:53.566Z</updated>
     
@@ -209,8 +209,8 @@
   
   <entry>
     <title>部署UWP应用为系统预装应用</title>
-    <link href="https://zxclf.github.io/20250322/UWP_Setup/"/>
-    <id>https://zxclf.github.io/20250322/UWP_Setup/</id>
+    <link href="https://zxclf.us.ci/20250322/UWP_Setup/"/>
+    <id>https://zxclf.us.ci/20250322/UWP_Setup/</id>
     <published>2025-03-22T06:00:00.000Z</published>
     <updated>2025-03-27T14:51:48.524Z</updated>
     
@@ -228,16 +228,16 @@
     
     
     
-    <category term="Metro" scheme="https://zxclf.github.io/tags/Metro/"/>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
     
-    <category term="APPX" scheme="https://zxclf.github.io/tags/APPX/"/>
+    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
     
   </entry>
   
   <entry>
     <title>谷歌小恐龙</title>
-    <link href="https://zxclf.github.io/20250320/Chrome_Dino/"/>
-    <id>https://zxclf.github.io/20250320/Chrome_Dino/</id>
+    <link href="https://zxclf.us.ci/20250320/Chrome_Dino/"/>
+    <id>https://zxclf.us.ci/20250320/Chrome_Dino/</id>
     <published>2025-03-20T00:00:00.000Z</published>
     <updated>2025-03-23T07:46:39.735Z</updated>
     
@@ -251,8 +251,8 @@
   
   <entry>
     <title>Win 8.1 x64 集成补丁镜像</title>
-    <link href="https://zxclf.github.io/20250128/Win_8.1_x64/"/>
-    <id>https://zxclf.github.io/20250128/Win_8.1_x64/</id>
+    <link href="https://zxclf.us.ci/20250128/Win_8.1_x64/"/>
+    <id>https://zxclf.us.ci/20250128/Win_8.1_x64/</id>
     <published>2025-01-28T00:00:00.000Z</published>
     <updated>2025-03-22T03:52:51.994Z</updated>
     
@@ -265,14 +265,14 @@
     
     
     
-    <category term="Win 8.1" scheme="https://zxclf.github.io/tags/Win-8-1/"/>
+    <category term="Win 8.1" scheme="https://zxclf.us.ci/tags/Win-8-1/"/>
     
   </entry>
   
   <entry>
     <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <link href="https://zxclf.github.io/20250125/Win8.x_Metro/"/>
-    <id>https://zxclf.github.io/20250125/Win8.x_Metro/</id>
+    <link href="https://zxclf.us.ci/20250125/Win8.x_Metro/"/>
+    <id>https://zxclf.us.ci/20250125/Win8.x_Metro/</id>
     <published>2025-01-25T12:00:00.000Z</published>
     <updated>2025-01-30T12:06:24.712Z</updated>
     
@@ -284,14 +284,14 @@
     
     
     
-    <category term="Metro" scheme="https://zxclf.github.io/tags/Metro/"/>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
     
   </entry>
   
   <entry>
     <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <link href="https://zxclf.github.io/20250120/WindowsAppBoss_Metro/"/>
-    <id>https://zxclf.github.io/20250120/WindowsAppBoss_Metro/</id>
+    <link href="https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/"/>
+    <id>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</id>
     <published>2025-01-20T12:00:00.000Z</published>
     <updated>2025-01-25T12:47:32.792Z</updated>
     
@@ -303,7 +303,7 @@
     
     
     
-    <category term="Metro" scheme="https://zxclf.github.io/tags/Metro/"/>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
     
   </entry>
   

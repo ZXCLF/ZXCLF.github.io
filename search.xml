@@ -3,7 +3,8 @@
   <entry>
     <title>本站说明</title>
     <url>/20250408/Mirror/</url>
-    <content><![CDATA[<p>本站主站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用Github搭建)</p>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.us.ci/">https://zxclf.us.ci/</a> (使用 Cloudflare 搭建)</p>
+<p>本站镜像站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用 Github Pages 搭建)</p>
 <p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
 <p><span class="heimu" title="你知道的太多了">本站由 Hexo 与玄学驱动</span></p>
 ]]></content>
