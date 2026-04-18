@@ -1,12 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>谷歌小恐龙</title>
+    <url>/20250320/Chrome_Dino/</url>
+    <content><![CDATA[<p>体验：</p>
+<span id="more"></span>
+
+<p>(按空格键开始)</p>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>扫雷破解版</title>
+    <url>/20250504/Minesweeper_Patched/</url>
+    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
+<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
+<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
+<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
+<li>Minesweeper文件夹：原版扫雷游戏。</li>
+<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>本站说明</title>
     <url>/20250408/Mirror/</url>
     <content><![CDATA[<p>本站主站： <a href="https://zxclf.us.ci/">https://zxclf.us.ci/</a> (使用 Cloudflare 搭建)</p>
 <p>本站镜像站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用 Github Pages 搭建)</p>
 <p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
 <p><span class="heimu" title="你知道的太多了">本站由 Hexo 与玄学驱动</span></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <url>/20250411/NoMoreBugCheck_sys/</url>
+    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>作业管理器</title>
+    <url>/20260306/Homework_Manager/</url>
+    <content><![CDATA[<h1 id="作业管理器"><a href="#作业管理器" class="headerlink" title="作业管理器"></a>作业管理器</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/ZXCLF/Homework_Manager">github.com&#x2F;ZXCLF&#x2F;Homework_Manager</a></p>
+<p>作业管理器是一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度。通过直观的树状结构和进度条展示，帮助用户了解各项任务的完成情况，支持权重设置和加权进度计算。</p>
+<span id="more"></span>
+
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install PySide6</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python Homework_Manager.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── homework.json          # 作业配置文件（必需）</span><br><span class="line">├── homework_progress.json # 进度保存文件（自动生成）</span><br><span class="line">├── Homework_Manager.py    # 主程序文件</span><br><span class="line">└── README.md          	   # 本说明文档</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件教程"><a href="#配置文件教程" class="headerlink" title="配置文件教程"></a>配置文件教程</h2><h3 id="一、结构概述"><a href="#一、结构概述" class="headerlink" title="一、结构概述"></a>一、结构概述</h3><p>配置文件 <code>homework.json</code> 采用 JSON 格式：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数学&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;英语&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// ... 其他科目</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>科目</strong>：顶层分类，如”语文”、”数学”、”英语”等</li>
+<li><strong>任务</strong>：具体的作业项目，包含”名称”和”权重”</li>
+<li><strong>权重</strong>：表示任务的重要性，用于加权计算总进度</li>
+<li><strong>假期</strong>：假期进度条配置（可选功能）</li>
+</ul>
+<h3 id="二、假期配置"><a href="#二、假期配置" class="headerlink" title="二、假期配置"></a>二、假期配置</h3><h4 id="2-1-启用假期进度条"><a href="#2-1-启用假期进度条" class="headerlink" title="2.1 启用假期进度条"></a>2.1 启用假期进度条</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-配置说明"><a href="#2-2-配置说明" class="headerlink" title="2.2 配置说明"></a>2.2 配置说明</h4><ul>
+<li><strong>启用</strong>：设置为 <code>true</code> 启用假期进度条功能</li>
+<li><strong>开始日期</strong>：假期开始日期，格式为 <code>YYYY-MM-DD</code>（包含在假期内，从当天00:00开始）</li>
+<li><strong>结束日期</strong>：假期结束日期，格式为 <code>YYYY-MM-DD</code>（包含在假期内，到当天23:59结束）</li>
+</ul>
+<h4 id="2-3-注意事项"><a href="#2-3-注意事项" class="headerlink" title="2.3 注意事项"></a>2.3 注意事项</h4><ul>
+<li>如果未配置假期部分，假期进度条将不显示</li>
+<li>如果配置错误（如日期格式错误、开始日期晚于结束日期），假期进度条将被禁用</li>
+<li>假期进度条会实时显示剩余时间（天、小时、分钟）</li>
+</ul>
+<h3 id="三、科目配置详解"><a href="#三、科目配置详解" class="headerlink" title="三、科目配置详解"></a>三、科目配置详解</h3><h4 id="3-1-添加新科目"><a href="#3-1-添加新科目" class="headerlink" title="3.1 添加新科目"></a>3.1 添加新科目</h4><p>在”作业”对象中添加新的科目键值：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;历史&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;背诵历史大事年表&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-支持的所有预设科目"><a href="#3-2-支持的所有预设科目" class="headerlink" title="3.2 支持的所有预设科目"></a>3.2 支持的所有预设科目</h4><p>程序预设支持以下科目：</p>
+<ul>
+<li>语文、数学、英语、物理、化学</li>
+<li>道德与法治、历史、地理、生物</li>
+<li>其他</li>
+</ul>
+<p><strong>注意</strong>：你也可以添加预设之外的科目，如”体育”、”美术”等。</p>
+<h3 id="四、任务配置"><a href="#四、任务配置" class="headerlink" title="四、任务配置"></a>四、任务配置</h3><h4 id="4-1-格式"><a href="#4-1-格式" class="headerlink" title="4.1 格式"></a>4.1 格式</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;任务名称&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;范围&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;数量&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-权重设置"><a href="#4-2-权重设置" class="headerlink" title="4.2 权重设置"></a>4.2 权重设置</h4><ul>
+<li><p><strong>取值范围</strong>：建议 0.1-10.0</p>
+</li>
+<li><p><strong>默认值</strong>：如果不指定，默认为 1.0</p>
+</li>
+<li><p><strong>示例</strong>：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;简单任务&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.5</span> <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;重要任务&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">3.0</span> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="五、嵌套结构"><a href="#五、嵌套结构" class="headerlink" title="五、嵌套结构"></a>五、嵌套结构</h3><h4 id="5-1-多级分类"><a href="#5-1-多级分类" class="headerlink" title="5.1 多级分类"></a>5.1 多级分类</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;一、古诗词&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;六年级上册&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;诗词列表&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;《宿建德江》&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.2</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;《六月二十七日望湖楼醉书》&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.2</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;背诵并默写&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2-说明性字段"><a href="#5-2-说明性字段" class="headerlink" title="5.2 说明性字段"></a>5.2 说明性字段</h4><p>以下字段会自动识别为说明文字，不作为任务：</p>
+<ul>
+<li>“要求”、”范围”、”数量”、”主题”、”说明”、”备注”</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;完成试卷&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;数量&quot;</span><span class="punctuation">:</span> <span class="string">&quot;4套&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="六、示例"><a href="#六、示例" class="headerlink" title="六、示例"></a>六、示例</h3><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;一、基础练习&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;字词整理&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;病句修改&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.8</span> <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;所有练习需认真完成&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;二、阅读理解&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;文言文阅读&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;现代文阅读&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.2</span> <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数学&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;完成练习册第1-10页&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;复习几何定理&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><h3 id="1-假期进度显示"><a href="#1-假期进度显示" class="headerlink" title="1. 假期进度显示"></a>1. 假期进度显示</h3><ul>
+<li>实时显示假期进度百分比</li>
+<li>精确到分钟的剩余时间显示</li>
+<li>自动计算假期开始前、进行中、结束后的不同状态</li>
+</ul>
+<h3 id="2-作业进度管理"><a href="#2-作业进度管理" class="headerlink" title="2. 作业进度管理"></a>2. 作业进度管理</h3><ul>
+<li>树状结构展示作业分类</li>
+<li>支持权重设置的加权进度计算</li>
+<li>双击任务可快速设置进度（0%、25%、50%、75%、100%）</li>
+<li>进度自动保存和加载</li>
+</ul>
+<h3 id="3-科目进度概览"><a href="#3-科目进度概览" class="headerlink" title="3. 科目进度概览"></a>3. 科目进度概览</h3><ul>
+<li>各科目独立进度条显示</li>
+<li>显示科目权重和完成百分比</li>
+<li>支持多列布局，适应不同屏幕</li>
+</ul>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
+<li><strong>配置作业</strong>：编辑 <code>homework.json</code> 文件，按照上述格式配置作业任务</li>
+<li><strong>配置假期</strong>：如需假期进度功能，在配置文件中添加”假期”部分</li>
+<li><strong>运行程序</strong>：运行主程序文件</li>
+<li><strong>设置进度</strong>：双击任务项设置完成进度</li>
+<li><strong>保存进度</strong>：进度会自动保存到 <code>homework_progress.json</code></li>
+</ol>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>本项目采用 GPL 许可证。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <url>/20250125/Win8.x_Metro/</url>
+    <content><![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<span id="more"></span>
+
+<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
+<p>使用方法:</p>
+<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>演讲稿</title>
+    <url>/20250618/Speech/</url>
+    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
+<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
+<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
+<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
+<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
+<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
+<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
+<p>我的演讲完毕，谢谢大家！</p>
+<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
+<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
+<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
+<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
+</ul>
+<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -143,95 +306,72 @@
 ]]></content>
   </entry>
   <entry>
-    <title>作业管理器</title>
-    <url>/20260306/Homework_Manager/</url>
-    <content><![CDATA[<h1 id="作业管理器"><a href="#作业管理器" class="headerlink" title="作业管理器"></a>作业管理器</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/ZXCLF/Homework_Manager">github.com&#x2F;ZXCLF&#x2F;Homework_Manager</a></p>
-<p>作业管理器是一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度。通过直观的树状结构和进度条展示，帮助用户了解各项任务的完成情况，支持权重设置和加权进度计算。</p>
+    <title>好玩的文字特效</title>
+    <url>/20250324/Text/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <url>/20250128/Win_8.1_x64/</url>
+    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
+<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
+</ol>
 <span id="more"></span>
 
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install PySide6</span><br></pre></td></tr></table></figure>
-
-<h3 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python Homework_Manager.py</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── homework.json          # 作业配置文件（必需）</span><br><span class="line">├── homework_progress.json # 进度保存文件（自动生成）</span><br><span class="line">├── Homework_Manager.py    # 主程序文件</span><br><span class="line">└── README.md          	   # 本说明文档</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置文件教程"><a href="#配置文件教程" class="headerlink" title="配置文件教程"></a>配置文件教程</h2><h3 id="一、结构概述"><a href="#一、结构概述" class="headerlink" title="一、结构概述"></a>一、结构概述</h3><p>配置文件 <code>homework.json</code> 采用 JSON 格式：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数学&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;英语&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> ... <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// ... 其他科目</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>科目</strong>：顶层分类，如”语文”、”数学”、”英语”等</li>
-<li><strong>任务</strong>：具体的作业项目，包含”名称”和”权重”</li>
-<li><strong>权重</strong>：表示任务的重要性，用于加权计算总进度</li>
-<li><strong>假期</strong>：假期进度条配置（可选功能）</li>
-</ul>
-<h3 id="二、假期配置"><a href="#二、假期配置" class="headerlink" title="二、假期配置"></a>二、假期配置</h3><h4 id="2-1-启用假期进度条"><a href="#2-1-启用假期进度条" class="headerlink" title="2.1 启用假期进度条"></a>2.1 启用假期进度条</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-配置说明"><a href="#2-2-配置说明" class="headerlink" title="2.2 配置说明"></a>2.2 配置说明</h4><ul>
-<li><strong>启用</strong>：设置为 <code>true</code> 启用假期进度条功能</li>
-<li><strong>开始日期</strong>：假期开始日期，格式为 <code>YYYY-MM-DD</code>（包含在假期内，从当天00:00开始）</li>
-<li><strong>结束日期</strong>：假期结束日期，格式为 <code>YYYY-MM-DD</code>（包含在假期内，到当天23:59结束）</li>
-</ul>
-<h4 id="2-3-注意事项"><a href="#2-3-注意事项" class="headerlink" title="2.3 注意事项"></a>2.3 注意事项</h4><ul>
-<li>如果未配置假期部分，假期进度条将不显示</li>
-<li>如果配置错误（如日期格式错误、开始日期晚于结束日期），假期进度条将被禁用</li>
-<li>假期进度条会实时显示剩余时间（天、小时、分钟）</li>
-</ul>
-<h3 id="三、科目配置详解"><a href="#三、科目配置详解" class="headerlink" title="三、科目配置详解"></a>三、科目配置详解</h3><h4 id="3-1-添加新科目"><a href="#3-1-添加新科目" class="headerlink" title="3.1 添加新科目"></a>3.1 添加新科目</h4><p>在”作业”对象中添加新的科目键值：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;历史&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;背诵历史大事年表&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-2-支持的所有预设科目"><a href="#3-2-支持的所有预设科目" class="headerlink" title="3.2 支持的所有预设科目"></a>3.2 支持的所有预设科目</h4><p>程序预设支持以下科目：</p>
-<ul>
-<li>语文、数学、英语、物理、化学</li>
-<li>道德与法治、历史、地理、生物</li>
-<li>其他</li>
-</ul>
-<p><strong>注意</strong>：你也可以添加预设之外的科目，如”体育”、”美术”等。</p>
-<h3 id="四、任务配置"><a href="#四、任务配置" class="headerlink" title="四、任务配置"></a>四、任务配置</h3><h4 id="4-1-格式"><a href="#4-1-格式" class="headerlink" title="4.1 格式"></a>4.1 格式</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;任务名称&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;范围&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;数量&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;可选参数&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-2-权重设置"><a href="#4-2-权重设置" class="headerlink" title="4.2 权重设置"></a>4.2 权重设置</h4><ul>
-<li><p><strong>取值范围</strong>：建议 0.1-10.0</p>
-</li>
-<li><p><strong>默认值</strong>：如果不指定，默认为 1.0</p>
-</li>
-<li><p><strong>示例</strong>：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;简单任务&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.5</span> <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;重要任务&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">3.0</span> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="五、嵌套结构"><a href="#五、嵌套结构" class="headerlink" title="五、嵌套结构"></a>五、嵌套结构</h3><h4 id="5-1-多级分类"><a href="#5-1-多级分类" class="headerlink" title="5.1 多级分类"></a>5.1 多级分类</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;一、古诗词&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;六年级上册&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;诗词列表&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;《宿建德江》&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.2</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;《六月二十七日望湖楼醉书》&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.2</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;背诵并默写&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-2-说明性字段"><a href="#5-2-说明性字段" class="headerlink" title="5.2 说明性字段"></a>5.2 说明性字段</h4><p>以下字段会自动识别为说明文字，不作为任务：</p>
-<ul>
-<li>“要求”、”范围”、”数量”、”主题”、”说明”、”备注”</li>
-</ul>
-<p><strong>示例</strong>：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;完成试卷&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;数量&quot;</span><span class="punctuation">:</span> <span class="string">&quot;4套&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="六、示例"><a href="#六、示例" class="headerlink" title="六、示例"></a>六、示例</h3><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;作业&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;语文&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;一、基础练习&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;字词整理&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;病句修改&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">0.8</span> <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;要求&quot;</span><span class="punctuation">:</span> <span class="string">&quot;所有练习需认真完成&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;二、阅读理解&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;文言文阅读&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;现代文阅读&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.2</span> <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数学&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;任务&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;完成练习册第1-10页&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;名称&quot;</span><span class="punctuation">:</span> <span class="string">&quot;复习几何定理&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;权重&quot;</span><span class="punctuation">:</span> <span class="number">1.5</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;假期&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;启用&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;开始日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;结束日期&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-08-31&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><h3 id="1-假期进度显示"><a href="#1-假期进度显示" class="headerlink" title="1. 假期进度显示"></a>1. 假期进度显示</h3><ul>
-<li>实时显示假期进度百分比</li>
-<li>精确到分钟的剩余时间显示</li>
-<li>自动计算假期开始前、进行中、结束后的不同状态</li>
-</ul>
-<h3 id="2-作业进度管理"><a href="#2-作业进度管理" class="headerlink" title="2. 作业进度管理"></a>2. 作业进度管理</h3><ul>
-<li>树状结构展示作业分类</li>
-<li>支持权重设置的加权进度计算</li>
-<li>双击任务可快速设置进度（0%、25%、50%、75%、100%）</li>
-<li>进度自动保存和加载</li>
-</ul>
-<h3 id="3-科目进度概览"><a href="#3-科目进度概览" class="headerlink" title="3. 科目进度概览"></a>3. 科目进度概览</h3><ul>
-<li>各科目独立进度条显示</li>
-<li>显示科目权重和完成百分比</li>
-<li>支持多列布局，适应不同屏幕</li>
-</ul>
-<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
-<li><strong>配置作业</strong>：编辑 <code>homework.json</code> 文件，按照上述格式配置作业任务</li>
-<li><strong>配置假期</strong>：如需假期进度功能，在配置文件中添加”假期”部分</li>
-<li><strong>运行程序</strong>：运行主程序文件</li>
-<li><strong>设置进度</strong>：双击任务项设置完成进度</li>
-<li><strong>保存进度</strong>：进度会自动保存到 <code>homework_progress.json</code></li>
-</ol>
-<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>本项目采用 GPL 许可证。</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
+<p>校验信息：</p>
+<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
 ]]></content>
+      <tags>
+        <tag>Win 8.1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>部署UWP应用为系统预装应用</title>
+    <url>/20250322/UWP_Setup/</url>
+    <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
+<ol>
+<li><p><strong>准备应用包</strong></p>
+<ul>
+<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
+<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p><strong>以管理员身份部署</strong></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-Online</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span> <span class="literal">-SkipLicense</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /Online /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Online</strong>: 直接部署到当前运行的系统中。</li>
+<li><strong>SkipLicense</strong>: 跳过许可证验证（仅限测试环境）。</li>
+</ul>
+</li>
+<li><p><strong>脱机部署（系统映像集成）</strong></p>
+<p> 若需预装到系统镜像（如OOBE阶段）：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-SkipLicense</span> <span class="literal">-Path</span> <span class="string">&quot;C:\Mount&quot;</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /<span class="built_in">Add-ProvisionedAppxPackage</span> /ImageFile:<span class="string">&quot;mount_folder&quot;</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>由于手动输入命令过于繁琐，于是编写了一个小脚本来实现一键部署指定文件夹里的所有 .appx 或 .appxbundle 文件部署到系统映像。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义镜像路径和包含 Appx 包的文件夹路径</span></span><br><span class="line"><span class="variable">$imagePath</span> = <span class="string">&quot;mount_folder&quot;</span> <span class="comment">#将mount_folder替换为映像位置，如 C:\Mount</span></span><br><span class="line"><span class="variable">$appxFolder</span> = <span class="string">&quot;Appx_folder&quot;</span> <span class="comment">#将Appx_folder替换为APPX位置，如 C:\Test\Apps\MyPackedApp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹中所有的 .appx 和 .appxbundle 文件</span></span><br><span class="line"><span class="variable">$appxPackages</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appx <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="variable">$appxBundles</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appxbundle <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line"><span class="variable">$allPackages</span> = <span class="variable">$appxPackages</span> + <span class="variable">$appxBundles</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历每个包并使用 DISM 命令进行安装</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$package</span> <span class="keyword">in</span> <span class="variable">$allPackages</span>) &#123;</span><br><span class="line">    <span class="built_in">Write-Host</span> <span class="string">&quot;正在安装包: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    dism.exe /Image:<span class="variable">$imagePath</span> /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;<span class="variable">$package</span>&quot;</span> /SkipLicense</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$LASTEXITCODE</span> <span class="operator">-ne</span> <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="string">&quot;安装失败: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Write-Host</span> <span class="string">&quot;成功安装: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将上述脚本保存为 .ps1 文件并以管理员权限运行它。确保在运行脚本之前，你已正确配置了 $imagePath 和 $appxFolder 变量以匹配你的环境。这样就可以自动化安装文件夹中的所有 appx 文件了。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
+<li><strong>多用户支持</strong>：系统预装应用将自动为所有用户安装，但首次登录时可能需要初始化。</li>
+<li><strong>更新策略</strong>：系统应用需通过Windows Update或手动更新（需相同证书重新签名后部署）。</li>
+</ul>
+<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+        <tag>APPX</tag>
+      </tags>
   </entry>
   <entry>
     <title>包管理器SAT求解与fsync机制技术解析</title>
@@ -605,6 +745,55 @@
 ]]></content>
   </entry>
   <entry>
+    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
+    <url>/20250120/WindowsAppBoss_Metro/</url>
+    <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
+<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
+<span id="more"></span>
+
+<h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
+<p>打开APPX的属性，然后点击数字签名选项卡</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_11.png"></p>
+<p>点击详细信息</p>
+<p>在详细信息窗口中点击查看证书</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_12.png"></p>
+<p>点击安装证书</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_13.png"></p>
+<p>储存位置选择本地计算机</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_14.png"></p>
+<p>点击下一步</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_15.png"></p>
+<p>在证书储存中选择将所有证书都放入下列储存</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_16.png"></p>
+<p>点击浏览</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_17.png"></p>
+<p>在弹出的窗口中选择受信任的根证书颁发机构</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_18.png"></p>
+<p>点击确定</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_19.png"></p>
+<p>点击下一步</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_20.png"></p>
+<p>点击完成</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_ZW.png"></p>
+<p>若弹出导入成功的提示说明证书导入成功</p>
+<h3 id="2-使用WindowsAppBoss安装APPX"><a href="#2-使用WindowsAppBoss安装APPX" class="headerlink" title="2.使用WindowsAppBoss安装APPX"></a>2.使用WindowsAppBoss安装APPX</h3><p>以管理员身份运行WindowsAppBoss，点击Install<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_22.png"><br>在弹出的窗口中点击Enable side loading<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_23.png"></p>
+<p>点击Browse</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_24.png"></p>
+<p>在弹出的窗口中选择APPX的位置</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_25.png"></p>
+<p>选择完成后点击Add Package</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_26.png"></p>
+<p>若窗口中出现Task succeeded则代表安装成功</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_27.png"></p>
+<p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
+<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ventoy Arch To Go 安装指南</title>
     <url>/20250809/Ventoy_Arch_To_Go/</url>
     <content><![CDATA[<h1 id="Ventoy-Arch-To-Go-安装指南"><a href="#Ventoy-Arch-To-Go-安装指南" class="headerlink" title="Ventoy Arch To Go 安装指南"></a><strong>Ventoy</strong> Arch To Go 安装指南</h1><blockquote>
@@ -859,194 +1048,5 @@
 </blockquote>
 <p>执行官方 <a href="https://github.com/ventoy/vtoyboot/releases">vtoyboot 脚本</a> ，将VHD (.vhd)后缀修改为VTOY (.vtoy)</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>演讲稿</title>
-    <url>/20250618/Speech/</url>
-    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
-<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
-<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
-<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
-<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
-<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
-<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
-<p>我的演讲完毕，谢谢大家！</p>
-<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
-<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
-<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
-</ul>
-<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>扫雷破解版</title>
-    <url>/20250504/Minesweeper_Patched/</url>
-    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
-<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
-<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
-<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
-<li>Minesweeper文件夹：原版扫雷游戏。</li>
-<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>破解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <url>/20250411/NoMoreBugCheck_sys/</url>
-    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
-<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
-<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/20250324/Text/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
-<span id="more"></span>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>部署UWP应用为系统预装应用</title>
-    <url>/20250322/UWP_Setup/</url>
-    <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
-<ol>
-<li><p><strong>准备应用包</strong></p>
-<ul>
-<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
-<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
-</ul>
-</li>
-</ol>
-<span id="more"></span>
-<ol start="2">
-<li><p><strong>以管理员身份部署</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-Online</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span> <span class="literal">-SkipLicense</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /Online /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>Online</strong>: 直接部署到当前运行的系统中。</li>
-<li><strong>SkipLicense</strong>: 跳过许可证验证（仅限测试环境）。</li>
-</ul>
-</li>
-<li><p><strong>脱机部署（系统映像集成）</strong></p>
-<p> 若需预装到系统镜像（如OOBE阶段）：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add-AppxProvisionedPackage命令</span></span><br><span class="line"><span class="built_in">Add-AppxProvisionedPackage</span> <span class="literal">-SkipLicense</span> <span class="literal">-Path</span> <span class="string">&quot;C:\Mount&quot;</span> <span class="literal">-PackagePath</span> <span class="string">&quot;C:\Path\To\YourApp.appx&quot;</span> <span class="literal">-DependencyPackagePath</span> <span class="string">&quot;C:\Path\To\Dependencies\*.appx&quot;</span></span><br><span class="line"><span class="comment"># DISM命令</span></span><br><span class="line">Dism /<span class="built_in">Add-ProvisionedAppxPackage</span> /ImageFile:<span class="string">&quot;mount_folder&quot;</span> /PackagePath:<span class="string">&quot;path_to_appx&quot;</span> /DependencyPackagePath:<span class="string">&quot;path_to_dependencies&quot;</span> /SkipLicense</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>由于手动输入命令过于繁琐，于是编写了一个小脚本来实现一键部署指定文件夹里的所有 .appx 或 .appxbundle 文件部署到系统映像。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义镜像路径和包含 Appx 包的文件夹路径</span></span><br><span class="line"><span class="variable">$imagePath</span> = <span class="string">&quot;mount_folder&quot;</span> <span class="comment">#将mount_folder替换为映像位置，如 C:\Mount</span></span><br><span class="line"><span class="variable">$appxFolder</span> = <span class="string">&quot;Appx_folder&quot;</span> <span class="comment">#将Appx_folder替换为APPX位置，如 C:\Test\Apps\MyPackedApp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹中所有的 .appx 和 .appxbundle 文件</span></span><br><span class="line"><span class="variable">$appxPackages</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appx <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="variable">$appxBundles</span> = <span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="variable">$appxFolder</span> <span class="literal">-Filter</span> *.appxbundle <span class="literal">-Recurse</span> <span class="operator">-File</span> |</span><br><span class="line">                <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> FullName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并两个列表</span></span><br><span class="line"><span class="variable">$allPackages</span> = <span class="variable">$appxPackages</span> + <span class="variable">$appxBundles</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历每个包并使用 DISM 命令进行安装</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$package</span> <span class="keyword">in</span> <span class="variable">$allPackages</span>) &#123;</span><br><span class="line">    <span class="built_in">Write-Host</span> <span class="string">&quot;正在安装包: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    dism.exe /Image:<span class="variable">$imagePath</span> /<span class="built_in">Add-ProvisionedAppxPackage</span> /PackagePath:<span class="string">&quot;<span class="variable">$package</span>&quot;</span> /SkipLicense</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$LASTEXITCODE</span> <span class="operator">-ne</span> <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="string">&quot;安装失败: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Write-Host</span> <span class="string">&quot;成功安装: <span class="variable">$package</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>将上述脚本保存为 .ps1 文件并以管理员权限运行它。确保在运行脚本之前，你已正确配置了 $imagePath 和 $appxFolder 变量以匹配你的环境。这样就可以自动化安装文件夹中的所有 appx 文件了。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
-<li><strong>多用户支持</strong>：系统预装应用将自动为所有用户安装，但首次登录时可能需要初始化。</li>
-<li><strong>更新策略</strong>：系统应用需通过Windows Update或手动更新（需相同证书重新签名后部署）。</li>
-</ul>
-<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a><strong>验证部署</strong></h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查已预装包列表</span></span><br><span class="line"><span class="built_in">Get-AppxProvisionedPackage</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> DisplayName <span class="operator">-eq</span> <span class="string">&quot;YourAppName&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-        <tag>APPX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌小恐龙</title>
-    <url>/20250320/Chrome_Dino/</url>
-    <content><![CDATA[<p>体验：</p>
-<span id="more"></span>
-
-<p>(按空格键开始)</p>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>Win 8.1 x64 集成补丁镜像</title>
-    <url>/20250128/Win_8.1_x64/</url>
-    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
-<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
-<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
-</ol>
-<span id="more"></span>
-
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>123盘：<a href="https://www.123684.com/s/FGWpTd-AZ9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-AZ9Ph">备用链接</a> （无提取码）</p>
-<p>校验信息：</p>
-<p>文件名称: Win8.1.iso<br>文件大小: 3.25 GB (3,501,053,952 字节)<br>MD5: 85222ABA41E54D487B8F571F2E82D192<br>SHA1: 2DB36A34F22F14D35539266906ED8A76426C0BC4<br>SHA256: DA6041B26E41C391C1B34D723B81D36186C6703387B3A84FF0BE258F94E78F98<br>CRC32: DE103C2B</p>
-]]></content>
-      <tags>
-        <tag>Win 8.1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <url>/20250125/Win8.x_Metro/</url>
-    <content><![CDATA[<p><strong>注意:</strong></p>
-<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
-<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
-<span id="more"></span>
-
-<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
-<p>使用方法:</p>
-<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <url>/20250120/WindowsAppBoss_Metro/</url>
-    <content><![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
-<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态(开启LOB侧载的教程见<a href="https://zxclf.github.io/2025/01/19/%E5%9C%A8Win8.x%E4%B8%8A%E8%A7%A3%E9%94%81LOB%E4%BE%A7%E8%BD%BD%E4%BB%A5%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9Metro%E5%BA%94%E7%94%A8/">上一篇文章</a>)</strong></p>
-<span id="more"></span>
-
-<h3 id="1-导入APPX的证书"><a href="#1-导入APPX的证书" class="headerlink" title="1.导入APPX的证书"></a>1.导入APPX的证书</h3><p>使用WindowsAppBoss安装第三方Metro应用（文件扩展名为APPX）之前，首先需要导入APPX的证书</p>
-<p>打开APPX的属性，然后点击数字签名选项卡</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_11.png"></p>
-<p>点击详细信息</p>
-<p>在详细信息窗口中点击查看证书</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_12.png"></p>
-<p>点击安装证书</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_13.png"></p>
-<p>储存位置选择本地计算机</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_14.png"></p>
-<p>点击下一步</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_15.png"></p>
-<p>在证书储存中选择将所有证书都放入下列储存</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_16.png"></p>
-<p>点击浏览</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_17.png"></p>
-<p>在弹出的窗口中选择受信任的根证书颁发机构</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_18.png"></p>
-<p>点击确定</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_19.png"></p>
-<p>点击下一步</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_20.png"></p>
-<p>点击完成</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_ZW.png"></p>
-<p>若弹出导入成功的提示说明证书导入成功</p>
-<h3 id="2-使用WindowsAppBoss安装APPX"><a href="#2-使用WindowsAppBoss安装APPX" class="headerlink" title="2.使用WindowsAppBoss安装APPX"></a>2.使用WindowsAppBoss安装APPX</h3><p>以管理员身份运行WindowsAppBoss，点击Install<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_22.png"><br>在弹出的窗口中点击Enable side loading<br><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_23.png"></p>
-<p>点击Browse</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_24.png"></p>
-<p>在弹出的窗口中选择APPX的位置</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_25.png"></p>
-<p>选择完成后点击Add Package</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_26.png"></p>
-<p>若窗口中出现Task succeeded则代表安装成功</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_27.png"></p>
-<p>如果安装成功就可以在开始菜单中找到刚刚安装的APPX</p>
-<p><img src="https://raw.githubusercontent.com/ZXCLF/blog_pic/main/1_28.png"></p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
   </entry>
 </search>
