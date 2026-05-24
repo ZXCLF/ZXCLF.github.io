@@ -88,7 +88,7 @@
     </p>
     <input onfocus="extracontrol.blur()" id="extracontrol" type="checkbox" onchange="if (extracontrol.checked) {document.onkeypress=function(key){if (key.key=='w'){Runner.instance_.tRex.jumpVelocity=-10};if (key.key=='s'){Runner.instance_.tRex.jumpVelocity=10};Runner.instance_.tRex.jumping=true;};} else {document.onkeypress=null};"/>额外控制（飞鸟或飞机风格）<p>
     </p>
-    <input onfocus="racoon.blur()" id="racoon" type="checkbox" onchange="if (racoon.checked) {document.onkeypress=function(key){if (key.key=='w'){Runner.instance_.tRex.jumpVelocity=0};if (key.key=='s'){Runner.instance_.tRex.jumpVelocity=0};};} else {document.onkeypress=null};"/>Racoon Mario Float 控制器<p>
+    <input onfocus="racoon.blur()" id="racoon" type="checkbox" onchange="if (racoon.checked) {document.onkeypress=function(key){if (key.key=='w'){Runner.instance_.tRex.jumpVelocity=0};if (key.key=='s'){Runner.instance_.tRex.jumpVelocity=0};};} else {document.onkeypress=null};"/>悬停模式（按 W/S 可悬停）<p>
     </p>
     <input id="speed" type="number"/><input onfocus="setspeed.blur()" id="setspeed" value="设置" type="button" onclick="Runner.instance_.setSpeed(Number(speed.value))">速度<p id="speedview"></p>       
     <select id="character" onchange="document.getElementsByClassName('spritechangable')[0].src=character.value.split('|')[0];location.hash=character.selectedIndex;location.reload()">
