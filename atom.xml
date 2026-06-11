@@ -1,299 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ZXCLF</title>
-  
-  
-  <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
-  
-  <link href="https://zxclf.us.ci/"/>
-  <updated>2026-04-25T01:58:58.623Z</updated>
-  <id>https://zxclf.us.ci/</id>
-  
   <author>
     <name>ZXCLF</name>
-    
   </author>
-  
   <generator uri="https://hexo.io/">Hexo</generator>
-  
+  <id>https://zxclf.us.ci/</id>
+  <link href="https://zxclf.us.ci/" rel="alternate"/>
+  <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, ZXCLF</rights>
+  <title>ZXCLF</title>
+  <updated>2026-04-25T01:58:58.623Z</updated>
   <entry>
-    <title>班级宠物乐园系统漏洞报告</title>
-    <link href="https://zxclf.us.ci/20260401/Report/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20260401/Report/</id>
+    <link href="https://zxclf.us.ci/20260401/Report/"/>
     <published>2026-04-01T04:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="班级宠物乐园系统漏洞报告"><a href="#班级宠物乐园系统漏洞报告" class="headerlink" title="班级宠物乐园系统漏洞报告"></a>班级宠物乐园系统漏洞报告</h1><p><strong>测试对象</strong>: 生产环境 (<a href="http://43.138.xxx.xx/pet/">http://43.138.xxx.xx/pet/</a>) （数据已脱敏） </p>]]>
+    </summary>
+    <title>班级宠物乐园系统漏洞报告</title>
     <updated>2026-04-25T01:58:58.623Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;班级宠物乐园系统漏洞报告&quot;&gt;&lt;a href=&quot;#班级宠物乐园系统漏洞报告&quot; class=&quot;headerlink&quot; title=&quot;班级宠物乐园系统漏洞报告&quot;&gt;&lt;/a&gt;班级宠物乐园系统漏洞报告&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;测试对象&lt;/strong&gt;: 生产环境 (&lt;a href=&quot;http://43.138.xxx.xx/pet/&quot;&gt;http://43.138.xxx.xx/pet/&lt;/a&gt;) （数据已脱敏） &lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>作业管理器</title>
-    <link href="https://zxclf.us.ci/20260306/Homework_Manager/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20260306/Homework_Manager/</id>
+    <link href="https://zxclf.us.ci/20260306/Homework_Manager/"/>
     <published>2026-03-05T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="作业管理器"><a href="#作业管理器" class="headerlink" title="作业管理器"></a>作业管理器</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/ZXCLF/Homework_Manager">github.com&#x2F;ZXCLF&#x2F;Homework_Manager</a></p>
+<p>作业管理器是一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度。通过直观的树状结构和进度条展示，帮助用户了解各项任务的完成情况，支持权重设置和加权进度计算。</p>]]>
+    </summary>
+    <title>作业管理器</title>
     <updated>2026-03-07T08:27:06.172Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;作业管理器&quot;&gt;&lt;a href=&quot;#作业管理器&quot; class=&quot;headerlink&quot; title=&quot;作业管理器&quot;&gt;&lt;/a&gt;作业管理器&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ZXCLF/Homework_Manager&quot;&gt;github.com&amp;#x2F;ZXCLF&amp;#x2F;Homework_Manager&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;作业管理器是一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度。通过直观的树状结构和进度条展示，帮助用户了解各项任务的完成情况，支持权重设置和加权进度计算。&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>包管理器SAT求解与fsync机制技术解析</title>
-    <link href="https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/</id>
+    <link href="https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/"/>
     <published>2026-01-17T00:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="包管理器SAT求解与fsync机制技术解析"><a href="#包管理器SAT求解与fsync机制技术解析" class="headerlink" title="包管理器SAT求解与fsync机制技术解析"></a>包管理器SAT求解与fsync机制技术解析</h1><pre class="mermaid">graph TD
+    A[包管理操作开始] --> B[SAT求解器分析依赖关系]
+    B --> C[生成事务方案]
+    C --> D[下载/验证软件包]
+    D --> E[文件系统操作]
+    E --> F{是否调用fsync?}
+    F -->|是| G[强制刷盘保证一致性]
+    F -->|否| H[依赖OS缓存机制]
+    G --> I[操作完成-高一致性]
+    H --> J[操作完成-高性能]</pre>]]>
+    </summary>
+    <title>包管理器SAT求解与fsync机制技术解析</title>
     <updated>2026-01-17T07:58:24.646Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;包管理器SAT求解与fsync机制技术解析&quot;&gt;&lt;a href=&quot;#包管理器SAT求解与fsync机制技术解析&quot; class=&quot;headerlink&quot; title=&quot;包管理器SAT求解与fsync机制技术解析&quot;&gt;&lt;/a&gt;包管理器SAT求解与fsync机制技术解析&lt;/h1&gt;&lt;pre class=&quot;mermaid&quot;&gt;graph TD
-    A[包管理操作开始] --&gt; B[SAT求解器分析依赖关系]
-    B --&gt; C[生成事务方案]
-    C --&gt; D[下载/验证软件包]
-    D --&gt; E[文件系统操作]
-    E --&gt; F{是否调用fsync?}
-    F --&gt;|是| G[强制刷盘保证一致性]
-    F --&gt;|否| H[依赖OS缓存机制]
-    G --&gt; I[操作完成-高一致性]
-    H --&gt; J[操作完成-高性能]&lt;/pre&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Ventoy Arch To Go 安装指南</title>
-    <link href="https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/</id>
+    <link href="https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/"/>
     <published>2025-08-09T12:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="Ventoy-Arch-To-Go-安装指南"><a href="#Ventoy-Arch-To-Go-安装指南" class="headerlink" title="Ventoy Arch To Go 安装指南"></a><strong>Ventoy</strong> Arch To Go 安装指南</h1><blockquote>
+<p>Arch殿堂之上，历代发行版纷争百余次，是非功过未易评断，然技术史家无不承认，正是在这方终端之中，决定了多少开发者的心智归属、系统生态的流向沉浮，故而社区素有“真理之殿”的传说。</p>
+<p>当年林纳斯托瓦兹首释内核源代码，开源运动如星火燎原。Debian以稳如磐石之志立下基石，红帽借企业之力拓土开疆。公元二〇〇三年，也正是在这滚动更新的浪潮前，Arch社区以KISS之道铸就极简利刃，以Wiki为盾，以AUR为弓，于纷繁发行版中夺下一片天地！</p>
+<p>我不明白，为何众人总在议论 Debian 的稳如磐石，仿佛这自由世界对我们注定了曲高和寡。数年前，我从一份纯净的安装媒介踏上征途，开启了滚动发布的新章，Linux桌面的灵活精悍遂入新境。Pacman所到之处，极客欣然相迎，真可谓尽握自主，那种清晰透明、万物由我的境界，犹在眼前。短短数载之后，这里竟至于一变而成为我等理念的困守之地了么？</p>
+<p>无论怎么讲，版本迭代，是滚动对固定，优势在我！</p>]]>
+    </summary>
+    <title>Ventoy Arch To Go 安装指南</title>
     <updated>2026-05-17T14:37:17.623Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Ventoy-Arch-To-Go-安装指南&quot;&gt;&lt;a href=&quot;#Ventoy-Arch-To-Go-安装指南&quot; class=&quot;headerlink&quot; title=&quot;Ventoy Arch To Go 安装指南&quot;&gt;&lt;/a&gt;&lt;strong&gt;Ventoy&lt;/strong&gt; Arch To Go 安装指南&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;Arch殿堂之上，历代发行版纷争百余次，是非功过未易评断，然技术史家无不承认，正是在这方终端之中，决定了多少开发者的心智归属、系统生态的流向沉浮，故而社区素有“真理之殿”的传说。&lt;/p&gt;
-&lt;p&gt;当年林纳斯托瓦兹首释内核源代码，开源运动如星火燎原。Debian以稳如磐石之志立下基石，红帽借企业之力拓土开疆。公元二〇〇三年，也正是在这滚动更新的浪潮前，Arch社区以KISS之道铸就极简利刃，以Wiki为盾，以AUR为弓，于纷繁发行版中夺下一片天地！&lt;/p&gt;
-&lt;p&gt;我不明白，为何众人总在议论 Debian 的稳如磐石，仿佛这自由世界对我们注定了曲高和寡。数年前，我从一份纯净的安装媒介踏上征途，开启了滚动发布的新章，Linux桌面的灵活精悍遂入新境。Pacman所到之处，极客欣然相迎，真可谓尽握自主，那种清晰透明、万物由我的境界，犹在眼前。短短数载之后，这里竟至于一变而成为我等理念的困守之地了么？&lt;/p&gt;
-&lt;p&gt;无论怎么讲，版本迭代，是滚动对固定，优势在我！&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>演讲稿</title>
-    <link href="https://zxclf.us.ci/20250618/Speech/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20250618/Speech/</id>
+    <link href="https://zxclf.us.ci/20250618/Speech/"/>
     <published>2025-06-18T12:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h3 id="在线预览"><a href="#在线预览" class="headerlink"]]>
+    </summary>
+    <title>演讲稿</title>
     <updated>2025-06-18T11:37:43.162Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;在线预览&quot;&gt;&lt;a href=&quot;#在线预览&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>扫雷破解版</title>
-    <link href="https://zxclf.us.ci/20250504/Minesweeper_Patched/"/>
-    <id>https://zxclf.us.ci/20250504/Minesweeper_Patched/</id>
-    <published>2025-05-04T00:00:00.000Z</published>
-    <updated>2025-06-07T02:36:50.197Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png&quot; alt=&quot;pic1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;下载：</summary>
-        
-      
-    
-    
-    
-    
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <category term="破解" scheme="https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/"/>
-    
+    <id>https://zxclf.us.ci/20250504/Minesweeper_Patched/</id>
+    <link href="https://zxclf.us.ci/20250504/Minesweeper_Patched/"/>
+    <published>2025-05-04T00:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ZXCLF/blog_pic/pic1.png" alt="pic1"></p>
+<p>下载：]]>
+    </summary>
+    <title>扫雷破解版</title>
+    <updated>2025-06-07T02:36:50.197Z</updated>
   </entry>
-  
   <entry>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <link href="https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/</id>
+    <link href="https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/"/>
     <published>2025-04-11T12:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>下载：<a href="https://www.123684.com/s/FGWpTd-4iQPh">123网盘</a></p>
+<p><strong>虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）</strong></p>
+<p>亲测 Windows 11]]>
+    </summary>
+    <title>NoMoreBugCheck.sys数字签名版</title>
     <updated>2025-04-26T01:53:27.104Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;下载：&lt;a href=&quot;https://www.123684.com/s/FGWpTd-4iQPh&quot;&gt;123网盘&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;虽然数字签名已经过期，但可以正常加载驱动（不开测试模式）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;亲测 Windows 11</summary>
-        
-      
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>本站说明</title>
-    <link href="https://zxclf.us.ci/20250408/Mirror/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20250408/Mirror/</id>
+    <link href="https://zxclf.us.ci/20250408/Mirror/"/>
     <published>2025-04-08T14:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>本站主站： <a href="https://zxclf.us.ci/">https://zxclf.us.ci/</a> (使用 Cloudflare 搭建)</p>
+<p>本站镜像站： <a]]>
+    </summary>
+    <title>本站说明</title>
     <updated>2026-04-18T09:21:33.910Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;本站主站： &lt;a href=&quot;https://zxclf.us.ci/&quot;&gt;https://zxclf.us.ci/&lt;/a&gt; (使用 Cloudflare 搭建)&lt;/p&gt;
-&lt;p&gt;本站镜像站： &lt;a</summary>
-        
-      
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>好玩的文字特效</title>
-    <link href="https://zxclf.us.ci/20250324/Text/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20250324/Text/</id>
+    <link href="https://zxclf.us.ci/20250324/Text/"/>
     <published>2025-03-24T05:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>测试：<a href="https://zxclf.github.io/Text">Text</a></p>]]>
+    </summary>
+    <title>好玩的文字特效</title>
     <updated>2025-03-24T05:14:53.566Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;测试：&lt;a href=&quot;https://zxclf.github.io/Text&quot;&gt;Text&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>部署UWP应用为系统预装应用</title>
-    <link href="https://zxclf.us.ci/20250322/UWP_Setup/"/>
-    <id>https://zxclf.us.ci/20250322/UWP_Setup/</id>
-    <published>2025-03-22T06:00:00.000Z</published>
-    <updated>2025-03-27T14:51:48.524Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;准备应用包&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;获取**.appx&lt;strong&gt;或&lt;/strong&gt;.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。&lt;/li&gt;
-&lt;li&gt;确保应用已使用&lt;strong&gt;受信任的证书签名&lt;/strong&gt;（系统级部署需有效签名，测试可用自签名证书）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
-    
     <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
-    
+    <id>https://zxclf.us.ci/20250322/UWP_Setup/</id>
+    <link href="https://zxclf.us.ci/20250322/UWP_Setup/"/>
+    <published>2025-03-22T06:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p><strong>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</strong></p>
+<ol>
+<li><p><strong>准备应用包</strong></p>
+<ul>
+<li>获取**.appx<strong>或</strong>.appxbundle**文件及其依赖项（如VCLibs、.NET框架等）。</li>
+<li>确保应用已使用<strong>受信任的证书签名</strong>（系统级部署需有效签名，测试可用自签名证书）。</li>
+</ul>
+</li>
+</ol>]]>
+    </summary>
+    <title>部署UWP应用为系统预装应用</title>
+    <updated>2025-03-27T14:51:48.524Z</updated>
   </entry>
-  
   <entry>
-    <title>谷歌小恐龙</title>
-    <link href="https://zxclf.us.ci/20250320/Chrome_Dino/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <id>https://zxclf.us.ci/20250320/Chrome_Dino/</id>
+    <link href="https://zxclf.us.ci/20250320/Chrome_Dino/"/>
     <published>2025-03-20T00:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>体验：</p>]]>
+    </summary>
+    <title>谷歌小恐龙</title>
     <updated>2025-03-23T07:46:39.735Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;体验：&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Win 8.1 x64 集成补丁镜像</title>
-    <link href="https://zxclf.us.ci/20250128/Win_8.1_x64/"/>
-    <id>https://zxclf.us.ci/20250128/Win_8.1_x64/</id>
-    <published>2025-01-28T00:00:00.000Z</published>
-    <updated>2025-03-22T03:52:51.994Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，&lt;strong&gt;未集成任何第三方软件、无广告、无锁定、无OEM信息。&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <category term="Win 8.1" scheme="https://zxclf.us.ci/tags/Win-8-1/"/>
-    
+    <id>https://zxclf.us.ci/20250128/Win_8.1_x64/</id>
+    <link href="https://zxclf.us.ci/20250128/Win_8.1_x64/"/>
+    <published>2025-01-28T00:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>本镜像基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，<strong>未集成任何第三方软件、无广告、无锁定、无OEM信息。</strong></li>
+<li>本镜像集成Win8.1自发布以来（截止至2025年）的所有关键补丁，并且排除了遥测和Win10升级等无用补丁。</li>
+</ol>]]>
+    </summary>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <updated>2025-03-22T03:52:51.994Z</updated>
   </entry>
-  
   <entry>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <link href="https://zxclf.us.ci/20250125/Win8.x_Metro/"/>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
     <id>https://zxclf.us.ci/20250125/Win8.x_Metro/</id>
+    <link href="https://zxclf.us.ci/20250125/Win8.x_Metro/"/>
     <published>2025-01-25T12:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p><strong>注意:</strong></p>
+<p><strong>1.本教程适用于Windows8.1 (build 9600)</strong></p>
+<p><strong>2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。</strong></p>]]>
+    </summary>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
     <updated>2025-01-30T12:06:24.712Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.本教程适用于Windows8.1 (build 9600)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2.折腾有风险，使用本方法可能会产生未知问题，本人概不负责。&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
-    
   </entry>
-  
   <entry>
-    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <link href="https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/"/>
-    <id>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</id>
-    <published>2025-01-20T12:00:00.000Z</published>
-    <updated>2026-04-18T10:15:45.550Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;工具下载：&lt;br&gt;123网盘：&lt;a href=&quot;https://www.123684.com/s/FGWpTd-309Ph&quot;&gt;主链接&lt;/a&gt; &lt;a href=&quot;https://www.123684.com/s/FGWpTd-309Ph&quot;&gt;备用链接&lt;/a&gt; (无提取码)&lt;/p&gt;
-&lt;p&gt;百度网盘：&lt;a href=&quot;https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL&quot;&gt;https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL&lt;/a&gt; 提取码: ZXCL&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>ZXCLF</name>
+    </author>
     <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
-    
+    <id>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</id>
+    <link href="https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/"/>
+    <published>2025-01-20T12:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>工具下载：<br>123网盘：<a href="https://www.123684.com/s/FGWpTd-309Ph">主链接</a> <a href="https://www.123684.com/s/FGWpTd-309Ph">备用链接</a> (无提取码)</p>
+<p>百度网盘：<a href="https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL">https://pan.baidu.com/s/1fj2l6dZrWvb-5G7f2c3l2A?pwd=ZXCL</a> 提取码: ZXCL</p>
+<p><strong>注意:使用本方法安装第三方Metro应用需要LOB侧载为开启状态</strong></p>]]>
+    </summary>
+    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
+    <updated>2026-04-18T10:15:45.550Z</updated>
   </entry>
-  
 </feed>
