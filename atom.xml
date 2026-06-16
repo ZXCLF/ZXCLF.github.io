@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>ZXCLF</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://zxclf.us.ci/</id>
+  <link href="https://zxclf.us.ci/" rel="alternate"/>
+  <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, ZXCLF</rights>
+  <title>ZXCLF</title>
+  <updated>2026-06-16T05:51:46.791Z</updated>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20260401/Report/</id>
+    <link href="https://zxclf.us.ci/20260401/Report/"/>
+    <published>2026-04-01T04:00:00.000Z</published>
+    <summary>系统在前端代码中硬编码了管理员后台的访问密钥，任何用户都可以通过查看网页源代码获取该密钥!!! ∑(ﾟДﾟノ)ノ</summary>
+    <title>班级宠物乐园系统漏洞报告</title>
+    <updated>2026-06-16T05:51:46.791Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20260306/Homework_Manager/</id>
+    <link href="https://zxclf.us.ci/20260306/Homework_Manager/"/>
+    <published>2026-03-05T16:00:00.000Z</published>
+    <summary>一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度</summary>
+    <title>作业管理器</title>
+    <updated>2026-06-16T05:51:21.160Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/</id>
+    <link href="https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/"/>
+    <published>2026-01-17T00:00:00.000Z</published>
+    <summary>包管理器SAT求解与fsync机制</summary>
+    <title>包管理器SAT求解与fsync机制技术解析</title>
+    <updated>2026-06-16T05:45:33.080Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="Linux" scheme="https://zxclf.us.ci/tags/Linux/"/>
+    <id>https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/</id>
+    <link href="https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/"/>
+    <published>2025-08-09T12:00:00.000Z</published>
+    <summary>无论怎么讲，版本迭代，是滚动对固定，优势在我！</summary>
+    <title>Ventoy Arch To Go 安装指南</title>
+    <updated>2026-06-16T05:54:34.250Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20250618/Speech/</id>
+    <link href="https://zxclf.us.ci/20250618/Speech/"/>
+    <published>2025-06-18T12:00:00.000Z</published>
+    <summary>演讲时使用的演讲稿</summary>
+    <title>演讲稿</title>
+    <updated>2026-06-16T05:46:25.836Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="破解" scheme="https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/"/>
+    <id>https://zxclf.us.ci/20250504/Minesweeper_Patched/</id>
+    <link href="https://zxclf.us.ci/20250504/Minesweeper_Patched/"/>
+    <published>2025-05-04T00:00:00.000Z</published>
+    <summary>对经典的扫雷游戏进行了一点修改</summary>
+    <title>扫雷破解版</title>
+    <updated>2026-06-16T05:44:30.953Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/</id>
+    <link href="https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/"/>
+    <published>2025-04-11T12:00:00.000Z</published>
+    <summary>NoMoreBugCheck.sys数字签名版</summary>
+    <title>NoMoreBugCheck.sys数字签名版</title>
+    <updated>2026-06-16T05:45:11.432Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20250408/Mirror/</id>
+    <link href="https://zxclf.us.ci/20250408/Mirror/"/>
+    <published>2025-04-08T14:00:00.000Z</published>
+    <summary>https://zxclf.us.ci/</summary>
+    <title>本站说明</title>
+    <updated>2026-06-16T05:44:59.456Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20250324/Text/</id>
+    <link href="https://zxclf.us.ci/20250324/Text/"/>
+    <published>2025-03-24T05:00:00.000Z</published>
+    <summary>一个好玩的文字特效</summary>
+    <title>好玩的文字特效</title>
+    <updated>2026-06-16T05:53:05.251Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <id>https://zxclf.us.ci/20250322/UWP_Setup/</id>
+    <link href="https://zxclf.us.ci/20250322/UWP_Setup/"/>
+    <published>2025-03-22T06:00:00.000Z</published>
+    <summary>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</summary>
+    <title>部署UWP应用为系统预装应用</title>
+    <updated>2026-06-16T05:54:07.743Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <id>https://zxclf.us.ci/20250320/Chrome_Dino/</id>
+    <link href="https://zxclf.us.ci/20250320/Chrome_Dino/"/>
+    <published>2025-03-20T00:00:00.000Z</published>
+    <summary>谷歌小恐龙</summary>
+    <title>谷歌小恐龙</title>
+    <updated>2026-06-16T05:48:17.507Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="Win 8.1" scheme="https://zxclf.us.ci/tags/Win-8-1/"/>
+    <id>https://zxclf.us.ci/20250128/Win_8.1_x64/</id>
+    <link href="https://zxclf.us.ci/20250128/Win_8.1_x64/"/>
+    <published>2025-01-28T00:00:00.000Z</published>
+    <summary>基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，未集成任何第三方软件、无广告、无锁定、无OEM信息。</summary>
+    <title>Win 8.1 x64 集成补丁镜像</title>
+    <updated>2026-06-16T05:54:56.400Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <id>https://zxclf.us.ci/20250125/Win8.x_Metro/</id>
+    <link href="https://zxclf.us.ci/20250125/Win8.x_Metro/"/>
+    <published>2025-01-25T12:00:00.000Z</published>
+    <summary>适用于Windows8.1 (build 9600)的第三方Metro应用安装教程</summary>
+    <title>【最新】在Win8.x上安装第三方Metro应用</title>
+    <updated>2026-06-16T05:56:01.434Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>ZXCLF</name>
+    </author>
+    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <id>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</id>
+    <link href="https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/"/>
+    <published>2025-01-20T12:00:00.000Z</published>
+    <summary>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</summary>
+    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
+    <updated>2026-06-16T05:56:23.521Z</updated>
+  </entry>
+</feed>
