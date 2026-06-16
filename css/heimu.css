@@ -1,0 +1,40 @@
+:root {
+    --wzb-heimu-bg-color: #252525;
+    --wzb-heimu-text-color: #252525;
+  }
+  
+  .dark {
+    --wzb-heimu-bg-color: #eeeeee;
+    --wzb-heimu-text-color: #eeeeee;
+  }
+  
+  .heimu {
+    color: var(--wzb-heimu-text-color);
+    background-color: var(--wzb-heimu-bg-color);
+    text-shadow: none;
+    transition: color 0.13s linear, background-color 0.13s linear, text-shadow 0.13s linear;
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+  
+  .heimu:active,
+  .heimu:hover {
+    color: unset;
+    background-color: unset;
+    text-shadow: unset;
+  }
+  
+  .post-content .heimu a,
+  .article-container .heimu a {
+    color: var(--wzb-heimu-text-color);
+    text-shadow: none;
+    transition: color 0.13s linear, background-color 0.13s linear, text-shadow 0.13s linear;
+  }
+  
+  .post-content .heimu:active a,
+  .post-content .heimu:hover a,
+  .article-container .heimu:active a,
+  .article-container .heimu:hover a {
+    color: var(--theme-color, #49B1F5);
+    text-shadow: unset;
+  }

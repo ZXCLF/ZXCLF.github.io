@@ -2,117 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/</loc>
-    
-    <lastmod>2026-05-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20260401/Report/</loc>
-    
-    <lastmod>2026-04-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</loc>
     
-    <lastmod>2026-04-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250408/Mirror/</loc>
-    
-    <lastmod>2026-04-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20260306/Homework_Manager/</loc>
-    
-    <lastmod>2026-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/</loc>
-    
-    <lastmod>2026-01-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250618/Speech/</loc>
-    
-    <lastmod>2025-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250504/Minesweeper_Patched/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/</loc>
-    
-    <lastmod>2025-04-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250322/UWP_Setup/</loc>
-    
-    <lastmod>2025-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250324/Text/</loc>
-    
-    <lastmod>2025-03-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250320/Chrome_Dino/</loc>
-    
-    <lastmod>2025-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250128/Win_8.1_x64/</loc>
-    
-    <lastmod>2025-03-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -121,7 +13,115 @@
   <url>
     <loc>https://zxclf.us.ci/20250125/Win8.x_Metro/</loc>
     
-    <lastmod>2025-01-30</lastmod>
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250128/Win_8.1_x64/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250322/UWP_Setup/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250324/Text/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20260401/Report/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20260306/Homework_Manager/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250320/Chrome_Dino/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250618/Speech/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250408/Mirror/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250504/Minesweeper_Patched/</loc>
+    
+    <lastmod>2026-06-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -130,36 +130,43 @@
 
   <url>
     <loc>https://zxclf.us.ci/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zxclf.us.ci/tags/APPX/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Metro/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <loc>https://zxclf.us.ci/tags/Linux/</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Win-8-1/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
