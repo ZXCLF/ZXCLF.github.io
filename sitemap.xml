@@ -47,15 +47,6 @@
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/20250324/Text/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zxclf.us.ci/20260401/Report/</loc>
     
     <lastmod>2026-06-16</lastmod>
@@ -130,7 +121,7 @@
 
   <url>
     <loc>https://zxclf.us.ci/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,35 +129,35 @@
   
   <url>
     <loc>https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/APPX/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Metro/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Linux/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Win-8-1/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
