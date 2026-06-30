@@ -4,7 +4,7 @@
   <url>
     <loc>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</loc>
     
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,7 @@
   <url>
     <loc>https://zxclf.us.ci/20250125/Win8.x_Metro/</loc>
     
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -74,15 +74,6 @@
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/20250618/Speech/</loc>
-    
-    <lastmod>2026-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zxclf.us.ci/20260117/Package_Manager_SAT_fsync/</loc>
     
     <lastmod>2026-06-16</lastmod>
@@ -121,7 +112,7 @@
 
   <url>
     <loc>https://zxclf.us.ci/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,35 +120,35 @@
   
   <url>
     <loc>https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/APPX/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Metro/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Linux/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zxclf.us.ci/tags/Win-8-1/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

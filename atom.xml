@@ -59,17 +59,6 @@
     <author>
       <name>ZXCLF</name>
     </author>
-    <id>https://zxclf.us.ci/20250618/Speech/</id>
-    <link href="https://zxclf.us.ci/20250618/Speech/"/>
-    <published>2025-06-18T12:00:00.000Z</published>
-    <summary>演讲时使用的演讲稿</summary>
-    <title>演讲稿</title>
-    <updated>2026-06-16T05:46:25.836Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>ZXCLF</name>
-    </author>
     <category term="破解" scheme="https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/"/>
     <id>https://zxclf.us.ci/20250504/Minesweeper_Patched/</id>
     <link href="https://zxclf.us.ci/20250504/Minesweeper_Patched/"/>
@@ -146,7 +135,7 @@
     <published>2025-01-25T12:00:00.000Z</published>
     <summary>适用于Windows8.1 (build 9600)的第三方Metro应用安装教程</summary>
     <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <updated>2026-06-16T05:56:01.434Z</updated>
+    <updated>2026-06-30T04:17:48.872Z</updated>
   </entry>
   <entry>
     <author>
@@ -158,6 +147,6 @@
     <published>2025-01-20T12:00:00.000Z</published>
     <summary>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</summary>
     <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <updated>2026-06-16T05:56:23.521Z</updated>
+    <updated>2026-06-30T04:17:56.928Z</updated>
   </entry>
 </feed>
