@@ -93,8 +93,8 @@
     <author>
       <name>ZXCLF</name>
     </author>
-    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
     <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
     <id>https://zxclf.us.ci/20250322/UWP_Setup/</id>
     <link href="https://zxclf.us.ci/20250322/UWP_Setup/"/>
     <published>2025-03-22T06:00:00.000Z</published>
