@@ -9,144 +9,179 @@
   <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, ZXCLF</rights>
   <title>ZXCLF</title>
-  <updated>2026-07-26T02:04:53.344Z</updated>
+  <updated>2026-08-26T14:45:20.319Z</updated>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="技术教程" scheme="https://zxclf.us.ci/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    <category term="Linux" scheme="https://zxclf.us.ci/tags/Linux/"/>
+    <category term="SSH" scheme="https://zxclf.us.ci/tags/SSH/"/>
+    <category term="网络安全" scheme="https://zxclf.us.ci/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    <category term="运维" scheme="https://zxclf.us.ci/tags/%E8%BF%90%E7%BB%B4/"/>
     <id>https://zxclf.us.ci/20260726/SSH_Tutorial/</id>
     <link href="https://zxclf.us.ci/20260726/SSH_Tutorial/"/>
     <published>2026-07-26T06:00:00.000Z</published>
-    <summary>SSH（Secure Shell）是远程管理服务器、传输文件和构建安全隧道的工具。本教程将从零开始，覆盖 Linux、macOS 和 Windows 三大平台，带你从基础登录一路进阶到跳板、隧道和连接复用等高级技巧。</summary>
-    <title>SSH 详细教程</title>
-    <updated>2026-07-26T02:04:53.344Z</updated>
+    <summary>一份覆盖 Linux、macOS、Windows 全平台的 SSH 完整教程，含密钥认证、scp/sftp 传输、端口转发、跳板机、连接复用及服务端安全加固，适合新手和进阶用户。</summary>
+    <title>SSH 完全教程：从零基础到跳板机与隧道转发</title>
+    <updated>2026-08-26T14:45:20.319Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="安全研究" scheme="https://zxclf.us.ci/categories/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/"/>
+    <category term="安全审计" scheme="https://zxclf.us.ci/tags/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/"/>
+    <category term="漏洞披露" scheme="https://zxclf.us.ci/tags/%E6%BC%8F%E6%B4%9E%E6%8A%AB%E9%9C%B2/"/>
+    <category term="API安全" scheme="https://zxclf.us.ci/tags/API%E5%AE%89%E5%85%A8/"/>
+    <category term="渗透测试" scheme="https://zxclf.us.ci/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     <id>https://zxclf.us.ci/20260401/Report/</id>
     <link href="https://zxclf.us.ci/20260401/Report/"/>
     <published>2026-04-01T04:00:00.000Z</published>
-    <summary>系统在前端代码中硬编码了管理员后台的访问密钥，任何用户都可以通过查看网页源代码获取该密钥!!! ∑(ﾟДﾟノ)ノ</summary>
-    <title>班级宠物乐园系统漏洞报告</title>
-    <updated>2026-08-08T15:17:50.592Z</updated>
+    <summary>对某班级宠物管理系统的生产环境进行安全评估，发现管理员密钥硬编码、MySQL 端口暴露、API 接口泄露及敏感数据明文存储等 4 个可验证高危漏洞。</summary>
+    <title>班级宠物乐园系统安全漏洞报告</title>
+    <updated>2026-08-26T14:44:28.471Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
-    <id>https://zxclf.us.ci/20260306/Homework_Manager/</id>
-    <link href="https://zxclf.us.ci/20260306/Homework_Manager/"/>
-    <published>2026-03-05T16:00:00.000Z</published>
-    <summary>一个基于 Python 与 PySide6 开发的图形化应用程序，用于管理各科作业进度</summary>
-    <title>作业管理器</title>
-    <updated>2026-06-16T05:51:21.160Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>ZXCLF</name>
-    </author>
-    <category term="Linux" scheme="https://zxclf.us.ci/tags/Linux/"/>
+    <category term="Linux教程" scheme="https://zxclf.us.ci/categories/Linux%E6%95%99%E7%A8%8B/"/>
+    <category term="Arch Linux" scheme="https://zxclf.us.ci/tags/Arch-Linux/"/>
+    <category term="Ventoy" scheme="https://zxclf.us.ci/tags/Ventoy/"/>
+    <category term="VHD" scheme="https://zxclf.us.ci/tags/VHD/"/>
+    <category term="便携系统" scheme="https://zxclf.us.ci/tags/%E4%BE%BF%E6%90%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/</id>
     <link href="https://zxclf.us.ci/20250809/Ventoy_Arch_To_Go/"/>
     <published>2025-08-09T12:00:00.000Z</published>
-    <summary>无论怎么讲，版本迭代，是滚动对固定，优势在我！</summary>
-    <title>Ventoy Arch To Go 安装指南</title>
-    <updated>2026-08-21T14:28:40.721Z</updated>
+    <summary>手把手教你用 VMware 创建固定大小 VHD 虚拟磁盘，安装 Arch Linux 并配合 Ventoy 制作便携式「Arch To Go」系统，支持 UEFI + GPT，含 KDE Plasma 桌面和中文环境配置。</summary>
+    <title>Ventoy Arch To Go 安装指南（VMware + VHD 方案）</title>
+    <updated>2026-08-26T14:45:47.386Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
-    <category term="破解" scheme="https://zxclf.us.ci/tags/%E7%A0%B4%E8%A7%A3/"/>
+    <category term="游戏娱乐" scheme="https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
+    <category term="扫雷" scheme="https://zxclf.us.ci/tags/%E6%89%AB%E9%9B%B7/"/>
+    <category term="游戏修改" scheme="https://zxclf.us.ci/tags/%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9/"/>
+    <category term="经典游戏" scheme="https://zxclf.us.ci/tags/%E7%BB%8F%E5%85%B8%E6%B8%B8%E6%88%8F/"/>
+    <category term="Windows工具" scheme="https://zxclf.us.ci/tags/Windows%E5%B7%A5%E5%85%B7/"/>
     <id>https://zxclf.us.ci/20250504/Minesweeper_Patched/</id>
     <link href="https://zxclf.us.ci/20250504/Minesweeper_Patched/"/>
     <published>2025-05-04T00:00:00.000Z</published>
-    <summary>我对经典的扫雷游戏进行了一点修改，现在可以一键显示所有地雷的位置，并轻松实现一键通关！</summary>
+    <summary>对经典扫雷游戏做了趣味修改，增加「一键显示所有地雷」和「一键通关」功能，Windows 7 及以上系统直接运行。</summary>
     <title>扫雷破解版</title>
-    <updated>2026-07-09T13:23:28.999Z</updated>
+    <updated>2026-08-26T14:43:28.974Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="系统工具" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/"/>
+    <category term="Windows" scheme="https://zxclf.us.ci/tags/Windows/"/>
+    <category term="驱动" scheme="https://zxclf.us.ci/tags/%E9%A9%B1%E5%8A%A8/"/>
+    <category term="系统工具" scheme="https://zxclf.us.ci/tags/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/"/>
+    <category term="内核" scheme="https://zxclf.us.ci/tags/%E5%86%85%E6%A0%B8/"/>
     <id>https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/</id>
     <link href="https://zxclf.us.ci/20250411/NoMoreBugCheck_sys/"/>
     <published>2025-04-11T12:00:00.000Z</published>
-    <summary>NoMoreBugCheck.sys 数字签名版</summary>
-    <title>NoMoreBugCheck.sys数字签名版</title>
-    <updated>2026-07-09T13:24:19.343Z</updated>
+    <summary>已签名的 NoMoreBugCheck.sys 驱动文件，可绕过 Windows 蓝屏检查机制，支持 Windows 11 24H2 及以下版本关闭测试模式正常加载。</summary>
+    <title>NoMoreBugCheck.sys 数字签名版</title>
+    <updated>2026-08-26T14:44:11.911Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="博客相关" scheme="https://zxclf.us.ci/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+    <category term="博客" scheme="https://zxclf.us.ci/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Hexo" scheme="https://zxclf.us.ci/tags/Hexo/"/>
+    <category term="镜像站" scheme="https://zxclf.us.ci/tags/%E9%95%9C%E5%83%8F%E7%AB%99/"/>
     <id>https://zxclf.us.ci/20250408/Mirror/</id>
     <link href="https://zxclf.us.ci/20250408/Mirror/"/>
     <published>2025-04-08T14:00:00.000Z</published>
-    <summary>https://zxclf.us.ci/</summary>
+    <summary>本站主站与镜像站地址、开源代码仓库。主站托管于 Cloudflare，镜像站托管于 GitHub Pages。</summary>
     <title>本站说明</title>
-    <updated>2026-08-26T07:20:39.123Z</updated>
+    <updated>2026-08-26T14:48:44.456Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="系统运维" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
     <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
-    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
+    <category term="Windows部署" scheme="https://zxclf.us.ci/tags/Windows%E9%83%A8%E7%BD%B2/"/>
+    <category term="DISM" scheme="https://zxclf.us.ci/tags/DISM/"/>
     <id>https://zxclf.us.ci/20250322/UWP_Setup/</id>
     <link href="https://zxclf.us.ci/20250322/UWP_Setup/"/>
     <published>2025-03-22T06:00:00.000Z</published>
-    <summary>要将UWP应用部署为系统预装应用，可以使用DISM工具或使用Add-AppxProvisionedPackage命令</summary>
-    <title>部署UWP应用为系统预装应用</title>
-    <updated>2026-06-16T05:54:07.743Z</updated>
+    <summary>使用 DISM 或 Add-AppxProvisionedPackage 命令，将 .appx / .appxbundle 应用包部署为 Windows 系统预装应用，支持在线部署和脱机镜像集成，附带一键批量安装脚本。</summary>
+    <title>将 UWP 应用部署为 Windows 系统预装应用</title>
+    <updated>2026-08-26T14:45:35.192Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="游戏娱乐" scheme="https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
+    <category term="Chrome" scheme="https://zxclf.us.ci/tags/Chrome/"/>
+    <category term="小游戏" scheme="https://zxclf.us.ci/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
+    <category term="休闲娱乐" scheme="https://zxclf.us.ci/tags/%E4%BC%91%E9%97%B2%E5%A8%B1%E4%B9%90/"/>
     <id>https://zxclf.us.ci/20250320/Chrome_Dino/</id>
     <link href="https://zxclf.us.ci/20250320/Chrome_Dino/"/>
     <published>2025-03-20T00:00:00.000Z</published>
-    <summary>自带外挂的谷歌小恐龙</summary>
+    <summary>谷歌浏览器内置的经典彩蛋游戏「小恐龙」完整版，内置外挂功能，按空格开始，在浏览器里直接玩，无需下载。</summary>
     <title>谷歌小恐龙</title>
-    <updated>2026-07-09T13:23:07.318Z</updated>
+    <updated>2026-08-26T14:42:56.388Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
-    <category term="Win 8.1" scheme="https://zxclf.us.ci/tags/Win-8-1/"/>
+    <category term="系统资源" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90/"/>
+    <category term="Windows 8.1" scheme="https://zxclf.us.ci/tags/Windows-8-1/"/>
+    <category term="系统镜像" scheme="https://zxclf.us.ci/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/"/>
+    <category term="纯净版" scheme="https://zxclf.us.ci/tags/%E7%BA%AF%E5%87%80%E7%89%88/"/>
+    <category term="离线集成" scheme="https://zxclf.us.ci/tags/%E7%A6%BB%E7%BA%BF%E9%9B%86%E6%88%90/"/>
     <id>https://zxclf.us.ci/20250128/Win_8.1_x64/</id>
     <link href="https://zxclf.us.ci/20250128/Win_8.1_x64/"/>
     <published>2025-01-28T00:00:00.000Z</published>
-    <summary>基于MSDN原版 Win8.1 update3 x64专业版，使用Dism++离线制作，未集成任何第三方软件、无广告、无锁定、无OEM信息。</summary>
-    <title>Win 8.1 x64 集成补丁镜像</title>
-    <updated>2026-06-16T05:54:56.400Z</updated>
+    <summary>基于 MSDN 原版 Win8.1 Update3 x64 专业版，使用 Dism++ 离线集成截至 2025 年所有关键补丁，排除遥测和 Win10 升级推送，无第三方软件、无广告、无 OEM 信息，纯净可用。</summary>
+    <title>Windows 8.1 x64 集成补丁纯净镜像（2025 年最终版）</title>
+    <updated>2026-08-26T14:46:00.278Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
+    <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
+    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
     <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <category term="Windows 8.1" scheme="https://zxclf.us.ci/tags/Windows-8-1/"/>
+    <category term="侧载" scheme="https://zxclf.us.ci/tags/%E4%BE%A7%E8%BD%BD/"/>
     <id>https://zxclf.us.ci/20250125/Win8.x_Metro/</id>
     <link href="https://zxclf.us.ci/20250125/Win8.x_Metro/"/>
     <published>2025-01-25T12:00:00.000Z</published>
-    <summary>适用于Windows8.1 (build 9600)的第三方Metro应用安装教程</summary>
-    <title>【最新】在Win8.x上安装第三方Metro应用</title>
-    <updated>2026-06-30T04:17:48.872Z</updated>
+    <summary>适用于 Windows 8.1 (build 9600) 的第三方 Metro 应用（.appx）安装教程，提供一键安装脚本，联网运行即可完成环境配置并开始安装应用。</summary>
+    <title>【最新】Windows 8.1 安装第三方 Metro 应用教程</title>
+    <updated>2026-08-26T14:46:13.703Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
-    <category term="Metro" scheme="https://zxclf.us.ci/tags/Metro/"/>
+    <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
+    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
+    <category term="Windows 8.1" scheme="https://zxclf.us.ci/tags/Windows-8-1/"/>
+    <category term="WindowsAppBoss" scheme="https://zxclf.us.ci/tags/WindowsAppBoss/"/>
+    <category term="侧载" scheme="https://zxclf.us.ci/tags/%E4%BE%A7%E8%BD%BD/"/>
     <id>https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/</id>
     <link href="https://zxclf.us.ci/20250120/WindowsAppBoss_Metro/"/>
     <published>2025-01-20T12:00:00.000Z</published>
-    <summary>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</summary>
-    <title>使用WindowsAppBoss在Windows 8.x中安装第三方Metro应用</title>
-    <updated>2026-06-30T04:17:56.928Z</updated>
+    <summary>详细图文教程，教你用 WindowsAppBoss 工具在 Windows 8.x 系统中安装第三方 .appx 应用，含证书导入、LOB 侧载开启及安装步骤全流程。</summary>
+    <title>使用 WindowsAppBoss 在 Windows 8.x 中安装第三方 Metro 应用</title>
+    <updated>2026-08-26T14:46:30.807Z</updated>
   </entry>
 </feed>
