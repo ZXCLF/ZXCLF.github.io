@@ -108,14 +108,13 @@
       <name>ZXCLF</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
-    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
     <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
     <id>https://zxclf.us.ci/20250322/uwp-preinstall-windows/</id>
     <link href="https://zxclf.us.ci/20250322/uwp-preinstall-windows/"/>
     <published>2025-03-22T06:00:00.000Z</published>
     <summary>使用 DISM 或 Add-AppxProvisionedPackage 命令，将 .appx / .appxbundle 应用包部署为 Windows 系统预装应用，支持在线部署和脱机镜像集成，附带一键批量安装脚本。</summary>
     <title>将 UWP 应用部署为 Windows 系统预装应用</title>
-    <updated>2026-08-27T14:19:53.038Z</updated>
+    <updated>2026-08-27T14:26:39.340Z</updated>
   </entry>
   <entry>
     <author>
@@ -149,27 +148,27 @@
       <name>ZXCLF</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
-    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
+    <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
     <category term="Windows 8.1" scheme="https://zxclf.us.ci/tags/Windows-8-1/"/>
     <id>https://zxclf.us.ci/20250125/windows-8-1-metro-app/</id>
     <link href="https://zxclf.us.ci/20250125/windows-8-1-metro-app/"/>
     <published>2025-01-25T12:00:00.000Z</published>
     <summary>适用于 Windows 8.1 (build 9600) 的第三方 Metro 应用（.appx）安装教程，提供一键安装脚本，联网运行即可完成环境配置并开始安装应用。</summary>
     <title>【最新】Windows 8.1 安装第三方 Metro 应用教程</title>
-    <updated>2026-08-27T14:19:07.340Z</updated>
+    <updated>2026-08-27T14:26:50.027Z</updated>
   </entry>
   <entry>
     <author>
       <name>ZXCLF</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
-    <category term="APPX" scheme="https://zxclf.us.ci/tags/APPX/"/>
+    <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
     <category term="Windows 8.1" scheme="https://zxclf.us.ci/tags/Windows-8-1/"/>
     <id>https://zxclf.us.ci/20250120/windowsappboss-appx-guide/</id>
     <link href="https://zxclf.us.ci/20250120/windowsappboss-appx-guide/"/>
     <published>2025-01-20T12:00:00.000Z</published>
     <summary>详细图文教程，教你用 WindowsAppBoss 工具在 Windows 8.x 系统中安装第三方 .appx 应用，含证书导入、LOB 侧载开启及安装步骤全流程。</summary>
     <title>使用 WindowsAppBoss 在 Windows 8.x 中安装第三方 Metro 应用</title>
-    <updated>2026-08-27T14:18:58.373Z</updated>
+    <updated>2026-08-27T14:27:02.436Z</updated>
   </entry>
 </feed>

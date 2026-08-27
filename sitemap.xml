@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zxclf.us.ci/20250120/windowsappboss-appx-guide/</loc>
+    
+    <lastmod>2026-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250125/windows-8-1-metro-app/</loc>
+    
+    <lastmod>2026-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/20250322/uwp-preinstall-windows/</loc>
+    
+    <lastmod>2026-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zxclf.us.ci/20260827/console-silent-tampermonkey/</loc>
     
     <lastmod>2026-08-27</lastmod>
@@ -65,15 +92,6 @@
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/20250322/uwp-preinstall-windows/</loc>
-    
-    <lastmod>2026-08-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zxclf.us.ci/20250809/ventoy-arch-linux-portable/</loc>
     
     <lastmod>2026-08-27</lastmod>
@@ -84,24 +102,6 @@
   
   <url>
     <loc>https://zxclf.us.ci/20250128/windows-8-1-clean-iso/</loc>
-    
-    <lastmod>2026-08-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250125/windows-8-1-metro-app/</loc>
-    
-    <lastmod>2026-08-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/20250120/windowsappboss-appx-guide/</loc>
     
     <lastmod>2026-08-27</lastmod>
     
@@ -146,13 +146,6 @@
 
   
   <url>
-    <loc>https://zxclf.us.ci/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zxclf.us.ci/tags/Chrome/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -161,6 +154,13 @@
   
   <url>
     <loc>https://zxclf.us.ci/tags/Tampermonkey/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -188,7 +188,28 @@
   </url>
   
   <url>
+    <loc>https://zxclf.us.ci/tags/UWP/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zxclf.us.ci/tags/SSH/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/tags/Windows-8-1/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -215,42 +236,7 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://zxclf.us.ci/tags/APPX/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/tags/Windows-8-1/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/tags/UWP/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zxclf.us.ci/tags/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://zxclf.us.ci/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/</loc>
@@ -261,6 +247,13 @@
   
   <url>
     <loc>https://zxclf.us.ci/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zxclf.us.ci/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
