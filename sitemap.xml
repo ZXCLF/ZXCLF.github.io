@@ -160,6 +160,13 @@
   </url>
   
   <url>
+    <loc>https://zxclf.us.ci/tags/Windows%E9%A9%B1%E5%8A%A8/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zxclf.us.ci/tags/Chrome/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -174,13 +181,6 @@
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/tags/Windows%E9%A9%B1%E5%8A%A8/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zxclf.us.ci/tags/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -188,14 +188,14 @@
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/tags/SSH/</loc>
+    <loc>https://zxclf.us.ci/tags/UWP/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/tags/UWP/</loc>
+    <loc>https://zxclf.us.ci/tags/SSH/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -253,14 +253,14 @@
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/</loc>
+    <loc>https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
