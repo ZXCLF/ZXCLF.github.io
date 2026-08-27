@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <author>
-    <name>ZXCLF</name>
+    <name>zxclf</name>
   </author>
   <generator uri="https://hexo.io/">Hexo</generator>
   <id>https://zxclf.us.ci/</id>
   <link href="https://zxclf.us.ci/" rel="alternate"/>
   <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
-  <rights>All rights reserved 2026, ZXCLF</rights>
-  <title>ZXCLF</title>
+  <rights>All rights reserved 2026, zxclf</rights>
+  <title>ZXCLF | Blog</title>
   <updated>2026-08-27T14:23:09.615Z</updated>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="技术教程" scheme="https://zxclf.us.ci/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
     <category term="Tampermonkey" scheme="https://zxclf.us.ci/tags/Tampermonkey/"/>
@@ -25,7 +25,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="Linux教程" scheme="https://zxclf.us.ci/categories/Linux%E6%95%99%E7%A8%8B/"/>
     <category term="SSH" scheme="https://zxclf.us.ci/tags/SSH/"/>
@@ -38,7 +38,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="安全研究" scheme="https://zxclf.us.ci/categories/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/"/>
     <category term="安全审计" scheme="https://zxclf.us.ci/tags/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/"/>
@@ -51,7 +51,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="Linux教程" scheme="https://zxclf.us.ci/categories/Linux%E6%95%99%E7%A8%8B/"/>
     <category term="Arch Linux" scheme="https://zxclf.us.ci/tags/Arch-Linux/"/>
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="游戏娱乐" scheme="https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
     <category term="扫雷" scheme="https://zxclf.us.ci/tags/%E6%89%AB%E9%9B%B7/"/>
@@ -79,7 +79,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
     <category term="Windows驱动" scheme="https://zxclf.us.ci/tags/Windows%E9%A9%B1%E5%8A%A8/"/>
@@ -92,7 +92,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="博客相关" scheme="https://zxclf.us.ci/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
     <category term="博客" scheme="https://zxclf.us.ci/tags/%E5%8D%9A%E5%AE%A2/"/>
@@ -105,7 +105,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
     <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
@@ -118,7 +118,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="游戏娱乐" scheme="https://zxclf.us.ci/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/"/>
     <category term="Chrome" scheme="https://zxclf.us.ci/tags/Chrome/"/>
@@ -131,7 +131,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
     <category term="Windows 8.1" scheme="https://zxclf.us.ci/tags/Windows-8-1/"/>
@@ -145,7 +145,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
     <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
@@ -159,7 +159,7 @@
   </entry>
   <entry>
     <author>
-      <name>ZXCLF</name>
+      <name>zxclf</name>
     </author>
     <category term="系统教程" scheme="https://zxclf.us.ci/categories/%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"/>
     <category term="UWP" scheme="https://zxclf.us.ci/tags/UWP/"/>
