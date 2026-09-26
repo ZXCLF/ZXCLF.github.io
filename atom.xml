@@ -9,7 +9,20 @@
   <link href="https://zxclf.us.ci/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, zxclf</rights>
   <title>ZXCLF | Blog</title>
-  <updated>2026-08-27T14:23:09.615Z</updated>
+  <updated>2026-09-26T00:07:20.565Z</updated>
+  <entry>
+    <author>
+      <name>zxclf</name>
+    </author>
+    <category term="Linux教程" scheme="https://zxclf.us.ci/categories/Linux%E6%95%99%E7%A8%8B/"/>
+    <category term="Arch Linux" scheme="https://zxclf.us.ci/tags/Arch-Linux/"/>
+    <id>https://zxclf.us.ci/20260926/arch-ntfs/</id>
+    <link href="https://zxclf.us.ci/20260926/arch-ntfs/"/>
+    <published>2026-09-26T00:00:00.000Z</published>
+    <summary>将 Arch Linux 安装至 NTFS 分区，使用 Linux 7.1 及之后版本引进的全新 NTFS 内核驱动</summary>
+    <title>在 NTFS 分区上安装 Arch Linux</title>
+    <updated>2026-09-26T00:07:20.565Z</updated>
+  </entry>
   <entry>
     <author>
       <name>zxclf</name>
